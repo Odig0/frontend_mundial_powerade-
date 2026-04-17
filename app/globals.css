@@ -1,0 +1,175 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #052452;
+  --foreground: #ffffff;
+  --card: #0a3a6b;
+  --card-foreground: #ffffff;
+  --popover: #0a3a6b;
+  --popover-foreground: #ffffff;
+  --primary: #3CB7FF;
+  --primary-foreground: #052452;
+  --secondary: #0a3a6b;
+  --secondary-foreground: #ffffff;
+  --muted: #1a5a9b;
+  --muted-foreground: #b3d9ff;
+  --accent: #3CB7FF;
+  --accent-foreground: #052452;
+  --destructive: #ff6b6b;
+  --destructive-foreground: #ffffff;
+  --border: #0a3a6b;
+  --input: #0a3a6b;
+  --ring: #3CB7FF;
+  --chart-1: #3CB7FF;
+  --chart-2: #5cc4ff;
+  --chart-3: #7ed1ff;
+  --chart-4: #a0deff;
+  --chart-5: #c2ebff;
+  --radius: 0.625rem;
+  --sidebar: #0a3a6b;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #3CB7FF;
+  --sidebar-primary-foreground: #052452;
+  --sidebar-accent: #3CB7FF;
+  --sidebar-accent-foreground: #052452;
+  --sidebar-border: #0a3a6b;
+  --sidebar-ring: #3CB7FF;
+}
+
+.dark {
+  --background: #052452;
+  --foreground: #ffffff;
+  --card: #0a3a6b;
+  --card-foreground: #ffffff;
+  --popover: #0a3a6b;
+  --popover-foreground: #ffffff;
+  --primary: #3CB7FF;
+  --primary-foreground: #052452;
+  --secondary: #0a3a6b;
+  --secondary-foreground: #ffffff;
+  --muted: #1a5a9b;
+  --muted-foreground: #b3d9ff;
+  --accent: #3CB7FF;
+  --accent-foreground: #052452;
+  --destructive: #ff6b6b;
+  --destructive-foreground: #ffffff;
+  --border: #0a3a6b;
+  --input: #0a3a6b;
+  --ring: #3CB7FF;
+  --chart-1: #3CB7FF;
+  --chart-2: #5cc4ff;
+  --chart-3: #7ed1ff;
+  --chart-4: #a0deff;
+  --chart-5: #c2ebff;
+  --sidebar: #0a3a6b;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #3CB7FF;
+  --sidebar-primary-foreground: #052452;
+  --sidebar-accent: #3CB7FF;
+  --sidebar-accent-foreground: #052452;
+  --sidebar-border: #0a3a6b;
+  --sidebar-ring: #3CB7FF;
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Typography refinements */
+  h1, h2, h3, h4, h5, h6 {
+    @apply leading-tight;
+  }
+
+  /* Image refinements */
+  img {
+    @apply max-w-full h-auto;
+  }
+
+  /* Link styling */
+  a {
+    @apply transition-colors;
+  }
+
+  /* Container max-width */
+  .container {
+    @apply max-w-7xl;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+  background-color: #3CB7FF;
+  color: #052452;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a3a6b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3CB7FF;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5cc4ff;
+}
