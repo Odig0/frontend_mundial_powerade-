@@ -2,15 +2,7 @@
 
 import { useState } from 'react'
 import NewsCard from '@/components/news/NewsCard'
-
-interface NewsItem {
-  title: string
-  image: string
-  category: string
-  description?: string
-  link: string
-  seccion: string
-}
+import { NewsItem } from '@/lib/mockData'
 
 interface SectionGridProps {
   news: NewsItem[]
@@ -33,12 +25,11 @@ export default function SectionGrid({ news, itemsPerPage = 12 }: SectionGridProp
         {visibleNews.map((item, idx) => (
           <NewsCard
             key={idx}
-            title={item.title}
-            image={item.image}
-            category={item.category}
-            description={item.description}
+            titulo={item.titulo}
+            imagen_home={item.imagen_home}
+            secciones={item.secciones}
+            introHTML={item.introHTML}
             link={item.link}
-            seccion={item.seccion}
           />
         ))}
       </div>

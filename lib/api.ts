@@ -3,39 +3,17 @@ import { NewsItem, mockNews, getFeaturedNews as mockFeatured, getTrendingNews as
 const API_URL = process.env.NEXT_PUBLIC_API_URL || ''
 const TOKEN = process.env.API_BEARER_TOKEN || ''
 
-export interface ApiNewsItem {
-  _id: string
-  fecha_a: number
-  fecha_c: number
-  imagen_home: string
-  imagen_interior: string
-  introHTML: string
-  prevId: string
-  secciones: string[]
-  textoHTML: string
-  titulo: string
-  link: string
-}
-
-function mapApiToNewsItem(apiItem: ApiNewsItem): NewsItem {
-  // Utilizamos una semilla basda en el ID para que Unsplash regrese una imagen levemente distinta,
-  // manteniendo la imagen fija como se acordó por ahora.
-  const randomSeed = apiItem._id ? apiItem._id.slice(-4) : 'rand'
+function mapImages(item: NewsItem): NewsItem {
+  const randomSeed = item._id ? item._id.slice(-4) : 'rand'
   const fallbackImage = `https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=450&fit=crop&q=80&sig=${randomSeed}`
 
+  // Si la imagen ya es de unsplash, la mantenemos, si no, usamos el fallback
+  const isUnsplash = item.imagen_home?.includes('unsplash.com')
+
   return {
-    title: apiItem.titulo || '',
-    image: fallbackImage,
-    category: apiItem.secciones?.[0] ? apiItem.secciones[0] : 'general',
-    description: apiItem.introHTML || '',
-    content: apiItem.textoHTML || '',
-    link: apiItem.link || '',
-    seccion: apiItem.secciones?.[0] ? apiItem.secciones[0] : 'general',
-    date: apiItem.fecha_a ? new Date(apiItem.fecha_a).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    }) : '',
+    ...item,
+    imagen_home: isUnsplash ? item.imagen_home : fallbackImage,
+    imagen_interior: isUnsplash ? item.imagen_interior : fallbackImage
   }
 }
 
@@ -50,21 +28,21 @@ const getHeaders = () => {
 }
 
 export async function getNewsBySection(seccion: string): Promise<NewsItem[]> {
-  if (!API_URL) return mockBySection(seccion) // Fallback a mock data
+  if (!API_URL) return mockBySection(seccion)
 
   try {
     const res = await fetch(`${API_URL}/news?seccion=${seccion}`, {
       headers: getHeaders(),
       next: { revalidate: 60 }
     })
-    
+
     if (!res.ok) throw new Error('Error fetching section news')
-    
-    const data: ApiNewsItem[] = await res.json()
-    return data.map(mapApiToNewsItem)
+
+    const data: NewsItem[] = await res.json()
+    return data.map(mapImages)
   } catch (error) {
     console.error(error)
-    return mockBySection(seccion) // Fallback en caso de error
+    return mockBySection(seccion)
   }
 }
 
@@ -76,14 +54,14 @@ export async function getNewsByLink(seccion: string, link: string): Promise<News
       headers: getHeaders(),
       next: { revalidate: 60 }
     })
-    
+
     if (!res.ok) {
-       if (res.status === 404) return undefined
-       throw new Error('Error fetching news by link')
+      if (res.status === 404) return undefined
+      throw new Error('Error fetching news by link')
     }
-    
-    const data: ApiNewsItem = await res.json()
-    return mapApiToNewsItem(data)
+
+    const data: NewsItem = await res.json()
+    return mapImages(data)
   } catch (error) {
     console.error(error)
     return mockByLink(seccion, link)
@@ -98,11 +76,11 @@ export async function getFeaturedNews(): Promise<NewsItem[]> {
       headers: getHeaders(),
       next: { revalidate: 60 }
     })
-    
+
     if (!res.ok) throw new Error('Error fetching featured news')
-    
-    const data: ApiNewsItem[] = await res.json()
-    return data.map(mapApiToNewsItem)
+
+    const data: NewsItem[] = await res.json()
+    return data.map(mapImages)
   } catch (error) {
     console.error(error)
     return mockFeatured()
@@ -117,13 +95,34 @@ export async function getTrendingNews(): Promise<NewsItem[]> {
       headers: getHeaders(),
       next: { revalidate: 60 }
     })
-    
+
     if (!res.ok) throw new Error('Error fetching trending news')
-    
-    const data: ApiNewsItem[] = await res.json()
-    return data.map(mapApiToNewsItem)
+
+    const data: NewsItem[] = await res.json()
+    return data.map(mapImages)
   } catch (error) {
     console.error(error)
     return mockTrending()
+  }
+}
+
+export async function getAvailableSections(): Promise<string[]> {
+  if (!API_URL) {
+    const allSections = mockNews.flatMap(item => item.secciones || [])
+    return Array.from(new Set(allSections)).filter(Boolean)
+  }
+
+  try {
+    const [featured, trending] = await Promise.all([
+      getFeaturedNews(),
+      getTrendingNews()
+    ])
+    const items = [...featured, ...trending]
+    const sections = items.flatMap(item => item.secciones || [])
+    return Array.from(new Set(sections)).filter(Boolean)
+  } catch (error) {
+    console.error('Error fetching available sections:', error)
+    const allSections = mockNews.flatMap(item => item.secciones || [])
+    return Array.from(new Set(allSections)).filter(Boolean)
   }
 }

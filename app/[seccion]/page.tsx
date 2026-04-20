@@ -3,16 +3,15 @@ import Header from '@/components/layout/Header'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import SectionGrid from '@/components/section/SectionGrid'
-import { getNewsBySection } from '@/lib/api'
-
-const validSections = ['futbol', 'basketball', 'tennis', 'sports', 'news']
+import { getNewsBySection, getAvailableSections } from '@/lib/api'
 
 interface Params {
   seccion: string
 }
 
 export async function generateStaticParams(): Promise<Params[]> {
-  return validSections.map((seccion) => ({ seccion }))
+  const sections = await getAvailableSections()
+  return sections.map((seccion) => ({ seccion }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<Params> | Params }) {
@@ -20,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> | P
   const { seccion } = resolvedParams
   const formattedSection = seccion.charAt(0).toUpperCase() + seccion.slice(1)
   return {
-    title: `${formattedSection} News - Sports News Daily`,
+    title: `${formattedSection} - Sports News Daily`,
     description: `Latest ${formattedSection.toLowerCase()} news and updates`,
   }
 }
@@ -28,7 +27,8 @@ export async function generateMetadata({ params }: { params: Promise<Params> | P
 export default async function SectionPage({ params }: { params: Promise<Params> | Params }) {
   const { seccion } = await params
 
-  if (!validSections.includes(seccion)) {
+  const availableSections = await getAvailableSections()
+  if (!availableSections.includes(seccion)) {
     notFound()
   }
 
@@ -48,7 +48,7 @@ export default async function SectionPage({ params }: { params: Promise<Params> 
       <main className="flex-1 container mx-auto px-4 py-8 md:py-12">
         <div className="mb-12">
           <h1 className="text-3xl md:text-4xl font-black text-foreground mb-2">{formattedSection}</h1>
-          <p className="text-muted-foreground">Latest updates and breaking news</p>
+          <p className="text-muted-foreground">Últimas actualizaciones y noticias</p>
         </div>
 
         <SectionGrid news={news} itemsPerPage={12} />

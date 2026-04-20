@@ -1,15 +1,7 @@
 'use client'
 
 import NewsCard from '@/components/news/NewsCard'
-
-interface NewsItem {
-  title: string
-  image: string
-  category: string
-  description?: string
-  link: string
-  seccion: string
-}
+import { NewsItem } from '@/lib/mockData'
 
 interface NewsGridProps {
   news: NewsItem[]
@@ -18,7 +10,7 @@ interface NewsGridProps {
 
 export default function NewsGrid({ news, title }: NewsGridProps) {
   return (
-    <section className="mb-12">
+    <section className="mb-12 max-w-6xl mx-auto">
       {title && (
         <h2 className="text-2xl md:text-3xl font-black text-foreground mb-6">{title}</h2>
       )}
@@ -26,12 +18,11 @@ export default function NewsGrid({ news, title }: NewsGridProps) {
         {news.map((item, idx) => (
           <NewsCard
             key={idx}
-            title={item.title}
-            image={item.image}
-            category={item.category}
-            description={item.description}
+            titulo={item.titulo}
+            imagen_home={item.imagen_home}
+            secciones={item.secciones}
+            introHTML={item.introHTML}
             link={item.link}
-            seccion={item.seccion}
           />
         ))}
       </div>
