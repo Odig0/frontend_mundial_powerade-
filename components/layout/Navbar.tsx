@@ -3,6 +3,7 @@ import { getAvailableSections } from '@/lib/api'
 
 export default async function Navbar() {
   const availableSections = await getAvailableSections()
+  const sections = ['mundial', ...availableSections.filter((section) => section !== 'mundial')]
 
   return (
     <nav className="border-b border-border bg-secondary sticky top-0 z-40">
@@ -14,7 +15,7 @@ export default async function Navbar() {
           >
             Portada
           </Link>
-          {availableSections.map((section) => (
+          {sections.map((section) => (
             <Link
               key={section}
               href={`/${section}`}

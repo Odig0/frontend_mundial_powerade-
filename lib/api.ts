@@ -1,128 +1,166 @@
-import { NewsItem, mockNews, getFeaturedNews as mockFeatured, getTrendingNews as mockTrending, getNewsBySection as mockBySection, getNewsByLink as mockByLink } from './mockData'
+import { cache } from 'react'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || ''
-const TOKEN = process.env.API_BEARER_TOKEN || ''
+export interface Opinologo {
+  _id: string
+  firma: string
+  foto?: string
+}
 
-function mapImages(item: NewsItem): NewsItem {
-  const randomSeed = item._id ? item._id.slice(-4) : 'rand'
-  const fallbackImage = `https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&h=450&fit=crop&q=80&sig=${randomSeed}`
+export interface NewsItem {
+  _id: string
+  fecha_a: number
+  fecha_c: number
+  imagen_home: string
+  imagen_interior: string
+  introHTML: string
+  opinologo: Opinologo
+  prevId: string
+  secciones: string[]
+  textoHTML: string
+  titulo: string
+  link: string
+}
 
-  // Si la imagen ya es de unsplash, la mantenemos, si no, usamos el fallback
-  const isUnsplash = item.imagen_home?.includes('unsplash.com')
+export interface SyncResponse {
+  fetched: number
+  filteredFootball: number
+  inserted: number
+}
 
+const DEFAULT_API_URL = 'http://localhost:3000/v1'
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? (process.env.NODE_ENV === 'development' ? DEFAULT_API_URL : '')
+const IMAGE_BASE_URL = 'https://cdn.diez.bo/diez/'
+
+function getApiUrl() {
+  if (!API_URL) {
+    throw new Error('Missing NEXT_PUBLIC_API_URL. Set it to your backend base URL, for example http://localhost:3000/v1')
+  }
+
+  return API_URL.replace(/\/$/, '')
+}
+
+function buildUrl(path: string) {
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`
+  return `${getApiUrl()}${normalizedPath}`
+}
+
+function buildImageUrl(path: string) {
+  if (!path) {
+    return path
+  }
+
+  if (/^https?:\/\//i.test(path)) {
+    return path
+  }
+
+  return `${IMAGE_BASE_URL}${path.replace(/^\/+/, '')}`
+}
+
+function normalizeNewsItem(item: NewsItem): NewsItem {
   return {
     ...item,
-    imagen_home: isUnsplash ? item.imagen_home : fallbackImage,
-    imagen_interior: isUnsplash ? item.imagen_interior : fallbackImage
+    imagen_home: buildImageUrl(item.imagen_home),
+    imagen_interior: buildImageUrl(item.imagen_interior),
+    opinologo: item.opinologo
+      ? {
+          ...item.opinologo,
+          foto: item.opinologo.foto ? buildImageUrl(item.opinologo.foto) : item.opinologo.foto,
+        }
+      : item.opinologo,
   }
 }
 
-const getHeaders = () => {
-  const headers: HeadersInit = {
-    'Content-Type': 'application/json'
+async function requestJson<T>(path: string, init: RequestInit = {}): Promise<T> {
+  const response = await fetch(buildUrl(path), {
+    ...init,
+    headers: {
+      Accept: 'application/json',
+      ...(init.body ? { 'Content-Type': 'application/json' } : {}),
+      ...(init.headers ?? {}),
+    },
+    cache: 'no-store',
+  })
+
+  if (!response.ok) {
+    throw new Error(`Request to ${path} failed with status ${response.status}`)
   }
-  if (TOKEN) {
-    headers['Authorization'] = `Bearer ${TOKEN}`
+
+  return response.json() as Promise<T>
+}
+
+function uniqueSections(items: NewsItem[]) {
+  return Array.from(new Set(items.flatMap((item) => item.secciones ?? []))).filter(Boolean)
+}
+
+function sortNewsByRecency(items: NewsItem[]) {
+  return [...items].sort((left, right) => {
+    if (right.fecha_c !== left.fecha_c) {
+      return right.fecha_c - left.fecha_c
+    }
+
+    return (right.fecha_a ?? right.fecha_c) - (left.fecha_a ?? left.fecha_c)
+  })
+}
+
+export const getNews = cache(async (): Promise<NewsItem[]> => {
+  const news = await requestJson<NewsItem[]>('/news')
+  return sortNewsByRecency(news.map(normalizeNewsItem))
+})
+
+export async function getNewsById(id: string): Promise<NewsItem | undefined> {
+  try {
+    return normalizeNewsItem(await requestJson<NewsItem>(`/news/${encodeURIComponent(id)}`))
+  } catch (error) {
+    if (error instanceof Error && error.message.includes('status 404')) {
+      return undefined
+    }
+
+    throw error
   }
-  return headers
+}
+
+export async function getMundialNews(): Promise<NewsItem[]> {
+  const news = await requestJson<NewsItem[]>('/news/filter/mundial')
+  return sortNewsByRecency(news.map(normalizeNewsItem))
 }
 
 export async function getNewsBySection(seccion: string): Promise<NewsItem[]> {
-  if (!API_URL) return mockBySection(seccion)
-
-  try {
-    const res = await fetch(`${API_URL}/news?seccion=${seccion}`, {
-      headers: getHeaders(),
-      next: { revalidate: 60 }
-    })
-
-    if (!res.ok) throw new Error('Error fetching section news')
-
-    const data: NewsItem[] = await res.json()
-    return data.map(mapImages)
-  } catch (error) {
-    console.error(error)
-    return mockBySection(seccion)
+  if (seccion.toLowerCase() === 'mundial') {
+    return getMundialNews()
   }
+
+  const news = await getNews()
+  return sortNewsByRecency(news.filter((item) => item.secciones?.includes(seccion)))
 }
 
 export async function getNewsByLink(seccion: string, link: string): Promise<NewsItem | undefined> {
-  if (!API_URL) return mockByLink(seccion, link)
-
-  try {
-    const res = await fetch(`${API_URL}/news/${link}`, {
-      headers: getHeaders(),
-      next: { revalidate: 60 }
-    })
-
-    if (!res.ok) {
-      if (res.status === 404) return undefined
-      throw new Error('Error fetching news by link')
+  if (seccion.toLowerCase() === 'mundial') {
+    const mundialNews = await getMundialNews()
+    const match = mundialNews.find((item) => item.link === link)
+    if (!match) {
+      return undefined
     }
 
-    const data: NewsItem = await res.json()
-    return mapImages(data)
-  } catch (error) {
-    console.error(error)
-    return mockByLink(seccion, link)
+    return (await getNewsById(match._id)) ?? match
   }
-}
 
-export async function getFeaturedNews(): Promise<NewsItem[]> {
-  if (!API_URL) return mockFeatured()
+  const news = await getNews()
+  const match = news.find((item) => item.secciones?.includes(seccion) && item.link === link)
 
-  try {
-    const res = await fetch(`${API_URL}/news/featured`, {
-      headers: getHeaders(),
-      next: { revalidate: 60 }
-    })
-
-    if (!res.ok) throw new Error('Error fetching featured news')
-
-    const data: NewsItem[] = await res.json()
-    return data.map(mapImages)
-  } catch (error) {
-    console.error(error)
-    return mockFeatured()
+  if (!match) {
+    return undefined
   }
-}
 
-export async function getTrendingNews(): Promise<NewsItem[]> {
-  if (!API_URL) return mockTrending()
-
-  try {
-    const res = await fetch(`${API_URL}/news/trending`, {
-      headers: getHeaders(),
-      next: { revalidate: 60 }
-    })
-
-    if (!res.ok) throw new Error('Error fetching trending news')
-
-    const data: NewsItem[] = await res.json()
-    return data.map(mapImages)
-  } catch (error) {
-    console.error(error)
-    return mockTrending()
-  }
+  return (await getNewsById(match._id)) ?? match
 }
 
 export async function getAvailableSections(): Promise<string[]> {
-  if (!API_URL) {
-    const allSections = mockNews.flatMap(item => item.secciones || [])
-    return Array.from(new Set(allSections)).filter(Boolean)
-  }
+  const news = await getNews()
+  return uniqueSections(news).concat('mundial').filter((section, index, list) => list.indexOf(section) === index)
+}
 
-  try {
-    const [featured, trending] = await Promise.all([
-      getFeaturedNews(),
-      getTrendingNews()
-    ])
-    const items = [...featured, ...trending]
-    const sections = items.flatMap(item => item.secciones || [])
-    return Array.from(new Set(sections)).filter(Boolean)
-  } catch (error) {
-    console.error('Error fetching available sections:', error)
-    const allSections = mockNews.flatMap(item => item.secciones || [])
-    return Array.from(new Set(allSections)).filter(Boolean)
-  }
+export async function syncNews(): Promise<SyncResponse> {
+  return requestJson<SyncResponse>('/news/sync', {
+    method: 'POST',
+  })
 }

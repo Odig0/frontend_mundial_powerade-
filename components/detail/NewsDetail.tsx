@@ -20,6 +20,7 @@ export default function NewsDetail({
   textoHTML,
 }: NewsDetailProps) {
   const seccion = secciones && secciones.length > 0 ? secciones[0] : 'general'
+  const hasImage = Boolean(imagen_interior && imagen_interior.trim())
 
   return (
     <article className="max-w-3xl mx-auto">
@@ -33,14 +34,17 @@ export default function NewsDetail({
       </div>
 
       {/* Featured image */}
-      <div className="relative w-full aspect-video md:aspect-[16/9] overflow-hidden rounded-lg mb-8 bg-muted">
-        <Image
-          src={imagen_interior}
-          alt={titulo}
-          fill
-          className="object-cover"
-        />
-      </div>
+      {hasImage ? (
+        <div className="relative w-full aspect-video md:aspect-[16/9] overflow-hidden rounded-lg mb-8 bg-muted">
+          <Image
+            src={imagen_interior}
+            alt={titulo}
+            fill
+            priority
+            className="object-cover"
+          />
+        </div>
+      ) : null}
 
       {/* Intro */}
       {introHTML && (
