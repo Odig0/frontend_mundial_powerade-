@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { NewsItem } from '@/lib/api'
+import SocialPostButton from '@/components/news/SocialPostButton'
 
 interface HeroBlockProps {
   featured: NewsItem
@@ -27,6 +28,7 @@ export default function HeroBlock({ featured, side }: HeroBlockProps) {
             className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
         )}
+        <SocialPostButton id={featured._id} titulo={featured.titulo} />
       </div>
       <div className="pt-4 pb-2 flex-1">
         <div className="inline-block px-2 py-0.5 bg-accent text-accent-foreground text-[11px] font-bold rounded mb-2 capitalize">
@@ -70,6 +72,7 @@ export default function HeroBlock({ featured, side }: HeroBlockProps) {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
+                <SocialPostButton id={news._id} titulo={news.titulo} />
               </div>
               <h3 className="font-bold text-white group-hover:text-accent transition-colors line-clamp-3 text-sm md:text-base leading-snug">
                 {news.titulo}
