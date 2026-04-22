@@ -5,37 +5,34 @@ import Image from 'next/image'
 
 export default function Header() {
   return (
-    <header className="border-b border-border bg-card">
+    <header className="bg-[#060e1c] border-b-2 border-accent">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between gap-4 py-4 md:gap-8">
+        <div className="flex items-center justify-between gap-4 py-3 md:gap-8">
 
-          {/* Logo a la izquierda */}
-          <div className="relative h-16 w-48">
+          <div className="relative h-10 w-32 md:h-12 md:w-40">
             <Image
               src="/eldeber.png"
-              alt="Logo secundario"
+              alt="El Deber"
               fill
-              className="object-contain"
+              className="object-contain object-left"
             />
           </div>
 
-          {/* Logo al centro (si tu logo central también es imagen) */}
-          <Link href="/" className="relative h-16 w-48 flex-1 flex justify-center">
+          <Link href="/" className="relative h-12 w-56 md:h-16 md:w-72 flex-1 flex justify-center">
             <Image
               src="/tribuna_powerade.png"
-              alt="Powerade Principal"
+              alt="Tribuna Powerade"
               fill
               className="object-contain"
             />
           </Link>
 
-          {/* Logo a la derecha (si lo hubiere) */}
-          <div className="relative h-16 w-48">
+          <div className="relative h-10 w-24 md:h-12 md:w-32">
             <Image
               src="/diez.png"
-              alt="Logo secundario"
+              alt="Diez"
               fill
-              className="object-contain"
+              className="object-contain object-right"
             />
           </div>
 
