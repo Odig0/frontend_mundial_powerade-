@@ -27,7 +27,7 @@ export interface SyncResponse {
   inserted: number
 }
 
-const DEFAULT_API_URL = 'http://localhost:3000/v1'
+const DEFAULT_API_URL = 'https://dev.eldeber.bo/v1'
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? DEFAULT_API_URL
 const IMAGE_BASE_URL = 'https://cdn.diez.bo/diez/'
 
@@ -71,21 +71,30 @@ function normalizeNewsItem(item: NewsItem): NewsItem {
 }
 
 async function requestJson<T>(path: string, init: RequestInit = {}): Promise<T> {
-  const response = await fetch(buildUrl(path), {
-    ...init,
-    headers: {
-      Accept: 'application/json',
-      ...(init.body ? { 'Content-Type': 'application/json' } : {}),
-      ...(init.headers ?? {}),
-    },
-    cache: 'no-store',
-  })
+  const url = buildUrl(path)
+  console.log(`[API] Fetching: ${url}`)
 
-  if (!response.ok) {
-    throw new Error(`Request to ${path} failed with status ${response.status}`)
+  try {
+    const response = await fetch(url, {
+      ...init,
+      headers: {
+        Accept: 'application/json',
+        ...(init.body ? { 'Content-Type': 'application/json' } : {}),
+        ...(init.headers ?? {}),
+      },
+      cache: 'no-store',
+    })
+
+    if (!response.ok) {
+      console.error(`[API] Request failed:`, { status: response.status, path })
+      throw new Error(`Request to ${path} failed with status ${response.status}`)
+    }
+
+    return response.json() as Promise<T>
+  } catch (error) {
+    console.error(`[API] Error fetching ${url}:`, error)
+    throw error
   }
-
-  return response.json() as Promise<T>
 }
 
 function uniqueSections(items: NewsItem[]) {
