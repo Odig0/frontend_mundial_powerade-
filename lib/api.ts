@@ -28,7 +28,7 @@ export interface SyncResponse {
 }
 
 const DEFAULT_API_URL = 'http://localhost:3000/v1'
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? (process.env.NODE_ENV === 'development' ? DEFAULT_API_URL : '')
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? DEFAULT_API_URL
 const IMAGE_BASE_URL = 'https://cdn.diez.bo/diez/'
 
 function getApiUrl() {
