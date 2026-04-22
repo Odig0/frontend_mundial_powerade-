@@ -37,7 +37,20 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-background" suppressHydrationWarning>
       <body className="font-sans antialiased">
-        {children}
+        <div className="flex min-h-screen">
+
+          {/* Skyscraper izquierdo */}
+          <aside className="hidden 2xl:block w-[190px] flex-shrink-0 bg-background" />
+
+          {/* Contenido principal */}
+          <div className="flex-1 min-w-0">
+            {children}
+          </div>
+
+          {/* Skyscraper derecho */}
+          <aside className="hidden 2xl:block w-[140px] flex-shrink-0 bg-background" />
+
+        </div>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
