@@ -20,6 +20,7 @@ export default function NewsGrid({ news, title }: NewsGridProps) {
         {visibleNews.map((item) => (
           <NewsCard
             key={item._id}
+            id={item._id}
             titulo={item.titulo}
             imagen_home={item.imagen_home}
             secciones={item.secciones}

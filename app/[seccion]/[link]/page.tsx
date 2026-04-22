@@ -50,6 +50,7 @@ export default async function DetailPage({ params }: { params: Promise<Params> |
 
       <main className="flex-1 container mx-auto px-4 py-8 md:py-12">
         <NewsDetail
+          id={news._id}
           titulo={news.titulo}
           fecha={dateString}
           imagen_interior={news.imagen_interior}

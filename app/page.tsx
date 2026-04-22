@@ -6,6 +6,7 @@ import NewsGrid from '@/components/home/NewsGrid'
 import VideoBlock from '@/components/home/VideoBlock'
 import HydrationBanner from '@/components/home/HydrationBanner'
 import FixtureBlock from '@/components/home/FixtureBlock'
+import SocialPostButton from '@/components/news/SocialPostButton'
 import { getNews } from '@/lib/api'
 
 export default async function Home() {
@@ -50,6 +51,7 @@ export default async function Home() {
                         alt={item.titulo}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
+                      <SocialPostButton id={item._id} titulo={item.titulo} />
                     </div>
                     <h3 className="font-bold text-white group-hover:text-accent transition-colors line-clamp-2 text-sm leading-snug">
                       {item.titulo}
