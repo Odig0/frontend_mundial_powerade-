@@ -8,12 +8,18 @@ import HydrationBanner from '@/components/home/HydrationBanner'
 import FixtureBlock from '@/components/home/FixtureBlock'
 import SocialPostButton from '@/components/news/SocialPostButton'
 import { getNews } from '@/lib/api'
+import { getDailymotionVideos } from '@/services/dailymotionService'
 
 export default async function Home() {
-  const news = (await getNews()).filter((item) => item.imagen_home?.trim())
-  const featured = news.slice(0, 3)
-  const secondary = news.slice(3, 6)
-  const latest = news.slice(6)
+  const [news, videos] = await Promise.all([
+    getNews(),
+    getDailymotionVideos()
+  ])
+  
+  const filteredNews = news.filter((item) => item.imagen_home?.trim())
+  const featured = filteredNews.slice(0, 3)
+  const secondary = filteredNews.slice(3, 6)
+  const latest = filteredNews.slice(6)
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -73,7 +79,7 @@ export default async function Home() {
 
         {/* Videos */}
         <div className="mt-6">
-          <VideoBlock />
+          <VideoBlock videos={videos} />
         </div>
 
         {/* Últimas noticias */}
