@@ -38,7 +38,7 @@ export default function VideoBlock({ videos }: VideoBlockProps) {
       <div className="absolute top-0 left-1/3 w-[300px] h-[300px] bg-[#3CB7FF]/5 blur-[80px] rounded-full -z-10" />
       <div className="absolute bottom-0 right-1/3 w-[250px] h-[250px] bg-[#3CB7FF]/5 blur-[60px] rounded-full -z-10" />
 
-      <div className="container mx-auto px-4">
+      <div className="w-full">
         <div className="flex flex-col items-start text-left mb-8">
           <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter">
             Videos
