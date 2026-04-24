@@ -26,7 +26,6 @@ export default function VideoBlock({ videos }: VideoBlockProps) {
 
   const handleCloseModal = () => {
     setIsModalOpen(false)
-    // Sincronización con la animación de salida
     setTimeout(() => {
       setSelectedVideoId(null)
     }, 450)
@@ -34,7 +33,6 @@ export default function VideoBlock({ videos }: VideoBlockProps) {
 
   return (
     <section className="bg-background pb-16 pt-8 relative overflow-hidden">
-      {/* Luces de fondo decorativas para estética premium */}
       <div className="absolute top-0 left-1/3 w-[300px] h-[300px] bg-[#3CB7FF]/5 blur-[80px] rounded-full -z-10" />
       <div className="absolute bottom-0 right-1/3 w-[250px] h-[250px] bg-[#3CB7FF]/5 blur-[60px] rounded-full -z-10" />
 
@@ -46,13 +44,13 @@ export default function VideoBlock({ videos }: VideoBlockProps) {
           </h2>
         </div>
 
-        <VideoCarousel 
-          videos={videos} 
-          onVideoClick={handleVideoClick} 
+        <VideoCarousel
+          videos={videos}
+          onVideoClick={handleVideoClick}
         />
       </div>
 
-      <VideoModal 
+      <VideoModal
         videoId={selectedVideoId}
         isOpen={isModalOpen}
         onClose={handleCloseModal}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use client"
 
 import { useState, useEffect } from 'react'
@@ -5,10 +6,15 @@ import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
+=======
+import Link from 'next/link'
+
+>>>>>>> 5598182e2d3f2b96aa7fcc21171c1bd70465f5a9
 const links = [
   { label: 'Últimas', href: '/' },
   { label: 'Partidos', href: '/partidos' },
   { label: 'Selecciones', href: '/selecciones' },
+<<<<<<< HEAD
   { label: 'Videos', href: '/videos' },
 ]
 
@@ -26,8 +32,15 @@ export default function Navbar() {
       document.body.style.overflow = 'unset'
     }
   }, [isOpen])
+=======
+  { label: 'Opinión', href: '/opinion' },
+  { label: 'Videos', href: '/videos' },
+]
+>>>>>>> 5598182e2d3f2b96aa7fcc21171c1bd70465f5a9
 
+export default function Navbar() {
   return (
+<<<<<<< HEAD
     <nav className="bg-[#0a1525] border-b border-white/5 sticky top-0 z-50 h-14">
       <div className="container mx-auto h-full px-4">
         <div className="flex items-center justify-between md:justify-center h-full">
@@ -111,6 +124,29 @@ export default function Navbar() {
               Seguí el mundial
             </Link>
           </div>
+=======
+    <nav className="bg-[#0a1525] border-b border-border sticky top-0 z-40">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-center overflow-x-auto">
+          {links.map((link, i) => (
+            <div key={link.href} className="flex items-center">
+              {i > 0 && <span className="text-white/30 text-sm select-none px-1">|</span>}
+              <Link
+                href={link.href}
+                className="py-3 px-3 text-sm font-semibold text-white hover:text-accent transition-colors whitespace-nowrap"
+              >
+                {link.label}
+              </Link>
+            </div>
+          ))}
+          <span className="text-white/30 text-sm select-none px-1">|</span>
+          <Link
+            href="/mundial"
+            className="my-2 ml-2 px-4 py-1.5 bg-accent text-accent-foreground text-sm font-bold rounded whitespace-nowrap hover:opacity-90 transition-opacity"
+          >
+            Seguí el mundial
+          </Link>
+>>>>>>> 5598182e2d3f2b96aa7fcc21171c1bd70465f5a9
         </div>
       </div>
     </nav>
