@@ -63,9 +63,9 @@ function normalizeNewsItem(item: NewsItem): NewsItem {
     imagen_interior: buildImageUrl(item.imagen_interior),
     opinologo: item.opinologo
       ? {
-          ...item.opinologo,
-          foto: item.opinologo.foto ? buildImageUrl(item.opinologo.foto) : item.opinologo.foto,
-        }
+        ...item.opinologo,
+        foto: item.opinologo.foto ? buildImageUrl(item.opinologo.foto) : item.opinologo.foto,
+      }
       : item.opinologo,
   }
 }
@@ -173,3 +173,10 @@ export async function syncNews(): Promise<SyncResponse> {
     method: 'POST',
   })
 }
+
+export async function syncMundialNews(): Promise<SyncResponse> {
+  return requestJson<SyncResponse>('/news/sync/mundial', {
+    method: 'POST',
+  })
+}
+

@@ -1,66 +1,76 @@
-const videos = [
-  {
-    id: '1',
-    titulo: 'Copa Mundial FIFA 2026 - Promo oficial',
-    thumb: 'https://img.youtube.com/vi/4DL6TDlmojM/hqdefault.jpg',
-    href: 'https://www.youtube.com/watch?v=4DL6TDlmojM',
-  },
-  {
-    id: '2',
-    titulo: 'Bolivia al Mundial 2026 - Camino histórico',
-    thumb: 'https://img.youtube.com/vi/vABqxQWFYKU/hqdefault.jpg',
-    href: 'https://www.youtube.com/watch?v=vABqxQWFYKU',
-  },
-  {
-    id: '3',
-    titulo: 'Goles y resumen - Eliminatorias CONMEBOL',
-    thumb: 'https://img.youtube.com/vi/ZqYFRHbNMzc/hqdefault.jpg',
-    href: 'https://www.youtube.com/watch?v=ZqYFRHbNMzc',
-  },
-  {
-    id: '4',
-    titulo: 'Los mejores momentos del Mundial anterior',
-    thumb: 'https://img.youtube.com/vi/0gDzLMb8L0E/hqdefault.jpg',
-    href: 'https://www.youtube.com/watch?v=0gDzLMb8L0E',
-  },
-]
+"use client"
 
-export default function VideoBlock() {
+import { useState } from 'react'
+import type { VideoItem } from '@/services/dailymotionService'
+import VideoCarousel from './VideoCarousel'
+import VideoModal from './VideoModal'
+
+interface VideoBlockProps {
+  videos: VideoItem[]
+}
+
+/**
+ * Bloque de Videos Premium Restaurado.
+ * Orquestador de la experiencia visual con enfoque estético.
+ */
+export default function VideoBlock({ videos }: VideoBlockProps) {
+  const [selectedVideoId, setSelectedVideoId] = useState<string | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  if (!videos || videos.length === 0) return null
+
+  const handleVideoClick = (id: string) => {
+    setSelectedVideoId(id)
+    setIsModalOpen(true)
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+    // Sincronización con la animación de salida
+    setTimeout(() => {
+      setSelectedVideoId(null)
+    }, 450)
+  }
+
   return (
-    <section className="bg-background py-8">
-      <div className="container mx-auto px-4">
-        <h2 className="text-xl font-black text-white mb-4">Videos</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {videos.map((video) => (
-            <a
-              key={video.id}
-              href={video.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block"
-            >
-              <div className="relative aspect-video overflow-hidden bg-muted mb-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={video.thumb}
-                  alt={video.titulo}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors">
-                  <div className="w-10 h-10 rounded-full bg-accent/90 flex items-center justify-center">
-                    <svg className="w-4 h-4 text-accent-foreground ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <p className="text-xs text-white font-semibold line-clamp-2 group-hover:text-accent transition-colors">
-                {video.titulo}
-              </p>
-            </a>
-          ))}
+    <section className="py-16 bg-zinc-950 text-white overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-900 via-zinc-950 to-blue-950 p-8 md:p-12 shadow-2xl shadow-blue-950/20">
+          <div className="max-w-2xl space-y-5">
+            <p className="text-sm uppercase tracking-[0.3em] text-blue-300/80">Video</p>
+            <h2 className="text-3xl md:text-4xl font-black text-white">Cobertura multimedia en preparación</h2>
+            <p className="text-zinc-300 leading-relaxed">
+              La portada ya consume noticias reales desde el backend. El bloque de video se mantiene como una
+              sección editorial sin contenido simulado hasta que exista un origen real para la playlist.
+            </p>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Link
+                href="/"
+                className="rounded-full bg-blue-500 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-400"
+              >
+                Volver a portada
+              </Link>
+              <Link
+                href="/mundial"
+                className="rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+              >
+                Ver mundial
+              </Link>
+            </div>
+          </div>
         </div>
+
+        <VideoCarousel 
+          videos={videos} 
+          onVideoClick={handleVideoClick} 
+        />
       </div>
+
+      <VideoModal 
+        videoId={selectedVideoId}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </section>
   )
 }
