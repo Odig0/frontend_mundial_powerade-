@@ -9,10 +9,6 @@ interface VideoModalProps {
   onClose: () => void
 }
 
-/**
- * Modal Cinemático Restaurado.
- * Enfocado en la inmersión visual y estética premium.
- */
 export default function VideoModal({ videoId, isOpen, onClose }: VideoModalProps) {
   return (
     <DialogPrimitive.Root open={isOpen} onOpenChange={(open) => { if (!open) onClose() }}>
