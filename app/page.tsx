@@ -8,18 +8,12 @@ import HydrationBanner from '@/components/home/HydrationBanner'
 import FixtureBlock from '@/components/home/FixtureBlock'
 import SocialPostButton from '@/components/news/SocialPostButton'
 import { getNews } from '@/lib/api'
-import { getDailymotionVideos } from '@/services/dailymotionService'
 
 export default async function Home() {
-  const [news, videos] = await Promise.all([
-    getNews(),
-    getDailymotionVideos()
-  ])
-  
-  const filteredNews = news.filter((item) => item.imagen_home?.trim())
-  const featured = filteredNews.slice(0, 3)
-  const secondary = filteredNews.slice(3, 6)
-  const latest = filteredNews.slice(6)
+  const news = (await getNews()).filter((item) => item.imagen_home?.trim())
+  const featured = news.slice(0, 3)
+  const secondary = news.slice(3, 6)
+  const latest = news.slice(6)
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -29,7 +23,7 @@ export default async function Home() {
       <main className="flex-1 flex flex-col">
 
         {/* Hero + noticias secundarias */}
-        <div className="container max-w-[1200px] mx-auto px-4 pt-4">
+        <div className="container mx-auto px-4 pt-4">
           {featured.length > 0 ? (
             <HeroBlock featured={featured[0]} side={featured.slice(1, 3)} />
           ) : (
@@ -42,7 +36,7 @@ export default async function Home() {
 
         {/* Grid de 3 noticias secundarias */}
         {secondary.length > 0 && (
-          <div className="container max-w-[1200px] mx-auto px-4 mt-px">
+          <div className="container mx-auto px-4 mt-px">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
               {secondary.map((item) => {
                 const seccion = item.secciones?.[0] ?? 'general'
@@ -70,7 +64,7 @@ export default async function Home() {
         )}
 
         {/* Banner pausa de hidratación + Fixture */}
-        <div className="container max-w-[1200px] mx-auto px-4 mt-4">
+        <div className="container mx-auto px-4 mt-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
             <HydrationBanner />
             <FixtureBlock />
@@ -78,13 +72,13 @@ export default async function Home() {
         </div>
 
         {/* Videos */}
-        <div className="container max-w-[1200px] mx-auto px-4 mt-6">
-          <VideoBlock videos={videos} />
+        <div className="mt-6">
+          <VideoBlock />
         </div>
 
         {/* Últimas noticias */}
         {latest.length > 0 && (
-          <div className="container max-w-[1200px] mx-auto px-4 mt-6 mb-8">
+          <div className="container mx-auto px-4 mt-6 mb-8">
             <NewsGrid news={latest} title="Últimas noticias" />
           </div>
         )}
