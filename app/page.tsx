@@ -19,7 +19,7 @@ export default async function Home() {
   const filteredNews = news.filter((item) => item.imagen_home?.trim())
   const featured = filteredNews.slice(0, 3)
   const secondary = filteredNews.slice(3, 6)
-  const latest = filteredNews.slice(6, 14)
+  const latest = filteredNews.slice(6)
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
