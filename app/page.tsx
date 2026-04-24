@@ -11,9 +11,15 @@ import { getNews } from '@/lib/api'
 import { getDailymotionVideos } from '@/services/dailymotionService'
 
 export default async function Home() {
-  const news = (await getNews()).filter((item) => item.imagen_home && item.imagen_home.trim())
+  const [rawNews, videos] = await Promise.all([
+    getNews(),
+    getDailymotionVideos(),
+  ])
+
+  const news = rawNews.filter((item) => item.imagen_home && item.imagen_home.trim())
   const featured = news.slice(0, 3)
-  const latest = news.slice(3)
+  const secondary = news.slice(3, 6)
+  const latest = news.slice(6, 14)
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
