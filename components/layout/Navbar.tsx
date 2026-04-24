@@ -15,6 +15,7 @@ const links = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
+  // Evitar scroll del body cuando el menú está abierto
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
@@ -38,7 +39,7 @@ export default function Navbar() {
                 {i > 0 && <span className="text-white/20 text-xs px-1">|</span>}
                 <Link
                   href={link.href}
-                  className="py-3 px-4 text-sm font-semibold text-white/80 hover:text-[#3CB7FF]"
+                  className="py-3 px-4 text-sm font-semibold text-white/80 hover:text-[#3CB7FF] transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -49,33 +50,50 @@ export default function Navbar() {
 
             <Link
               href="/mundial"
-              className="ml-4 px-5 py-1.5 bg-[#3CB7FF] text-white text-xs font-bold rounded-full hover:bg-[#3CB7FF]/90"
+              className="ml-4 px-5 py-1.5 bg-[#3CB7FF] text-white text-xs font-bold rounded-full hover:bg-[#3CB7FF]/90 transition-all shadow-lg shadow-[#3CB7FF]/20"
             >
               Seguí el mundial
             </Link>
           </div>
 
-          {/* MOBILE BUTTON */}
-          <div className="flex md:hidden w-full justify-end">
-            <button onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {/* MOBILE BUTTON (Prioridad Z-Index para visibilidad de X) */}
+          <div className="flex md:hidden w-full justify-end items-center h-full">
+            <button 
+              onClick={() => setIsOpen(!isOpen)}
+              className="relative z-[70] p-2 text-white/80 hover:text-white transition-all active:scale-90"
+              aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+            >
+              <div className="relative w-7 h-7">
+                <X className={cn(
+                  "absolute inset-0 transition-all duration-300 transform",
+                  isOpen ? "rotate-0 opacity-100 scale-100" : "rotate-90 opacity-0 scale-50"
+                )} size={28} />
+                <Menu className={cn(
+                  "absolute inset-0 transition-all duration-300 transform",
+                  isOpen ? "-rotate-90 opacity-0 scale-50" : "rotate-0 opacity-100 scale-100"
+                )} size={28} />
+              </div>
             </button>
           </div>
         </div>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE MENU (Capa inferior al botón) */}
       <div className={cn(
-        "fixed inset-0 bg-[#0a1525] z-50 transition-all md:hidden",
-        isOpen ? "translate-x-0" : "translate-x-full"
+        "fixed inset-0 bg-[#0a1525] z-[60] transition-all duration-500 md:hidden",
+        isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
       )}>
-        <div className="flex flex-col pt-20 px-8 gap-4">
-          {links.map((link) => (
+        <div className="flex flex-col h-full pt-24 px-8 gap-2">
+          {links.map((link, i) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="text-xl font-bold text-white"
+              className={cn(
+                "py-4 text-2xl font-bold text-white border-b border-white/5 hover:text-[#3CB7FF] transition-all duration-300",
+                isOpen ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
+              )}
+              style={{ transitionDelay: `${i * 50}ms` }}
             >
               {link.label}
             </Link>
@@ -84,7 +102,11 @@ export default function Navbar() {
           <Link
             href="/mundial"
             onClick={() => setIsOpen(false)}
-            className="mt-6 text-center py-3 bg-[#3CB7FF] rounded-xl text-white font-bold"
+            className={cn(
+              "mt-10 text-center py-5 bg-[#3CB7FF] rounded-2xl text-white text-xl font-bold shadow-xl shadow-[#3CB7FF]/20 transition-all duration-500",
+              isOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            )}
+            style={{ transitionDelay: '250ms' }}
           >
             Seguí el mundial
           </Link>
@@ -92,4 +114,4 @@ export default function Navbar() {
       </div>
     </nav>
   )
-}
+}
