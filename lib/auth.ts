@@ -6,7 +6,7 @@ declare const __TURBOPACK_EDGE__: boolean | undefined
 
 export const CREDENTIALS = {
   username: 'powerade',
-  password: 'Mundial2026!',
+  password: 'Mundial2026',
 }
 
 export const SESSION_COOKIE_NAME = 'powerade_session'
