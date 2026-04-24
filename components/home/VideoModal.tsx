@@ -20,7 +20,7 @@ export default function VideoModal({ videoId, isOpen, onClose }: VideoModalProps
         <DialogPrimitive.Overlay className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-2xl data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
 
         <DialogPrimitive.Content
-          className="fixed left-1/2 top-1/2 z-[101] w-full max-w-5xl
+          className="fixed left-1/2 top-1/2 z-[101] w-full max-w-md
                      -translate-x-1/2 -translate-y-1/2 px-4
                      data-[state=open]:animate-in data-[state=closed]:animate-out
                      data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0
@@ -28,11 +28,11 @@ export default function VideoModal({ videoId, isOpen, onClose }: VideoModalProps
                      duration-400 ease-out focus:outline-none"
         >
           <DialogPrimitive.Title className="sr-only">
-            Reproductor de Video
+            Reproductor de Video Short
           </DialogPrimitive.Title>
 
           <div className="relative">
-            <div className="relative aspect-video bg-black rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(60,183,255,0.15)] ring-1 ring-white/10">
+            <div className="relative aspect-[9/16] bg-black rounded-3xl overflow-hidden ring-1 ring-white/10 shadow-[0_0_60px_rgba(60,183,255,0.15)]">
               {videoId && (
                 <iframe
                   key={videoId}
@@ -40,7 +40,7 @@ export default function VideoModal({ videoId, isOpen, onClose }: VideoModalProps
                   className="absolute inset-0 w-full h-full border-0"
                   allow="autoplay; fullscreen; picture-in-picture"
                   allowFullScreen
-                  title="Reproductor Premium Dailymotion"
+                  title="Reproductor Short Premium"
                 />
               )}
             </div>
