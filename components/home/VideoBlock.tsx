@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from 'react'
+import Link from 'next/link'
 import type { VideoItem } from '@/services/dailymotionService'
 import VideoCarousel from './VideoCarousel'
 import VideoModal from './VideoModal'
