@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import SocialPostButton from '@/components/news/SocialPostButton'
 
 interface NewsDetailProps {
   id: string
@@ -32,10 +31,7 @@ export default function NewsDetail({
           {seccion}
         </div>
         <h1 className="text-3xl md:text-4xl font-black text-foreground mb-4">{titulo}</h1>
-        <div className="flex items-center justify-between gap-4 flex-wrap">
-          {fecha && <p className="text-muted-foreground text-sm">{fecha}</p>}
-          <SocialPostButton id={id} titulo={titulo} inline />
-        </div>
+        {fecha && <p className="text-muted-foreground text-sm">{fecha}</p>}
       </div>
 
       {hasImage && (
