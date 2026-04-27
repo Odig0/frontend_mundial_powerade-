@@ -32,7 +32,7 @@ export default function VideoBlock({ videos }: VideoBlockProps) {
   }
 
   return (
-    <section className="bg-background pb-16 pt-8 relative overflow-hidden">
+    <section className="bg-background pb-4 pt-8 relative overflow-hidden">
       <div className="absolute top-0 left-1/3 w-[300px] h-[300px] bg-[#3CB7FF]/5 blur-[80px] rounded-full -z-10" />
       <div className="absolute bottom-0 right-1/3 w-[250px] h-[250px] bg-[#3CB7FF]/5 blur-[60px] rounded-full -z-10" />
 
@@ -40,7 +40,7 @@ export default function VideoBlock({ videos }: VideoBlockProps) {
         <div className="flex flex-col items-start text-left mb-8">
           <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter flex items-center gap-2">
             <span className="w-2 h-8 bg-[#3CB7FF] rounded-full inline-block" />
-            Powerade Shorts
+            Videos
           </h2>
         </div>
 

@@ -26,6 +26,7 @@ export default function NewsGrid({ news, title }: NewsGridProps) {
             secciones={item.secciones}
             introHTML={item.introHTML}
             link={item.link}
+            opinologo_firma={item.opinologo?.firma}
           />
         ))}
       </div>

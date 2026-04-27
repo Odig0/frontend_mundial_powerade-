@@ -11,6 +11,7 @@ interface NewsDetailProps {
   secciones: string[]
   introHTML: string
   textoHTML: string
+  opinologo_firma?: string
 }
 
 export default function NewsDetail({
@@ -21,6 +22,7 @@ export default function NewsDetail({
   secciones,
   introHTML,
   textoHTML,
+  opinologo_firma,
 }: NewsDetailProps) {
   const seccion = secciones?.[0] ?? 'general'
   const hasImage = Boolean(imagen_interior?.trim())
@@ -28,13 +30,19 @@ export default function NewsDetail({
   return (
     <article className="max-w-3xl mx-auto">
       <div className="mb-6">
-        <div className="inline-block px-3 py-1.5 bg-accent text-accent-foreground text-xs font-bold rounded mb-4 capitalize">
+        <div className="inline-block px-3 py-1.5 bg-accent text-accent-foreground text-xs font-bold rounded mb-4 uppercase tracking-wider">
           {seccion}
         </div>
         <h1 className="text-3xl md:text-4xl font-black text-foreground mb-4">{titulo}</h1>
         <div className="flex items-center justify-between gap-4 flex-wrap">
           {fecha && <p className="text-muted-foreground text-sm">{fecha}</p>}
           <SocialPostButton id={id} titulo={titulo} inline />
+        </div>
+
+        <div className="mt-4 py-1">
+          <span className="text-[#3CB7FF] text-xs tracking-wide">
+            <span className="font-normal">Por</span> <span className="font-bold">{opinologo_firma || 'Redacción'}</span>
+          </span>
         </div>
       </div>
 

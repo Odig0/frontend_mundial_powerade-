@@ -29,7 +29,7 @@ export default function Navbar() {
 
   return (
     <nav className="bg-[#0a1525] border-b border-white/5 sticky top-0 z-50 h-14">
-      <div className="container mx-auto h-full px-4">
+      <div className="container max-w-[1200px] mx-auto h-full px-4">
         <div className="flex items-center justify-between md:justify-center h-full">
 
           {/* DESKTOP */}

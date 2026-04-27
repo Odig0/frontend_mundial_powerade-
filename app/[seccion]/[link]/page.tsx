@@ -57,6 +57,7 @@ export default async function DetailPage({ params }: { params: Promise<Params> |
           secciones={news.secciones}
           introHTML={news.introHTML}
           textoHTML={news.textoHTML}
+          opinologo_firma={news.opinologo?.firma}
         />
       </main>
 
