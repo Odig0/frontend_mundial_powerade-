@@ -3,7 +3,6 @@
 import { useState, useMemo } from 'react'
 import { Search } from 'lucide-react'
 import { Input } from '@/components/ui/input'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { NewsItem } from '@/lib/api'
 import NoticiaCard from './NoticiaCard'
 
@@ -13,54 +12,26 @@ interface NoticiasGridProps {
 
 export default function NoticiasGrid({ news }: NoticiasGridProps) {
   const [searchTerm, setSearchTerm] = useState('')
-  const [selectedSection, setSelectedSection] = useState<string>('all')
-
-  // Get unique sections
-  const sections = useMemo(() => {
-    const sectionSet = new Set<string>()
-    news.forEach((item) => {
-      item.secciones?.forEach((s) => sectionSet.add(s))
-    })
-    return Array.from(sectionSet).sort()
-  }, [news])
 
   // Filter news
   const filteredNews = useMemo(() => {
     return news.filter((item) => {
       const matchesSearch = item.titulo.toLowerCase().includes(searchTerm.toLowerCase())
-      const matchesSection =
-        selectedSection === 'all' || item.secciones?.includes(selectedSection)
-      return matchesSearch && matchesSection
+      return matchesSearch
     })
-  }, [news, searchTerm, selectedSection])
+  }, [news, searchTerm])
 
   return (
     <div className="space-y-6 p-6">
-      {/* Search and Filter Bar */}
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <div className="flex-1 relative">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-          <Input
-            placeholder="Buscar noticias..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-10"
-          />
-        </div>
-
-        <Select value={selectedSection} onValueChange={setSelectedSection}>
-          <SelectTrigger className="w-full sm:w-48">
-            <SelectValue placeholder="Todas las secciones" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">Todas las secciones</SelectItem>
-            {sections.map((section) => (
-              <SelectItem key={section} value={section}>
-                {section.charAt(0).toUpperCase() + section.slice(1)}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+      {/* Search Bar */}
+      <div className="relative">
+        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+        <Input
+          placeholder="Buscar noticias..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="pl-10"
+        />
       </div>
 
       {/* Results Count */}

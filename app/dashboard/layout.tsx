@@ -1,7 +1,8 @@
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
-import { SESSION_COOKIE_NAME, verifySession } from '@/lib/auth'
 import DashboardShell from '@/components/dashboard/DashboardShell'
+
+const AUTH_COOKIE_NAME = 'auth_token'
 
 export const metadata = {
   title: 'Dashboard — Powerade',
@@ -13,18 +14,13 @@ export default async function DashboardLayout({
 }: {
   children: React.ReactNode
 }) {
-  // Double protection: verify session
+  // Verify authentication token exists
   const cookieStore = await cookies()
-  const session = cookieStore.get(SESSION_COOKIE_NAME)?.value
+  const token = cookieStore.get(AUTH_COOKIE_NAME)?.value
 
-  if (!session) {
+  if (!token) {
     redirect('/login')
   }
 
-  const verified = verifySession(session)
-  if (!verified) {
-    redirect('/login')
-  }
-
-  return <DashboardShell username={verified.username}>{children}</DashboardShell>
+  return <DashboardShell>{children}</DashboardShell>
 }

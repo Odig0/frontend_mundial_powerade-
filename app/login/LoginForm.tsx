@@ -50,6 +50,13 @@ export default function LoginForm() {
         return
       }
 
+      const body = await response.json()
+
+      // Save token to localStorage
+      if (body.access_token) {
+        localStorage.setItem('authToken', body.access_token)
+      }
+
       // Success - redirect to dashboard
       router.push('/dashboard/noticias')
       router.refresh()

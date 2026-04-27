@@ -1,8 +1,9 @@
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
-import { SESSION_COOKIE_NAME, verifySession } from '@/lib/auth'
 import LoginForm from './LoginForm'
 import Image from 'next/image'
+
+const AUTH_COOKIE_NAME = 'auth_token'
 
 export const metadata = {
   title: 'Acceso — Powerade Dashboard',
@@ -12,21 +13,18 @@ export const metadata = {
 export default async function LoginPage() {
   // Check if already logged in
   const cookieStore = await cookies()
-  const session = cookieStore.get(SESSION_COOKIE_NAME)?.value
+  const token = cookieStore.get(AUTH_COOKIE_NAME)?.value
 
-  if (session) {
-    const verified = verifySession(session)
-    if (verified) {
-      redirect('/dashboard/noticias')
-    }
+  if (token) {
+    redirect('/dashboard/noticias')
   }
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-background">
       <div className="w-full max-w-sm px-4 py-8">
         {/* Logo */}
-        <div className="flex justify-center mb-8">
-          <div className="relative h-12 w-48">
+        <div className="flex justify-center mb-12">
+          <div className="relative h-24 w-96">
             <Image
               src="/tribuna_powerade.png"
               alt="Tribuna Powerade"

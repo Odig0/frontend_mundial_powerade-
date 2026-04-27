@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { Newspaper, ImagePlus, CheckSquare, LogOut } from 'lucide-react'
+import { Newspaper, CheckSquare } from 'lucide-react'
 import {
   Sidebar,
   SidebarContent,
@@ -14,7 +14,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
-import { Button } from '@/components/ui/button'
 import { LogoutButton } from './LogoutButton'
 import Image from 'next/image'
 
@@ -24,7 +23,6 @@ interface DashboardSidebarProps {
 
 const navItems = [
   { href: '/dashboard/noticias', icon: Newspaper, label: 'Noticias' },
-  { href: '/dashboard/generador', icon: ImagePlus, label: 'Generador' },
   { href: '/dashboard/publicaciones', icon: CheckSquare, label: 'Publicadas' },
 ]
 

@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { SESSION_COOKIE_NAME } from '@/lib/auth'
+
+const AUTH_COOKIE_NAME = 'auth_token'
 
 export async function POST(request: NextRequest) {
   const response = NextResponse.json({ ok: true })
-  response.cookies.delete(SESSION_COOKIE_NAME)
+  response.cookies.delete(AUTH_COOKIE_NAME)
   return response
 }
