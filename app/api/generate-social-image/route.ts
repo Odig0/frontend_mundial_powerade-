@@ -4,8 +4,8 @@ import path from 'path'
 import fs from 'fs'
 
 const FORMATS = {
-  horizontal: { width: 1200, height: 628, sello: 'EDSPORTS.png' },
-  vertical: { width: 1080, height: 1350, sello: '2EDSPORTS.png' },
+  horizontal: { width: 1200, height: 628, sello: 'Tribuna-Powerade.png' },
+  vertical: { width: 1080, height: 1350, sello: 'Tribuna-Powerade.png' },
 }
 
 export async function POST(request: NextRequest) {
