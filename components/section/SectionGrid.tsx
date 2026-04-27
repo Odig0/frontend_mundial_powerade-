@@ -31,6 +31,7 @@ export default function SectionGrid({ news, itemsPerPage = 12 }: SectionGridProp
             secciones={item.secciones}
             introHTML={item.introHTML}
             link={item.link}
+            opinologo_firma={item.opinologo?.firma}
           />
         ))}
       </div>

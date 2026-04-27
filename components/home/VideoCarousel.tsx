@@ -49,7 +49,7 @@ export default function VideoCarousel({ videos, onVideoClick }: VideoCarouselPro
   }, [emblaApi])
 
   return (
-    <div className="relative w-full pb-16 pt-0">
+    <div className="relative w-full pb-0 pt-0">
       <div className="overflow-hidden py-6" ref={emblaRef}>
         <div className="flex -ml-4">
           {videos.map((video, index) => (
