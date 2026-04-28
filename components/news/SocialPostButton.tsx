@@ -8,6 +8,7 @@ interface SocialPostButtonProps {
   id: string
   titulo: string
   inline?: boolean
+  className?: string
 }
 
 const IMAGE_BASE_URL = 'https://cdn.diez.bo/diez/'
@@ -18,10 +19,10 @@ interface GeneratedPost {
   processedUrl: string   // blob URL con sello aplicado
   link: string
   titulo: string
-  formato: 'horizontal' | 'vertical'
+  formato: 'horizontal' | 'vertical' | 'instagram'
 }
 
-export default function SocialPostButton({ id, titulo, inline = false }: SocialPostButtonProps) {
+export default function SocialPostButton({ id, titulo, inline = false, className }: SocialPostButtonProps) {
   const [open, setOpen] = useState(false)
   const [tituloEditado, setTituloEditado] = useState(titulo)
   const [post, setPost] = useState<GeneratedPost | null>(null)
@@ -72,18 +73,17 @@ export default function SocialPostButton({ id, titulo, inline = false }: SocialP
       const processRes = await fetch('/api/generate-social-image', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ imageUrl: imagenUrl, formato: data.formato ?? 'horizontal' }),
+        body: JSON.stringify({ imageUrl: imagenUrl, formato: 'instagram' }),
       })
 
-      let processedUrl = imagenUrl
-      if (processRes.ok) {
-        const blob = await processRes.blob()
-        processedUrl = URL.createObjectURL(blob)
-      } else {
-        console.warn('[SocialPost] procesamiento falló, usando imagen original')
+      if (!processRes.ok) {
+        throw new Error(`Error procesando imagen: ${processRes.status}`)
       }
 
-      setPost({ ...data, imagenUrl, processedUrl })
+      const blob = await processRes.blob()
+      const processedUrl = URL.createObjectURL(blob)
+
+      setPost({ ...data, imagenUrl: processedUrl, processedUrl })
       setTituloEditado(data.titulo ?? tituloToUse)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error generando imagen')
@@ -122,7 +122,7 @@ export default function SocialPostButton({ id, titulo, inline = false }: SocialP
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           title: tituloEditado,
-          imageUrl: post.imagenUrl,
+          imageUrl: post.processedUrl,
           link: post.link,
           newsId: id,
         }),
@@ -153,7 +153,7 @@ export default function SocialPostButton({ id, titulo, inline = false }: SocialP
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           title: tituloEditado,
-          imageUrl: post.imagenUrl,
+          imageUrl: post.processedUrl,
           link: post.link,
           newsId: id,
         }),
@@ -184,7 +184,7 @@ export default function SocialPostButton({ id, titulo, inline = false }: SocialP
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           title: tituloEditado,
-          imageUrl: post.imagenUrl,
+          imageUrl: post.processedUrl,
           link: post.link,
           newsId: id,
         }),
@@ -210,7 +210,7 @@ export default function SocialPostButton({ id, titulo, inline = false }: SocialP
     if (!post?.processedUrl) return
     const a = document.createElement('a')
     a.href = post.processedUrl
-    a.download = `post-${id}.jpg`
+    a.download = `instagram-${id}-1080x1350.jpg`
     a.click()
   }
 
@@ -235,7 +235,7 @@ export default function SocialPostButton({ id, titulo, inline = false }: SocialP
       {inline ? (
         <button
           onClick={handleOpen}
-          className="flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 text-sm font-bold rounded hover:opacity-90 transition-opacity"
+          className={`flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 text-sm font-bold rounded hover:opacity-90 transition-opacity ${className ?? ''}`}
         >
           <Share2 className="w-4 h-4" />
           Generar imagen para redes
@@ -294,7 +294,7 @@ export default function SocialPostButton({ id, titulo, inline = false }: SocialP
               </div>
 
               {/* Preview */}
-              <div className={`relative w-full overflow-hidden rounded-lg bg-[#162032] ${isHorizontal ? 'aspect-[1200/628]' : 'aspect-[1080/1350] max-w-xs mx-auto'}`}>
+              <div className="relative w-full overflow-hidden rounded-lg bg-[#162032] aspect-[1080/1350] max-w-xs mx-auto">
                 {loading && (
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
                     <Loader2 className="w-8 h-8 text-accent animate-spin" />

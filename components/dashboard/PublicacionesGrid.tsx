@@ -1,7 +1,8 @@
 'use client'
 
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { NewsItem } from '@/lib/api'
+import { getAvailableSectionsAll } from '@/lib/api'
 import { usePublishedPosts } from '@/hooks/use-published-posts'
 import { Empty } from '@/components/ui/empty'
 import NoticiaCard from './NoticiaCard'
@@ -12,6 +13,20 @@ interface PublicacionesGridProps {
 
 export default function PublicacionesGrid({ news }: PublicacionesGridProps) {
   const { publishedIds, isLoaded } = usePublishedPosts()
+  const [availableSections, setAvailableSections] = useState<string[]>([])
+
+  useEffect(() => {
+    async function loadSections() {
+      try {
+        const sections = await getAvailableSectionsAll()
+        setAvailableSections(sections)
+      } catch (error) {
+        console.error('Error loading sections for publicaciones:', error)
+      }
+    }
+
+    loadSections()
+  }, [])
 
   const publishedNews = useMemo(() => {
     if (!publishedIds) return []
@@ -46,7 +61,7 @@ export default function PublicacionesGrid({ news }: PublicacionesGridProps) {
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {publishedNews.map((item) => (
-          <NoticiaCard key={item._id} news={item} />
+          <NoticiaCard key={item._id} news={item} availableSections={availableSections} />
         ))}
       </div>
     </div>

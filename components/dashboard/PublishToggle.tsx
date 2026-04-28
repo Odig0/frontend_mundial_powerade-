@@ -6,14 +6,15 @@ import { Button } from '@/components/ui/button'
 interface PublishToggleProps {
   isPublished: boolean
   onToggle: () => void
+  className?: string
 }
 
-export default function PublishToggle({ isPublished, onToggle }: PublishToggleProps) {
+export default function PublishToggle({ isPublished, onToggle, className }: PublishToggleProps) {
   return (
     <Button
       variant={isPublished ? 'default' : 'outline'}
       size="sm"
-      className="w-full"
+      className={className}
       onClick={onToggle}
     >
       {isPublished ? (

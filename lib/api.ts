@@ -101,6 +101,44 @@ function uniqueSections(items: NewsItem[]) {
   return Array.from(new Set(items.flatMap((item) => item.secciones ?? []))).filter(Boolean)
 }
 
+function normalizeSectionValue(section: unknown): string | null {
+  if (typeof section === 'string') {
+    const trimmed = section.trim()
+    return trimmed || null
+  }
+
+  if (typeof section === 'number' || typeof section === 'boolean') {
+    return String(section)
+  }
+
+  if (!section || typeof section !== 'object') {
+    return null
+  }
+
+  const candidate = section as Record<string, unknown>
+  const rawValue =
+    candidate.slug ??
+    candidate.value ??
+    candidate.section ??
+    candidate.name ??
+    candidate.label ??
+    candidate.nombre ??
+    candidate.titulo ??
+    candidate.id ??
+    candidate._id
+
+  if (typeof rawValue === 'string') {
+    const trimmed = rawValue.trim()
+    return trimmed || null
+  }
+
+  if (typeof rawValue === 'number' || typeof rawValue === 'boolean') {
+    return String(rawValue)
+  }
+
+  return null
+}
+
 function sortNewsByRecency(items: NewsItem[]) {
   return [...items].sort((left, right) => {
     if (right.fecha_c !== left.fecha_c) {
@@ -112,8 +150,38 @@ function sortNewsByRecency(items: NewsItem[]) {
 }
 
 export const getNews = cache(async (): Promise<NewsItem[]> => {
-  const news = await requestJson<NewsItem[]>('/news')
-  return sortNewsByRecency(news.map(normalizeNewsItem))
+  const CACHE_KEY = 'news_cache'
+  const CACHE_DURATION = 1000 * 60 * 5 // 5 minutes
+
+  if (typeof window !== 'undefined') {
+    const cached = localStorage.getItem(CACHE_KEY)
+    if (cached) {
+      try {
+        const { data, timestamp } = JSON.parse(cached)
+        if (Date.now() - timestamp < CACHE_DURATION) {
+          return data.map(normalizeNewsItem)
+        }
+      } catch {
+        // Invalid cache, continue with fetch
+      }
+    }
+  }
+
+  const news = await requestJson<NewsItem[]>('/news/latest')
+  const normalized = news.map(normalizeNewsItem)
+
+  if (typeof window !== 'undefined') {
+    try {
+      localStorage.setItem(CACHE_KEY, JSON.stringify({
+        data: news,
+        timestamp: Date.now(),
+      }))
+    } catch {
+      // localStorage error, continue without caching
+    }
+  }
+
+  return normalized
 })
 
 export async function getNewsById(id: string): Promise<NewsItem | undefined> {
@@ -177,6 +245,29 @@ export async function syncNews(): Promise<SyncResponse> {
 export async function syncMundialNews(): Promise<SyncResponse> {
   return requestJson<SyncResponse>('/news/sync/mundial', {
     method: 'POST',
+  })
+}
+
+export async function getAvailableSectionsAll(): Promise<string[]> {
+  const sections = await requestJson<unknown[]>('/news/sections/all')
+  return sections.map(normalizeSectionValue).filter((section): section is string => Boolean(section))
+}
+
+export function formatSectionLabel(section: string) {
+  if (!section) {
+    return ''
+  }
+
+  return section.charAt(0).toUpperCase() + section.slice(1)
+}
+
+export async function updateNewsSections(id: string, sections: string[]): Promise<void> {
+  await requestJson(`/news/${encodeURIComponent(id)}/sections`, {
+    method: 'PUT',
+    body: JSON.stringify({
+      secciones: sections,
+      sections,
+    }),
   })
 }
 

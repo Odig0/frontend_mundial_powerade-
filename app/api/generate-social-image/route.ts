@@ -6,17 +6,18 @@ import fs from 'fs'
 const FORMATS = {
   horizontal: { width: 1200, height: 628, sello: 'Tribuna-Powerade.png' },
   vertical: { width: 1080, height: 1350, sello: 'Tribuna-Powerade.png' },
+  instagram: { width: 1080, height: 1350, sello: 'Tribuna-Powerade.png' },
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const { imageUrl, formato = 'horizontal' } = await request.json()
+    const { imageUrl, formato = 'instagram' } = await request.json()
 
     if (!imageUrl) {
       return NextResponse.json({ error: 'Missing imageUrl' }, { status: 400 })
     }
 
-    const fmt = FORMATS[formato as keyof typeof FORMATS] ?? FORMATS.horizontal
+    const fmt = FORMATS[formato as keyof typeof FORMATS] ?? FORMATS.instagram
 
     // Fetch imagen desde CDN
     const imgRes = await fetch(imageUrl, {
@@ -45,9 +46,17 @@ export async function POST(request: NextRequest) {
       .png()
       .toBuffer()
 
-    // Procesar imagen principal + composite del sello en esquina inferior izquierda
-    const result = await sharp(imgBuffer)
-      .resize(fmt.width, fmt.height, { fit: 'cover', position: 'centre' })
+    // Procesar imagen principal: redimensionar EXACTAMENTE a fmt.width x fmt.height
+    // Primero redimensionar, luego aplicar sello
+    let imageProcessing = sharp(imgBuffer)
+      .resize(fmt.width, fmt.height, { 
+        fit: 'cover', 
+        position: 'center',
+        withoutEnlargement: false 
+      })
+
+    // Aplicar composite con sello
+    const result = await imageProcessing
       .composite([
         {
           input: selloResized,
@@ -55,10 +64,18 @@ export async function POST(request: NextRequest) {
           blend: 'over',
         },
       ])
-      .jpeg({ quality: 85 })
+      .toFormat('jpeg', { quality: 85, mozjpeg: true })
       .toBuffer()
 
-    return new NextResponse(result, {
+    // Validar que la imagen tenga las dimensiones correctas
+    const resultMeta = await sharp(result).metadata()
+    console.log(`[generate-social-image] Imagen final: ${resultMeta.width}x${resultMeta.height}`)
+    
+    if (resultMeta.width !== fmt.width || resultMeta.height !== fmt.height) {
+      throw new Error(`Tamaño final incorrecto: ${resultMeta.width}x${resultMeta.height}, esperado ${fmt.width}x${fmt.height}`)
+    }
+
+    return new NextResponse(new Uint8Array(result), {
       headers: {
         'Content-Type': 'image/jpeg',
         'Cache-Control': 'public, max-age=3600',

@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 const METRICOOL_API_KEY = process.env.NEXT_PUBLIC_METRICOOL
 const METRICOOL_USER_ID = process.env.METRICOOL_USER_ID
 const METRICOOL_BLOG_ID = process.env.METRICOOL_BLOG_ID
+const NEWS_BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'http://localhost:8080'
 const METRICOOL_BASE = 'https://app.metricool.com/api'
 
 export async function POST(request: NextRequest) {
@@ -31,8 +32,10 @@ export async function POST(request: NextRequest) {
     const publishDate = new Date(Date.now() + 60_000) // 1 minute from now
     const dateTime = publishDate.toISOString().slice(0, 19) // "2026-04-27T14:00:00"
 
+    const fullLink = link ? `${NEWS_BASE_URL}/futbol/${link}` : ''
+
     const postBody: Record<string, unknown> = {
-      text: `${title}${link ? `\n\n${link}` : ''}`,
+      text: `${title}${fullLink ? `\n\n${fullLink}` : ''}`,
       providers: [{ network: 'instagram' }],
       publicationDate: {
         dateTime,
