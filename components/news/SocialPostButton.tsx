@@ -32,6 +32,8 @@ export default function SocialPostButton({ id, titulo, inline = false }: SocialP
   const [publishSuccessFacebook, setPublishSuccessFacebook] = useState(false)
   const [publishingInstagram, setPublishingInstagram] = useState(false)
   const [publishSuccessInstagram, setPublishSuccessInstagram] = useState(false)
+  const [publishingTwitter, setPublishingTwitter] = useState(false)
+  const [publishSuccessTwitter, setPublishSuccessTwitter] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
   async function generate(tituloToUse: string) {
@@ -170,6 +172,37 @@ export default function SocialPostButton({ id, titulo, inline = false }: SocialP
       setError(err instanceof Error ? err.message : 'Error al publicar')
     } finally {
       setPublishingInstagram(false)
+    }
+  }
+
+  async function handlePublishTwitter() {
+    if (!post?.processedUrl) return
+    setPublishingTwitter(true)
+    try {
+      const response = await fetch('/api/publish/twitter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: tituloEditado,
+          imageUrl: post.imagenUrl,
+          link: post.link,
+          newsId: id,
+        }),
+      })
+
+      if (!response.ok) {
+        const error = await response.json()
+        setError(error.error || 'Error al publicar en Twitter')
+        setPublishingTwitter(false)
+        return
+      }
+
+      setPublishSuccessTwitter(true)
+      setTimeout(() => setPublishSuccessTwitter(false), 3000)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Error al publicar')
+    } finally {
+      setPublishingTwitter(false)
     }
   }
 
@@ -327,9 +360,7 @@ export default function SocialPostButton({ id, titulo, inline = false }: SocialP
                         </>
                       )}
                     </button>
-
-                    {/* TODO: Habilitar Instagram  */}
-                    {/* <button
+                     <button
                       onClick={handlePublishInstagram}
                       disabled={publishingInstagram}
                       className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#f09433] via-[#e6683c] to-[#bc1888] text-white font-bold py-2.5 rounded hover:opacity-90 transition-opacity disabled:opacity-50 text-sm"
@@ -350,7 +381,32 @@ export default function SocialPostButton({ id, titulo, inline = false }: SocialP
                           Instagram
                         </>
                       )}
-                    </button> */}
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2">
+                    <button
+                      onClick={handlePublishTwitter}
+                      disabled={publishingTwitter}
+                      className="flex items-center justify-center gap-2 bg-[#1DA1F2] text-white font-bold py-2.5 rounded hover:opacity-90 transition-opacity disabled:opacity-50 text-sm"
+                    >
+                      {publishingTwitter ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          Publicando...
+                        </>
+                      ) : publishSuccessTwitter ? (
+                        <>
+                          <Check className="w-4 h-4 text-green-400" />
+                          ¡Publicado!
+                        </>
+                      ) : (
+                        <>
+                          <Share2 className="w-4 h-4" />
+                          Twitter
+                        </>
+                      )}
+                    </button>
                   </div>
 
                 </>
