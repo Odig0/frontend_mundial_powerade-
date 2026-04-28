@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 const METRICOOL_API_KEY = process.env.NEXT_PUBLIC_METRICOOL
 const METRICOOL_USER_ID = process.env.METRICOOL_USER_ID
 const METRICOOL_BLOG_ID = process.env.METRICOOL_BLOG_ID
-const NEWS_BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'http://localhost:8080'
+const NEWS_BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo'
 const METRICOOL_BASE = 'https://app.metricool.com/api'
 
 export async function POST(request: NextRequest) {
