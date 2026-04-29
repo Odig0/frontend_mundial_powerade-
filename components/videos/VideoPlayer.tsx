@@ -1,10 +1,10 @@
 "use client"
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type { VideoItem } from '@/services/dailymotionService'
 
 interface VideoPlayerProps {
-  videos: VideoItem[]
+  videos?: VideoItem[]
   startIndex?: number
 }
 
@@ -14,11 +14,31 @@ function buildEmbedSrc(embedUrl: string) {
   return `${embedUrl}${separator}autoplay=1&queue-autoplay-next=1&ui-logo=0&ui-startscreen-info=0`
 }
 
-export default function VideoPlayer({ videos, startIndex = 0 }: VideoPlayerProps) {
+export default function VideoPlayer({ videos: initialVideos, startIndex = 0 }: VideoPlayerProps) {
   const [selectedIndex, setSelectedIndex] = useState(startIndex)
+  const [videos, setVideos] = useState<VideoItem[]>(initialVideos || [])
+  const [loading, setLoading] = useState(!initialVideos || initialVideos.length === 0)
 
-  // Debug: Log en cliente
-  console.log('[VideoPlayer Client] Received videos:', videos?.length ?? 'undefined')
+  // Si no vinieron videos del servidor, los obtenemos en cliente (fallback)
+  useEffect(() => {
+    if (!initialVideos || initialVideos.length === 0) {
+      const fetchVideos = async () => {
+        try {
+          setLoading(true)
+          const response = await fetch('/api/videos')
+          if (!response.ok) throw new Error('Failed to fetch videos')
+          const data = await response.json()
+          setVideos(data.videos || [])
+        } catch (error) {
+          console.error('[VideoPlayer] Error fetching videos:', error)
+          setVideos([])
+        } finally {
+          setLoading(false)
+        }
+      }
+      fetchVideos()
+    }
+  }, [initialVideos])
 
   const currentVideo = videos?.[selectedIndex]
 
@@ -27,13 +47,20 @@ export default function VideoPlayer({ videos, startIndex = 0 }: VideoPlayerProps
     return buildEmbedSrc(currentVideo.embedUrl)
   }, [currentVideo])
 
+  if (loading) {
+    return (
+      <div className="w-full bg-blue-900/20 border border-blue-500 rounded-lg p-8 text-center">
+        <p className="text-white">Cargando videos...</p>
+      </div>
+    )
+  }
+
   if (!videos || videos.length === 0) {
     return (
       <div className="w-full bg-blue-900/20 border border-blue-500 rounded-lg p-8 text-center">
         <p className="text-white mb-2">⚠️ No hay videos disponibles</p>
         <p className="text-xs text-blue-300">
-          Videos recibidos del servidor: {videos?.length ?? 'undefined'} 
-          {typeof videos === 'undefined' && ' (props undefined)'}
+          Videos recibidos: {videos?.length ?? 0}
         </p>
       </div>
     )
