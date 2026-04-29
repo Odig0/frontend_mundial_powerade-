@@ -59,12 +59,20 @@ export default function HeroBlock({ featured, side }: HeroBlockProps) {
 
             {featured.opinologo && (
               <div className="flex items-center gap-3">
-                <span
-                  className="w-9 h-9 rounded-full bg-[#3CB7FF] text-white text-xs font-bold flex items-center justify-center border-2 border-white/30 shadow-lg"
-                  style={{ display: featured.opinologo.foto ? 'none' : 'flex' }}
-                >
-                  {featured.opinologo.firma.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase()}
-                </span>
+                <div className="relative w-9 h-9 rounded-full overflow-hidden border-2 border-white/30 shadow-lg bg-[#3CB7FF]">
+                  {featured.opinologo.foto ? (
+                    <Image
+                      src={featured.opinologo.foto}
+                      alt={featured.opinologo.firma}
+                      fill
+                      className="object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-white text-xs font-bold">
+                      {featured.opinologo.firma.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase()}
+                    </div>
+                  )}
+                </div>
                 <span className="text-white/90 text-base">
                   <span className="font-normal tracking-wide mr-1">Por</span>
                   <span className="font-bold">{featured.opinologo.firma}</span>
