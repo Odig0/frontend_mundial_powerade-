@@ -1,9 +1,9 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
-import { Edit3 } from 'lucide-react'
+import { ChevronDown, Edit3 } from 'lucide-react'
 import { NewsItem } from '@/lib/api'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -34,20 +34,44 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
   const publicada = isPublished(news._id)
   const seccion = news.secciones?.[0] ?? 'general'
   const [dialogOpen, setDialogOpen] = useState(false)
-  const [selectedSection, setSelectedSection] = useState(seccion)
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+  // Initialize with the current sections, splitting any comma-joined strings
+  const [selectedSections, setSelectedSections] = useState<string[]>(() =>
+    (news.secciones ?? []).flatMap((s) => s.split(',').map((x) => x.trim())).filter(Boolean)
+  )
   const [savingSection, setSavingSection] = useState(false)
   const safeAvailableSections = Array.isArray(availableSections) ? availableSections : []
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleOutsideClick(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleOutsideClick)
+    return () => document.removeEventListener('mousedown', handleOutsideClick)
+  }, [])
+
+  // Split any combined "Section A, Section B" entries into individual flat options
   const sectionOptions = useMemo(() => {
-    const current = news.secciones ?? []
-    return Array.from(new Set([...current, ...safeAvailableSections])).filter(Boolean)
+    const current = (news.secciones ?? []).flatMap((s) => s.split(',').map((x) => x.trim()))
+    const available = safeAvailableSections.flatMap((s) => s.split(',').map((x) => x.trim()))
+    return Array.from(new Set([...current, ...available])).filter(Boolean).sort()
   }, [safeAvailableSections, news.secciones])
 
+  function toggleSection(section: string) {
+    setSelectedSections((prev) =>
+      prev.includes(section) ? prev.filter((s) => s !== section) : [...prev, section]
+    )
+  }
+
   async function handleUpdateSection() {
-    if (!selectedSection) {
+    if (selectedSections.length === 0) {
       toast({
         title: 'Sección requerida',
-        description: 'Selecciona una sección antes de guardar.',
+        description: 'Selecciona al menos una sección antes de guardar.',
         variant: 'destructive',
       })
       return
@@ -55,10 +79,10 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
 
     setSavingSection(true)
     try {
-      await updateNewsSections(news._id, [selectedSection])
+      await updateNewsSections(news._id, selectedSections)
       toast({
-        title: 'Sección actualizada',
-        description: `${news.titulo} ahora queda en ${selectedSection}.`,
+        title: 'Secciones actualizadas',
+        description: `${news.titulo} → ${selectedSections.join(', ')}.`,
       })
       setDialogOpen(false)
       router.refresh()
@@ -130,7 +154,9 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
               size="sm"
               className="w-full justify-center"
               onClick={() => {
-                setSelectedSection(seccion)
+                setSelectedSections(
+                  (news.secciones ?? []).flatMap((s) => s.split(',').map((x) => x.trim())).filter(Boolean)
+                )
                 setDialogOpen(true)
               }}
               disabled={sectionOptions.length === 0}
@@ -163,25 +189,50 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
           </DialogHeader>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-foreground">Sección</label>
-            <select
-              value={selectedSection}
-              onChange={(e) => setSelectedSection(e.target.value)}
-              className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm outline-none focus:border-accent"
-            >
-              {sectionOptions.map((section) => (
-                <option key={section} value={section}>
-                  {formatSectionLabel(section)}
-                </option>
-              ))}
-            </select>
+            <label className="text-sm font-medium text-foreground">Secciones</label>
+            {/* Custom multi-select dropdown — same look as native select */}
+            <div ref={dropdownRef} className="relative">
+              <button
+                type="button"
+                onClick={() => setDropdownOpen((o) => !o)}
+                className="w-full flex items-center justify-between rounded-md border border-border bg-background px-3 py-2 text-sm outline-none focus:border-accent"
+              >
+                <span className="truncate">
+                  {selectedSections.length > 0
+                    ? selectedSections.map(formatSectionLabel).join(', ')
+                    : 'Seleccionar sección...'}
+                </span>
+                <ChevronDown className={`h-4 w-4 shrink-0 ml-2 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {dropdownOpen && (
+                <ul className="absolute z-50 mt-1 w-full rounded-md border border-border bg-background shadow-lg overflow-hidden">
+                  {sectionOptions.map((section) => {
+                    const active = selectedSections.includes(section)
+                    return (
+                      <li
+                        key={section}
+                        onClick={() => toggleSection(section)}
+                        className={`px-3 py-2 text-sm cursor-pointer transition-colors ${
+                          active
+                            ? 'bg-accent text-accent-foreground'
+                            : 'hover:bg-muted text-foreground'
+                        }`}
+                      >
+                        {formatSectionLabel(section)}
+                      </li>
+                    )
+                  })}
+                </ul>
+              )}
+            </div>
           </div>
 
           <DialogFooter>
             <Button variant="outline" onClick={() => setDialogOpen(false)} disabled={savingSection}>
               Cancelar
             </Button>
-            <Button onClick={handleUpdateSection} disabled={savingSection || !selectedSection}>
+            <Button onClick={handleUpdateSection} disabled={savingSection || selectedSections.length === 0}>
               {savingSection ? 'Guardando...' : 'Guardar cambios'}
             </Button>
           </DialogFooter>

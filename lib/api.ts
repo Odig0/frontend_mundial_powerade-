@@ -263,12 +263,16 @@ export function formatSectionLabel(section: string) {
   return section.charAt(0).toUpperCase() + section.slice(1)
 }
 
+export async function getNewsBySectionSlug(slug: string): Promise<NewsItem[]> {
+  const news = await requestJson<NewsItem[]>(`/news/section/${encodeURIComponent(slug)}`)
+  return sortNewsByRecency(news.map(normalizeNewsItem))
+}
+
 export async function updateNewsSections(id: string, sections: string[]): Promise<void> {
   await requestJson(`/news/${encodeURIComponent(id)}/sections`, {
     method: 'PUT',
     body: JSON.stringify({
       secciones: sections,
-      sections,
     }),
   })
 }

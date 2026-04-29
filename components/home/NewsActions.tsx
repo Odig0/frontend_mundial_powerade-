@@ -45,15 +45,6 @@ export default function NewsActions({ primaryHref, primaryLabel }: NewsActionsPr
         {primaryLabel}
       </Link>
 
-      <button
-        type="button"
-        onClick={handleSync}
-        disabled={isSyncing}
-        className="inline-flex items-center gap-2 rounded-full border border-border bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
-      >
-        <RefreshCw className={isSyncing ? 'size-4 animate-spin' : 'size-4'} />
-        {isSyncing ? 'Sincronizando' : 'Sincronizar'}
-      </button>
 
       {errorMessage ? (
         <p className="w-full text-sm text-destructive">{errorMessage}</p>
