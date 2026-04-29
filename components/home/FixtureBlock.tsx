@@ -2,7 +2,11 @@ import { partidos } from '@/data/fixtures'
 
 export default function FixtureBlock() {
   return (
-    <div className="flex flex-col h-full">
+    <div
+      id="partidos"
+      className="flex flex-col h-full"
+      style={{ scrollMarginTop: '88px' }}
+    >
       <div className="bg-accent text-accent-foreground px-4 py-2 text-center font-bold text-sm uppercase tracking-wider">
         Partidos del día
       </div>

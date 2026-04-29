@@ -34,7 +34,11 @@ export default function VideoBlock({ videos }: VideoBlockProps) {
   }
 
   return (
-    <section className="py-16 bg-zinc-950 text-white overflow-hidden">
+    <section
+      id="videos"
+      className="py-16 bg-zinc-950 text-white overflow-hidden"
+      style={{ scrollMarginTop: '88px' }}
+    >
       <div className="max-w-6xl mx-auto px-4">
         <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-900 via-zinc-950 to-blue-950 p-8 md:p-12 shadow-2xl shadow-blue-950/20">
           <div className="max-w-2xl space-y-5">
