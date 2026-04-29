@@ -3,17 +3,21 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
+import { usePathname, useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
+import type { MouseEvent } from 'react'
 
 const links = [
-  { label: 'Últimas', href: '/' },
-  { label: 'Partidos', href: '/partidos' },
-  { label: 'Selecciones', href: '/selecciones' },
-  { label: 'Videos', href: '/videos' },
+  { label: 'Últimas', href: '/', action: 'ultimas' },
+  { label: 'Partidos', href: '/', action: 'partidos' },
+  { label: 'Fuera de juego', href: '/fueradejuego' },
+  { label: 'Videos', href: '/', action: 'videos' },
 ]
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
+  const router = useRouter()
 
   // Evitar scroll del body cuando el menú está abierto
   useEffect(() => {
@@ -27,6 +31,43 @@ export default function Navbar() {
     }
   }, [isOpen])
 
+  function handleNavigationClick(e: MouseEvent<HTMLAnchorElement>, action?: string) {
+    if (!action) return
+
+    e.preventDefault()
+    setIsOpen(false)
+
+    const scrollToSection = (anchorId: string) => {
+      const element = document.getElementById(anchorId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+
+    if (pathname === '/') {
+      // Already on home page, just scroll to section
+      if (action === 'ultimas') {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else if (action === 'partidos') {
+        scrollToSection('partidos')
+      } else if (action === 'videos') {
+        scrollToSection('videos')
+      }
+    } else {
+      // On different page, navigate to home and scroll after
+      router.push('/')
+      setTimeout(() => {
+        if (action === 'ultimas') {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        } else if (action === 'partidos') {
+          scrollToSection('partidos')
+        } else if (action === 'videos') {
+          scrollToSection('videos')
+        }
+      }, 400)
+    }
+  }
+
   return (
     <nav className="bg-[#0a1525] border-b border-white/5 sticky top-0 z-50 h-14">
       <div className="container max-w-[1200px] mx-auto h-full px-4">
@@ -35,10 +76,11 @@ export default function Navbar() {
           {/* DESKTOP */}
           <div className="hidden md:flex items-center">
             {links.map((link, i) => (
-              <div key={link.href} className="flex items-center">
+              <div key={link.label} className="flex items-center">
                 {i > 0 && <span className="text-white/20 text-xs px-1">|</span>}
                 <Link
                   href={link.href}
+                  onClick={(e) => handleNavigationClick(e, link.action)}
                   className="py-3 px-4 text-sm font-semibold text-white/80 hover:text-[#3CB7FF] transition-colors"
                 >
                   {link.label}
@@ -86,9 +128,9 @@ export default function Navbar() {
         <div className="flex flex-col h-full pt-24 px-8 gap-2">
           {links.map((link, i) => (
             <Link
-              key={link.href}
+              key={link.label}
               href={link.href}
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => handleNavigationClick(e, link.action)}
               className={cn(
                 "py-4 text-2xl font-bold text-white border-b border-white/5 hover:text-[#3CB7FF] transition-all duration-300",
                 isOpen ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
@@ -114,4 +156,4 @@ export default function Navbar() {
       </div>
     </nav>
   )
-}
+}
