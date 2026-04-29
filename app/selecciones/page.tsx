@@ -57,9 +57,6 @@ export default function SeleccionesPage() {
                   <h2 className="text-xl font-black uppercase tracking-tight text-white">
                     Selección {seleccion.id}
                   </h2>
-                  <p className="mt-1 text-xs text-white/75">
-                    Imagen cargada desde public/selecciones
-                  </p>
                 </div>
               </div>
             </article>
