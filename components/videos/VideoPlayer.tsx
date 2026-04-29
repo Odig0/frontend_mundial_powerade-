@@ -17,14 +17,27 @@ function buildEmbedSrc(embedUrl: string) {
 export default function VideoPlayer({ videos, startIndex = 0 }: VideoPlayerProps) {
   const [selectedIndex, setSelectedIndex] = useState(startIndex)
 
-  const currentVideo = videos[selectedIndex]
+  // Debug: Log en cliente
+  console.log('[VideoPlayer Client] Received videos:', videos?.length ?? 'undefined')
+
+  const currentVideo = videos?.[selectedIndex]
 
   const playerSrc = useMemo(() => {
     if (!currentVideo) return ''
     return buildEmbedSrc(currentVideo.embedUrl)
   }, [currentVideo])
 
-  if (!videos || videos.length === 0) return null
+  if (!videos || videos.length === 0) {
+    return (
+      <div className="w-full bg-blue-900/20 border border-blue-500 rounded-lg p-8 text-center">
+        <p className="text-white mb-2">⚠️ No hay videos disponibles</p>
+        <p className="text-xs text-blue-300">
+          Videos recibidos del servidor: {videos?.length ?? 'undefined'} 
+          {typeof videos === 'undefined' && ' (props undefined)'}
+        </p>
+      </div>
+    )
+  }
 
   return (
     <div className="w-full">
