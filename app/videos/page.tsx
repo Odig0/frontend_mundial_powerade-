@@ -2,7 +2,6 @@ import Header from '@/components/layout/Header'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import VideoPlayer from '@/components/videos/VideoPlayer'
-import VideoDebug from '@/components/videos/VideoDebug'
 import { getDailymotionVideos } from '@/services/dailymotionService'
 
 export const metadata = {
@@ -28,8 +27,6 @@ export default async function VideosPage() {
           {/* Client component handles player and playlist */}
           {/* @ts-expect-error Server -> Client component */}
           <VideoPlayer videos={videos} />
-          {/* @ts-expect-error Server -> Client component */}
-          <VideoDebug videos={videos} />
         </div>
       </main>
 

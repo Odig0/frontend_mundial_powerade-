@@ -33,25 +33,19 @@ const PLAYLIST_ID = process.env.NEXT_PUBLIC_DAILYMOTION_PLAYLIST;
  */
 export async function getDailymotionVideos(): Promise<VideoItem[]> {
   if (!PLAYLIST_ID) {
-    console.error('[Dailymotion] ERROR: NEXT_PUBLIC_DAILYMOTION_PLAYLIST is not defined in environment variables.');
+    console.warn('[Dailymotion] Warning: NEXT_PUBLIC_DAILYMOTION_PLAYLIST is not defined in environment variables.');
     return [];
   }
 
   try {
-    console.log(`[Dailymotion] Fetching videos from playlist: ${PLAYLIST_ID}`);
-    
     // Definimos los campos específicos que queremos recuperar para optimizar la respuesta
     const fields = 'id,title,thumbnail_720_url,thumbnail_url,url,embed_url';
     const url = `https://api.dailymotion.com/playlist/${PLAYLIST_ID}/videos?limit=20&fields=${fields}`;
-    
-    console.log(`[Dailymotion] URL: ${url}`);
     
     // Usamos el cache de Next.js con revalidación de 1 hora (3600 segundos)
     const response = await fetch(url, { 
       next: { revalidate: 3600 }
     });
-
-    console.log(`[Dailymotion] Response status: ${response.status}`);
 
     if (!response.ok) {
       console.error(`[Dailymotion] API error: ${response.status} ${response.statusText} for playlist ${PLAYLIST_ID}`);
@@ -62,11 +56,8 @@ export async function getDailymotionVideos(): Promise<VideoItem[]> {
 
     if (!data.list || !Array.isArray(data.list)) {
       console.error('[Dailymotion] Unexpected API response format: "list" field is missing or not an array.');
-      console.error('[Dailymotion] Response data:', JSON.stringify(data).substring(0, 200));
       return [];
     }
-
-    console.log(`[Dailymotion] Successfully fetched ${data.list.length} videos`);
 
     // Normalizamos la respuesta a nuestro formato interno estable
     return data.list.map((item: DailymotionVideo) => ({
