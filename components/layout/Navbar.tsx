@@ -12,7 +12,7 @@ const links = [
   { label: 'Partidos', href: '/', action: 'partidos' },
   { label: 'Selecciones', href: '/selecciones' },
   { label: 'Fuera de juego', href: '/fueradejuego' },
-  { label: 'Videos', href: '/', action: 'videos' },
+  { label: 'Videos', href: '/videos' },
 ]
 
 export default function Navbar() {
@@ -31,6 +31,21 @@ export default function Navbar() {
       document.body.style.overflow = 'unset'
     }
   }, [isOpen])
+
+  // Scrollear a sección si hay hash en la URL
+  useEffect(() => {
+    if (pathname === '/') {
+      const hash = window.location.hash.slice(1)
+      if (hash) {
+        const element = document.getElementById(hash)
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth' })
+          }, 100)
+        }
+      }
+    }
+  }, [pathname])
 
   function handleNavigationClick(e: MouseEvent<HTMLAnchorElement>, action?: string) {
     if (!action) return
@@ -55,17 +70,8 @@ export default function Navbar() {
         scrollToSection('videos')
       }
     } else {
-      // On different page, navigate to home and scroll after
-      router.push('/')
-      setTimeout(() => {
-        if (action === 'ultimas') {
-          window.scrollTo({ top: 0, behavior: 'smooth' })
-        } else if (action === 'partidos') {
-          scrollToSection('partidos')
-        } else if (action === 'videos') {
-          scrollToSection('videos')
-        }
-      }, 400)
+      // On different page, navigate to home with hash
+      router.push(`/#${action}`)
     }
   }
 

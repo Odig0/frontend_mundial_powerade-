@@ -1,0 +1,120 @@
+"use client"
+
+import { useMemo, useState } from 'react'
+import type { VideoItem } from '@/services/dailymotionService'
+
+interface VideoPlayerProps {
+  videos: VideoItem[]
+  startIndex?: number
+}
+
+function buildEmbedSrc(embedUrl: string) {
+  const hasQuery = embedUrl.includes('?')
+  const separator = hasQuery ? '&' : '?'
+  return `${embedUrl}${separator}autoplay=1&queue-autoplay-next=1&ui-logo=0&ui-startscreen-info=0`
+}
+
+export default function VideoPlayer({ videos, startIndex = 0 }: VideoPlayerProps) {
+  const [selectedIndex, setSelectedIndex] = useState(startIndex)
+
+  const currentVideo = videos[selectedIndex]
+
+  const playerSrc = useMemo(() => {
+    if (!currentVideo) return ''
+    return buildEmbedSrc(currentVideo.embedUrl)
+  }, [currentVideo])
+
+  if (!videos || videos.length === 0) return null
+
+  return (
+    <div className="w-full">
+      <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_420px] gap-6 xl:gap-8">
+        <section className="min-w-0">
+          <div className="overflow-hidden rounded-[28px] border border-white/10 bg-black shadow-[0_0_60px_rgba(60,183,255,0.08)]">
+            <div className="relative aspect-video w-full bg-black">
+              {currentVideo && (
+                <iframe
+                  key={currentVideo.id}
+                  src={playerSrc}
+                  className="absolute inset-0 h-full w-full border-0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  title={currentVideo.titulo}
+                />
+              )}
+            </div>
+
+            <div className="border-t border-white/8 bg-black/40 px-4 py-4 md:px-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#3CB7FF]">
+                Reproduciendo ahora
+              </p>
+              <h2 className="mt-2 text-lg md:text-xl font-black leading-tight text-white">
+                {currentVideo?.titulo}
+              </h2>
+            </div>
+          </div>
+        </section>
+
+        <aside className="min-w-0">
+          <div className="rounded-[28px] border border-white/10 bg-white/5 p-3 md:p-4">
+            <div className="mb-4 flex items-center justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#3CB7FF]">
+                  Lista
+                </p>
+                <h3 className="mt-1 text-lg font-black text-white">
+                  Todos los videos
+                </h3>
+              </div>
+              <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs font-semibold text-white/70">
+                {videos.length}
+              </span>
+            </div>
+
+            <div className="space-y-2 max-h-[calc(100vh-260px)] overflow-y-auto pr-1">
+              {videos.map((video, index) => {
+                const active = index === selectedIndex
+                return (
+                  <button
+                    key={video.id}
+                    type="button"
+                    onClick={() => setSelectedIndex(index)}
+                    className={`flex w-full items-center gap-3 rounded-2xl border p-2 text-left transition-all duration-300 ${
+                      active
+                        ? 'border-[#3CB7FF]/60 bg-[#3CB7FF]/10 shadow-[0_0_20px_rgba(60,183,255,0.08)]'
+                        : 'border-white/8 bg-black/20 hover:border-white/15 hover:bg-white/5'
+                    }`}
+                  >
+                    <div className="relative h-20 w-32 shrink-0 overflow-hidden rounded-xl bg-zinc-900">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={video.thumb}
+                        alt={video.titulo}
+                        className="h-full w-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent" />
+                      {active && (
+                        <span className="absolute left-2 top-2 rounded-full bg-[#3CB7FF] px-2 py-0.5 text-[10px] font-black uppercase text-white">
+                          Play
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="min-w-0 flex-1">
+                      <p className="line-clamp-2 text-sm font-bold leading-snug text-white">
+                        {video.titulo}
+                      </p>
+                      <p className="mt-1 text-xs text-white/60">
+                        Dailymotion
+                      </p>
+                    </div>
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  )
+}
