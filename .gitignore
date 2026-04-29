@@ -10,8 +10,7 @@ next.user-config.*
 # Environment variables
 .env*.local
 .env
-.env.example
-
+.env
 # Common ignores
 node_modules
 .next/

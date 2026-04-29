@@ -64,7 +64,9 @@ function normalizeNewsItem(item: NewsItem): NewsItem {
     opinologo: item.opinologo
       ? {
         ...item.opinologo,
-        foto: item.opinologo.foto ? buildImageUrl(item.opinologo.foto) : item.opinologo.foto,
+        foto: item.opinologo.foto
+          ? `${IMAGE_BASE_URL}${item.opinologo._id}/${item.opinologo.foto}`
+          : item.opinologo.foto,
       }
       : item.opinologo,
   }

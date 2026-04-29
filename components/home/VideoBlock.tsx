@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from 'react'
-import Link from 'next/link'
 import type { VideoItem } from '@/services/dailymotionService'
 import VideoCarousel from './VideoCarousel'
 import VideoModal from './VideoModal'
@@ -27,47 +26,31 @@ export default function VideoBlock({ videos }: VideoBlockProps) {
 
   const handleCloseModal = () => {
     setIsModalOpen(false)
-    // Sincronización con la animación de salida
     setTimeout(() => {
       setSelectedVideoId(null)
     }, 450)
   }
 
   return (
-    <section
-      id="videos"
-      className="py-16 bg-zinc-950 text-white overflow-hidden"
-      style={{ scrollMarginTop: '88px' }}
-    >
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-900 via-zinc-950 to-blue-950 p-8 md:p-12 shadow-2xl shadow-blue-950/20">
-          <div className="max-w-2xl space-y-5">
-            <p className="text-sm uppercase tracking-[0.3em] text-blue-300/80">Video</p>
-            <h2 className="text-3xl md:text-4xl font-black text-white">Cobertura multimedia</h2>
-            <div className="flex flex-wrap gap-3 pt-2">
-              <Link
-                href="/"
-                className="rounded-full bg-blue-500 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-400"
-              >
-                Volver a portada
-              </Link>
-              <Link
-                href="/mundial"
-                className="rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-              >
-                Ver mundial
-              </Link>
-            </div>
-          </div>
+    <section className="bg-background pb-4 pt-8 relative overflow-hidden">
+      <div className="absolute top-0 left-1/3 w-[300px] h-[300px] bg-[#3CB7FF]/5 blur-[80px] rounded-full -z-10" />
+      <div className="absolute bottom-0 right-1/3 w-[250px] h-[250px] bg-[#3CB7FF]/5 blur-[60px] rounded-full -z-10" />
+
+      <div className="w-full">
+        <div className="flex flex-col items-start text-left mb-8">
+          <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter flex items-center gap-2">
+            <span className="w-2 h-8 bg-[#3CB7FF] rounded-full inline-block" />
+            Videos
+          </h2>
         </div>
 
-        <VideoCarousel 
-          videos={videos} 
-          onVideoClick={handleVideoClick} 
+        <VideoCarousel
+          videos={videos}
+          onVideoClick={handleVideoClick}
         />
       </div>
 
-      <VideoModal 
+      <VideoModal
         videoId={selectedVideoId}
         isOpen={isModalOpen}
         onClose={handleCloseModal}
