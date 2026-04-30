@@ -11,7 +11,7 @@ interface ShareVideoButtonProps {
   shareUrl?: string
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'http://localhost:8080'
+const BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo/'
 const VIDEOS_PAGE_URL = `${BASE_URL}/videos`
 
 export default function ShareVideoButton({ videoId, videoTitle, embedUrl, shareUrl }: ShareVideoButtonProps) {
