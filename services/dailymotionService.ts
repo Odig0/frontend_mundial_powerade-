@@ -9,6 +9,7 @@ export interface VideoItem {
   thumb: string;
   url: string;
   embedUrl: string;
+  shareUrl?: string;
 }
 
 /**
@@ -21,6 +22,7 @@ interface DailymotionVideo {
   thumbnail_url: string;
   url: string;
   embed_url: string;
+  share_url?: string;
 }
 
 const PLAYLIST_ID = process.env.NEXT_PUBLIC_DAILYMOTION_PLAYLIST;
@@ -39,6 +41,7 @@ export async function getDailymotionVideos(): Promise<VideoItem[]> {
 
   try {
     // Definimos los campos específicos que queremos recuperar para optimizar la respuesta
+    // share_url puede no estar disponible en todas las respuestas, por lo que es opcional
     const fields = 'id,title,thumbnail_720_url,thumbnail_url,url,embed_url';
     const url = `https://api.dailymotion.com/playlist/${PLAYLIST_ID}/videos?limit=20&fields=${fields}`;
     
@@ -60,14 +63,18 @@ export async function getDailymotionVideos(): Promise<VideoItem[]> {
     }
 
     // Normalizamos la respuesta a nuestro formato interno estable
-    return data.list.map((item: DailymotionVideo) => ({
-      id: item.id,
-      titulo: item.title,
-      // Preferimos la miniatura de alta resolución (720), pero tenemos un fallback
-      thumb: item.thumbnail_720_url || item.thumbnail_url,
-      url: item.url,
-      embedUrl: item.embed_url,
-    }));
+    return data.list.map((item: DailymotionVideo) => {
+      return {
+        id: item.id,
+        titulo: item.title,
+        // Preferimos la miniatura de alta resolución (720), pero tenemos un fallback
+        thumb: item.thumbnail_720_url || item.thumbnail_url,
+        url: item.url,
+        embedUrl: item.embed_url,
+        // item.id es el identificador canonico del video en Dailymotion
+        shareUrl: item.share_url || `https://dai.ly/${item.id}`,
+      };
+    });
   } catch (error) {
     // Manejo genérico de errores de red o parseo
     console.error('[Dailymotion] Fetch error:', error);

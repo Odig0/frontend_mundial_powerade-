@@ -1,12 +1,52 @@
 "use client"
 
 import { useEffect, useMemo, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import type { VideoItem } from '@/services/dailymotionService'
 import ShareVideoButton from './ShareVideoButton'
 
 interface VideoPlayerProps {
   videos?: VideoItem[]
   startIndex?: number
+}
+
+function extractVideoId(video: Pick<VideoItem, 'id' | 'embedUrl' | 'shareUrl'>): string {
+  const fromQuery = (value?: string | null) => {
+    if (!value) return ''
+    try {
+      const parsed = new URL(value)
+      return parsed.searchParams.get('video') || ''
+    } catch {
+      const query = value.split('?')[1]
+      if (!query) return ''
+      return new URLSearchParams(query).get('video') || ''
+    }
+  }
+
+  const fromLastPath = (value?: string | null) => {
+    if (!value) return ''
+    const path = value.split('#')[0].split('?')[0]
+    const parts = path.split('/').filter(Boolean)
+    const last = parts[parts.length - 1] || ''
+    return last === 'player.html' ? '' : last
+  }
+
+  return (
+    fromQuery(video.shareUrl) ||
+    fromLastPath(video.shareUrl) ||
+    fromQuery(video.embedUrl) ||
+    fromLastPath(video.embedUrl) ||
+    video.id
+  )
+}
+
+function normalizeVideoParam(param: string | null): string {
+  if (!param) return ''
+  if (param.startsWith('player.html?')) {
+    const nested = param.split('?')[1]
+    return new URLSearchParams(nested).get('video') || param
+  }
+  return param
 }
 
 function buildEmbedSrc(embedUrl: string) {
@@ -16,13 +56,24 @@ function buildEmbedSrc(embedUrl: string) {
 }
 
 export default function VideoPlayer({ videos: initialVideos, startIndex = 0 }: VideoPlayerProps) {
+  const searchParams = useSearchParams()
+  const videoParam = normalizeVideoParam(searchParams.get('video'))
+  
   const [selectedIndex, setSelectedIndex] = useState(startIndex)
   const [videos, setVideos] = useState<VideoItem[]>(initialVideos || [])
   const [loading, setLoading] = useState(!initialVideos || initialVideos.length === 0)
 
+  // Actualiza el estado cuando cambien los videos iniciales
+  useEffect(() => {
+    if (initialVideos && initialVideos.length > 0) {
+      setVideos(initialVideos)
+      setLoading(false)
+    }
+  }, [initialVideos])
+
   // Si no vinieron videos del servidor, los obtenemos en cliente (fallback)
   useEffect(() => {
-    if (!initialVideos || initialVideos.length === 0) {
+    if (!videos || videos.length === 0) {
       const fetchVideos = async () => {
         try {
           setLoading(true)
@@ -39,7 +90,27 @@ export default function VideoPlayer({ videos: initialVideos, startIndex = 0 }: V
       }
       fetchVideos()
     }
-  }, [initialVideos])
+  }, [])
+
+  // Detecta si hay un parámetro de video en la URL y selecciona ese video
+  useEffect(() => {
+    if (videoParam && videos && videos.length > 0) {
+      const index = videos.findIndex(v => {
+        const dailyId = extractVideoId(v)
+        return dailyId === videoParam
+      })
+      if (index >= 0) {
+        setSelectedIndex(index)
+      }
+    }
+  }, [videoParam, videos])
+
+  const handleSelectVideo = (video: VideoItem, index: number) => {
+    setSelectedIndex(index)
+    const selectedId = extractVideoId(video)
+    const nextUrl = `/videos?video=${encodeURIComponent(selectedId)}`
+    window.location.href = nextUrl
+  }
 
   const currentVideo = videos?.[selectedIndex]
 
@@ -96,7 +167,7 @@ export default function VideoPlayer({ videos: initialVideos, startIndex = 0 }: V
                   </h2>
                 </div>
                 {currentVideo && (
-                  <ShareVideoButton videoId={currentVideo.id} videoTitle={currentVideo.titulo} />
+                  <ShareVideoButton videoId={currentVideo.id} videoTitle={currentVideo.titulo} embedUrl={currentVideo.embedUrl} shareUrl={currentVideo.shareUrl} />
                 )}
               </div>
             </div>
@@ -126,7 +197,7 @@ export default function VideoPlayer({ videos: initialVideos, startIndex = 0 }: V
                   <button
                     key={video.id}
                     type="button"
-                    onClick={() => setSelectedIndex(index)}
+                    onClick={() => handleSelectVideo(video, index)}
                     className={`flex w-full items-center gap-3 rounded-2xl border p-2 text-left transition-all duration-300 ${
                       active
                         ? 'border-[#3CB7FF]/60 bg-[#3CB7FF]/10 shadow-[0_0_20px_rgba(60,183,255,0.08)]'

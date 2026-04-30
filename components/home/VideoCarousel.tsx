@@ -85,7 +85,7 @@ export default function VideoCarousel({ videos, onVideoClick }: VideoCarouselPro
                   </div>
                 </button>
 
-                <ShareVideoButton videoId={video.id} videoTitle={video.titulo} />
+                <ShareVideoButton videoId={video.id} videoTitle={video.titulo} embedUrl={video.embedUrl} shareUrl={video.shareUrl} />
               </div>
             </div>
           ))}

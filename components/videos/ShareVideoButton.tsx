@@ -7,17 +7,54 @@ import { toast } from 'sonner'
 interface ShareVideoButtonProps {
   videoId: string
   videoTitle: string
+  embedUrl?: string
+  shareUrl?: string
 }
 
-const VIDEOS_PAGE_URL = 'https://dev.eldeber.bo/videos'
+const BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'http://localhost:8080'
+const VIDEOS_PAGE_URL = `${BASE_URL}/videos`
 
-export default function ShareVideoButton({ videoId, videoTitle }: ShareVideoButtonProps) {
+export default function ShareVideoButton({ videoId, videoTitle, embedUrl, shareUrl }: ShareVideoButtonProps) {
   const [open, setOpen] = useState(false)
+
+  // Extrae el ID dinámicamente del shareUrl de Dailymotion
+  // shareUrl típicamente es: https://dai.ly/x91agqs
+  // embedUrl típicamente es: https://www.dailymotion.com/embed/video/x91agqs
+  const extractVideoId = (url?: string): string => {
+    if (!url) return videoId
+    try {
+      const parsed = new URL(url)
+      const queryVideoId = parsed.searchParams.get('video')
+      if (queryVideoId) return queryVideoId
+
+      const cleanPath = parsed.pathname.split('/').filter(Boolean)
+      const lastSegment = cleanPath[cleanPath.length - 1]
+      if (lastSegment && lastSegment !== 'player.html') return lastSegment
+    } catch {
+      // Fallback para urls no absolutas o formatos inesperados
+      const raw = url.split('#')[0]
+      const query = raw.split('?')[1]
+      if (query) {
+        const params = new URLSearchParams(query)
+        const queryVideoId = params.get('video')
+        if (queryVideoId) return queryVideoId
+      }
+
+      const pathPart = raw.split('?')[0]
+      const parts = pathPart.split('/').filter(Boolean)
+      const lastSegment = parts[parts.length - 1]
+      if (lastSegment && lastSegment !== 'player.html') return lastSegment
+    }
+
+    return videoId
+  }
+
+  const dynamicVideoId = extractVideoId(shareUrl) || extractVideoId(embedUrl) || videoId
 
   const shareData = {
     title: videoTitle,
     text: `Mira este video: ${videoTitle}`,
-    url: `${VIDEOS_PAGE_URL}?video=${videoId}`,
+    url: `${VIDEOS_PAGE_URL}?video=${dynamicVideoId}`,
   }
 
   const handleShareFacebook = () => {
