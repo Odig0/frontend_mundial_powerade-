@@ -55,16 +55,23 @@ export async function generateMetadata({
         description,
         url: canonicalUrl,
         siteName: 'El Deber Deportes',
-        type: 'video.other',
-        images: [
-          {
-            url: selectedVideo.thumb,
-            alt: selectedVideo.titulo,
-          },
-        ],
+          type: 'video.other',
+          images: [
+            {
+              url: selectedVideo.thumb,
+              alt: selectedVideo.titulo,
+            },
+          ],
+          videos: [
+            {
+              url: selectedVideo.embedUrl || selectedVideo.shareUrl || selectedVideo.url,
+              secureUrl: selectedVideo.embedUrl || selectedVideo.shareUrl || selectedVideo.url,
+              type: 'text/html',
+            },
+          ],
       },
       twitter: {
-        card: 'summary_large_image',
+        card: 'player',
         title,
         description,
         images: [selectedVideo.thumb],
