@@ -83,7 +83,7 @@ export default function FixtureBlock() {
         {currentMatches.length > 0 ? (
           currentMatches.map((partido) => (
             <article
-              key={`${partido.date}-${partido.time}-${partido.homeTeam}-${partido.awayTeam}`}
+              key={`${partido.date}-${partido.time}-${partido.homeTeam.name}-${partido.awayTeam.name}`}
               className="rounded-xl border border-white/8 bg-background/70 p-3 shadow-sm shadow-black/10"
             >
               <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
@@ -103,10 +103,15 @@ export default function FixtureBlock() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between gap-3">
-                <div className="min-w-0 flex-1">
+              <div className="flex items-center justify-between gap-2">
+                <div className="min-w-0 flex-1 flex items-center gap-2">
+                  <img
+                    src={partido.homeTeam.flag}
+                    alt={partido.homeTeam.name}
+                    className="h-6 w-8 rounded object-cover"
+                  />
                   <p className="truncate text-sm font-black text-foreground">
-                    {partido.homeTeam}
+                    {partido.homeTeam.name}
                   </p>
                 </div>
 
@@ -114,10 +119,15 @@ export default function FixtureBlock() {
                   VS
                 </div>
 
-                <div className="min-w-0 flex-1 text-right">
+                <div className="min-w-0 flex-1 text-right flex items-center justify-end gap-2">
                   <p className="truncate text-sm font-black text-foreground">
-                    {partido.awayTeam}
+                    {partido.awayTeam.name}
                   </p>
+                  <img
+                    src={partido.awayTeam.flag}
+                    alt={partido.awayTeam.name}
+                    className="h-6 w-8 rounded object-cover"
+                  />
                 </div>
               </div>
 
