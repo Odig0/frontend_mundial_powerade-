@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Share2, X, Facebook, Twitter, MessageCircle } from 'lucide-react'
+import { toast } from 'sonner'
 
 interface ShareVideoButtonProps {
   videoId: string
@@ -38,7 +39,12 @@ export default function ShareVideoButton({ videoId, videoTitle }: ShareVideoButt
   const handleShareLink = () => {
     if (typeof window !== 'undefined') {
       navigator.clipboard.writeText(shareData.url).then(() => {
-        alert('Enlace copiado al portapapeles')
+        toast.success('Enlace copiado al portapapeles', {
+          duration: 3000,
+        })
+        setOpen(false)
+      }).catch(() => {
+        toast.error('Error al copiar el enlace')
       })
     }
   }
