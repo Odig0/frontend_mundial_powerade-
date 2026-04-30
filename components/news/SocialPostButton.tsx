@@ -70,10 +70,22 @@ export default function SocialPostButton({ id, titulo, inline = false, className
       console.log('[SocialPost] imagenUrl construida:', imagenUrl)
 
       // Generar imagen con sello via API server-side
+      const today = new Date()
+      const dateStr = today.toLocaleDateString('es-ES', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      })
+      
       const processRes = await fetch('/api/generate-social-image', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ imageUrl: imagenUrl, formato: 'instagram' }),
+        body: JSON.stringify({ 
+          imageUrl: imagenUrl, 
+          formato: 'instagram',
+          titulo: tituloToUse,
+          fecha: dateStr
+        }),
       })
 
       if (!processRes.ok) {

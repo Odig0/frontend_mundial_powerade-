@@ -9,9 +9,35 @@ const FORMATS = {
   instagram: { width: 1080, height: 1350, sello: 'Tribuna-Powerade.png' },
 }
 
+function wrapText(text: string, maxWidth: number = 50): string[] {
+  const words = text.split(' ')
+  const lines: string[] = []
+  let currentLine = ''
+
+  for (const word of words) {
+    if ((currentLine + word).length > maxWidth) {
+      if (currentLine) lines.push(currentLine.trim())
+      currentLine = word
+    } else {
+      currentLine += (currentLine ? ' ' : '') + word
+    }
+  }
+  if (currentLine) lines.push(currentLine.trim())
+  return lines
+}
+
+function escapeXml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
+}
+
 export async function POST(request: NextRequest) {
   try {
-    const { imageUrl, formato = 'instagram' } = await request.json()
+    const { imageUrl, formato = 'instagram', titulo = '', fecha = '' } = await request.json()
 
     if (!imageUrl) {
       return NextResponse.json({ error: 'Missing imageUrl' }, { status: 400 })
@@ -47,7 +73,6 @@ export async function POST(request: NextRequest) {
       .toBuffer()
 
     // Procesar imagen principal: redimensionar EXACTAMENTE a fmt.width x fmt.height
-    // Primero redimensionar, luego aplicar sello
     let imageProcessing = sharp(imgBuffer)
       .resize(fmt.width, fmt.height, { 
         fit: 'cover', 
@@ -55,15 +80,91 @@ export async function POST(request: NextRequest) {
         withoutEnlargement: false 
       })
 
-    // Aplicar composite con sello
+    // Preparar overlays (composites)
+    const overlays: Array<any> = []
+
+    // Crear SVG con la fecha (esquina superior derecha)
+    if (fecha) {
+      const fechaSvg = `
+        <svg width="${fmt.width}" height="${fmt.height}" xmlns="http://www.w3.org/2000/svg">
+          <text 
+            x="${fmt.width - 30}" 
+            y="50" 
+            font-family="Arial, sans-serif" 
+            font-size="40" 
+            font-weight="bold"
+            fill="white"
+            text-anchor="end"
+            letter-spacing="1"
+          >${fecha}</text>
+        </svg>
+      `.trim()
+      
+      const fechaBuffer = Buffer.from(fechaSvg)
+      overlays.push({
+        input: await sharp(fechaBuffer).png().toBuffer(),
+        gravity: 'northeast'
+      })
+    }
+
+    // Crear SVG con el título
+    if (titulo) {
+      const titleFontSize = 60
+      const lineHeight = 62
+      const padding = 24
+      // El bloque de texto usa 2/3 del ancho de la imagen para forzar saltos de línea más naturales.
+      const titleBoxWidth = Math.round(fmt.width * 0.80)
+      const approxCharWidth = titleFontSize * 0.55
+      const maxCharsPerLine = Math.max(12, Math.floor((titleBoxWidth - padding * 2) / approxCharWidth))
+      const lines = wrapText(titulo, maxCharsPerLine)
+      const titleOffsetY = 16
+      const textHeight = lines.length * lineHeight + padding * 2
+      const svgHeight = Math.min(textHeight, Math.round(fmt.height * 0.20))
+      
+      let textY = padding + 32 + titleOffsetY
+      let textElements = lines
+        .map((line) => {
+          const y = textY
+          textY += lineHeight
+          return `<tspan x="${padding}" dy="${y === padding + 32 + titleOffsetY ? 0 : lineHeight}">${escapeXml(line)}</tspan>`
+        })
+        .join('\n')
+
+      // Generamos solo el texto (sin rectángulo de fondo). Añadimos un trazo oscuro para mantener legibilidad
+      const tituloSvg = `
+        <svg width="${titleBoxWidth}" height="${svgHeight}" xmlns="http://www.w3.org/2000/svg">
+          <style>
+            .title { font-family: 'Georgia', 'Times New Roman', serif; font-weight:700; font-size: ${titleFontSize}px; fill:#ffffff; stroke:#000000; stroke-opacity:0.6; stroke-width:6; paint-order:stroke; stroke-linejoin:round; }
+            tspan { display:block; }
+          </style>
+          <text class="title" x="${padding}" y="${padding + 24 + titleOffsetY}">
+            ${textElements}
+          </text>
+        </svg>
+      `.trim()
+
+      const tituloBuffer = Buffer.from(tituloSvg)
+      // Control vertical del marco (px desde el tope). Ajusta `titleFrameTop` para mover el marco arriba/abajo.
+      const titleFrameTop = Math.max(0, Math.round(fmt.height * 0.70))
+      overlays.push({
+        input: await sharp(tituloBuffer)
+          .resize(titleBoxWidth, svgHeight, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+          .png()
+          .toBuffer(),
+        top: titleFrameTop,
+        left: Math.round(fmt.width * 0.03)
+      })
+    }
+
+    // Agregar sello
+    overlays.push({
+      input: selloResized,
+      gravity: 'southwest'
+    })
+
+    // Aplicar todos los composites
     const result = await imageProcessing
-      .composite([
-        {
-          input: selloResized,
-          gravity: 'southwest',
-          blend: 'over',
-        },
-      ])
+      .composite(overlays)
       .toFormat('jpeg', { quality: 85, mozjpeg: true })
       .toBuffer()
 
