@@ -5,7 +5,8 @@ import Footer from '@/components/layout/Footer'
 import VideoPlayer from '@/components/videos/VideoPlayer'
 import { getDailymotionVideos } from '@/services/dailymotionService'
 
-const BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'hthttps://dev.eldeber.bo'
+const RAW_BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo'
+const BASE_URL = RAW_BASE_URL.replace(/\/$/, '')
 
 function normalizeVideoParam(videoParam?: string) {
   if (!videoParam) return ''
