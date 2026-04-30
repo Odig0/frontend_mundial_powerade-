@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import type { VideoItem } from '@/services/dailymotionService'
+import ShareVideoButton from './ShareVideoButton'
 
 interface VideoPlayerProps {
   videos?: VideoItem[]
@@ -88,9 +89,16 @@ export default function VideoPlayer({ videos: initialVideos, startIndex = 0 }: V
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#3CB7FF]">
                 Reproduciendo ahora
               </p>
-              <h2 className="mt-2 text-lg md:text-xl font-black leading-tight text-white">
-                {currentVideo?.titulo}
-              </h2>
+              <div className="mt-2 flex items-start justify-between gap-4">
+                <div className="flex-1">
+                  <h2 className="text-lg md:text-xl font-black leading-tight text-white">
+                    {currentVideo?.titulo}
+                  </h2>
+                </div>
+                {currentVideo && (
+                  <ShareVideoButton videoId={currentVideo.id} videoTitle={currentVideo.titulo} />
+                )}
+              </div>
             </div>
           </div>
         </section>

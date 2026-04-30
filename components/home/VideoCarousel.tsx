@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState, useMemo } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { ChevronLeft, ChevronRight, Play } from 'lucide-react'
 import type { VideoItem } from '@/services/dailymotionService'
+import ShareVideoButton from '@/components/videos/ShareVideoButton'
 import { cn } from '@/lib/utils'
 
 interface VideoCarouselProps {
@@ -57,31 +58,35 @@ export default function VideoCarousel({ videos, onVideoClick }: VideoCarouselPro
               key={`${video.id}-${index}`}
               className="flex-[0_0_45%] sm:flex-[0_0_40%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%] pl-4"
             >
-              <button
-                type="button"
-                onClick={() => onVideoClick(video.id)}
-                className="group relative block w-full aspect-[9/16] rounded-3xl overflow-hidden bg-zinc-900 transition-all duration-500 ring-1 ring-white/10 hover:ring-[#3CB7FF]/50 hover:shadow-[0_0_30px_rgba(60,183,255,0.15)]"
-              >
-                <img
-                  src={video.thumb}
-                  alt={video.titulo}
-                  className="w-full h-full object-cover object-center grayscale-[0.2] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
-                />
+              <div className="group relative block w-full aspect-[9/16] rounded-3xl overflow-hidden bg-zinc-900 transition-all duration-500 ring-1 ring-white/10 hover:ring-[#3CB7FF]/50 hover:shadow-[0_0_30px_rgba(60,183,255,0.15)]">
+                <button
+                  type="button"
+                  onClick={() => onVideoClick(video.id)}
+                  className="w-full h-full"
+                >
+                  <img
+                    src={video.thumb}
+                    alt={video.titulo}
+                    className="w-full h-full object-cover object-center grayscale-[0.2] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
+                  />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
 
-                <div className="absolute inset-0 flex items-center justify-center transition-all duration-500">
-                  <div className="w-16 h-16 rounded-full bg-[#3CB7FF]/90 backdrop-blur-sm flex items-center justify-center shadow-2xl transform scale-90 group-hover:scale-110 transition-transform duration-500">
-                    <Play className="w-7 h-7 text-white fill-current ml-1" />
+                  <div className="absolute inset-0 flex items-center justify-center transition-all duration-500">
+                    <div className="w-16 h-16 rounded-full bg-[#3CB7FF]/90 backdrop-blur-sm flex items-center justify-center shadow-2xl transform scale-90 group-hover:scale-110 transition-transform duration-500">
+                      <Play className="w-7 h-7 text-white fill-current ml-1" />
+                    </div>
                   </div>
-                </div>
 
-                <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-1 group-hover:translate-y-0 transition-transform duration-500">
-                  <p className="text-white font-bold text-[11px] md:text-xs lg:text-sm line-clamp-3 leading-tight drop-shadow-md">
-                    {video.titulo}
-                  </p>
-                </div>
-              </button>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-1 group-hover:translate-y-0 transition-transform duration-500">
+                    <p className="text-white font-bold text-[11px] md:text-xs lg:text-sm line-clamp-3 leading-tight drop-shadow-md">
+                      {video.titulo}
+                    </p>
+                  </div>
+                </button>
+
+                <ShareVideoButton videoId={video.id} videoTitle={video.titulo} />
+              </div>
             </div>
           ))}
         </div>
