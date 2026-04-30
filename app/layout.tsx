@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -51,7 +50,7 @@ export default function RootLayout({
           <aside className="hidden 2xl:block w-[140px] flex-shrink-0 bg-background" />
 
         </div>
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+
       </body>
     </html>
   )
