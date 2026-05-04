@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> | P
 
   const title = `${news.titulo} - El Deber Deportes`
   const description = news.introHTML ? extractTextFromHtml(news.introHTML) : news.titulo
-  const image = news.imagen_interior || 'https://mediakit.eldeber.com.bo/images/eldeber_logo_white.png'
+  const image = news.imagen_interior || '/tribuna_powerade.png'
   const canonicalUrl = `${BASE_URL}/${seccion}/${link}`
 
   return {

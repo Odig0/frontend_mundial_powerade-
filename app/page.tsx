@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: 'El Deber Deportes',
     images: [
       {
-        url: 'https://mediakit.eldeber.com.bo/images/eldeber_logo_white.png',
+        url: '/tribuna_powerade.png',
         width: 1200,
         height: 630,
         alt: 'El Deber Deportes - Powerade',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Powerade - El Deber Deportes',
     description: 'Cobertura del Mundial 2026',
-    images: ['https://mediakit.eldeber.com.bo/images/eldeber_logo_white.png'],
+    images: ['/tribuna_powerade.png'],
   },
 }
 
