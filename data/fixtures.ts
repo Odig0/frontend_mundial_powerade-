@@ -13,6 +13,15 @@ export interface FixtureMatch {
   city: string
 }
 
+export interface Countries {
+  name: string
+  flag: string
+}
+
+export interface  CountriesByGroup {
+  [group: string]: Countries[]
+}
+
 export const partidos: FixtureMatch[] = [
   {"date":"2026-06-11","time":"15:00","homeTeam":{"name":"México","flag":"https://flagcdn.com/w40/mx.png"},"awayTeam":{"name":"Sudáfrica","flag":"https://flagcdn.com/w40/za.png"},"group":"A","stadium":"Estadio Ciudad de México","city":"Ciudad de México"},
   {"date":"2026-06-11","time":"22:00","homeTeam":{"name":"República de Corea","flag":"https://flagcdn.com/w40/kr.png"},"awayTeam":{"name":"República Checa","flag":"https://flagcdn.com/w40/cz.png"},"group":"A","stadium":"Estadio Guadalajara","city":"Guadalajara"},
@@ -103,3 +112,132 @@ export const partidos: FixtureMatch[] = [
   {"date":"2026-06-27","time":"22:00","homeTeam":{"name":"Argelia","flag":"https://flagcdn.com/w40/dz.png"},"awayTeam":{"name":"Austria","flag":"https://flagcdn.com/w40/at.png"},"group":"J","stadium":"Estadio Kansas City","city":"Kansas City"},
   {"date":"2026-06-27","time":"22:00","homeTeam":{"name":"Jordania","flag":"https://flagcdn.com/w40/jo.png"},"awayTeam":{"name":"Argentina","flag":"https://flagcdn.com/w40/ar.png"},"group":"J","stadium":"Estadio Dallas","city":"Dallas"}
 ]
+
+
+export const countries = [
+  { "name": "Alemania", "flag": "https://flagcdn.com/w320/de.png" },
+  { "name": "Arabia Saudí", "flag": "https://flagcdn.com/w320/sa.png" },
+  { "name": "Argelia", "flag": "https://flagcdn.com/w320/dz.png" },
+  { "name": "Argentina", "flag": "https://flagcdn.com/w320/ar.png" },
+  { "name": "Australia", "flag": "https://flagcdn.com/w320/au.png" },
+  { "name": "Austria", "flag": "https://flagcdn.com/w320/at.png" },
+  { "name": "Bélgica", "flag": "https://flagcdn.com/w320/be.png" },
+  { "name": "Bosnia y Herzegovina", "flag": "https://flagcdn.com/w320/ba.png" },
+  { "name": "Brasil", "flag": "https://flagcdn.com/w320/br.png" },
+  { "name": "Cabo Verde", "flag": "https://flagcdn.com/w320/cv.png" },
+  { "name": "Canadá", "flag": "https://flagcdn.com/w320/ca.png" },
+  { "name": "Catar", "flag": "https://flagcdn.com/w320/qa.png" },
+  { "name": "Colombia", "flag": "https://flagcdn.com/w320/co.png" },
+  { "name": "Costa de Marfil", "flag": "https://flagcdn.com/w320/ci.png" },
+  { "name": "Croacia", "flag": "https://flagcdn.com/w320/hr.png" },
+  { "name": "Curazao", "flag": "https://flagcdn.com/w320/cw.png" },
+  { "name": "Ecuador", "flag": "https://flagcdn.com/w320/ec.png" },
+  { "name": "Egipto", "flag": "https://flagcdn.com/w320/eg.png" },
+  { "name": "Escocia", "flag": "https://flagcdn.com/w320/gb-sct.png" },
+  { "name": "España", "flag": "https://flagcdn.com/w320/es.png" },
+  { "name": "Estados Unidos", "flag": "https://flagcdn.com/w320/us.png" },
+  { "name": "Francia", "flag": "https://flagcdn.com/w320/fr.png" },
+  { "name": "Ghana", "flag": "https://flagcdn.com/w320/gh.png" },
+  { "name": "Haití", "flag": "https://flagcdn.com/w320/ht.png" },
+  { "name": "Inglaterra", "flag": "https://flagcdn.com/w320/gb-eng.png" },
+  { "name": "Irak", "flag": "https://flagcdn.com/w320/iq.png" },
+  { "name": "Irán", "flag": "https://flagcdn.com/w320/ir.png" },
+  { "name": "Japón", "flag": "https://flagcdn.com/w320/jp.png" },
+  { "name": "Jordania", "flag": "https://flagcdn.com/w320/jo.png" },
+  { "name": "Marruecos", "flag": "https://flagcdn.com/w320/ma.png" },
+  { "name": "México", "flag": "https://flagcdn.com/w320/mx.png" },
+  { "name": "Noruega", "flag": "https://flagcdn.com/w320/no.png" },
+  { "name": "Nueva Zelanda", "flag": "https://flagcdn.com/w320/nz.png" },
+  { "name": "Países Bajos", "flag": "https://flagcdn.com/w320/nl.png" },
+  { "name": "Panamá", "flag": "https://flagcdn.com/w320/pa.png" },
+  { "name": "Paraguay", "flag": "https://flagcdn.com/w320/py.png" },
+  { "name": "Portugal", "flag": "https://flagcdn.com/w320/pt.png" },
+  { "name": "RD Congo", "flag": "https://flagcdn.com/w320/cd.png" },
+  { "name": "República Checa", "flag": "https://flagcdn.com/w320/cz.png" },
+  { "name": "República de Corea", "flag": "https://flagcdn.com/w320/kr.png" },
+  { "name": "Senegal", "flag": "https://flagcdn.com/w320/sn.png" },
+  { "name": "Sudáfrica", "flag": "https://flagcdn.com/w320/za.png" },
+  { "name": "Suecia", "flag": "https://flagcdn.com/w320/se.png" },
+  { "name": "Suiza", "flag": "https://flagcdn.com/w320/ch.png" },
+  { "name": "Túnez", "flag": "https://flagcdn.com/w320/tn.png" },
+  { "name": "Turquía", "flag": "https://flagcdn.com/w320/tr.png" },
+  { "name": "Uruguay", "flag": "https://flagcdn.com/w320/uy.png" },
+  { "name": "Uzbekistán", "flag": "https://flagcdn.com/w320/uz.png" }
+]
+
+
+
+export const countriesByGroup = {
+  A: [
+    { name: "México", flag: "https://flagcdn.com/w320/mx.png" },
+    { name: "Sudáfrica", flag: "https://flagcdn.com/w320/za.png" },
+    { name: "República de Corea", flag: "https://flagcdn.com/w320/kr.png" },
+    { name: "República Checa", flag: "https://flagcdn.com/w320/cz.png" }
+  ],
+  B: [
+    { name: "Canadá", flag: "https://flagcdn.com/w320/ca.png" },
+    { name: "Bosnia y Herzegovina", flag: "https://flagcdn.com/w320/ba.png" },
+    { name: "Catar", flag: "https://flagcdn.com/w320/qa.png" },
+    { name: "Suiza", flag: "https://flagcdn.com/w320/ch.png" }
+  ],
+  C: [
+    { name: "Brasil", flag: "https://flagcdn.com/w320/br.png" },
+    { name: "Marruecos", flag: "https://flagcdn.com/w320/ma.png" },
+    { name: "Haití", flag: "https://flagcdn.com/w320/ht.png" },
+    { name: "Escocia", flag: "https://flagcdn.com/w320/gb-sct.png" }
+  ],
+  D: [
+    { name: "Estados Unidos", flag: "https://flagcdn.com/w320/us.png" },
+    { name: "Paraguay", flag: "https://flagcdn.com/w320/py.png" },
+    { name: "Australia", flag: "https://flagcdn.com/w320/au.png" },
+    { name: "Turquía", flag: "https://flagcdn.com/w320/tr.png" }
+  ],
+  E: [
+    { name: "Alemania", flag: "https://flagcdn.com/w320/de.png" },
+    { name: "Curazao", flag: "https://flagcdn.com/w320/cw.png" },
+    { name: "Costa de Marfil", flag: "https://flagcdn.com/w320/ci.png" },
+    { name: "Ecuador", flag: "https://flagcdn.com/w320/ec.png" }
+  ],
+  F: [
+    { name: "Países Bajos", flag: "https://flagcdn.com/w320/nl.png" },
+    { name: "Japón", flag: "https://flagcdn.com/w320/jp.png" },
+    { name: "Suecia", flag: "https://flagcdn.com/w320/se.png" },
+    { name: "Túnez", flag: "https://flagcdn.com/w320/tn.png" }
+  ],
+  G: [
+    { name: "Bélgica", flag: "https://flagcdn.com/w320/be.png" },
+    { name: "Egipto", flag: "https://flagcdn.com/w320/eg.png" },
+    { name: "Irán", flag: "https://flagcdn.com/w320/ir.png" },
+    { name: "Nueva Zelanda", flag: "https://flagcdn.com/w320/nz.png" }
+  ],
+  H: [
+    { name: "España", flag: "https://flagcdn.com/w320/es.png" },
+    { name: "Cabo Verde", flag: "https://flagcdn.com/w320/cv.png" },
+    { name: "Arabia Saudí", flag: "https://flagcdn.com/w320/sa.png" },
+    { name: "Uruguay", flag: "https://flagcdn.com/w320/uy.png" }
+  ],
+  I: [
+    { name: "Francia", flag: "https://flagcdn.com/w320/fr.png" },
+    { name: "Senegal", flag: "https://flagcdn.com/w320/sn.png" },
+    { name: "Irak", flag: "https://flagcdn.com/w320/iq.png" },
+    { name: "Noruega", flag: "https://flagcdn.com/w320/no.png" }
+  ],
+  J: [
+    { name: "Argentina", flag: "https://flagcdn.com/w320/ar.png" },
+    { name: "Argelia", flag: "https://flagcdn.com/w320/dz.png" },
+    { name: "Austria", flag: "https://flagcdn.com/w320/at.png" },
+    { name: "Jordania", flag: "https://flagcdn.com/w320/jo.png" }
+  ],
+  K: [
+    { name: "Portugal", flag: "https://flagcdn.com/w320/pt.png" },
+    { name: "RD Congo", flag: "https://flagcdn.com/w320/cd.png" },
+    { name: "Uzbekistán", flag: "https://flagcdn.com/w320/uz.png" },
+    { name: "Colombia", flag: "https://flagcdn.com/w320/co.png" }
+  ],
+  L: [
+    { name: "Inglaterra", flag: "https://flagcdn.com/w320/gb-eng.png" },
+    { name: "Croacia", flag: "https://flagcdn.com/w320/hr.png" },
+    { name: "Ghana", flag: "https://flagcdn.com/w320/gh.png" },
+    { name: "Panamá", flag: "https://flagcdn.com/w320/pa.png" }
+  ]
+}

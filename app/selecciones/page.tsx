@@ -1,67 +1,126 @@
+'use client'
+
+import { useState } from 'react'
 import Header from '@/components/layout/Header'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import Image from 'next/image'
-
-export const metadata = {
-  title: 'Selecciones - El Deber Deportes',
-  description: 'Galería de selecciones con imágenes destacadas',
-}
-
-const selecciones = [
-  { id: 1, src: '/selecciones/1.webp', alt: 'Selección 1' },
-  { id: 2, src: '/selecciones/2.webp', alt: 'Selección 2' },
-  { id: 3, src: '/selecciones/3.webp', alt: 'Selección 3' },
-  { id: 4, src: '/selecciones/4.jpg', alt: 'Selección 4' },
-]
+import { countries, countriesByGroup } from '@/data/fixtures'
 
 export default function SeleccionesPage() {
+  const [viewMode, setViewMode] = useState<'all' | 'groups'>('all')
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
       <Navbar />
 
       <main className="flex-1 container mx-auto px-4 py-8 md:py-12">
-        <div className="mb-8 md:mb-10">
-          <p className="text-[#3CB7FF] font-semibold uppercase tracking-[0.35em] text-xs mb-3">
-            Secciones
-          </p>
-          <h1 className="text-3xl md:text-5xl font-black text-foreground leading-tight">
-            Selecciones
-          </h1>
-          <p className="mt-3 max-w-2xl text-sm md:text-base text-muted-foreground">
-            Una galería con las imágenes disponibles en la carpeta pública para destacar a las selecciones.
-          </p>
+        <div className="mb-8 md:mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <p className="text-[#3CB7FF] font-semibold uppercase tracking-[0.35em] text-xs mb-3">
+              Secciones
+            </p>
+            <h1 className="text-3xl md:text-5xl font-black text-foreground leading-tight">
+              Selecciones
+            </h1>
+            <p className="mt-3 max-w-2xl text-sm md:text-base text-muted-foreground">
+              {viewMode === 'all' 
+                ? `Las ${countries.length} selecciones participantes en el Mundial 2026.`
+                : 'Los 12 grupos del Mundial 2026.'}
+            </p>
+          </div>
+          
+          <div className="flex gap-3">
+            <button
+              onClick={() => setViewMode('all')}
+              className={`px-4 py-2 rounded-lg font-bold uppercase text-sm transition-all duration-300 ${
+                viewMode === 'all'
+                  ? 'bg-[#3CB7FF] text-white shadow-lg shadow-[#3CB7FF]/50'
+                  : 'bg-white/10 text-foreground hover:bg-white/20'
+              }`}
+            >
+              Vista General
+            </button>
+            <button
+              onClick={() => setViewMode('groups')}
+              className={`px-4 py-2 rounded-lg font-bold uppercase text-sm transition-all duration-300 ${
+                viewMode === 'groups'
+                  ? 'bg-[#3CB7FF] text-white shadow-lg shadow-[#3CB7FF]/50'
+                  : 'bg-white/10 text-foreground hover:bg-white/20'
+              }`}
+            >
+              Vista por Grupo
+            </button>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
-          {selecciones.map((seleccion) => (
-            <article
-              key={seleccion.id}
-              className="group overflow-hidden rounded-3xl border border-white/8 bg-card shadow-lg shadow-black/20 transition-transform duration-300 hover:-translate-y-1"
-            >
-              <div className="relative aspect-[4/5] w-full overflow-hidden">
-                <Image
-                  src={seleccion.src}
-                  alt={seleccion.alt}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  priority={seleccion.id === 1}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
-                <div className="absolute left-4 top-4 rounded-full bg-[#3CB7FF] px-3 py-1 text-xs font-black uppercase text-white shadow-lg shadow-[#3CB7FF]/30">
-                  {seleccion.id}
+        {/* Vista General */}
+        {viewMode === 'all' && (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {countries.map((country, index) => (
+              <article
+                key={index}
+                className="group overflow-hidden rounded-lg border border-white/8 bg-card shadow-lg shadow-black/20 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#3CB7FF]/30 cursor-pointer"
+              >
+                <div className="relative aspect-square w-full overflow-hidden bg-gradient-to-br from-white/5 to-white/0 flex items-center justify-center p-4">
+                  <Image
+                    src={country.flag}
+                    alt={country.name}
+                    width={100}
+                    height={100}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                 </div>
-                <div className="absolute inset-x-0 bottom-0 p-4">
-                  <h2 className="text-xl font-black uppercase tracking-tight text-white">
-                    Selección {seleccion.id}
+                <div className="p-3">
+                  <h2 className="text-sm font-bold uppercase tracking-tight text-foreground text-center truncate group-hover:text-[#3CB7FF] transition-colors">
+                    {country.name}
                   </h2>
                 </div>
+              </article>
+            ))}
+          </div>
+        )}
+
+        {/* Vista por Grupo */}
+        {viewMode === 'groups' && (
+          <div className="space-y-12">
+            {Object.entries(countriesByGroup).map(([group, groupCountries]) => (
+              <div key={group}>
+                <div className="mb-6 pb-4 border-b border-white/10">
+                  <h2 className="text-2xl md:text-3xl font-black text-[#3CB7FF] uppercase tracking-wide">
+                    Grupo {group}
+                  </h2>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4">
+                  {groupCountries.map((country, index) => (
+                    <article
+                      key={index}
+                      className="group overflow-hidden rounded-lg border border-white/8 bg-card shadow-lg shadow-black/20 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#3CB7FF]/30 cursor-pointer"
+                    >
+                      <div className="relative aspect-square w-full overflow-hidden bg-gradient-to-br from-white/5 to-white/0 flex items-center justify-center p-4">
+                        <Image
+                          src={country.flag}
+                          alt={country.name}
+                          width={100}
+                          height={100}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                      </div>
+                      <div className="p-3">
+                        <h3 className="text-sm font-bold uppercase tracking-tight text-foreground text-center truncate group-hover:text-[#3CB7FF] transition-colors">
+                          {country.name}
+                        </h3>
+                      </div>
+                    </article>
+                  ))}
+                </div>
               </div>
-            </article>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </main>
 
       <Footer />
