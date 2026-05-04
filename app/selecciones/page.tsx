@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Header from '@/components/layout/Header'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -8,7 +9,14 @@ import Image from 'next/image'
 import { countries, countriesByGroup } from '@/data/fixtures'
 
 export default function SeleccionesPage() {
+  const router = useRouter()
   const [viewMode, setViewMode] = useState<'all' | 'groups'>('all')
+
+  const handleCountryClick = (countryName: string) => {
+    if (countryName === 'Argentina') {
+      router.push('/selecciones/jugadores')
+    }
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -61,7 +69,10 @@ export default function SeleccionesPage() {
             {countries.map((country, index) => (
               <article
                 key={index}
-                className="group overflow-hidden rounded-lg border border-white/8 bg-card shadow-lg shadow-black/20 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#3CB7FF]/30 cursor-pointer"
+                onClick={() => handleCountryClick(country.name)}
+                className={`group overflow-hidden rounded-lg border border-white/8 bg-card shadow-lg shadow-black/20 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#3CB7FF]/30 ${
+                  country.name === 'Argentina' ? 'cursor-pointer' : ''
+                }`}
               >
                 <div className="relative aspect-square w-full overflow-hidden bg-gradient-to-br from-white/5 to-white/0 flex items-center justify-center p-4">
                   <Image
@@ -97,7 +108,10 @@ export default function SeleccionesPage() {
                   {groupCountries.map((country, index) => (
                     <article
                       key={index}
-                      className="group overflow-hidden rounded-lg border border-white/8 bg-card shadow-lg shadow-black/20 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#3CB7FF]/30 cursor-pointer"
+                      onClick={() => handleCountryClick(country.name)}
+                      className={`group overflow-hidden rounded-lg border border-white/8 bg-card shadow-lg shadow-black/20 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#3CB7FF]/30 ${
+                        country.name === 'Argentina' ? 'cursor-pointer' : ''
+                      }`}
                     >
                       <div className="relative aspect-square w-full overflow-hidden bg-gradient-to-br from-white/5 to-white/0 flex items-center justify-center p-4">
                         <Image
