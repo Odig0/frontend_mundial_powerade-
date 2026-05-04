@@ -256,7 +256,7 @@ export default function SocialPostButton({ id, titulo, inline = false, className
         <button
           onClick={handleOpen}
           title="Generar imagen para redes sociales"
-          className="absolute top-2 right-2 z-10 p-1.5 bg-black/60 hover:bg-accent hover:text-accent-foreground text-white rounded transition-all opacity-0 group-hover:opacity-100"
+          className="absolute top-2 right-2 z-10 p-2 bg-black/60 hover:bg-accent hover:text-accent-foreground text-white rounded transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100"
         >
           <Share2 className="w-3.5 h-3.5" />
         </button>

@@ -9,6 +9,7 @@ interface ShareVideoButtonProps {
   videoTitle: string
   embedUrl?: string
   shareUrl?: string
+  overlay?: boolean
 }
 
 const RAW_BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo'
@@ -44,7 +45,7 @@ const extractVideoId = (url?: string, fallbackId?: string): string => {
   return fallbackId || ''
 }
 
-export default function ShareVideoButton({ videoId, videoTitle, embedUrl, shareUrl }: ShareVideoButtonProps) {
+export default function ShareVideoButton({ videoId, videoTitle, embedUrl, shareUrl, overlay = false }: ShareVideoButtonProps) {
   const [open, setOpen] = useState(false)
 
   // Extrae el ID dinámicamente del shareUrl de Dailymotion
@@ -120,8 +121,10 @@ export default function ShareVideoButton({ videoId, videoTitle, embedUrl, shareU
     <>
       <button
         onClick={() => setOpen(true)}
-        className="p-1.5 bg-[#3CB7FF]/10 hover:bg-[#3CB7FF] text-[#3CB7FF] hover:text-white rounded-full transition-all border border-[#3CB7FF]/30 hover:border-[#3CB7FF] shrink-0"
         title="Compartir video"
+        className={overlay
+          ? 'absolute top-3 right-3 z-30 p-1.5 bg-[#0b1726]/60 hover:bg-[#0b1726]/80 text-[#3CB7FF] hover:text-white rounded-full transition-all border border-white/10 hover:border-[#3CB7FF]'
+          : 'p-1.5 bg-[#3CB7FF]/10 hover:bg-[#3CB7FF] text-[#3CB7FF] hover:text-white rounded-full transition-all border border-[#3CB7FF]/30 hover:border-[#3CB7FF] shrink-0'}
       >
         <Share2 className="w-5 h-5" />
       </button>
