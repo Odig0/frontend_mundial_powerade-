@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -56,23 +58,31 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-background" suppressHydrationWarning>
+    <html lang="es" className="bg-background" suppressHydrationWarning>
+      <head>
+        {/* Google Publisher Tag (GPT) */}
+        <Script
+          src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
+          strategy="beforeInteractive"
+        />
+        <Script id="gpt-init" strategy="beforeInteractive">
+          {`
+            window.googletag = window.googletag || { cmd: [] };
+            window.googletag.cmd.push(function() {
+              window.googletag.setConfig({ singleRequest: true });
+              window.googletag.enableServices();
+            });
+          `}
+        </Script>
+      </head>
+
       <body className="font-sans antialiased">
-        <div className="flex min-h-screen">
-
-          {/* Skyscraper izquierdo */}
-          <aside className="hidden 2xl:block w-[190px] flex-shrink-0 bg-background" />
-
-          {/* Contenido principal */}
-          <div className="flex-1 min-w-0">
-            {children}
-          </div>
-
-          {/* Skyscraper derecho */}
-          <aside className="hidden 2xl:block w-[140px] flex-shrink-0 bg-background" />
-
+        <div className="min-h-screen">
+          {children}
         </div>
 
+        {/* Analytics */}
+        <Analytics />
       </body>
     </html>
   )
