@@ -49,10 +49,21 @@ function normalizeVideoParam(param: string | null): string {
   return param
 }
 
-function buildEmbedSrc(embedUrl: string) {
+function buildEmbedSrc(embedUrl: string, autoplay = false) {
   const hasQuery = embedUrl.includes('?')
   const separator = hasQuery ? '&' : '?'
-  return `${embedUrl}${separator}autoplay=1&queue-autoplay-next=1&ui-logo=0&ui-startscreen-info=0`
+  // Parse the embed URL and force autoplay params according to caller intent.
+  try {
+    const url = new URL(embedUrl)
+    url.searchParams.set('autoplay', autoplay ? '1' : '0')
+    url.searchParams.set('queue-autoplay-next', autoplay ? '1' : '0')
+    url.searchParams.set('ui-logo', '0')
+    url.searchParams.set('ui-startscreen-info', '0')
+    return url.toString()
+  } catch (e) {
+    // Fallback for non-absolute URLs
+    return `${embedUrl}${separator}autoplay=${autoplay ? '1' : '0'}&queue-autoplay-next=${autoplay ? '1' : '0'}&ui-logo=0&ui-startscreen-info=0`
+  }
 }
 
 export default function VideoPlayer({ videos: initialVideos, startIndex = 0 }: VideoPlayerProps) {
@@ -63,6 +74,7 @@ export default function VideoPlayer({ videos: initialVideos, startIndex = 0 }: V
   const [selectedIndex, setSelectedIndex] = useState(startIndex)
   const [videos, setVideos] = useState<VideoItem[]>(initialVideos || [])
   const [loading, setLoading] = useState(!initialVideos || initialVideos.length === 0)
+  const [started, setStarted] = useState(false)
 
   // Actualiza el estado cuando cambien los videos iniciales
   useEffect(() => {
@@ -102,23 +114,37 @@ export default function VideoPlayer({ videos: initialVideos, startIndex = 0 }: V
       })
       if (index >= 0) {
         setSelectedIndex(index)
+        setStarted(true)
       }
     }
   }, [videoParam, videos])
 
   const handleSelectVideo = (video: VideoItem, index: number) => {
     setSelectedIndex(index)
+    setStarted(true)
     const selectedId = extractVideoId(video)
     const nextUrl = `/videos?video=${encodeURIComponent(selectedId)}`
-    router.push(nextUrl)
+    // Use router.push for client navigation and also pushState as a fallback
+    try {
+      router.push(nextUrl)
+      // Ensure the URL updates even if router.push doesn't (edge cases HMR/dev)
+      if (typeof window !== 'undefined' && window.history && window.location.pathname === '/videos') {
+        window.history.pushState({}, '', nextUrl)
+      }
+    } catch (e) {
+      if (typeof window !== 'undefined' && window.history) {
+        window.history.pushState({}, '', nextUrl)
+      }
+    }
   }
 
   const currentVideo = videos?.[selectedIndex]
 
   const playerSrc = useMemo(() => {
     if (!currentVideo) return ''
-    return buildEmbedSrc(currentVideo.embedUrl)
-  }, [currentVideo])
+    // Only enable autoplay in the embed when the user tapped play
+    return buildEmbedSrc(currentVideo.embedUrl, started)
+  }, [currentVideo, started])
 
   if (loading) {
     return (
@@ -145,7 +171,22 @@ export default function VideoPlayer({ videos: initialVideos, startIndex = 0 }: V
         <section className="min-w-0">
           <div className="overflow-hidden rounded-[28px] border border-white/10 bg-black shadow-[0_0_60px_rgba(60,183,255,0.08)]">
             <div className="relative aspect-video w-full bg-black">
-              {currentVideo && (
+              {currentVideo && !started && !videoParam && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black">
+                  <img src={currentVideo.thumb} alt={currentVideo.titulo} className="h-full w-full object-cover" />
+                  <button
+                    onClick={() => setStarted(true)}
+                    className="absolute z-20 rounded-full bg-black/60 p-4 hover:bg-black/70 transition-colors"
+                    aria-label="Reproducir video"
+                  >
+                    <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </button>
+                </div>
+              )}
+
+              {currentVideo && started && (
                 <iframe
                   key={currentVideo.id}
                   src={playerSrc}

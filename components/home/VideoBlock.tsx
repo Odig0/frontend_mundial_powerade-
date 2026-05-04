@@ -49,7 +49,18 @@ export default function VideoBlock({ videos }: VideoBlockProps) {
 
   const handleVideoClick = (video: VideoItem) => {
     const videoId = extractVideoId(video)
-    router.push(`/videos?video=${encodeURIComponent(videoId)}`)
+    const nextUrl = `/videos?video=${encodeURIComponent(videoId)}`
+    try {
+      router.push(nextUrl)
+      if (typeof window !== 'undefined' && window.history && window.location.pathname !== undefined) {
+        // If already on /videos this ensures the query param updates immediately
+        window.history.pushState({}, '', nextUrl)
+      }
+    } catch (e) {
+      if (typeof window !== 'undefined' && window.history) {
+        window.history.pushState({}, '', nextUrl)
+      }
+    }
   }
 
   return (
