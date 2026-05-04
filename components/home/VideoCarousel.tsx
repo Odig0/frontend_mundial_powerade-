@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils'
 
 interface VideoCarouselProps {
   videos: VideoItem[]
-  onVideoClick: (id: string) => void
+  onVideoClick: (video: VideoItem) => void
 }
 
 export default function VideoCarousel({ videos, onVideoClick }: VideoCarouselProps) {
@@ -61,7 +61,7 @@ export default function VideoCarousel({ videos, onVideoClick }: VideoCarouselPro
               <div className="group relative block w-full aspect-[9/16] rounded-3xl overflow-hidden bg-zinc-900 transition-all duration-500 ring-1 ring-white/10 hover:ring-[#3CB7FF]/50 hover:shadow-[0_0_30px_rgba(60,183,255,0.15)]">
                 <button
                   type="button"
-                  onClick={() => onVideoClick(video.id)}
+                  onClick={() => onVideoClick(video)}
                   className="w-full h-full"
                 >
                   <img

@@ -1,9 +1,8 @@
 "use client"
 
-import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import type { VideoItem } from '@/services/dailymotionService'
 import VideoCarousel from './VideoCarousel'
-import VideoModal from './VideoModal'
 
 interface VideoBlockProps {
   videos: VideoItem[]
@@ -14,21 +13,43 @@ interface VideoBlockProps {
  * Orquestador de la experiencia visual con enfoque estético.
  */
 export default function VideoBlock({ videos }: VideoBlockProps) {
-  const [selectedVideoId, setSelectedVideoId] = useState<string | null>(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const router = useRouter()
 
   if (!videos || videos.length === 0) return null
 
-  const handleVideoClick = (id: string) => {
-    setSelectedVideoId(id)
-    setIsModalOpen(true)
+  const extractVideoId = (video: Pick<VideoItem, 'id' | 'embedUrl' | 'shareUrl'>): string => {
+    const fromQuery = (value?: string | null) => {
+      if (!value) return ''
+      try {
+        const parsed = new URL(value)
+        return parsed.searchParams.get('video') || ''
+      } catch {
+        const query = value.split('?')[1]
+        if (!query) return ''
+        return new URLSearchParams(query).get('video') || ''
+      }
+    }
+
+    const fromLastPath = (value?: string | null) => {
+      if (!value) return ''
+      const path = value.split('#')[0].split('?')[0]
+      const parts = path.split('/').filter(Boolean)
+      const last = parts[parts.length - 1] || ''
+      return last === 'player.html' ? '' : last
+    }
+
+    return (
+      fromQuery(video.shareUrl) ||
+      fromLastPath(video.shareUrl) ||
+      fromQuery(video.embedUrl) ||
+      fromLastPath(video.embedUrl) ||
+      video.id
+    )
   }
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false)
-    setTimeout(() => {
-      setSelectedVideoId(null)
-    }, 450)
+  const handleVideoClick = (video: VideoItem) => {
+    const videoId = extractVideoId(video)
+    router.push(`/videos?video=${encodeURIComponent(videoId)}`)
   }
 
   return (
@@ -53,12 +74,6 @@ export default function VideoBlock({ videos }: VideoBlockProps) {
           onVideoClick={handleVideoClick}
         />
       </div>
-
-      <VideoModal
-        videoId={selectedVideoId}
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-      />
     </section>
   )
 }
