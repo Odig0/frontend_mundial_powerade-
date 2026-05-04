@@ -1,9 +1,8 @@
 "use client"
 
-import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import type { VideoItem } from '@/services/dailymotionService'
 import VideoCarousel from './VideoCarousel'
-import VideoModal from './VideoModal'
 
 interface VideoBlockProps {
   videos: VideoItem[]
@@ -14,25 +13,62 @@ interface VideoBlockProps {
  * Orquestador de la experiencia visual con enfoque estético.
  */
 export default function VideoBlock({ videos }: VideoBlockProps) {
-  const [selectedVideoId, setSelectedVideoId] = useState<string | null>(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const router = useRouter()
 
   if (!videos || videos.length === 0) return null
 
-  const handleVideoClick = (id: string) => {
-    setSelectedVideoId(id)
-    setIsModalOpen(true)
+  const extractVideoId = (video: Pick<VideoItem, 'id' | 'embedUrl' | 'shareUrl'>): string => {
+    const fromQuery = (value?: string | null) => {
+      if (!value) return ''
+      try {
+        const parsed = new URL(value)
+        return parsed.searchParams.get('video') || ''
+      } catch {
+        const query = value.split('?')[1]
+        if (!query) return ''
+        return new URLSearchParams(query).get('video') || ''
+      }
+    }
+
+    const fromLastPath = (value?: string | null) => {
+      if (!value) return ''
+      const path = value.split('#')[0].split('?')[0]
+      const parts = path.split('/').filter(Boolean)
+      const last = parts[parts.length - 1] || ''
+      return last === 'player.html' ? '' : last
+    }
+
+    return (
+      fromQuery(video.shareUrl) ||
+      fromLastPath(video.shareUrl) ||
+      fromQuery(video.embedUrl) ||
+      fromLastPath(video.embedUrl) ||
+      video.id
+    )
   }
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false)
-    setTimeout(() => {
-      setSelectedVideoId(null)
-    }, 450)
+  const handleVideoClick = (video: VideoItem) => {
+    const videoId = extractVideoId(video)
+    const nextUrl = `/videos?video=${encodeURIComponent(videoId)}`
+    try {
+      router.push(nextUrl)
+      if (typeof window !== 'undefined' && window.history && window.location.pathname !== undefined) {
+        // If already on /videos this ensures the query param updates immediately
+        window.history.pushState({}, '', nextUrl)
+      }
+    } catch (e) {
+      if (typeof window !== 'undefined' && window.history) {
+        window.history.pushState({}, '', nextUrl)
+      }
+    }
   }
 
   return (
-    <section className="bg-background pb-4 pt-8 relative overflow-hidden">
+    <section
+      id="videos"
+      className="bg-background pb-4 pt-8 relative overflow-hidden"
+      style={{ scrollMarginTop: '88px' }}
+    >
       <div className="absolute top-0 left-1/3 w-[300px] h-[300px] bg-[#3CB7FF]/5 blur-[80px] rounded-full -z-10" />
       <div className="absolute bottom-0 right-1/3 w-[250px] h-[250px] bg-[#3CB7FF]/5 blur-[60px] rounded-full -z-10" />
 
@@ -49,12 +85,6 @@ export default function VideoBlock({ videos }: VideoBlockProps) {
           onVideoClick={handleVideoClick}
         />
       </div>
-
-      <VideoModal
-        videoId={selectedVideoId}
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-      />
     </section>
   )
 }

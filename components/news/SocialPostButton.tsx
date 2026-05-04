@@ -1,12 +1,14 @@
 'use client'
 
 import { useState, useRef } from 'react'
-import { Share2, Download, X, Loader2, Copy, RefreshCw, Check, Link2 } from 'lucide-react'
+import { Share2, Download, X, Loader2, Copy, RefreshCw, Check } from 'lucide-react'
+import { getAuthToken } from '@/lib/api-client'
 
 interface SocialPostButtonProps {
   id: string
   titulo: string
   inline?: boolean
+  className?: string
 }
 
 const IMAGE_BASE_URL = 'https://cdn.diez.bo/diez/'
@@ -17,58 +19,22 @@ interface GeneratedPost {
   processedUrl: string   // blob URL con sello aplicado
   link: string
   titulo: string
-  formato: 'horizontal' | 'vertical'
+  formato: 'horizontal' | 'vertical' | 'instagram'
 }
 
-function FacebookIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
-      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-    </svg>
-  )
-}
-function TwitterXIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  )
-}
-function InstagramIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="var(--background)" />
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="var(--background)" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  )
-}
-function LinkedInIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-      <rect x="2" y="9" width="4" height="12" />
-      <circle cx="4" cy="4" r="2" />
-    </svg>
-  )
-}
-function WhatsAppIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.847L.057 23.5l5.764-1.513A11.938 11.938 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9a9.9 9.9 0 0 1-5.04-1.378l-.36-.214-3.733.98.998-3.648-.235-.374A9.86 9.86 0 0 1 2.1 12c0-5.463 4.437-9.9 9.9-9.9 5.464 0 9.9 4.437 9.9 9.9 0 5.464-4.436 9.9-9.9 9.9z" />
-    </svg>
-  )
-}
-
-export default function SocialPostButton({ id, titulo, inline = false }: SocialPostButtonProps) {
+export default function SocialPostButton({ id, titulo, inline = false, className }: SocialPostButtonProps) {
   const [open, setOpen] = useState(false)
   const [tituloEditado, setTituloEditado] = useState(titulo)
   const [post, setPost] = useState<GeneratedPost | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [copied, setCopied] = useState(false)
   const [copiedImg, setCopiedImg] = useState(false)
+  const [publishingFacebook, setPublishingFacebook] = useState(false)
+  const [publishSuccessFacebook, setPublishSuccessFacebook] = useState(false)
+  const [publishingInstagram, setPublishingInstagram] = useState(false)
+  const [publishSuccessInstagram, setPublishSuccessInstagram] = useState(false)
+  const [publishingTwitter, setPublishingTwitter] = useState(false)
+  const [publishSuccessTwitter, setPublishSuccessTwitter] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
   async function generate(tituloToUse: string) {
@@ -76,9 +42,14 @@ export default function SocialPostButton({ id, titulo, inline = false }: SocialP
     setError(null)
     try {
       const base = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000/v1'
+      const token = getAuthToken()
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`
+      }
       const res = await fetch(`${base}/social-post/generate`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({ id, tituloEditado: tituloToUse }),
       })
       if (!res.ok) throw new Error(`Error ${res.status}`)
@@ -99,21 +70,32 @@ export default function SocialPostButton({ id, titulo, inline = false }: SocialP
       console.log('[SocialPost] imagenUrl construida:', imagenUrl)
 
       // Generar imagen con sello via API server-side
+      const today = new Date()
+      const dateStr = today.toLocaleDateString('es-ES', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      })
+      
       const processRes = await fetch('/api/generate-social-image', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ imageUrl: imagenUrl, formato: data.formato ?? 'horizontal' }),
+        body: JSON.stringify({ 
+          imageUrl: imagenUrl, 
+          formato: 'instagram',
+          titulo: tituloToUse,
+          fecha: dateStr
+        }),
       })
 
-      let processedUrl = imagenUrl
-      if (processRes.ok) {
-        const blob = await processRes.blob()
-        processedUrl = URL.createObjectURL(blob)
-      } else {
-        console.warn('[SocialPost] procesamiento falló, usando imagen original')
+      if (!processRes.ok) {
+        throw new Error(`Error procesando imagen: ${processRes.status}`)
       }
 
-      setPost({ ...data, imagenUrl, processedUrl })
+      const blob = await processRes.blob()
+      const processedUrl = URL.createObjectURL(blob)
+
+      setPost({ ...data, imagenUrl: processedUrl, processedUrl })
       setTituloEditado(data.titulo ?? tituloToUse)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error generando imagen')
@@ -143,19 +125,105 @@ export default function SocialPostButton({ id, titulo, inline = false }: SocialP
     generate(tituloEditado)
   }
 
+  async function handlePublishFacebook() {
+    if (!post?.processedUrl) return
+    setPublishingFacebook(true)
+    try {
+      const response = await fetch('/api/publish/facebook', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: tituloEditado,
+          imageUrl: post.processedUrl,
+          link: post.link,
+          newsId: id,
+        }),
+      })
+
+      if (!response.ok) {
+        const error = await response.json()
+        setError(error.error || 'Error al publicar en Facebook')
+        setPublishingFacebook(false)
+        return
+      }
+
+      setPublishSuccessFacebook(true)
+      setTimeout(() => setPublishSuccessFacebook(false), 3000)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Error al publicar')
+    } finally {
+      setPublishingFacebook(false)
+    }
+  }
+
+  async function handlePublishInstagram() {
+    if (!post?.processedUrl) return
+    setPublishingInstagram(true)
+    try {
+      const response = await fetch('/api/publish/instagram', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: tituloEditado,
+          imageUrl: post.processedUrl,
+          link: post.link,
+          newsId: id,
+        }),
+      })
+
+      if (!response.ok) {
+        const error = await response.json()
+        setError(error.error || 'Error al publicar en Instagram')
+        setPublishingInstagram(false)
+        return
+      }
+
+      setPublishSuccessInstagram(true)
+      setTimeout(() => setPublishSuccessInstagram(false), 3000)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Error al publicar')
+    } finally {
+      setPublishingInstagram(false)
+    }
+  }
+
+  async function handlePublishTwitter() {
+    if (!post?.processedUrl) return
+    setPublishingTwitter(true)
+    try {
+      const response = await fetch('/api/publish/twitter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: tituloEditado,
+          imageUrl: post.processedUrl,
+          link: post.link,
+          newsId: id,
+        }),
+      })
+
+      if (!response.ok) {
+        const error = await response.json()
+        setError(error.error || 'Error al publicar en Twitter')
+        setPublishingTwitter(false)
+        return
+      }
+
+      setPublishSuccessTwitter(true)
+      setTimeout(() => setPublishSuccessTwitter(false), 3000)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Error al publicar')
+    } finally {
+      setPublishingTwitter(false)
+    }
+  }
+
   function handleDownload() {
     if (!post?.processedUrl) return
     const a = document.createElement('a')
     a.href = post.processedUrl
-    a.download = `post-${id}.jpg`
+    a.download = `instagram-${id}-1080x1350.jpg`
     a.click()
-  }
-
-  async function handleCopyLink() {
-    if (!post?.link) return
-    await navigator.clipboard.writeText(post.link)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
   }
 
   async function handleCopyImage() {
@@ -171,18 +239,6 @@ export default function SocialPostButton({ id, titulo, inline = false }: SocialP
     }
   }
 
-  function shareUrl(platform: string) {
-    if (!post) return
-    const url = encodeURIComponent(post.link)
-    const text = encodeURIComponent(tituloEditado)
-    const urls: Record<string, string> = {
-      facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
-      twitter: `https://twitter.com/intent/tweet?text=${text}&url=${url}`,
-      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
-      whatsapp: `https://api.whatsapp.com/send?text=${text}%20${url}`,
-    }
-    window.open(urls[platform], '_blank', 'width=600,height=500')
-  }
 
   const isHorizontal = post?.formato !== 'vertical'
 
@@ -191,7 +247,7 @@ export default function SocialPostButton({ id, titulo, inline = false }: SocialP
       {inline ? (
         <button
           onClick={handleOpen}
-          className="flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 text-sm font-bold rounded hover:opacity-90 transition-opacity"
+          className={`flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 text-sm font-bold rounded hover:opacity-90 transition-opacity ${className ?? ''}`}
         >
           <Share2 className="w-4 h-4" />
           Generar imagen para redes
@@ -200,7 +256,7 @@ export default function SocialPostButton({ id, titulo, inline = false }: SocialP
         <button
           onClick={handleOpen}
           title="Generar imagen para redes sociales"
-          className="absolute top-2 right-2 z-10 p-1.5 bg-black/60 hover:bg-accent hover:text-accent-foreground text-white rounded transition-all opacity-0 group-hover:opacity-100"
+          className="absolute top-2 right-2 z-10 p-2 bg-black/60 hover:bg-accent hover:text-accent-foreground text-white rounded transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100"
         >
           <Share2 className="w-3.5 h-3.5" />
         </button>
@@ -250,7 +306,7 @@ export default function SocialPostButton({ id, titulo, inline = false }: SocialP
               </div>
 
               {/* Preview */}
-              <div className={`relative w-full overflow-hidden rounded-lg bg-[#162032] ${isHorizontal ? 'aspect-[1200/628]' : 'aspect-[1080/1350] max-w-xs mx-auto'}`}>
+              <div className="relative w-full overflow-hidden rounded-lg bg-[#162032] aspect-[1080/1350] max-w-xs mx-auto">
                 {loading && (
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
                     <Loader2 className="w-8 h-8 text-accent animate-spin" />
@@ -293,38 +349,78 @@ export default function SocialPostButton({ id, titulo, inline = false }: SocialP
                     </button>
                   </div>
 
-                  <div className="flex items-center gap-3">
-                    <div className="flex-1 h-px bg-[#162032]" />
-                    <span className="text-xs text-muted-foreground">Compartir enlace</span>
-                    <div className="flex-1 h-px bg-[#162032]" />
+                  <div className="grid grid-cols-2 gap-2">
+                    <button
+                      onClick={handlePublishFacebook}
+                      disabled={publishingFacebook}
+                      className="flex items-center justify-center gap-2 bg-[#1877f2] text-white font-bold py-2.5 rounded hover:opacity-90 transition-opacity disabled:opacity-50 text-sm"
+                    >
+                      {publishingFacebook ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          Publicando...
+                        </>
+                      ) : publishSuccessFacebook ? (
+                        <>
+                          <Check className="w-4 h-4 text-green-400" />
+                          ¡Publicado!
+                        </>
+                      ) : (
+                        <>
+                          <Share2 className="w-4 h-4" />
+                          Facebook
+                        </>
+                      )}
+                    </button>
+                     <button
+                      onClick={handlePublishInstagram}
+                      disabled={publishingInstagram}
+                      className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#f09433] via-[#e6683c] to-[#bc1888] text-white font-bold py-2.5 rounded hover:opacity-90 transition-opacity disabled:opacity-50 text-sm"
+                    >
+                      {publishingInstagram ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          Publicando...
+                        </>
+                      ) : publishSuccessInstagram ? (
+                        <>
+                          <Check className="w-4 h-4 text-green-400" />
+                          ¡Publicado!
+                        </>
+                      ) : (
+                        <>
+                          <Share2 className="w-4 h-4" />
+                          Instagram
+                        </>
+                      )}
+                    </button>
                   </div>
 
                   <div className="grid grid-cols-2 gap-2">
-                    <button onClick={() => shareUrl('facebook')} className="flex items-center justify-center gap-2 bg-[#1877f2] text-white font-semibold py-2.5 rounded hover:opacity-90 text-sm">
-                      <FacebookIcon />Facebook
-                    </button>
-                    <button onClick={() => shareUrl('twitter')} className="flex items-center justify-center gap-2 bg-black border border-white/20 text-white font-semibold py-2.5 rounded hover:opacity-90 text-sm">
-                      <TwitterXIcon />Twitter / X
-                    </button>
-                    <button onClick={handleCopyImage} className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#f09433] via-[#e6683c] to-[#bc1888] text-white font-semibold py-2.5 rounded hover:opacity-90 text-sm">
-                      <InstagramIcon />
-                      {copiedImg ? 'Imagen copiada!' : 'Instagram (copiar)'}
-                    </button>
-                    <button onClick={() => shareUrl('linkedin')} className="flex items-center justify-center gap-2 bg-[#0a66c2] text-white font-semibold py-2.5 rounded hover:opacity-90 text-sm">
-                      <LinkedInIcon />LinkedIn
-                    </button>
-                    <button onClick={() => shareUrl('whatsapp')} className="flex items-center justify-center gap-2 bg-[#25d366] text-white font-semibold py-2.5 rounded hover:opacity-90 text-sm col-span-2">
-                      <WhatsAppIcon />WhatsApp
+                    <button
+                      onClick={handlePublishTwitter}
+                      disabled={publishingTwitter}
+                      className="flex items-center justify-center gap-2 bg-[#1DA1F2] text-white font-bold py-2.5 rounded hover:opacity-90 transition-opacity disabled:opacity-50 text-sm"
+                    >
+                      {publishingTwitter ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          Publicando...
+                        </>
+                      ) : publishSuccessTwitter ? (
+                        <>
+                          <Check className="w-4 h-4 text-green-400" />
+                          ¡Publicado!
+                        </>
+                      ) : (
+                        <>
+                          <Share2 className="w-4 h-4" />
+                          Twitter
+                        </>
+                      )}
                     </button>
                   </div>
 
-                  <button
-                    onClick={handleCopyLink}
-                    className="flex items-center justify-center gap-2 bg-[#162032] border border-[#1e3048] text-muted-foreground hover:text-white hover:border-accent font-semibold py-2 rounded transition-colors text-xs"
-                  >
-                    {copied ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Link2 className="w-3.5 h-3.5" />}
-                    {copied ? '¡Enlace copiado!' : post.link}
-                  </button>
                 </>
               )}
             </div>

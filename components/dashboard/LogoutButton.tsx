@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { LogOut, Loader2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { clearAuthToken } from '@/lib/api-client'
 
 export function LogoutButton() {
   const router = useRouter()
@@ -13,6 +14,7 @@ export function LogoutButton() {
     setIsLoading(true)
     try {
       await fetch('/api/auth/logout', { method: 'POST' })
+      clearAuthToken()
       router.push('/login')
       router.refresh()
     } catch (error) {

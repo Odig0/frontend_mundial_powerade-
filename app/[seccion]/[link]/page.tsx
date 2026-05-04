@@ -10,6 +10,20 @@ interface Params {
   link: string
 }
 
+const BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo'
+
+function extractTextFromHtml(html?: string): string {
+  if (!html) return ''
+  return html
+    .replace(/<[^>]*>/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&')
+    .substring(0, 160)
+    .trim()
+}
+
 export async function generateMetadata({ params }: { params: Promise<Params> | Params }) {
   const resolvedParams = await params
   const { seccion, link } = resolvedParams
@@ -21,9 +35,41 @@ export async function generateMetadata({ params }: { params: Promise<Params> | P
     }
   }
 
-  // extract text from HTML for description metadata if needed, but for simplicity, we can just omit it or use title
+  const title = `${news.titulo} - El Deber Deportes`
+  const description = news.introHTML ? extractTextFromHtml(news.introHTML) : news.titulo
+  const image = news.imagen_interior || '/tribuna_powerade.png'
+  const canonicalUrl = `${BASE_URL}/${seccion}/${link}`
+
   return {
-    title: `${news.titulo} - Sports News Daily`,
+    title,
+    description,
+    keywords: [...(news.secciones || []), 'noticias', 'deportes'],
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      locale: 'es_ES',
+      url: canonicalUrl,
+      siteName: 'El Deber Deportes',
+      publishedTime: news.fecha_c ? new Date(news.fecha_c).toISOString() : undefined,
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: news.titulo,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [image],
+    },
+    alternates: {
+      canonical: canonicalUrl,
+    },
   }
 }
 

@@ -6,12 +6,12 @@ import DashboardHeader from './DashboardHeader'
 
 interface DashboardShellProps {
   children: React.ReactNode
-  username: string
+  username?: string
 }
 
-export default function DashboardShell({ children, username }: DashboardShellProps) {
+export default function DashboardShell({ children, username = 'Usuario' }: DashboardShellProps) {
   return (
-    <SidebarProvider>
+    <SidebarProvider defaultOpen={false}>
       <div className="absolute inset-0 z-20 flex w-full">
         <DashboardSidebar username={username} />
         <div className="flex-1 flex flex-col overflow-hidden">

@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { CREDENTIALS, signSession, SESSION_COOKIE_NAME, SESSION_MAX_AGE } from '@/lib/auth'
+
+const SESSION_COOKIE_NAME = 'auth_token'
+const SESSION_MAX_AGE = 60 * 60 * 24 * 7 // 7 days
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,17 +15,37 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    if (username !== CREDENTIALS.username || password !== CREDENTIALS.password) {
+    const backendUrl = process.env.NEXT_PUBLIC_API_URL
+    if (!backendUrl) {
       return NextResponse.json(
-        { error: 'Credenciales inválidas' },
-        { status: 401 }
+        { error: 'Configuración del servidor incompleta' },
+        { status: 500 }
       )
     }
 
-    const sessionToken = signSession(username)
+    const backendResponse = await fetch(`${backendUrl}/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password }),
+    })
 
-    const response = NextResponse.json({ ok: true })
-    response.cookies.set(SESSION_COOKIE_NAME, sessionToken, {
+    if (!backendResponse.ok) {
+      const errorData = await backendResponse.json().catch(() => ({ error: 'Error en la autenticación' }))
+      return NextResponse.json(
+        { error: errorData.error || 'Credenciales inválidas' },
+        { status: backendResponse.status }
+      )
+    }
+
+    const data = await backendResponse.json()
+
+    const response = NextResponse.json({
+      access_token: data.access_token,
+      user: data.user,
+    })
+
+    // Save token in httpOnly cookie for middleware validation
+    response.cookies.set(SESSION_COOKIE_NAME, data.access_token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
@@ -35,7 +57,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Login error:', error)
     return NextResponse.json(
-      { error: 'Error en el servidor' },
+      { error: 'Error de conexión con el servidor' },
       { status: 500 }
     )
   }
