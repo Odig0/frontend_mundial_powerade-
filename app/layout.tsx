@@ -8,24 +8,23 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: 'Powerade - El Deber Deportes',
   description: 'Cobertura completa del Mundial 2026: partidos, selecciones, noticias, videos y análisis deportivos.',
-  generator: 'v0.app',
   keywords: ['mundial 2026', 'fútbol', 'deportes', 'noticias', 'videos'],
   icons: {
     icon: [
       {
-        url: 'https://mediakit.eldeber.com.bo/images/eldeber_logo_white.png',
+        url: '/logo_deber.jpg',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/icon-dark-32x32.png',
+        url: '/logo_deber.jpg',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/logo_deber.jpg',
+        type: 'image/jpeg',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/logo_deber.jpg',
   },
   openGraph: {
     title: 'Powerade - El Deber Deportes',
