@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useMemo, useState } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import type { VideoItem } from '@/services/dailymotionService'
 import ShareVideoButton from './ShareVideoButton'
 
@@ -56,6 +56,7 @@ function buildEmbedSrc(embedUrl: string) {
 }
 
 export default function VideoPlayer({ videos: initialVideos, startIndex = 0 }: VideoPlayerProps) {
+  const router = useRouter()
   const searchParams = useSearchParams()
   const videoParam = normalizeVideoParam(searchParams.get('video'))
   
@@ -109,7 +110,7 @@ export default function VideoPlayer({ videos: initialVideos, startIndex = 0 }: V
     setSelectedIndex(index)
     const selectedId = extractVideoId(video)
     const nextUrl = `/videos?video=${encodeURIComponent(selectedId)}`
-    window.location.href = nextUrl
+    router.push(nextUrl)
   }
 
   const currentVideo = videos?.[selectedIndex]
@@ -161,13 +162,15 @@ export default function VideoPlayer({ videos: initialVideos, startIndex = 0 }: V
                 Reproduciendo ahora
               </p>
               <div className="mt-2 flex items-start justify-between gap-4">
-                <div className="flex-1">
-                  <h2 className="text-lg md:text-xl font-black leading-tight text-white">
+                <div className="flex-1 min-w-0">
+                  <h2 className="text-lg md:text-xl font-black leading-tight text-white line-clamp-2">
                     {currentVideo?.titulo}
                   </h2>
                 </div>
                 {currentVideo && (
-                  <ShareVideoButton videoId={currentVideo.id} videoTitle={currentVideo.titulo} embedUrl={currentVideo.embedUrl} shareUrl={currentVideo.shareUrl} />
+                  <div className="shrink-0">
+                    <ShareVideoButton videoId={currentVideo.id} videoTitle={currentVideo.titulo} embedUrl={currentVideo.embedUrl} shareUrl={currentVideo.shareUrl} />
+                  </div>
                 )}
               </div>
             </div>

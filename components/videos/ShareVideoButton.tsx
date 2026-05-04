@@ -15,6 +15,35 @@ const RAW_BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeb
 const BASE_URL = RAW_BASE_URL.replace(/\/$/, '')
 const VIDEOS_PAGE_URL = `${BASE_URL}/videos`
 
+// Función para extraer ID del video de diferentes formatos
+const extractVideoId = (url?: string, fallbackId?: string): string => {
+  if (!url) return fallbackId || ''
+  try {
+    const parsed = new URL(url)
+    const queryVideoId = parsed.searchParams.get('video')
+    if (queryVideoId) return queryVideoId
+
+    const cleanPath = parsed.pathname.split('/').filter(Boolean)
+    const lastSegment = cleanPath[cleanPath.length - 1]
+    if (lastSegment && lastSegment !== 'player.html') return lastSegment
+  } catch {
+    const raw = url.split('#')[0]
+    const query = raw.split('?')[1]
+    if (query) {
+      const params = new URLSearchParams(query)
+      const queryVideoId = params.get('video')
+      if (queryVideoId) return queryVideoId
+    }
+
+    const pathPart = raw.split('?')[0]
+    const parts = pathPart.split('/').filter(Boolean)
+    const lastSegment = parts[parts.length - 1]
+    if (lastSegment && lastSegment !== 'player.html') return lastSegment
+  }
+
+  return fallbackId || ''
+}
+
 export default function ShareVideoButton({ videoId, videoTitle, embedUrl, shareUrl }: ShareVideoButtonProps) {
   const [open, setOpen] = useState(false)
 
