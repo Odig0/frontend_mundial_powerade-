@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import SocialPostButton from './SocialPostButton'
 
 interface NewsCardProps {
   id: string
@@ -42,7 +41,6 @@ export default function NewsCard({
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            <SocialPostButton id={id} titulo={titulo} />
           </div>
           <h3 className="font-bold text-white group-hover:text-accent transition-colors line-clamp-2 text-sm">
             {titulo}
@@ -65,7 +63,6 @@ export default function NewsCard({
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
-          <SocialPostButton id={id} titulo={titulo} />
         </div>
         <div className="flex flex-col">
           <div className="inline-block px-2 py-0.5 bg-accent text-accent-foreground text-[10px] font-bold rounded mb-3 uppercase tracking-widest self-start">

@@ -244,23 +244,7 @@ export default function SocialPostButton({ id, titulo, inline = false, className
 
   return (
     <>
-      {inline ? (
-        <button
-          onClick={handleOpen}
-          className={`flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 text-sm font-bold rounded hover:opacity-90 transition-opacity ${className ?? ''}`}
-        >
-          <Share2 className="w-4 h-4" />
-          Generar imagen para redes
-        </button>
-      ) : (
-        <button
-          onClick={handleOpen}
-          title="Generar imagen para redes sociales"
-          className="absolute top-2 right-2 z-10 p-2 bg-black/60 hover:bg-accent hover:text-accent-foreground text-white rounded transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100"
-        >
-          <Share2 className="w-3.5 h-3.5" />
-        </button>
-      )}
+     
 
       {open && (
         <div
