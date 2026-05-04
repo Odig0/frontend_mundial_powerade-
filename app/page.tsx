@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import Header from '@/components/layout/Header'
@@ -11,6 +12,36 @@ import FixtureBlock from '@/components/home/FixtureBlock'
 import SocialPostButton from '@/components/news/SocialPostButton'
 import { getNews } from '@/lib/api'
 import { getDailymotionVideos } from '@/services/dailymotionService'
+
+const BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo'
+
+export const metadata: Metadata = {
+  title: 'Powerade - El Deber Deportes',
+  description: 'Cobertura completa del Mundial 2026: partidos, selecciones, noticias, videos y análisis deportivos en vivo.',
+  keywords: ['mundial 2026', 'fútbol', 'deportes', 'noticias'],
+  openGraph: {
+    title: 'Powerade - El Deber Deportes',
+    description: 'Cobertura completa del Mundial 2026: partidos, selecciones, noticias, videos y análisis deportivos.',
+    type: 'website',
+    locale: 'es_ES',
+    url: BASE_URL,
+    siteName: 'El Deber Deportes',
+    images: [
+      {
+        url: 'https://mediakit.eldeber.com.bo/images/eldeber_logo_white.png',
+        width: 1200,
+        height: 630,
+        alt: 'El Deber Deportes - Powerade',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Powerade - El Deber Deportes',
+    description: 'Cobertura del Mundial 2026',
+    images: ['https://mediakit.eldeber.com.bo/images/eldeber_logo_white.png'],
+  },
+}
 
 export default async function Home() {
   const [rawNews, videos] = await Promise.all([
