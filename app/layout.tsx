@@ -79,6 +79,21 @@ export default function RootLayout({
         </Script>
         {/* End Google Tag Manager */}
 
+        {/* Google Analytics (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-G65015HTHP"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-G65015HTHP');
+          `}
+        </Script>
+        {/* End Google Analytics */}
+
         {/* Google Publisher Tag (GPT) */}
         <Script
           src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
