@@ -127,7 +127,7 @@ export default function RootLayout({
           {children}
         </div>
 
-        {/* Analytics */}
+        {/* Analytics final */}
         <Analytics />
       </body>
     </html>
