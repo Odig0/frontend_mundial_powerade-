@@ -164,7 +164,7 @@ export default function ShareVideoButton({ videoId, videoTitle, embedUrl, shareU
                 className="flex items-center justify-center gap-2 bg-[#1DA1F2] hover:bg-[#1a8cd8] text-white font-bold py-3 rounded-lg transition-colors"
               >
                 <Twitter className="w-5 h-5" />
-                Compartir en Twitter/X
+                Compartir en X
               </button>
 
               <button

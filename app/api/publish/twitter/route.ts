@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
     )
 
     const publishText = await publishRes.text()
-    console.log('[Metricool Twitter] Publish response:', publishRes.status, publishText.slice(0, 300))
+    console.log('[Metricool X] Publish response:', publishRes.status, publishText.slice(0, 300))
     let publishData: Record<string, unknown> = {}
     try {
       publishData = publishText ? JSON.parse(publishText) : {}
@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (!publishRes.ok) {
-      console.error('[Metricool Twitter] Publish error:', publishData)
+      console.error('[Metricool X] Publish error:', publishData)
       return NextResponse.json(
         { error: publishData?.message || `Error Metricool: ${publishRes.status}` },
         { status: publishRes.status }
@@ -81,11 +81,11 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      message: 'Publicado en Metricool para Twitter',
+      message: 'Publicado en Metricool para X',
       postId: publishData.id,
     })
   } catch (error) {
-    console.error('[Metricool Twitter] Error:', error)
+    console.error('[Metricool X] Error:', error)
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Error interno' },
       { status: 500 }

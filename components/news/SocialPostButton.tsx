@@ -204,7 +204,7 @@ export default function SocialPostButton({ id, titulo, inline = false, className
 
       if (!response.ok) {
         const error = await response.json()
-        setError(error.error || 'Error al publicar en Twitter')
+        setError(error.error || 'Error al publicar en X')
         setPublishingTwitter(false)
         return
       }
@@ -399,7 +399,7 @@ export default function SocialPostButton({ id, titulo, inline = false, className
                       ) : (
                         <>
                           <Share2 className="w-4 h-4" />
-                          Twitter
+                          X
                         </>
                       )}
                     </button>
