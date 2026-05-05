@@ -61,15 +61,10 @@ export default function AdSlot({ config, className, minHeight = "600px" }: AdSlo
 
   return (
     <div 
-      className={`relative flex flex-col items-center justify-center border-2 border-dashed border-gray-400 bg-gray-200 rounded-lg overflow-hidden transition-all ${className}`}
+      className={`relative flex flex-col items-center justify-center overflow-hidden transition-all ${className}`}
       style={{ minHeight, width: '100%' }}
     >
-      {/* Visual Placeholder: Solo se ve si el anuncio está vacío o mientras carga */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-500 pointer-events-none z-0 p-4 text-center">
-        <span className="text-xs font-bold uppercase tracking-widest opacity-40 mb-1">Espacio de Publicidad</span>
-        <span className="text-[10px] opacity-30 font-mono break-all">{config.adUnit}</span>
-        <span className="text-[9px] opacity-20 mt-2 italic">ID: {config.divId}</span>
-      </div>
+      {/* El slot de anuncio se inyecta aquí */}
 
       {/* Contenedor Real de GPT: Aquí se inyecta el iframe de Google */}
       <div 

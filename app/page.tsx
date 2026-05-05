@@ -12,6 +12,7 @@ import FixtureBlock from '@/components/home/FixtureBlock'
 import SocialPostButton from '@/components/news/SocialPostButton'
 import HomeLeftAd from '@/components/publicidad/HomeLeftAd'
 import HomeRightAd from '@/components/publicidad/HomeRightAd'
+import TopBannerAd from '@/components/publicidad/TopBannerAd'
 import { getNews } from '@/lib/api'
 import { getDailymotionVideos } from '@/services/dailymotionService'
 
@@ -60,6 +61,9 @@ export default async function Home() {
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
       <Navbar />
+
+      {/* Top Banner Ad 970x90 */}
+      <TopBannerAd />
 
       {/* Contenedor con laterales publicitarios */}
       <div className="flex justify-center w-full max-w-[1900px] mx-auto gap-4 px-4">
