@@ -59,7 +59,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="bg-background" suppressHydrationWarning>
+
+      
       <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-3GM104CS7N"
+          strategy="beforeInteractive"
+        />
+        <Script id="gtag-init" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-3GM104CS7N');
+          `}
+        </Script>
+
         {/* Google Tag Manager */}
         <Script id="gtm" strategy="beforeInteractive">
           {`
