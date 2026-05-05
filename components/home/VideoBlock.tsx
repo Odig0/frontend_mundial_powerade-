@@ -51,14 +51,24 @@ export default function VideoBlock({ videos }: VideoBlockProps) {
     const videoId = extractVideoId(video)
     const nextUrl = `/videos?video=${encodeURIComponent(videoId)}`
     try {
-      router.push(nextUrl)
-      if (typeof window !== 'undefined' && window.history && window.location.pathname !== undefined) {
-        // If already on /videos this ensures the query param updates immediately
-        window.history.pushState({}, '', nextUrl)
+      // If we're already on the /videos page, do a client navigation so the
+      // VideoPlayer can pick up the query param and switch video without a full reload.
+      if (typeof window !== 'undefined' && window.location.pathname === '/videos') {
+        router.push(nextUrl)
+        if (window.history) window.history.pushState({}, '', nextUrl)
+      } else {
+        // From other pages (home), force a full navigation so the app loads
+        // the `/videos` route with the selected `video` query param.
+        // router.push can be flaky in some dev/HMR cases, so use location.href.
+        if (typeof window !== 'undefined') {
+          window.location.href = nextUrl
+        } else {
+          router.push(nextUrl)
+        }
       }
     } catch (e) {
-      if (typeof window !== 'undefined' && window.history) {
-        window.history.pushState({}, '', nextUrl)
+      if (typeof window !== 'undefined') {
+        window.location.href = nextUrl
       }
     }
   }
