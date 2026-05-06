@@ -15,7 +15,33 @@ import HomeRightAd from '@/components/publicidad/HomeRightAd'
 import { getNews } from '@/lib/api'
 import { getDailymotionVideos } from '@/services/dailymotionService'
 
-const BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo'
+const BASE_URL = (process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo').replace(/\/$/, '')
+const SITE_NAME = 'El Deber Deportes'
+
+function toAbsoluteUrl(path: string) {
+  if (!path) {
+    return path
+  }
+
+  if (/^https?:\/\//i.test(path)) {
+    return path
+  }
+
+  return `${BASE_URL}${path.startsWith('/') ? path : `/${path}`}`
+}
+
+function toIsoDate(timestamp: number) {
+  const normalizedTimestamp = timestamp > 1_000_000_000_000 ? timestamp : timestamp * 1000
+  return new Date(normalizedTimestamp).toISOString()
+}
+
+function stripHtml(html: string) {
+  return html.replace(/<[^>]*>?/gm, ' ').replace(/\s+/g, ' ').trim()
+}
+
+function serializeJsonLd(data: unknown) {
+  return JSON.stringify(data).replace(/</g, '\\u003c')
+}
 
 export const metadata: Metadata = {
   title: 'Powerade - El Deber Deportes',
@@ -55,11 +81,54 @@ export default async function Home() {
   const featured = news.slice(0, 3)
   const secondary = news.slice(3, 6)
   const latest = news.slice(6, 14)
+  const featuredArticle = featured[0]
+  const featuredArticleHref = featuredArticle
+    ? (() => {
+      const seccion = featuredArticle.secciones?.[0] ?? 'general'
+      return seccion && featuredArticle.link ? `/${seccion}/${featuredArticle.link}` : null
+    })()
+    : null
+
+  const newsArticleSchema = featuredArticle
+    ? {
+      '@context': 'https://schema.org',
+      '@type': 'NewsArticle',
+      headline: featuredArticle.titulo,
+      description: featuredArticle.introHTML ? stripHtml(featuredArticle.introHTML).slice(0, 220) : undefined,
+      image: featuredArticle.imagen_home ? [toAbsoluteUrl(featuredArticle.imagen_home)] : undefined,
+      datePublished: toIsoDate(featuredArticle.fecha_a || featuredArticle.fecha_c),
+      dateModified: toIsoDate(featuredArticle.fecha_c || featuredArticle.fecha_a),
+      author: {
+        '@type': 'Person',
+        name: featuredArticle.opinologo?.firma || 'Redacción',
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: SITE_NAME,
+        logo: {
+          '@type': 'ImageObject',
+          url: `${BASE_URL}/logo_deber.jpg`,
+        },
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': featuredArticleHref ? toAbsoluteUrl(featuredArticleHref) : `${BASE_URL}/`,
+      },
+      url: featuredArticleHref ? toAbsoluteUrl(featuredArticleHref) : `${BASE_URL}/`,
+    }
+    : null
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
       <Navbar />
+
+      {newsArticleSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(newsArticleSchema) }}
+        />
+      )}
 
       {/* Contenedor con laterales publicitarios */}
       <div className="flex justify-center w-full max-w-[1900px] mx-auto gap-4 px-4">

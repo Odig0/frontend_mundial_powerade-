@@ -10,7 +10,29 @@ interface Params {
   link: string
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo'
+const BASE_URL = (process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo').replace(/\/$/, '')
+const SITE_NAME = 'El Deber Deportes'
+
+function toAbsoluteUrl(path: string) {
+  if (!path) {
+    return path
+  }
+
+  if (/^https?:\/\//i.test(path)) {
+    return path
+  }
+
+  return `${BASE_URL}${path.startsWith('/') ? path : `/${path}`}`
+}
+
+function toIsoDate(timestamp?: number) {
+  if (!timestamp) {
+    return undefined
+  }
+
+  const normalizedTimestamp = timestamp > 1_000_000_000_000 ? timestamp : timestamp * 1000
+  return new Date(normalizedTimestamp).toISOString()
+}
 
 function extractTextFromHtml(html?: string): string {
   if (!html) return ''
@@ -22,6 +44,10 @@ function extractTextFromHtml(html?: string): string {
     .replace(/&amp;/g, '&')
     .substring(0, 160)
     .trim()
+}
+
+function serializeJsonLd(data: unknown) {
+  return JSON.stringify(data).replace(/</g, '\\u003c')
 }
 
 export async function generateMetadata({ params }: { params: Promise<Params> | Params }) {
@@ -83,6 +109,39 @@ export default async function DetailPage({ params }: { params: Promise<Params> |
     notFound()
   }
 
+  const canonicalUrl = `${BASE_URL}/${seccion}/${link}`
+  const primarySection = news.secciones?.[0] ?? seccion
+  const publishedAt = toIsoDate(news.fecha_a || news.fecha_c)
+  const modifiedAt = toIsoDate(news.fecha_c || news.fecha_a)
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',
+    headline: news.titulo,
+    description: news.introHTML ? extractTextFromHtml(news.introHTML) : news.titulo,
+    image: news.imagen_interior ? [toAbsoluteUrl(news.imagen_interior)] : undefined,
+    datePublished: publishedAt,
+    dateModified: modifiedAt,
+    author: {
+      '@type': 'Person',
+      name: news.opinologo?.firma || 'Redacción',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE_URL}/logo_deber.jpg`,
+      },
+    },
+    articleSection: primarySection,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': canonicalUrl,
+    },
+    url: canonicalUrl,
+    inLanguage: 'es-ES',
+  }
+
   const dateString = news.fecha_c ? new Date(news.fecha_c).toLocaleDateString('es-ES', {
     year: 'numeric',
     month: 'long',
@@ -94,11 +153,19 @@ export default async function DetailPage({ params }: { params: Promise<Params> |
       <Header />
       <Navbar />
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleSchema) }}
+      />
+
       <main className="flex-1 container mx-auto px-4 py-8 md:py-12">
         <NewsDetail
           id={news._id}
           titulo={news.titulo}
           fecha={dateString}
+          publishedAt={publishedAt}
+          modifiedAt={modifiedAt}
+          canonicalUrl={canonicalUrl}
           imagen_interior={news.imagen_interior}
           secciones={news.secciones}
           introHTML={news.introHTML}
