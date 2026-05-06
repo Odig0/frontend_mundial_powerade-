@@ -87,12 +87,19 @@ async function requestJson<T>(path: string, init: RequestInit = {}): Promise<T> 
     })
 
     if (!response.ok) {
-      console.error(`[API] Request failed:`, { status: response.status, path })
+      if (response.status !== 404) {
+        console.error(`[API] Request failed:`, { status: response.status, path })
+      }
       throw new Error(`Request to ${path} failed with status ${response.status}`)
     }
 
     return response.json() as Promise<T>
   } catch (error) {
+    if (error instanceof Error && error.message.includes('status 404')) {
+      // 404 is expected in some lookups (we handle it upstream); avoid noisy logging
+      throw error
+    }
+
     console.error(`[API] Error fetching ${url}:`, error)
     throw error
   }
@@ -197,6 +204,24 @@ export async function getNewsById(id: string): Promise<NewsItem | undefined> {
   }
 }
 
+/**
+ * Busca una noticia directamente por su campo "link" (slug).
+ * Requiere endpoint en el backend: GET /news/by-link/:link
+ */
+export async function getNewsByLinkSlug(link: string): Promise<NewsItem | undefined> {
+  try {
+    return normalizeNewsItem(
+      await requestJson<NewsItem>(`/news/by-link/${encodeURIComponent(link)}`)
+    )
+  } catch (error) {
+    if (error instanceof Error && error.message.includes('status 404')) {
+      return undefined
+    }
+    // Si el endpoint no existe aún (404/500), retornar undefined silenciosamente
+    return undefined
+  }
+}
+
 export async function getMundialNews(): Promise<NewsItem[]> {
   const news = await requestJson<NewsItem[]>('/news/filter/mundial')
   return sortNewsByRecency(news.map(normalizeNewsItem))
@@ -212,24 +237,43 @@ export async function getNewsBySection(seccion: string): Promise<NewsItem[]> {
 }
 
 export async function getNewsByLink(seccion: string, link: string): Promise<NewsItem | undefined> {
+  // 1. Endpoint directo por link (más rápido - ya implementado en el backend)
+  const direct = await getNewsByLinkSlug(link)
+  if (direct) {
+    return direct
+  }
+
+  // 2. Fallbacks por si el endpoint directo falla o tiene delay
   if (seccion.toLowerCase() === 'mundial') {
     const mundialNews = await getMundialNews()
     const match = mundialNews.find((item) => item.link === link)
     if (!match) {
       return undefined
     }
-
     return (await getNewsById(match._id)) ?? match
   }
 
-  const news = await getNews()
-  const match = news.find((item) => item.secciones?.includes(seccion) && item.link === link)
-
-  if (!match) {
-    return undefined
+  // 3. Buscar en noticias recientes cacheadas
+  const latestNews = await getNews()
+  const matchInLatest = latestNews.find(
+    (item) => item.secciones?.includes(seccion) && item.link === link
+  )
+  if (matchInLatest) {
+    return (await getNewsById(matchInLatest._id)) ?? matchInLatest
   }
 
-  return (await getNewsById(match._id)) ?? match
+  // 3. Fallback: endpoint completo de la sección (artículos más antiguos)
+  try {
+    const sectionNews = await getNewsBySectionSlug(seccion)
+    const match = sectionNews.find((item) => item.link === link)
+    if (match) {
+      return (await getNewsById(match._id)) ?? match
+    }
+  } catch {
+    // Endpoint de sección no disponible
+  }
+
+  return undefined
 }
 
 export async function getAvailableSections(): Promise<string[]> {
