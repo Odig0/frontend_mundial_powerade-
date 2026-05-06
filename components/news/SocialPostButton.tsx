@@ -41,7 +41,7 @@ export default function SocialPostButton({ id, titulo, inline = false, className
     setLoading(true)
     setError(null)
     try {
-      const base = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000/v1'
+      const base = process.env.NEXT_PUBLIC_API_URL ?? 'https://dev.eldeber.bo/v1'
       const token = getAuthToken()
       const headers: Record<string, string> = { 'Content-Type': 'application/json' }
       if (token) {
