@@ -4,6 +4,7 @@ import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import VideoPlayer from '@/components/videos/VideoPlayer'
 import { getDailymotionVideos } from '@/services/dailymotionService'
+import PageWrapper from '@/components/layout/PageWrapper'
 
 const RAW_BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo'
 const BASE_URL = RAW_BASE_URL.replace(/\/$/, '')
@@ -120,17 +121,18 @@ export default async function VideosPage() {
       <Header />
       <Navbar />
 
-      <main className="flex-1 container mx-auto px-4 py-8 md:py-12">
-        <div className="mb-6">
-          <p className="text-[#3CB7FF] font-semibold uppercase tracking-[0.35em] text-xs mb-3">Videos</p>
-          <h1 className="text-3xl md:text-4xl font-black text-foreground">Cobertura multimedia</h1>
-        </div>
+      <PageWrapper>
+        <main className="flex-1 py-8 md:py-12">
+          <div className="mb-6">
+            <p className="text-[#3CB7FF] font-semibold uppercase tracking-[0.35em] text-xs mb-3">Videos</p>
+            <h1 className="text-3xl md:text-4xl font-black text-foreground">Cobertura multimedia</h1>
+          </div>
 
-        <div className="mt-6">
-          {/* Client component handles player and playlist */}
-          <VideoPlayer videos={videos} />
-        </div>
-      </main>
+          <div className="mt-6">
+            <VideoPlayer videos={videos} />
+          </div>
+        </main>
+      </PageWrapper>
 
       <Footer />
     </div>

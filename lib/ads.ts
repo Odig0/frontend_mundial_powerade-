@@ -17,7 +17,7 @@ export const AD_UNITS = {
   HOME_BOTTOM: {
     adUnit: '/78777691/_ED_home/amp_fin_ed_home',
     divId: 'div-gpt-ad-home-bottom',
-    sizes: [[300, 100], [300, 250], [300, 600], [728, 90], [970, 90], [970, 250], [1110, 90]],
+    sizes: [[300, 100], [300, 600], [728, 90], [970, 90], [970, 250], [1110, 90]],
   },
 } as const;
 

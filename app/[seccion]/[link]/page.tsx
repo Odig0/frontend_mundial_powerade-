@@ -3,9 +3,7 @@ import Header from '@/components/layout/Header'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import NewsDetail from '@/components/detail/NewsDetail'
-import HomeLeftAd from '@/components/publicidad/HomeLeftAd'
-import HomeRightAd from '@/components/publicidad/HomeRightAd'
-import TopBannerAd from '@/components/publicidad/TopBannerAd'
+import PageWrapper from '@/components/layout/PageWrapper'
 import { getNewsByLink } from '@/lib/api'
 
 interface Params {
@@ -155,17 +153,13 @@ export default async function DetailPage({ params }: { params: Promise<Params> |
     <div className="min-h-screen flex flex-col">
       <Header />
       <Navbar />
-      
-      <TopBannerAd />
 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleSchema) }}
       />
-      
-      <div className="flex justify-center w-full max-w-[1900px] mx-auto gap-4 px-4">
-        <HomeLeftAd />
 
+      <PageWrapper>
         <main className="flex-1 max-w-[1200px] min-w-0 py-8 md:py-12">
           <NewsDetail
             id={news._id}
@@ -181,9 +175,7 @@ export default async function DetailPage({ params }: { params: Promise<Params> |
             opinologo_firma={news.opinologo?.firma}
           />
         </main>
-
-        <HomeRightAd />
-      </div>
+      </PageWrapper>
 
       <Footer />
     </div>

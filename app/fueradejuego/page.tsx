@@ -4,6 +4,7 @@ import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import SectionGrid from '@/components/section/SectionGrid'
 import { getNewsBySectionSlug } from '@/lib/api'
+import PageWrapper from '@/components/layout/PageWrapper'
 
 const BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo'
 
@@ -45,27 +46,29 @@ export default async function FueraDeJuegoPage() {
       <Header />
       <Navbar />
 
-      <main className="flex-1 container mx-auto px-4 py-8 md:py-12">
-        <div className="mb-12">
-          <h1 className="text-3xl md:text-4xl font-black text-foreground mb-2">
-            Fuera de juego
-          </h1>
-          <p className="text-muted-foreground">Últimas actualizaciones y noticias</p>
-        </div>
-
-        {news.length > 0 ? (
-          <SectionGrid news={news} itemsPerPage={12} />
-        ) : (
-          <div className="rounded-xl border border-dashed border-border bg-card px-6 py-12 text-center">
-            <p className="text-lg font-semibold text-foreground">
-              No hay noticias en esta sección
-            </p>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Prueba sincronizar el backend o vuelve más tarde.
-            </p>
+      <PageWrapper>
+        <main className="flex-1 py-8 md:py-12">
+          <div className="mb-12">
+            <h1 className="text-3xl md:text-4xl font-black text-foreground mb-2">
+              Fuera de juego
+            </h1>
+            <p className="text-muted-foreground">Últimas actualizaciones y noticias</p>
           </div>
-        )}
-      </main>
+
+          {news.length > 0 ? (
+            <SectionGrid news={news} itemsPerPage={12} />
+          ) : (
+            <div className="rounded-xl border border-dashed border-border bg-card px-6 py-12 text-center">
+              <p className="text-lg font-semibold text-foreground">
+                No hay noticias en esta sección
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Prueba sincronizar el backend o vuelve más tarde.
+              </p>
+            </div>
+          )}
+        </main>
+      </PageWrapper>
 
       <Footer />
     </div>
