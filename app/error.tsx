@@ -8,7 +8,7 @@ export default function Error({
   reset: () => void
 }) {
   return (
-    <div className="min-h-screen bg-background text-foreground flex items-center justify-center px-4">
+    <div className="min-h-screen text-foreground flex items-center justify-center px-4">
       <div className="max-w-lg rounded-2xl border border-border bg-card p-8 text-center shadow-xl">
         <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">Error</p>
         <h1 className="mt-3 text-3xl font-black">No se pudo cargar la noticia</h1>

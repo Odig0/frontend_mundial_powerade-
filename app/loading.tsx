@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col">
       <div className="h-24 border-b border-border bg-card/80" />
       <div className="h-14 border-b border-border bg-secondary/80" />
 

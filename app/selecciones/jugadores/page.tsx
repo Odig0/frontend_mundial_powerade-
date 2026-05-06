@@ -6,7 +6,7 @@ import { argentinianPlayerMock } from '@/data/player_mock'
 
 export default function PlayersPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col">
       <Header />
       <Navbar />
 

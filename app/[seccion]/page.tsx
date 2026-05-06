@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import Header from '@/components/layout/Header'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -27,6 +27,10 @@ export async function generateMetadata({ params }: { params: Promise<Params> | P
 export default async function SectionPage({ params }: { params: Promise<Params> | Params }) {
   const { seccion } = await params
 
+  // Las URLs de sección (/futbol/, /mundial/, etc.) redirigen a la portada.
+  // Los artículos individuales (/futbol/algun-articulo) usan la ruta más profunda [link].
+  redirect('/')
+
   const availableSections = await getAvailableSections()
   if (!availableSections.includes(seccion)) {
     notFound()
@@ -39,7 +43,7 @@ export default async function SectionPage({ params }: { params: Promise<Params> 
     : seccion.charAt(0).toUpperCase() + seccion.slice(1)
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col">
       <Header />
       <Navbar />
 

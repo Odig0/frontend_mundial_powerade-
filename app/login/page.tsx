@@ -20,7 +20,7 @@ export default async function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-background">
+    <div className="min-h-screen w-full flex items-center justify-center">
       <div className="w-full max-w-sm px-4 py-8">
         {/* Logo */}
         <div className="flex justify-center mb-12">
