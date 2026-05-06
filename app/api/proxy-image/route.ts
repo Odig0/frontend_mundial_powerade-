@@ -8,8 +8,6 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    console.log('[proxy-image] fetching:', url)
-
     const res = await fetch(url, {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
@@ -20,7 +18,6 @@ export async function GET(request: NextRequest) {
       cache: 'no-store',
     })
 
-    console.log('[proxy-image] status:', res.status, 'content-type:', res.headers.get('content-type'), 'url:', res.url)
 
     if (!res.ok) {
       console.error('[proxy-image] upstream error:', res.status, res.statusText)

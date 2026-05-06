@@ -74,7 +74,6 @@ function normalizeNewsItem(item: NewsItem): NewsItem {
 
 async function requestJson<T>(path: string, init: RequestInit = {}): Promise<T> {
   const url = buildUrl(path)
-  console.log(`[API] Fetching: ${url}`)
 
   try {
     const response = await fetch(url, {

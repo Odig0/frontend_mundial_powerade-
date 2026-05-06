@@ -63,7 +63,6 @@ export async function POST(request: NextRequest) {
     )
 
     const publishText = await publishRes.text()
-    console.log('[Metricool X] Publish response:', publishRes.status, publishText.slice(0, 300))
     let publishData: Record<string, unknown> = {}
     try {
       publishData = publishText ? JSON.parse(publishText) : {}

@@ -46,6 +46,7 @@ export default function NewsDetail({
         <meta itemProp="articleSection" content={seccion} />
         {publishedAt && <meta itemProp="datePublished" content={publishedAt} />}
         {modifiedAt && <meta itemProp="dateModified" content={modifiedAt} />}
+        <meta itemProp="author" content={opinologo_firma || 'Redacción'} />
         <div className="inline-block px-3 py-1.5 bg-accent text-accent-foreground text-xs font-bold rounded mb-4 uppercase tracking-wider" itemProp="articleSection">
           {seccion}
         </div>
@@ -60,13 +61,7 @@ export default function NewsDetail({
             </p>
           )}
         </div>
-
-        <div className="mt-4 py-1">
-          <span className="text-[#3CB7FF] text-xs tracking-wide" itemProp="author" itemScope itemType="https://schema.org/Person">
-            <span className="font-normal">Por</span> <span className="font-bold">{opinologo_firma || 'Redacción'}</span>
-            <meta itemProp="name" content={opinologo_firma || 'Redacción'} />
-          </span>
-        </div>
+        {/* author will be shown under the image for layout purposes */}
       </div>
 
       {hasImage && (
@@ -81,6 +76,14 @@ export default function NewsDetail({
           />
         </div>
       )}
+
+      {/* Author block under image */}
+      <div className="mb-6">
+        <div>
+          <div className="text-xs text-muted-foreground">Por</div>
+          <div className="font-bold text-foreground text-base">{opinologo_firma || 'Redacción'}</div>
+        </div>
+      </div>
 
       {introHTML && (
         <div

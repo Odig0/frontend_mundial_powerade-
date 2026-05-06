@@ -54,7 +54,7 @@ export default function SocialPostButton({ id, titulo, inline = false, className
       })
       if (!res.ok) throw new Error(`Error ${res.status}`)
       const data = await res.json()
-      console.log('[SocialPost] data completa:', JSON.stringify(data))
+
 
       // Construir URL pública: manager.diez.bo requiere auth → usar cdn.diez.bo/diez/
       const rawImagen: string = data.imagen ?? ''
@@ -67,7 +67,6 @@ export default function SocialPostButton({ id, titulo, inline = false, className
         imagenUrl = `${IMAGE_BASE_URL}${rawImagen.replace(/^\/+/, '')}`
       }
 
-      console.log('[SocialPost] imagenUrl construida:', imagenUrl)
 
       // Generar imagen con sello via API server-side
       const today = new Date()

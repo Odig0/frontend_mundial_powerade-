@@ -170,7 +170,6 @@ export async function POST(request: NextRequest) {
 
     // Validar que la imagen tenga las dimensiones correctas
     const resultMeta = await sharp(result).metadata()
-    console.log(`[generate-social-image] Imagen final: ${resultMeta.width}x${resultMeta.height}`)
     
     if (resultMeta.width !== fmt.width || resultMeta.height !== fmt.height) {
       throw new Error(`Tamaño final incorrecto: ${resultMeta.width}x${resultMeta.height}, esperado ${fmt.width}x${fmt.height}`)
