@@ -14,6 +14,11 @@ export const AD_UNITS = {
     divId: 'div-gpt-ad-1708524960000-0',
     sizes: [[970, 90]],
   },
+  HOME_BOTTOM: {
+    adUnit: '/78777691/_ED_home/amp_fin_ed_home',
+    divId: 'div-gpt-ad-home-bottom',
+    sizes: [[300, 100], [300, 250], [300, 600], [728, 90], [970, 90], [970, 250], [1110, 90]],
+  },
 } as const;
 
 export type AdSlotConfig = typeof AD_UNITS[keyof typeof AD_UNITS];

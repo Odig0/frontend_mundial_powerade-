@@ -3,6 +3,9 @@ import Header from '@/components/layout/Header'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import NewsDetail from '@/components/detail/NewsDetail'
+import HomeLeftAd from '@/components/publicidad/HomeLeftAd'
+import HomeRightAd from '@/components/publicidad/HomeRightAd'
+import TopBannerAd from '@/components/publicidad/TopBannerAd'
 import { getNewsByLink } from '@/lib/api'
 
 interface Params {
@@ -152,27 +155,35 @@ export default async function DetailPage({ params }: { params: Promise<Params> |
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
       <Navbar />
+      
+      <TopBannerAd />
 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleSchema) }}
       />
+      
+      <div className="flex justify-center w-full max-w-[1900px] mx-auto gap-4 px-4">
+        <HomeLeftAd />
 
-      <main className="flex-1 container mx-auto px-4 py-8 md:py-12">
-        <NewsDetail
-          id={news._id}
-          titulo={news.titulo}
-          fecha={dateString}
-          publishedAt={publishedAt}
-          modifiedAt={modifiedAt}
-          canonicalUrl={canonicalUrl}
-          imagen_interior={news.imagen_interior}
-          secciones={news.secciones}
-          introHTML={news.introHTML}
-          textoHTML={news.textoHTML}
-          opinologo_firma={news.opinologo?.firma}
-        />
-      </main>
+        <main className="flex-1 max-w-[1200px] min-w-0 py-8 md:py-12">
+          <NewsDetail
+            id={news._id}
+            titulo={news.titulo}
+            fecha={dateString}
+            publishedAt={publishedAt}
+            modifiedAt={modifiedAt}
+            canonicalUrl={canonicalUrl}
+            imagen_interior={news.imagen_interior}
+            secciones={news.secciones}
+            introHTML={news.introHTML}
+            textoHTML={news.textoHTML}
+            opinologo_firma={news.opinologo?.firma}
+          />
+        </main>
+
+        <HomeRightAd />
+      </div>
 
       <Footer />
     </div>

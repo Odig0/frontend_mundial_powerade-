@@ -13,6 +13,7 @@ import SocialPostButton from '@/components/news/SocialPostButton'
 import HomeLeftAd from '@/components/publicidad/HomeLeftAd'
 import HomeRightAd from '@/components/publicidad/HomeRightAd'
 import TopBannerAd from '@/components/publicidad/TopBannerAd'
+import BottomBannerAd from '@/components/publicidad/BottomBannerAd'
 import { getNews } from '@/lib/api'
 import { getDailymotionVideos } from '@/services/dailymotionService'
 
@@ -227,6 +228,9 @@ export default async function Home() {
               <NewsGrid news={latest} title="Últimas noticias" />
             </div>
           )}
+
+          {/* Bloque final de publicidad */}
+          <BottomBannerAd />
         </main>
 
         {/* Lateral Derecho */}
