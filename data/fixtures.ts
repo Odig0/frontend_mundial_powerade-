@@ -22,6 +22,12 @@ export interface  CountriesByGroup {
   [group: string]: Countries[]
 }
 
+export interface CountryGroupFixtures {
+  country: Countries
+  group: string
+  matches: FixtureMatch[]
+}
+
 export const partidos: FixtureMatch[] = [
   {"date":"2026-06-11","time":"15:00","homeTeam":{"name":"México","flag":"https://flagcdn.com/w40/mx.png"},"awayTeam":{"name":"Sudáfrica","flag":"https://flagcdn.com/w40/za.png"},"group":"A","stadium":"Estadio Ciudad de México","city":"Ciudad de México"},
   {"date":"2026-06-11","time":"22:00","homeTeam":{"name":"República de Corea","flag":"https://flagcdn.com/w40/kr.png"},"awayTeam":{"name":"República Checa","flag":"https://flagcdn.com/w40/cz.png"},"group":"A","stadium":"Estadio Guadalajara","city":"Guadalajara"},
@@ -240,4 +246,83 @@ export const countriesByGroup = {
     { name: "Ghana", flag: "https://flagcdn.com/w320/gh.png" },
     { name: "Panamá", flag: "https://flagcdn.com/w320/pa.png" }
   ]
+}
+
+function toDateTimeValue(match: FixtureMatch) {
+  // Accept HH:mm and normalize midnight edge cases used in source data.
+  const normalizedTime = match.time === '00:00' ? '24:00' : match.time
+  const [hourRaw, minuteRaw] = normalizedTime.split(':')
+  const hour = Number(hourRaw)
+  const minute = Number(minuteRaw)
+  const date = new Date(`${match.date}T00:00:00`)
+  date.setHours(Math.min(hour, 23), minute || 0, 0, 0)
+
+  // If the source had 24:00, move to the next day start.
+  if (hour >= 24) {
+    date.setDate(date.getDate() + 1)
+    date.setHours(0, minute || 0, 0, 0)
+  }
+
+  return date.getTime()
+}
+
+function sortMatchesByKickoff(matches: FixtureMatch[]) {
+  return [...matches].sort((left, right) => toDateTimeValue(left) - toDateTimeValue(right))
+}
+
+function buildCountryGroupMap() {
+  const map = new Map<string, string>()
+
+  Object.entries(countriesByGroup).forEach(([group, groupCountries]) => {
+    groupCountries.forEach((country) => {
+      map.set(country.name, group)
+    })
+  })
+
+  return map
+}
+
+const countryToGroupMap = buildCountryGroupMap()
+
+function buildMatchesByCountry() {
+  const map = new Map<string, FixtureMatch[]>()
+
+  countries.forEach((country) => {
+    const countryMatches = partidos.filter(
+      (match) => match.homeTeam.name === country.name || match.awayTeam.name === country.name,
+    )
+    map.set(country.name, sortMatchesByKickoff(countryMatches))
+  })
+
+  return map
+}
+
+const matchesByCountry = buildMatchesByCountry()
+
+export function getCountryGroup(countryName: string) {
+  return countryToGroupMap.get(countryName) ?? null
+}
+
+export function getMatchesByCountry(countryName: string) {
+  return matchesByCountry.get(countryName) ?? []
+}
+
+export function getCountryGroupFixtures(countryName: string): CountryGroupFixtures | null {
+  const country = countries.find((item) => item.name === countryName)
+  if (!country) {
+    return null
+  }
+
+  const group = getCountryGroup(countryName)
+  if (!group) {
+    return null
+  }
+
+  const matches = getMatchesByCountry(countryName).filter((match) => match.group === group)
+
+  return {
+    country,
+    group,
+    matches,
+  }
 }

@@ -7,11 +7,20 @@ import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import PageWrapper from '@/components/layout/PageWrapper'
 import Image from 'next/image'
-import { countries, countriesByGroup } from '@/data/fixtures'
+import { countries, countriesByGroup, getCountryGroupFixtures } from '@/data/fixtures'
 
 export default function SeleccionesPage() {
   const router = useRouter()
   const [viewMode, setViewMode] = useState<'all' | 'groups'>('all')
+
+  const formatMatchDate = (date: string) => {
+    const [year, month, day] = date.split('-')
+    if (!year || !month || !day) {
+      return date
+    }
+
+    return `${day}/${month}`
+  }
 
   const handleCountryClick = (countryName: string) => {
     if (countryName === 'Argentina') {
@@ -68,31 +77,63 @@ export default function SeleccionesPage() {
         {/* Vista General */}
         {viewMode === 'all' && (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {countries.map((country, index) => (
-              <article
-                key={index}
-                onClick={() => handleCountryClick(country.name)}
-                className={`group overflow-hidden rounded-lg border border-white/8 bg-card shadow-lg shadow-black/20 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#3CB7FF]/30 ${
-                  country.name === 'Argentina' ? 'cursor-pointer' : ''
-                }`}
-              >
-                <div className="relative aspect-square w-full overflow-hidden bg-gradient-to-br from-white/5 to-white/0 flex items-center justify-center p-4">
-                  <Image
-                    src={country.flag}
-                    alt={country.name}
-                    width={100}
-                    height={100}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                </div>
-                <div className="p-3">
-                  <h2 className="text-sm font-bold uppercase tracking-tight text-foreground text-center truncate group-hover:text-[#3CB7FF] transition-colors">
-                    {country.name}
-                  </h2>
-                </div>
-              </article>
-            ))}
+            {countries.map((country, index) => {
+              const countryFixtures = getCountryGroupFixtures(country.name)
+
+              return (
+                <article
+                  key={index}
+                  onClick={() => handleCountryClick(country.name)}
+                  className={`group overflow-hidden rounded-lg border border-white/8 bg-card shadow-lg shadow-black/20 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#3CB7FF]/30 ${
+                    country.name === 'Argentina' ? 'cursor-pointer' : ''
+                  }`}
+                >
+                  <div className="relative aspect-square w-full overflow-hidden bg-gradient-to-br from-white/5 to-white/0 flex items-center justify-center p-4">
+                    <Image
+                      src={country.flag}
+                      alt={country.name}
+                      width={100}
+                      height={100}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+
+                    {countryFixtures && (
+                      <div className="pointer-events-none absolute inset-x-0 bottom-0 p-3.5 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-gradient-to-t from-black/95 via-black/85 to-transparent">
+                        <p className="inline-flex items-center rounded-md border border-[#3CB7FF]/60 bg-black/65 px-2 py-1 text-sm font-bold uppercase tracking-wider text-white mb-2.5 shadow">
+                          Grupo {countryFixtures.group}
+                        </p>
+                        <div className="space-y-2">
+                          {countryFixtures.matches.slice(0, 3).map((match, idx) => {
+                            const isHome = match.homeTeam.name === country.name
+                            const rivalTeam = isHome ? match.awayTeam : match.homeTeam
+                            return (
+                              <div key={`${match.date}-${match.time}-${idx}`} className="flex items-center gap-2 text-sm leading-tight text-white truncate">
+                                <span className="text-white/80">{formatMatchDate(match.date)}</span>
+                                <span className="font-semibold">{isHome ? 'vs' : 'vs'}</span>
+                                <Image
+                                  src={rivalTeam.flag}
+                                  alt={rivalTeam.name}
+                                  width={16}
+                                  height={16}
+                                  className="w-4 h-4 rounded-[2px] object-cover"
+                                />
+                                <span className="truncate">{rivalTeam.name}</span>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-3">
+                    <h2 className="text-sm font-bold uppercase tracking-tight text-foreground text-center truncate group-hover:text-[#3CB7FF] transition-colors">
+                      {country.name}
+                    </h2>
+                  </div>
+                </article>
+              )
+            })}
           </div>
         )}
 
@@ -107,31 +148,63 @@ export default function SeleccionesPage() {
                   </h2>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4">
-                  {groupCountries.map((country, index) => (
-                    <article
-                      key={index}
-                      onClick={() => handleCountryClick(country.name)}
-                      className={`group overflow-hidden rounded-lg border border-white/8 bg-card shadow-lg shadow-black/20 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#3CB7FF]/30 ${
-                        country.name === 'Argentina' ? 'cursor-pointer' : ''
-                      }`}
-                    >
-                      <div className="relative aspect-square w-full overflow-hidden bg-gradient-to-br from-white/5 to-white/0 flex items-center justify-center p-4">
-                        <Image
-                          src={country.flag}
-                          alt={country.name}
-                          width={100}
-                          height={100}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                      </div>
-                      <div className="p-3">
-                        <h3 className="text-sm font-bold uppercase tracking-tight text-foreground text-center truncate group-hover:text-[#3CB7FF] transition-colors">
-                          {country.name}
-                        </h3>
-                      </div>
-                    </article>
-                  ))}
+                  {groupCountries.map((country, index) => {
+                    const countryFixtures = getCountryGroupFixtures(country.name)
+
+                    return (
+                      <article
+                        key={index}
+                        onClick={() => handleCountryClick(country.name)}
+                        className={`group overflow-hidden rounded-lg border border-white/8 bg-card shadow-lg shadow-black/20 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#3CB7FF]/30 ${
+                          country.name === 'Argentina' ? 'cursor-pointer' : ''
+                        }`}
+                      >
+                        <div className="relative aspect-square w-full overflow-hidden bg-gradient-to-br from-white/5 to-white/0 flex items-center justify-center p-4">
+                          <Image
+                            src={country.flag}
+                            alt={country.name}
+                            width={100}
+                            height={100}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+
+                          {countryFixtures && (
+                            <div className="pointer-events-none absolute inset-x-0 bottom-0 p-3.5 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-gradient-to-t from-black/95 via-black/85 to-transparent">
+                              <p className="inline-flex items-center rounded-md border border-[#3CB7FF]/60 bg-black/65 px-2 py-1 text-sm font-bold uppercase tracking-wider text-white mb-2.5 shadow">
+                                Grupo {countryFixtures.group}
+                              </p>
+                              <div className="space-y-2">
+                                {countryFixtures.matches.slice(0, 3).map((match, idx) => {
+                                  const isHome = match.homeTeam.name === country.name
+                                  const rivalTeam = isHome ? match.awayTeam : match.homeTeam
+                                  return (
+                                    <div key={`${match.date}-${match.time}-${idx}`} className="flex items-center gap-2 text-sm leading-tight text-white truncate">
+                                      <span className="text-white/80">{formatMatchDate(match.date)}</span>
+                                      <span className="font-semibold">{isHome ? 'vs' : 'vs'}</span>
+                                      <Image
+                                        src={rivalTeam.flag}
+                                        alt={rivalTeam.name}
+                                        width={16}
+                                        height={16}
+                                        className="w-4 h-4 rounded-[2px] object-cover"
+                                      />
+                                      <span className="truncate">{rivalTeam.name}</span>
+                                    </div>
+                                  )
+                                })}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                        <div className="p-3">
+                          <h3 className="text-sm font-bold uppercase tracking-tight text-foreground text-center truncate group-hover:text-[#3CB7FF] transition-colors">
+                            {country.name}
+                          </h3>
+                        </div>
+                      </article>
+                    )
+                  })}
                 </div>
               </div>
             ))}
