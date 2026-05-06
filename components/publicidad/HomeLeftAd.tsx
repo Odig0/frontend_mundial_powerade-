@@ -11,7 +11,7 @@ export default function HomeLeftAd() {
       </div>
       <AdSlot
         config={AD_UNITS.HOME_LEFT}
-        className="flex justify-center bg-muted/5 rounded-lg overflow-hidden"
+        className="flex justify-center rounded-lg overflow-hidden"
       />
     </aside>
   );
