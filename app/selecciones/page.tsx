@@ -99,26 +99,30 @@ export default function SeleccionesPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
                     {countryFixtures && (
-                      <div className="pointer-events-none absolute inset-x-0 bottom-0 p-3.5 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-gradient-to-t from-black/95 via-black/85 to-transparent">
-                        <p className="inline-flex items-center rounded-md border border-[#3CB7FF]/60 bg-black/65 px-2 py-1 text-sm font-bold uppercase tracking-wider text-white mb-2.5 shadow">
+                      <div className="pointer-events-none absolute inset-x-0 bottom-0 p-3.5 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-gradient-to-t from-black/95 via-black/88 to-transparent">
+                          <p className="inline-flex items-center rounded-md border border-[#3CB7FF]/70 bg-black/80 px-2 py-1 text-sm font-bold uppercase tracking-wider text-white mb-2.5 shadow-[0_2px_10px_rgba(0,0,0,0.45)]">
                           Grupo {countryFixtures.group}
                         </p>
                         <div className="space-y-2">
-                          {countryFixtures.matches.slice(0, 3).map((match, idx) => {
+                                      {countryFixtures.matches.slice(0, 3).map((match, idx) => {
                             const isHome = match.homeTeam.name === country.name
                             const rivalTeam = isHome ? match.awayTeam : match.homeTeam
                             return (
-                              <div key={`${match.date}-${match.time}-${idx}`} className="flex items-center gap-2 text-sm leading-tight text-white truncate">
-                                <span className="text-white/80">{formatMatchDate(match.date)}</span>
-                                <span className="font-semibold">{isHome ? 'vs' : 'vs'}</span>
+                              <div key={`${match.date}-${match.time}-${idx}`} className="flex items-center gap-1 rounded-md bg-black/65 px-1.5 py-1 text-[12px] leading-tight text-white shadow-sm shadow-black/30 backdrop-blur-[2px]">
+                                <span className="shrink-0 w-[44px] text-[#EAF7FF] font-semibold tabular-nums">
+                                  {formatMatchDate(match.date)}
+                                </span>
+                                <span className="shrink-0 font-bold text-[#3CB7FF]">vs</span>
                                 <Image
                                   src={rivalTeam.flag}
                                   alt={rivalTeam.name}
                                   width={16}
                                   height={16}
-                                  className="w-4 h-4 rounded-[2px] object-cover"
+                                  className="shrink-0 w-4 h-4 rounded-[2px] object-cover"
                                 />
-                                <span className="truncate">{rivalTeam.name}</span>
+                                <span className="min-w-0 flex-1 truncate font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">
+                                  {rivalTeam.name}
+                                </span>
                               </div>
                             )
                           })}
@@ -126,8 +130,8 @@ export default function SeleccionesPage() {
                       </div>
                     )}
                   </div>
-                  <div className="p-3">
-                    <h2 className="text-sm font-bold uppercase tracking-tight text-foreground text-center truncate group-hover:text-[#3CB7FF] transition-colors">
+                  <div className="p-3 pl-2.5">
+                    <h2 className="text-sm font-bold uppercase tracking-tight text-foreground text-left truncate group-hover:text-[#3CB7FF] transition-colors">
                       {country.name}
                     </h2>
                   </div>
@@ -170,8 +174,8 @@ export default function SeleccionesPage() {
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
                           {countryFixtures && (
-                            <div className="pointer-events-none absolute inset-x-0 bottom-0 p-3.5 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-gradient-to-t from-black/95 via-black/85 to-transparent">
-                              <p className="inline-flex items-center rounded-md border border-[#3CB7FF]/60 bg-black/65 px-2 py-1 text-sm font-bold uppercase tracking-wider text-white mb-2.5 shadow">
+                            <div className="pointer-events-none absolute inset-x-0 bottom-0 p-3.5 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-gradient-to-t from-black/95 via-black/88 to-transparent">
+                              <p className="inline-flex items-center rounded-md border border-[#3CB7FF]/70 bg-black/80 px-2 py-1 text-sm font-bold uppercase tracking-wider text-white mb-2.5 shadow-[0_2px_10px_rgba(0,0,0,0.45)]">
                                 Grupo {countryFixtures.group}
                               </p>
                               <div className="space-y-2">
@@ -179,17 +183,21 @@ export default function SeleccionesPage() {
                                   const isHome = match.homeTeam.name === country.name
                                   const rivalTeam = isHome ? match.awayTeam : match.homeTeam
                                   return (
-                                    <div key={`${match.date}-${match.time}-${idx}`} className="flex items-center gap-2 text-sm leading-tight text-white truncate">
-                                      <span className="text-white/80">{formatMatchDate(match.date)}</span>
-                                      <span className="font-semibold">{isHome ? 'vs' : 'vs'}</span>
+                                    <div key={`${match.date}-${match.time}-${idx}`} className="flex items-center gap-1 rounded-md bg-black/65 px-1.5 py-1 text-[12px] leading-tight text-white shadow-sm shadow-black/30 backdrop-blur-[2px]">
+                                      <span className="shrink-0 w-[44px] text-[#EAF7FF] font-semibold tabular-nums">
+                                        {formatMatchDate(match.date)}
+                                      </span>
+                                      <span className="shrink-0 font-bold text-[#3CB7FF]">vs</span>
                                       <Image
                                         src={rivalTeam.flag}
                                         alt={rivalTeam.name}
                                         width={16}
                                         height={16}
-                                        className="w-4 h-4 rounded-[2px] object-cover"
+                                        className="shrink-0 w-4 h-4 rounded-[2px] object-cover"
                                       />
-                                      <span className="truncate">{rivalTeam.name}</span>
+                                      <span className="min-w-0 flex-1 truncate font-semibold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">
+                                        {rivalTeam.name}
+                                      </span>
                                     </div>
                                   )
                                 })}
@@ -197,8 +205,8 @@ export default function SeleccionesPage() {
                             </div>
                           )}
                         </div>
-                        <div className="p-3">
-                          <h3 className="text-sm font-bold uppercase tracking-tight text-foreground text-center truncate group-hover:text-[#3CB7FF] transition-colors">
+                        <div className="p-3 pl-2.5">
+                          <h3 className="text-sm font-bold uppercase tracking-tight text-foreground text-left truncate group-hover:text-[#3CB7FF] transition-colors">
                             {country.name}
                           </h3>
                         </div>
