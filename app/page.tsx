@@ -126,13 +126,13 @@ export default async function Home() {
       <Navbar />
 
       {/* Top Banner Ad 970x90 */}
-      <TopBannerAd />
+      <TopBannerAd targeting={{ portal: 'tribuna' }} />
 
       {/* Contenedor con laterales publicitarios */}
       <div className="flex justify-center w-full max-w-[1900px] mx-auto gap-4 px-4">
         
         {/* Lateral Izquierdo */}
-        <HomeLeftAd />
+        <HomeLeftAd targeting={{ portal: 'tribuna' }} />
 
         {/* Contenido Central */}
         <main className="flex-1 max-w-[1200px] min-w-0 flex flex-col">
@@ -230,11 +230,11 @@ export default async function Home() {
           )}
 
           {/* Bloque final de publicidad */}
-          <BottomBannerAd />
+          <BottomBannerAd targeting={{ portal: 'tribuna' }} />
         </main>
 
         {/* Lateral Derecho */}
-        <HomeRightAd />
+        <HomeRightAd targeting={{ portal: 'tribuna' }} />
       </div>
 
       <Footer />
