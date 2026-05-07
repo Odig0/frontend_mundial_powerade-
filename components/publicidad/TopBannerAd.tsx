@@ -1,7 +1,7 @@
 import { AD_UNITS } from '@/lib/ads'
 import AdSlot from './AdSlot'
 
-export default function TopBannerAd() {
+export default function TopBannerAd({ targeting }: { targeting?: Record<string, string> }) {
   return (
     <div className="hidden md:flex w-full justify-center py-4 bg-background">
       <div className="hidden md:block w-[970px]">
@@ -9,6 +9,7 @@ export default function TopBannerAd() {
           config={AD_UNITS.HOME_TOP} 
           className="w-full"
           minHeight="90px"
+          targeting={targeting}
         />
       </div>
     </div>

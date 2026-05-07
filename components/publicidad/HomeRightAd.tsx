@@ -3,7 +3,7 @@
 import AdSlot from "./AdSlot";
 import { AD_UNITS } from "@/lib/ads";
 
-export default function HomeRightAd() {
+export default function HomeRightAd({ targeting }: { targeting?: Record<string, string> }) {
   return (
     <aside className="hidden xl:block sticky top-24 w-[120px] flex-shrink-0 h-fit">
       <div className="text-[10px] text-muted-foreground uppercase tracking-widest text-center mb-2">
@@ -12,6 +12,7 @@ export default function HomeRightAd() {
       <AdSlot
         config={AD_UNITS.HOME_RIGHT}
         className="flex justify-center rounded-lg overflow-hidden"
+        targeting={targeting}
       />
     </aside>
   );

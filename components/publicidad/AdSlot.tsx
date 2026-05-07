@@ -7,6 +7,7 @@ interface AdSlotProps {
   config: AdSlotConfig;
   className?: string;
   minHeight?: string;
+  targeting?: Record<string, string>;
 }
 
 declare global {
@@ -15,7 +16,7 @@ declare global {
   }
 }
 
-export default function AdSlot({ config, className, minHeight = "600px" }: AdSlotProps) {
+export default function AdSlot({ config, className, minHeight = "600px", targeting }: AdSlotProps) {
   const isInitialized = useRef(false);
 
   useEffect(() => {
@@ -35,9 +36,16 @@ export default function AdSlot({ config, className, minHeight = "600px" }: AdSlo
         window.googletag.destroySlots([duplicate]);
       }
 
-      // Definir y mostrar el anuncio
+      // Definir el anuncio
       const slot = window.googletag.defineSlot(adUnit, sizes as googletag.GeneralSize, divId);
+      
       if (slot) {
+        if (targeting) {
+          Object.entries(targeting).forEach(([key, value]) => {
+            slot.setTargeting(key, value);
+          });
+        }
+
         slot.addService(window.googletag.pubads());
         window.googletag.display(divId);
         isInitialized.current = true;
@@ -57,7 +65,7 @@ export default function AdSlot({ config, className, minHeight = "600px" }: AdSlo
         });
       }
     };
-  }, [config]);
+  }, [config, targeting]);
 
   return (
     <div 
