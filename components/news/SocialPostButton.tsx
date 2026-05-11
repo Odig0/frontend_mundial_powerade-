@@ -94,7 +94,7 @@ export default function SocialPostButton({ id, titulo, inline = false, className
       const blob = await processRes.blob()
       const processedUrl = URL.createObjectURL(blob)
 
-      setPost({ ...data, imagenUrl: processedUrl, processedUrl })
+      setPost({ ...data, imagenUrl, processedUrl })
       setTituloEditado(data.titulo ?? tituloToUse)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error generando imagen')
@@ -125,7 +125,7 @@ export default function SocialPostButton({ id, titulo, inline = false, className
   }
 
   async function handlePublishFacebook() {
-    if (!post?.processedUrl) return
+    if (!post?.imagenUrl) return
     setPublishingFacebook(true)
     try {
       const response = await fetch('/api/publish/facebook', {
@@ -133,7 +133,7 @@ export default function SocialPostButton({ id, titulo, inline = false, className
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           title: tituloEditado,
-          imageUrl: post.processedUrl,
+          imageUrl: post.imagenUrl,
           link: post.link,
           newsId: id,
         }),
@@ -156,7 +156,7 @@ export default function SocialPostButton({ id, titulo, inline = false, className
   }
 
   async function handlePublishInstagram() {
-    if (!post?.processedUrl) return
+    if (!post?.imagenUrl) return
     setPublishingInstagram(true)
     try {
       const response = await fetch('/api/publish/instagram', {
@@ -164,7 +164,7 @@ export default function SocialPostButton({ id, titulo, inline = false, className
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           title: tituloEditado,
-          imageUrl: post.processedUrl,
+          imageUrl: post.imagenUrl,
           link: post.link,
           newsId: id,
         }),
@@ -187,7 +187,7 @@ export default function SocialPostButton({ id, titulo, inline = false, className
   }
 
   async function handlePublishTwitter() {
-    if (!post?.processedUrl) return
+    if (!post?.imagenUrl) return
     setPublishingTwitter(true)
     try {
       const response = await fetch('/api/publish/twitter', {
@@ -195,7 +195,7 @@ export default function SocialPostButton({ id, titulo, inline = false, className
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           title: tituloEditado,
-          imageUrl: post.processedUrl,
+          imageUrl: post.imagenUrl,
           link: post.link,
           newsId: id,
         }),
@@ -243,7 +243,23 @@ export default function SocialPostButton({ id, titulo, inline = false, className
 
   return (
     <>
-     
+      {inline ? (
+        <button
+          onClick={handleOpen}
+          className={`flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 text-sm font-bold rounded hover:opacity-90 transition-opacity ${className ?? ''}`}
+        >
+          <Share2 className="w-4 h-4" />
+          Compartir en Metricool
+        </button>
+      ) : (
+        <button
+          onClick={handleOpen}
+          title="Compartir en redes sociales via Metricool"
+          className="absolute top-2 right-2 z-10 p-1.5 bg-black/60 hover:bg-accent hover:text-accent-foreground text-white rounded transition-all opacity-0 group-hover:opacity-100"
+        >
+          <Share2 className="w-3.5 h-3.5" />
+        </button>
+      )}
 
       {open && (
         <div
@@ -332,7 +348,7 @@ export default function SocialPostButton({ id, titulo, inline = false, className
                     </button>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-3 gap-2">
                     <button
                       onClick={handlePublishFacebook}
                       disabled={publishingFacebook}
@@ -341,12 +357,12 @@ export default function SocialPostButton({ id, titulo, inline = false, className
                       {publishingFacebook ? (
                         <>
                           <Loader2 className="w-4 h-4 animate-spin" />
-                          Publicando...
+                          <span className="hidden sm:inline">Publicando...</span>
                         </>
                       ) : publishSuccessFacebook ? (
                         <>
                           <Check className="w-4 h-4 text-green-400" />
-                          ¡Publicado!
+                          <span className="hidden sm:inline">¡Listo!</span>
                         </>
                       ) : (
                         <>
@@ -355,7 +371,7 @@ export default function SocialPostButton({ id, titulo, inline = false, className
                         </>
                       )}
                     </button>
-                     <button
+                    <button
                       onClick={handlePublishInstagram}
                       disabled={publishingInstagram}
                       className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#f09433] via-[#e6683c] to-[#bc1888] text-white font-bold py-2.5 rounded hover:opacity-90 transition-opacity disabled:opacity-50 text-sm"
@@ -363,12 +379,12 @@ export default function SocialPostButton({ id, titulo, inline = false, className
                       {publishingInstagram ? (
                         <>
                           <Loader2 className="w-4 h-4 animate-spin" />
-                          Publicando...
+                          <span className="hidden sm:inline">Publicando...</span>
                         </>
                       ) : publishSuccessInstagram ? (
                         <>
                           <Check className="w-4 h-4 text-green-400" />
-                          ¡Publicado!
+                          <span className="hidden sm:inline">¡Listo!</span>
                         </>
                       ) : (
                         <>
@@ -377,9 +393,6 @@ export default function SocialPostButton({ id, titulo, inline = false, className
                         </>
                       )}
                     </button>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-2">
                     <button
                       onClick={handlePublishTwitter}
                       disabled={publishingTwitter}
@@ -388,17 +401,17 @@ export default function SocialPostButton({ id, titulo, inline = false, className
                       {publishingTwitter ? (
                         <>
                           <Loader2 className="w-4 h-4 animate-spin" />
-                          Publicando...
+                          <span className="hidden sm:inline">Publicando...</span>
                         </>
                       ) : publishSuccessTwitter ? (
                         <>
                           <Check className="w-4 h-4 text-green-400" />
-                          ¡Publicado!
+                          <span className="hidden sm:inline">¡Listo!</span>
                         </>
                       ) : (
                         <>
                           <Share2 className="w-4 h-4" />
-                          X
+                          X / Twitter
                         </>
                       )}
                     </button>
