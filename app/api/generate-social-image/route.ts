@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
     const { imageUrl, formato = 'instagram', titulo = '', fecha = '' } = await request.json()
 
     if (!imageUrl) {
-      return NextResponse.json({ error: 'Missing imageUrl' }, { status: 400 })
+      return prettyJsonResponse({ error: 'Missing imageUrl' }, 400)
     }
 
     const fmt = FORMATS[formato as keyof typeof FORMATS] ?? FORMATS.instagram
@@ -183,6 +183,15 @@ export async function POST(request: NextRequest) {
     })
   } catch (err) {
     console.error('[generate-social-image] error:', err)
-    return NextResponse.json({ error: String(err) }, { status: 500 })
+    return prettyJsonResponse({ error: String(err) }, 500)
   }
+}
+
+function prettyJsonResponse(obj: any, status: number = 200) {
+  return new NextResponse(JSON.stringify(obj, null, 2), {
+    status,
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8'
+    }
+  })
 }
