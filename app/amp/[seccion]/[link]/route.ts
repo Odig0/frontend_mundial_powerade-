@@ -30,7 +30,7 @@ export async function GET(_req: NextRequest, { params }: { params: { seccion: st
 
   const canonical = `${BASE_URL}/${seccion}/${link}`
   const ampUrl = `${BASE_URL}/amp/${seccion}/${link}`
-  const image = news.imagen_interior ? toAbsoluteUrl(news.imagen_interior) : `${BASE_URL}/logo_powerade.png`
+  const image = news.imagen_interior ? toAbsoluteUrl(news.imagen_interior) : `${BASE_URL}/logo_powerade.jpg`
   const published = toIsoDate(news.fecha_a || news.fecha_c)
   const modified = toIsoDate(news.fecha_c || news.fecha_a)
 

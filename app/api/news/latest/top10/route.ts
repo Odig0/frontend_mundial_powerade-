@@ -23,7 +23,6 @@ export async function GET() {
     const data = await response.json()
     return NextResponse.json(data)
   } catch (error) {
-    console.error('[API /news/latest/top10] Error:', error)
     return NextResponse.json(
       { error: 'Failed to fetch latest news' },
       { status: 500 }

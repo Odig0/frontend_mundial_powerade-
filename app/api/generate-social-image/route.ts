@@ -182,7 +182,6 @@ export async function POST(request: NextRequest) {
       },
     })
   } catch (err) {
-    console.error('[generate-social-image] error:', err)
     return prettyJsonResponse({ error: String(err) }, 500)
   }
 }

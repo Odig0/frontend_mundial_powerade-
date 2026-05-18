@@ -71,7 +71,6 @@ export async function publishToMetricool(
       message: 'Post published successfully',
     }
   } catch (error) {
-    console.error('Metricool publish error:', error)
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',

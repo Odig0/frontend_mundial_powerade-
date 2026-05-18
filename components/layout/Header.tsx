@@ -20,7 +20,7 @@ export default function Header() {
 
           <Link href="/" className="relative h-12 w-56 md:h-16 md:w-72 flex-1 flex justify-center">
             <Image
-              src="/logo_powerade.png"
+              src="/logo_powerade.jpg"
               alt="Powerade"
               fill
               className="object-contain"

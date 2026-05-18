@@ -26,7 +26,7 @@ export default async function LoginPage() {
         <div className="flex justify-center mb-12">
           <div className="relative h-24 w-96">
             <Image
-              src="/logo_powerade.png"
+              src="/logo_powerade.jpg"
               alt="Powerade"
               fill
               className="object-contain"
