@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: 'El Deber Deportes',
     images: [
       {
-        url: '/tribuna_powerade.png',
+        url: '/logo_powerade.png',
         width: 1200,
         height: 630,
         alt: 'Fuera de juego - El Deber Deportes',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Fuera de juego - El Deber Deportes',
     description: 'Últimas noticias y análisis',
-    images: ['/tribuna_powerade.png'],
+    images: ['/logo_powerade.png'],
   },
 }
 

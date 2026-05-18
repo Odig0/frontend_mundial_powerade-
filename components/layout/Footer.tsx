@@ -11,7 +11,7 @@ export default function Footer() {
             <Image src="/eldeber.png" alt="El Deber" fill className="object-contain" />
           </div>
           <div className="relative h-8 w-28">
-            <Image src="/tribuna_powerade.png" alt="Powerade" fill className="object-contain" />
+            <Image src="/logo_powerade.png" alt="Powerade" fill className="object-contain" />
           </div>
           <div className="relative h-8 w-20">
             <Image src="/diez.png" alt="Diez" fill className="object-contain" />
