@@ -13,12 +13,12 @@ export default function HydrationBanner() {
         <h2 className="text-2xl md:text-3xl font-black text-white uppercase leading-tight mb-4">
           Pausa de<br />Hidratación
         </h2>
-        <Link
+        {/* <Link
           href="#"
           className="inline-block bg-accent text-accent-foreground px-5 py-2 text-sm font-bold rounded hover:opacity-90 transition-opacity"
         >
           Descubrí más
-        </Link>
+        </Link> */}
       </div>
     </div>
   )
