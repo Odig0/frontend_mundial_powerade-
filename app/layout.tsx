@@ -16,19 +16,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/logo_deber.jpg',
+        url: '/logo_powerade.jpg',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/logo_deber.jpg',
+        url: '/logo_powerade.jpg',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/logo_deber.jpg',
+        url: '/logo_powerade.jpg',
         type: 'image/jpeg',
       },
     ],
-    apple: '/logo_deber.jpg',
+    apple: '/logo_powerade.jpg',
   },
   openGraph: {
     title: 'Powerade - El Deber Deportes',

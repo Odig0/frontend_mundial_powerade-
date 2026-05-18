@@ -55,7 +55,7 @@ export async function GET(_req: NextRequest, { params }: { params: { seccion: st
       datePublished: published,
       dateModified: modified,
       author: { '@type': 'Person', name: news.opinologo?.firma || 'Redacción' },
-      publisher: { '@type': 'Organization', name: 'El Deber Deportes', logo: { '@type': 'ImageObject', url: `${BASE_URL}/logo_deber.jpg` } },
+      publisher: { '@type': 'Organization', name: 'El Deber Deportes', logo: { '@type': 'ImageObject', url: `${BASE_URL}/logo_powerade.jpg` } },
       mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
       url: canonical,
     })}</script>

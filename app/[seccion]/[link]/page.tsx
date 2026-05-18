@@ -131,7 +131,7 @@ export default async function DetailPage({ params }: { params: Promise<Params> |
       name: SITE_NAME,
       logo: {
         '@type': 'ImageObject',
-        url: `${BASE_URL}/logo_deber.jpg`,
+        url: `${BASE_URL}/logo_powerade.jpg`,
       },
     },
     articleSection: primarySection,

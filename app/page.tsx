@@ -109,7 +109,7 @@ export default async function Home() {
         name: SITE_NAME,
         logo: {
           '@type': 'ImageObject',
-          url: `${BASE_URL}/logo_deber.jpg`,
+          url: `${BASE_URL}/logo_powerade.jpg`,
         },
       },
       mainEntityOfPage: {
