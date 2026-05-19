@@ -44,7 +44,7 @@ export default async function SectionPage({ params }: { params: Promise<Params> 
     : seccion.charAt(0).toUpperCase() + seccion.slice(1)
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#059BD7' }}>
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#000000' }}>
       <Header />
       <Navbar />
 

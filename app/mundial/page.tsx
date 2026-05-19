@@ -42,7 +42,7 @@ export default async function MundialPage() {
   )
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#059BD7' }}>
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#000000' }}>
       <Header />
       <Navbar />
 
