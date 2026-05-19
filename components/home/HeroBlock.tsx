@@ -121,7 +121,7 @@ export default function HeroBlock({ featured, side }: HeroBlockProps) {
                 </h3>
 
                 <div className="mt-3">
-                  <span className="text-[#3CB7FF] text-sm tracking-wide truncate block">
+                  <span className="text-sm tracking-wide truncate block" style={{ color: 'var(--news-author-color)' }}>
                     <span className="font-normal">Por</span> <span className="font-bold">{news.opinologo?.firma || 'Redacción'}</span>
                   </span>
                 </div>

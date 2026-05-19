@@ -121,7 +121,7 @@ export default async function Home() {
     : null
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#059BD7' }}>
       <Header />
       <Navbar />
 
@@ -179,12 +179,16 @@ export default async function Home() {
                           <div className="inline-block px-2 py-0.5 bg-accent text-accent-foreground text-[10px] font-bold rounded mb-3 uppercase tracking-widest self-start">
                             {seccion}
                           </div>
-                          <h3 className="font-bold text-white group-hover:text-accent transition-colors text-lg md:text-xl leading-snug">
+                          <h3
+                            className="font-bold group-hover:opacity-100 transition-colors text-lg md:text-xl leading-snug"
+                            style={{ color: 'var(--news-text-color)' }}
+                          >
                             {item.titulo}
                           </h3>
                           {item.introHTML && (
                             <div
-                              className="text-white/60 mt-3 line-clamp-4 text-sm leading-relaxed"
+                              className="mt-3 line-clamp-4 text-sm leading-relaxed"
+                              style={{ color: 'var(--news-text-color)' }}
                               dangerouslySetInnerHTML={{
                                 __html: (() => {
                                   const plainText = item.introHTML.replace(/<[^>]*>?/gm, '');
@@ -196,7 +200,7 @@ export default async function Home() {
                             />
                           )}
                           <div className="mt-5">
-                            <span className="text-[#3CB7FF] text-sm tracking-wide truncate block">
+                            <span className="text-sm tracking-wide truncate block" style={{ color: 'var(--news-author-color)' }}>
                               <span className="font-normal">Por</span> <span className="font-bold">{item.opinologo?.firma || 'Redacción'}</span>
                             </span>
                           </div>
