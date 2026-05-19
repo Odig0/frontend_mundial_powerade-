@@ -42,10 +42,7 @@ export default function NewsCard({
               className="object-cover group-hover:scale-105 transition-transform duration-500"
             />
           </div>
-          <h3
-            className="font-bold group-hover:opacity-100 transition-colors line-clamp-2 text-sm"
-            style={{ color: 'var(--news-text-color)' }}
-          >
+          <h3 className="typography-card-title-small group-hover:opacity-100 transition-colors line-clamp-2">
             {titulo}
           </h3>
         </div>
@@ -71,16 +68,12 @@ export default function NewsCard({
           <div className="inline-block px-2 py-0.5 bg-[#059BD7] text-white text-[10px] font-bold rounded mb-3 uppercase tracking-widest self-start">
             {seccion}
           </div>
-          <h3
-            className="font-bold group-hover:opacity-100 transition-colors text-lg md:text-xl leading-snug"
-            style={{ color: 'var(--news-text-color)' }}
-          >
+          <h3 className="typography-card-title group-hover:opacity-100 transition-colors line-clamp-3">
             {titulo}
           </h3>
           {introHTML && (
             <div
-              className="mt-3 line-clamp-4 text-sm leading-relaxed"
-              style={{ color: 'var(--news-text-color)' }}
+              className="typography-news-intro mt-3 line-clamp-4"
               dangerouslySetInnerHTML={{
                 __html: (() => {
                   const plainText = introHTML.replace(/<[^>]*>?/gm, '');
@@ -92,7 +85,7 @@ export default function NewsCard({
             />
           )}
           <div className="mt-5">
-            <span className="text-sm tracking-wide truncate block" style={{ color: 'var(--news-author-color)' }}>
+            <span className="typography-news-author truncate block">
               <span className="font-normal">Por</span> <span className="font-bold">{opinologo_firma || 'Redacción'}</span>
             </span>
           </div>

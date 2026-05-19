@@ -10,7 +10,7 @@ export default function HydrationBanner() {
       />
       <div className="relative z-20 px-8 py-10">
         <p className="text-xs text-accent font-bold uppercase tracking-widest mb-2">Patrocinado</p>
-        <h2 className="text-2xl md:text-3xl font-black text-white uppercase leading-tight mb-4">
+        <h2 className="typography-section-title uppercase mb-4">
           Pausa de<br />Hidratación
         </h2>
         {/* <Link

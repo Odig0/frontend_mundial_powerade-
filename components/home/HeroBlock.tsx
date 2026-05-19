@@ -46,13 +46,13 @@ export default function HeroBlock({ featured, side }: HeroBlockProps) {
               {featuredSeccion}
             </span>
             
-            <h2 className="text-xl sm:text-2xl md:text-4xl font-black text-white leading-[1.1] mb-2 md:mb-4 group-hover:text-[#3CB7FF] transition-colors line-clamp-3 md:line-clamp-none">
+            <h2 className="typography-featured-hero-title group-hover:text-[#3CB7FF] transition-colors line-clamp-3 md:line-clamp-none">
               {featured.titulo}
             </h2>
 
             {featured.introHTML && (
               <div
-                className="text-white/80 mb-4 md:mb-6 text-xs sm:text-sm md:text-base max-w-2xl leading-snug md:leading-normal line-clamp-4 md:line-clamp-none"
+                className="typography-featured-hero-intro max-w-2xl line-clamp-4 md:line-clamp-none"
                 dangerouslySetInnerHTML={{ __html: featured.introHTML }}
               />
             )}
@@ -116,7 +116,7 @@ export default function HeroBlock({ featured, side }: HeroBlockProps) {
                   {seccion}
                 </span>
                 
-                <h3 className="font-bold text-white group-hover:text-[#3CB7FF] transition-colors text-base md:text-xl leading-tight">
+                <h3 className="typography-hero-carousel-title group-hover:text-[#3CB7FF] transition-colors">
                   {news.titulo}
                 </h3>
 

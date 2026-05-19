@@ -128,7 +128,7 @@ export default function NewsDetail({
         <div className="inline-block px-3 py-1.5 bg-accent text-accent-foreground text-xs font-bold rounded mb-4 uppercase tracking-wider" itemProp="articleSection">
           {seccion}
         </div>
-        <h1 className="text-3xl md:text-4xl font-black text-foreground mb-4" itemProp="headline">{titulo}</h1>
+        <h1 className="typography-detail-title mb-4" itemProp="headline">{titulo}</h1>
         <div className="flex items-center justify-between gap-4 flex-wrap">
           {fecha && (
             <p className="text-muted-foreground text-sm">
@@ -166,7 +166,7 @@ export default function NewsDetail({
 
       {introHTML && (
         <div
-          className="text-lg md:text-xl text-foreground mb-6 leading-relaxed font-semibold [&>p]:mb-0"
+          className="typography-detail-intro mb-6 font-semibold [&>p]:mb-0"
           itemProp="description"
           dangerouslySetInnerHTML={{ __html: introHTML }}
         />

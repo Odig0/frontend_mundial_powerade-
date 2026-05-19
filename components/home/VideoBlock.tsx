@@ -84,7 +84,7 @@ export default function VideoBlock({ videos }: VideoBlockProps) {
 
       <div className="w-full">
         <div className="flex flex-col items-start text-left mb-8">
-          <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter flex items-center gap-2">
+          <h2 className="typography-section-title uppercase flex items-center gap-2">
             <span className="w-2 h-8 bg-[#3CB7FF] rounded-full inline-block" />
             Videos
           </h2>

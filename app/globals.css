@@ -15,6 +15,56 @@
   --news-text-color: #ffffff;
   --news-author-color: #ffffff;
 
+  /* ============================================================
+     📝 TIPOGRAFÍA — CAMBIAR SOLO AQUÍ PARA ACTUALIZAR TODO
+     ============================================================
+     
+     🔍 REFERENCIA DE VARIABLES:
+     
+     SECCIONES DE NOTICIAS (ej: "Últimas noticias", "Videos")
+     • --news-section-title-size         → Tamaño móvil
+     • --news-section-title-size-md      → Tamaño desktop
+     
+     TÍTULOS EN CARDS DE NOTICIAS
+     • --news-card-title-size            → Tamaño móvil (default)
+     • --news-card-title-size-md         → Tamaño desktop (md:)
+     • --news-card-title-small-size      → Titulos pequeños en grid
+     
+     DETALLES DE NOTICIA (página individual)
+     • --news-detail-title-size          → Título principal
+     • --news-detail-intro-size          → Párrafo introductorio
+     
+     HERO SECTION (noticia destacada grande)
+     • --news-featured-hero-title-size       → Tamaño base
+     • --news-featured-hero-title-size-sm    → Tamaño sm:
+     • --news-featured-hero-title-size-md    → Tamaño md:
+     • --news-featured-hero-intro-size       → Intro en hero
+     
+     CAROUSEL EN HERO (noticia pequeña)
+     • --news-hero-carousel-title-size       → Tamaño móvil
+     • --news-hero-carousel-title-size-md    → Tamaño desktop
+     
+     CONTENIDO GENERAL
+     • --news-intro-size                 → Párrafos/intro de noticia
+     • --news-author-size                → Firma del autor
+     
+     ============================================================ */
+  --news-section-title-size: 2rem;
+  --news-section-title-size-md: 3rem;
+  --news-card-title-size: 1.125rem;
+  --news-card-title-size-md: 1.25rem;
+  --news-card-title-small-size: 0.875rem;
+  --news-intro-size: 0.875rem;
+  --news-author-size: 0.875rem;
+  --news-detail-title-size: 2.25rem;
+  --news-detail-intro-size: 0.875rem;
+  --news-featured-hero-title-size: 1.25rem;
+  --news-featured-hero-title-size-sm: 1.5rem;
+  --news-featured-hero-title-size-md: 2.25rem;
+  --news-featured-hero-intro-size: 0.875rem;
+  --news-hero-carousel-title-size: 1rem;
+  --news-hero-carousel-title-size-md: 1.25rem;
+
   /* Variantes automáticas derivadas del brand color */
   --brand-dark:   color-mix(in srgb, var(--brand-color) 80%, black);
   --brand-darker: color-mix(in srgb, var(--brand-color) 60%, black);
@@ -157,6 +207,117 @@
 
   .container {
     @apply max-w-7xl;
+  }
+}
+
+/* ============================================================
+   🎨 TIPOGRAFÍA GLOBAL — CLASES ESTANDARIZADAS
+   ============================================================ */
+
+/* Título de sección de noticias */
+.typography-section-title {
+  font-size: var(--news-section-title-size);
+  font-weight: 900;
+  color: var(--news-text-color);
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .typography-section-title {
+    font-size: var(--news-section-title-size-md);
+  }
+}
+
+/* Título de noticia en card (grande) */
+.typography-card-title {
+  font-size: var(--news-card-title-size);
+  font-weight: 700;
+  color: var(--news-text-color);
+  line-height: 1.3;
+  transition: opacity 200ms;
+}
+
+@media (min-width: 768px) {
+  .typography-card-title {
+    font-size: var(--news-card-title-size-md);
+  }
+}
+
+/* Título de noticia en card (pequeño) */
+.typography-card-title-small {
+  font-size: var(--news-card-title-small-size);
+  font-weight: 700;
+  color: var(--news-text-color);
+  line-height: 1.4;
+}
+
+/* Intro/párrafo de noticia */
+.typography-news-intro {
+  font-size: var(--news-intro-size);
+  color: var(--news-text-color);
+  line-height: 1.6;
+}
+
+/* Autor de la noticia */
+.typography-news-author {
+  font-size: var(--news-author-size);
+  color: var(--news-author-color);
+  line-height: 1.5;
+}
+
+/* Título detalle de noticia */
+.typography-detail-title {
+  font-size: var(--news-detail-title-size);
+  font-weight: 900;
+  color: var(--news-text-color);
+  line-height: 1.2;
+}
+
+/* Intro en detalle de noticia */
+.typography-detail-intro {
+  font-size: var(--news-detail-intro-size);
+  color: var(--news-text-color);
+  line-height: 1.6;
+}
+
+/* Título featured hero (noticia principal grande) */
+.typography-featured-hero-title {
+  font-size: var(--news-featured-hero-title-size);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+@media (min-width: 640px) {
+  .typography-featured-hero-title {
+    font-size: var(--news-featured-hero-title-size-sm);
+  }
+}
+
+@media (min-width: 768px) {
+  .typography-featured-hero-title {
+    font-size: var(--news-featured-hero-title-size-md);
+  }
+}
+
+/* Intro featured hero */
+.typography-featured-hero-intro {
+  font-size: var(--news-featured-hero-intro-size);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+/* Título carousel hero (noticia pequeña en hero) */
+.typography-hero-carousel-title {
+  font-size: var(--news-hero-carousel-title-size);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+  .typography-hero-carousel-title {
+    font-size: var(--news-hero-carousel-title-size-md);
   }
 }
 
