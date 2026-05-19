@@ -150,7 +150,7 @@ export default async function DetailPage({ params }: { params: Promise<Params> |
   }) : ''
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#059BD7' }}>
       <Header />
       <Navbar />
 

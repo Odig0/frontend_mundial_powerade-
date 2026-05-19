@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default function Header() {
   return (
-    <header className="bg-[#060e1c] border-b-2 border-accent">
+    <header className="border-b-2 border-white/30" style={{ backgroundColor: 'var(--brand-color)' }}>
       <div className="container max-w-[1200px] mx-auto px-4">
         <div className="flex items-center justify-between gap-4 py-3 md:gap-8">
 

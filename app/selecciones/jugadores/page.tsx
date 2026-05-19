@@ -8,7 +8,7 @@ import HomeRightAd from '@/components/publicidad/HomeRightAd'
 
 export default function PlayersPage() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#059BD7' }}>
       <Header />
       <Navbar />
 

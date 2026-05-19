@@ -76,7 +76,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="bg-[#0a1525] border-b border-white/5 sticky top-0 z-50 h-14">
+    <nav className="border-b border-white/20 sticky top-0 z-50 h-14" style={{ backgroundColor: 'var(--brand-color)' }}>
       <div className="container max-w-[1200px] mx-auto h-full px-4">
         <div className="flex items-center justify-between md:justify-center h-full">
 
@@ -128,10 +128,13 @@ export default function Navbar() {
       </div>
 
       {/* MOBILE MENU (Capa inferior al botón) */}
-      <div className={cn(
-        "fixed inset-0 bg-[#0a1525] z-[60] transition-all duration-500 md:hidden",
-        isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
-      )}>
+      <div
+        className={cn(
+          "fixed inset-0 z-[60] transition-all duration-500 md:hidden",
+          isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
+        )}
+        style={{ backgroundColor: 'var(--brand-color)' }}
+      >
         <div className="flex flex-col h-full pt-24 px-8 gap-2">
           {links.map((link, i) => (
             <Link

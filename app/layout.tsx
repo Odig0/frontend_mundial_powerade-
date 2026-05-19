@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
-import StarField from '@/components/layout/StarField'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -112,13 +111,7 @@ export default function RootLayout({
       </head>
 
       <body className="font-sans antialiased">
-        {/* Starfield background — fixed canvas, z-index:0, pointer-events:none */}
-        <StarField />
-
-        {/* Page content — z-index:1 so it renders above the starfield canvas */}
-        <div style={{ position: 'relative', zIndex: 1 }}>
-          {children}
-        </div>
+        {children}
 
         {/* Google Tag Manager (noscript) */}
         <noscript>

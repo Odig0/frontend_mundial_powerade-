@@ -26,6 +26,7 @@ export default function SectionGrid({ news, itemsPerPage = 12 }: SectionGridProp
             {visibleNews.map((item) => (
           <NewsCard
                 key={item._id}
+            id={item._id}
             titulo={item.titulo}
             imagen_home={item.imagen_home}
             secciones={item.secciones}
@@ -40,7 +41,7 @@ export default function SectionGrid({ news, itemsPerPage = 12 }: SectionGridProp
         <div className="flex justify-center">
           <button
             onClick={handleLoadMore}
-            className="px-6 py-3 bg-primary text-primary-foreground font-bold rounded hover:bg-accent transition-colors"
+            className="px-6 py-3 bg-primary text-black font-bold rounded hover:bg-accent transition-colors"
           >
             Load More
           </button>

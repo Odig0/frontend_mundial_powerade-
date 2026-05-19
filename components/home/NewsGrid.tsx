@@ -14,7 +14,7 @@ export default function NewsGrid({ news, title }: NewsGridProps) {
   return (
     <section className="mb-12 max-w-6xl mx-auto">
       {title && (
-        <h2 className="text-2xl md:text-3xl font-black text-foreground mb-6">{title}</h2>
+        <h2 className="text-2xl md:text-3xl font-black text-black mb-6">{title}</h2>
       )}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {visibleNews.map((item) => (

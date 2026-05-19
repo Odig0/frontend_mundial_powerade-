@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <footer className="bg-[#060e1c] border-t border-border py-6 mt-8">
+    <footer className="border-t border-white/20 py-6 mt-8" style={{ backgroundColor: 'var(--brand-color)' }}>
       <div className="container max-w-[1200px] mx-auto px-4">
         <div className="flex items-center justify-center gap-8 md:gap-16 mb-4">
           <div className="relative h-8 w-24">
