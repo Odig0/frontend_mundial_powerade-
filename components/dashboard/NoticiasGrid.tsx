@@ -22,7 +22,6 @@ export default function NoticiasGrid({ news }: NoticiasGridProps) {
         const availableSections = await getAvailableSectionsAll()
         setSections(availableSections)
       } catch (error) {
-        console.error('Error loading sections:', error)
       } finally {
         setLoadingSections(false)
       }

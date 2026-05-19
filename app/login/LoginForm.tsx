@@ -61,7 +61,6 @@ export default function LoginForm() {
       router.push('/dashboard/noticias')
       router.refresh()
     } catch (err) {
-      console.error('Login error:', err)
       setError('Error de conexión. Intenta nuevamente.')
       setIsLoading(false)
     }

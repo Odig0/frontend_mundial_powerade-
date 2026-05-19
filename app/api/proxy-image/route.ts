@@ -20,7 +20,6 @@ export async function GET(request: NextRequest) {
 
 
     if (!res.ok) {
-      console.error('[proxy-image] upstream error:', res.status, res.statusText)
       return NextResponse.json({ error: `Upstream ${res.status}: ${res.statusText}` }, { status: res.status })
     }
 
@@ -28,7 +27,6 @@ export async function GET(request: NextRequest) {
 
     if (!contentType.startsWith('image/')) {
       const text = await res.text()
-      console.error('[proxy-image] no es imagen, content-type:', contentType, 'body:', text.slice(0, 200))
       return NextResponse.json({ error: `Expected image, got ${contentType}` }, { status: 502 })
     }
 
@@ -42,7 +40,6 @@ export async function GET(request: NextRequest) {
       },
     })
   } catch (err) {
-    console.error('[proxy-image] fetch error:', err)
     return NextResponse.json({ error: String(err) }, { status: 500 })
   }
 }

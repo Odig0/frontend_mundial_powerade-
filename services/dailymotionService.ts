@@ -51,7 +51,6 @@ export async function getDailymotionVideos(): Promise<VideoItem[]> {
     });
 
     if (!response.ok) {
-      console.error(`[Dailymotion] API error: ${response.status} ${response.statusText} for playlist ${PLAYLIST_ID}`);
       return [];
     }
 
@@ -77,7 +76,6 @@ export async function getDailymotionVideos(): Promise<VideoItem[]> {
     });
   } catch (error) {
     // Manejo genérico de errores de red o parseo
-    console.error('[Dailymotion] Fetch error:', error);
     return [];
   }
 }

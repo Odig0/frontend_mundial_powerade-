@@ -71,7 +71,6 @@ export async function POST(request: NextRequest) {
     }
 
     if (!publishRes.ok) {
-      console.error('[Metricool] Publish error:', publishData)
       return NextResponse.json(
         { error: publishData?.message || `Error Metricool: ${publishRes.status}` },
         { status: publishRes.status }
@@ -84,7 +83,6 @@ export async function POST(request: NextRequest) {
       postId: publishData.id,
     })
   } catch (error) {
-    console.error('[Metricool] Error:', error)
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Error interno' },
       { status: 500 }

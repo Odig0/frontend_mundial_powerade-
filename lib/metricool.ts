@@ -94,7 +94,6 @@ export async function getMetricoolConfig(userId: string) {
     if (!response.ok) return null
     return response.json()
   } catch (error) {
-    console.error('Error fetching Metricool config:', error)
     return null
   }
 }

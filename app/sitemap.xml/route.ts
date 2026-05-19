@@ -51,7 +51,6 @@ export async function GET() {
       },
     })
   } catch (error) {
-    console.error('Failed to generate sitemap', error)
     return new Response('Internal Server Error', { status: 500 })
   }
 }

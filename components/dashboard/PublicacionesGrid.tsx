@@ -20,9 +20,7 @@ export default function PublicacionesGrid({ news }: PublicacionesGridProps) {
       try {
         const sections = await getAvailableSectionsAll()
         setAvailableSections(sections)
-      } catch (error) {
-        console.error('Error loading sections for publicaciones:', error)
-      }
+      } catch (error) {      }
     }
 
     loadSections()
