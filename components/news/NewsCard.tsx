@@ -68,7 +68,7 @@ export default function NewsCard({
           />
         </div>
         <div className="flex flex-col">
-          <div className="inline-block px-2 py-0.5 bg-white text-black text-[10px] font-bold rounded mb-3 uppercase tracking-widest self-start">
+          <div className="inline-block px-2 py-0.5 bg-[#059BD7] text-white text-[10px] font-bold rounded mb-3 uppercase tracking-widest self-start">
             {seccion}
           </div>
           <h3

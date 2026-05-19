@@ -11,9 +11,9 @@
    Ejemplo alternativo rojo      → #ef4444
    ============================================================ */
 :root {
-  --brand-color: #059BD7;
+  --brand-color: #000000;
   --news-text-color: #ffffff;
-  --news-author-color: #000000;
+  --news-author-color: #ffffff;
 
   /* Variantes automáticas derivadas del brand color */
   --brand-dark:   color-mix(in srgb, var(--brand-color) 80%, black);
@@ -27,32 +27,32 @@
   --card-foreground:    #ffffff;
   --popover:            var(--brand-dark);
   --popover-foreground: #ffffff;
-  --primary:            #ffffff;
-  --primary-foreground: var(--brand-color);
+  --primary:            #059BD7;
+  --primary-foreground: #ffffff;
   --secondary:          var(--brand-dark);
   --secondary-foreground: #ffffff;
   --muted:              var(--brand-darker);
-  --muted-foreground:   #bae6fd;
-  --accent:             #ffffff;
-  --accent-foreground:  var(--brand-color);
+  --muted-foreground:   #8fdcff;
+  --accent:             #059BD7;
+  --accent-foreground:  #ffffff;
   --destructive:        #ff6b6b;
   --destructive-foreground: #ffffff;
-  --border:             var(--brand-darker);
+  --border:             #111111;
   --input:              var(--brand-dark);
   --ring:               #ffffff;
   --chart-1:            #ffffff;
-  --chart-2:            #bae6fd;
-  --chart-3:            #7dd3fc;
-  --chart-4:            #38bdf8;
-  --chart-5:            #0ea5e9;
+  --chart-2:            #8fdcff;
+  --chart-3:            #59c7ff;
+  --chart-4:            #24b2ff;
+  --chart-5:            #059BD7;
   --radius:             0.375rem;
   --sidebar:            var(--brand-dark);
   --sidebar-foreground: #ffffff;
-  --sidebar-primary:    #ffffff;
-  --sidebar-primary-foreground: var(--brand-color);
-  --sidebar-accent:     #ffffff;
-  --sidebar-accent-foreground: var(--brand-color);
-  --sidebar-border:     var(--brand-darker);
+  --sidebar-primary:    #059BD7;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent:     #059BD7;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border:     #111111;
   --sidebar-ring:       #ffffff;
 }
 
@@ -64,31 +64,31 @@
   --card-foreground:    #ffffff;
   --popover:            var(--brand-dark);
   --popover-foreground: #ffffff;
-  --primary:            #ffffff;
-  --primary-foreground: var(--brand-color);
+  --primary:            #059BD7;
+  --primary-foreground: #ffffff;
   --secondary:          var(--brand-dark);
   --secondary-foreground: #ffffff;
   --muted:              var(--brand-darker);
-  --muted-foreground:   #bae6fd;
-  --accent:             #ffffff;
-  --accent-foreground:  var(--brand-color);
+  --muted-foreground:   #8fdcff;
+  --accent:             #059BD7;
+  --accent-foreground:  #ffffff;
   --destructive:        #ff6b6b;
   --destructive-foreground: #ffffff;
-  --border:             var(--brand-darker);
+  --border:             #111111;
   --input:              var(--brand-dark);
   --ring:               #ffffff;
   --chart-1:            #ffffff;
-  --chart-2:            #bae6fd;
-  --chart-3:            #7dd3fc;
-  --chart-4:            #38bdf8;
-  --chart-5:            #0ea5e9;
+  --chart-2:            #8fdcff;
+  --chart-3:            #59c7ff;
+  --chart-4:            #24b2ff;
+  --chart-5:            #059BD7;
   --sidebar:            var(--brand-dark);
   --sidebar-foreground: #ffffff;
-  --sidebar-primary:    #ffffff;
-  --sidebar-primary-foreground: var(--brand-color);
-  --sidebar-accent:     #ffffff;
-  --sidebar-accent-foreground: var(--brand-color);
-  --sidebar-border:     var(--brand-darker);
+  --sidebar-primary:    #059BD7;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent:     #059BD7;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border:     #111111;
   --sidebar-ring:       #ffffff;
 }
 
@@ -166,8 +166,8 @@ html {
 }
 
 ::selection {
-  background-color: #ffffff;
-  color: var(--brand-color);
+  background-color: #059BD7;
+  color: #ffffff;
 }
 
 ::-webkit-scrollbar {
