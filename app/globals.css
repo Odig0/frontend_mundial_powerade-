@@ -3,75 +3,93 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ============================================================
+   🎨 BRAND COLOR — CAMBIAR SOLO AQUÍ PARA ACTUALIZAR TODO
+   ============================================================
+   Pantone 2995 — Powerade Blue  → #059BD7
+   Ejemplo alternativo verde     → #22c55e
+   Ejemplo alternativo rojo      → #ef4444
+   ============================================================ */
 :root {
-  --background: #08111f;
-  --foreground: #ffffff;
-  --card: #0d1a2e;
-  --card-foreground: #ffffff;
-  --popover: #0d1a2e;
+  --brand-color: #059BD7;
+  --news-text-color: #ffffff;
+  --news-author-color: #000000;
+
+  /* Variantes automáticas derivadas del brand color */
+  --brand-dark:   color-mix(in srgb, var(--brand-color) 80%, black);
+  --brand-darker: color-mix(in srgb, var(--brand-color) 60%, black);
+  --brand-light:  color-mix(in srgb, var(--brand-color) 40%, white);
+
+  /* ── Tokens del sistema (todos derivados de --brand-color) ── */
+  --background:         var(--brand-color);
+  --foreground:         #ffffff;
+  --card:               var(--brand-dark);
+  --card-foreground:    #ffffff;
+  --popover:            var(--brand-dark);
   --popover-foreground: #ffffff;
-  --primary: #3CB7FF;
-  --primary-foreground: #08111f;
-  --secondary: #0d1a2e;
+  --primary:            #ffffff;
+  --primary-foreground: var(--brand-color);
+  --secondary:          var(--brand-dark);
   --secondary-foreground: #ffffff;
-  --muted: #162032;
-  --muted-foreground: #8ab3cc;
-  --accent: #3CB7FF;
-  --accent-foreground: #08111f;
-  --destructive: #ff6b6b;
+  --muted:              var(--brand-darker);
+  --muted-foreground:   #bae6fd;
+  --accent:             #ffffff;
+  --accent-foreground:  var(--brand-color);
+  --destructive:        #ff6b6b;
   --destructive-foreground: #ffffff;
-  --border: #162032;
-  --input: #162032;
-  --ring: #3CB7FF;
-  --chart-1: #3CB7FF;
-  --chart-2: #5cc4ff;
-  --chart-3: #7ed1ff;
-  --chart-4: #a0deff;
-  --chart-5: #c2ebff;
-  --radius: 0.375rem;
-  --sidebar: #0d1a2e;
+  --border:             var(--brand-darker);
+  --input:              var(--brand-dark);
+  --ring:               #ffffff;
+  --chart-1:            #ffffff;
+  --chart-2:            #bae6fd;
+  --chart-3:            #7dd3fc;
+  --chart-4:            #38bdf8;
+  --chart-5:            #0ea5e9;
+  --radius:             0.375rem;
+  --sidebar:            var(--brand-dark);
   --sidebar-foreground: #ffffff;
-  --sidebar-primary: #3CB7FF;
-  --sidebar-primary-foreground: #08111f;
-  --sidebar-accent: #3CB7FF;
-  --sidebar-accent-foreground: #08111f;
-  --sidebar-border: #162032;
-  --sidebar-ring: #3CB7FF;
+  --sidebar-primary:    #ffffff;
+  --sidebar-primary-foreground: var(--brand-color);
+  --sidebar-accent:     #ffffff;
+  --sidebar-accent-foreground: var(--brand-color);
+  --sidebar-border:     var(--brand-darker);
+  --sidebar-ring:       #ffffff;
 }
 
+/* Dark mode usa los mismos tokens (mismo brand color) */
 .dark {
-  --background: #08111f;
-  --foreground: #ffffff;
-  --card: #0d1a2e;
-  --card-foreground: #ffffff;
-  --popover: #0d1a2e;
+  --background:         var(--brand-color);
+  --foreground:         #ffffff;
+  --card:               var(--brand-dark);
+  --card-foreground:    #ffffff;
+  --popover:            var(--brand-dark);
   --popover-foreground: #ffffff;
-  --primary: #3CB7FF;
-  --primary-foreground: #08111f;
-  --secondary: #0d1a2e;
+  --primary:            #ffffff;
+  --primary-foreground: var(--brand-color);
+  --secondary:          var(--brand-dark);
   --secondary-foreground: #ffffff;
-  --muted: #162032;
-  --muted-foreground: #8ab3cc;
-  --accent: #3CB7FF;
-  --accent-foreground: #08111f;
-  --destructive: #ff6b6b;
+  --muted:              var(--brand-darker);
+  --muted-foreground:   #bae6fd;
+  --accent:             #ffffff;
+  --accent-foreground:  var(--brand-color);
+  --destructive:        #ff6b6b;
   --destructive-foreground: #ffffff;
-  --border: #162032;
-  --input: #162032;
-  --ring: #3CB7FF;
-  --chart-1: #3CB7FF;
-  --chart-2: #5cc4ff;
-  --chart-3: #7ed1ff;
-  --chart-4: #a0deff;
-  --chart-5: #c2ebff;
-  --sidebar: #0d1a2e;
+  --border:             var(--brand-darker);
+  --input:              var(--brand-dark);
+  --ring:               #ffffff;
+  --chart-1:            #ffffff;
+  --chart-2:            #bae6fd;
+  --chart-3:            #7dd3fc;
+  --chart-4:            #38bdf8;
+  --chart-5:            #0ea5e9;
+  --sidebar:            var(--brand-dark);
   --sidebar-foreground: #ffffff;
-  --sidebar-primary: #3CB7FF;
-  --sidebar-primary-foreground: #08111f;
-  --sidebar-accent: #3CB7FF;
-  --sidebar-accent-foreground: #08111f;
-  --sidebar-border: #162032;
-  --sidebar-ring: #3CB7FF;
+  --sidebar-primary:    #ffffff;
+  --sidebar-primary-foreground: var(--brand-color);
+  --sidebar-accent:     #ffffff;
+  --sidebar-accent-foreground: var(--brand-color);
+  --sidebar-border:     var(--brand-darker);
+  --sidebar-ring:       #ffffff;
 }
 
 @theme inline {
@@ -119,9 +137,10 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply text-foreground;
-    background-color: transparent;
+    background-color: var(--brand-color) !important;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -143,11 +162,12 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--brand-color) !important;
 }
 
 ::selection {
-  background-color: #3CB7FF;
-  color: #08111f;
+  background-color: #ffffff;
+  color: var(--brand-color);
 }
 
 ::-webkit-scrollbar {
@@ -156,14 +176,14 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0d1a2e;
+  background: var(--brand-dark);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3CB7FF;
+  background: #ffffff;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #5cc4ff;
+  background: #bae6fd;
 }
