@@ -16,19 +16,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/logo_powerade.jpg',
+        url: '/logo_powerade.png',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/logo_powerade.jpg',
+        url: '/logo_powerade.png',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/logo_powerade.jpg',
+        url: '/logo_powerade.png',
         type: 'image/jpeg',
       },
     ],
-    apple: '/logo_powerade.jpg',
+    apple: '/logo_powerade.png',
   },
   openGraph: {
     title: 'Powerade - El Deber Deportes',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: 'El Deber Deportes',
     images: [
       {
-        url: '/logo_powerade.jpg',
+        url: '/logo_powerade.png',
         width: 1200,
         height: 630,
         alt: 'El Deber Deportes',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Powerade - El Deber Deportes',
     description: 'Cobertura completa del Mundial 2026: partidos, selecciones, noticias, videos y análisis deportivos.',
-    images: ['/logo_powerade.jpg'],
+    images: ['/logo_powerade.png'],
   },
 }
 

@@ -30,7 +30,7 @@ export async function GET(_req: NextRequest, { params }: { params: { seccion: st
 
   const canonical = `${BASE_URL}/${seccion}/${link}`
   const ampUrl = `${BASE_URL}/amp/${seccion}/${link}`
-  const image = news.imagen_interior ? toAbsoluteUrl(news.imagen_interior) : `${BASE_URL}/logo_powerade.jpg`
+  const image = news.imagen_interior ? toAbsoluteUrl(news.imagen_interior) : `${BASE_URL}/logo_powerade.png`
   const published = toIsoDate(news.fecha_a || news.fecha_c)
   const modified = toIsoDate(news.fecha_c || news.fecha_a)
 
@@ -55,7 +55,7 @@ export async function GET(_req: NextRequest, { params }: { params: { seccion: st
       datePublished: published,
       dateModified: modified,
       author: { '@type': 'Person', name: news.opinologo?.firma || 'Redacción' },
-      publisher: { '@type': 'Organization', name: 'El Deber Deportes', logo: { '@type': 'ImageObject', url: `${BASE_URL}/logo_powerade.jpg` } },
+      publisher: { '@type': 'Organization', name: 'El Deber Deportes', logo: { '@type': 'ImageObject', url: `${BASE_URL}/logo_powerade.png` } },
       mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
       url: canonical,
     })}</script>

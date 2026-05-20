@@ -64,7 +64,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> | P
 
   const title = `${news.titulo} - El Deber Deportes`
   const description = news.introHTML ? extractTextFromHtml(news.introHTML) : news.titulo
-  const image = news.imagen_interior || '/logo_powerade.jpg'
+  const image = news.imagen_interior || '/logo_powerade.png'
   const canonicalUrl = `${BASE_URL}/${seccion}/${link}`
 
   return {
@@ -131,7 +131,7 @@ export default async function DetailPage({ params }: { params: Promise<Params> |
       name: SITE_NAME,
       logo: {
         '@type': 'ImageObject',
-        url: `${BASE_URL}/logo_powerade.jpg`,
+        url: `${BASE_URL}/logo_powerade.png`,
       },
     },
     articleSection: primarySection,

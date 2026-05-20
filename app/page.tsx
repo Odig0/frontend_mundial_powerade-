@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     siteName: 'El Deber Deportes',
     images: [
       {
-        url: '/logo_powerade.jpg',
+        url: '/logo_powerade.png',
         width: 1200,
         height: 630,
         alt: 'El Deber Deportes - Powerade',
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Powerade - El Deber Deportes',
     description: 'Cobertura del Mundial 2026',
-    images: ['/logo_powerade.jpg'],
+    images: ['/logo_powerade.png'],
   },
 }
 
@@ -109,7 +109,7 @@ export default async function Home() {
         name: SITE_NAME,
         logo: {
           '@type': 'ImageObject',
-          url: `${BASE_URL}/logo_powerade.jpg`,
+          url: `${BASE_URL}/logo_powerade.png`,
         },
       },
       mainEntityOfPage: {
@@ -137,10 +137,64 @@ export default async function Home() {
         {/* Contenido Central */}
         <main className="flex-1 max-w-[1200px] min-w-0 flex flex-col">
           
-          {/* Hero + noticias secundarias */}
+          {/* Hero + Fixture arriba */}
           <div className="w-full pt-4">
             {featured.length > 0 ? (
-              <HeroBlock featured={featured[0]} side={featured.slice(1, 3)} />
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {/* Noticia destacada a la izquierda (2 columnas) */}
+                <div className="lg:col-span-2">
+                  <Link href={featuredArticleHref || '#'} className="group block transition-all duration-300">
+                    <div className="flex flex-col h-full">
+                      <div className="relative aspect-video overflow-hidden bg-muted mb-4">
+                        <Image
+                          src={featuredArticle?.imagen_home || ''}
+                          alt={featuredArticle?.titulo || ''}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute top-2 right-2">
+                          <SocialPostButton id={featuredArticle?._id || ''} titulo={featuredArticle?.titulo || ''} />
+                        </div>
+                      </div>
+                      <div className="flex flex-col">
+                        <div className="inline-block px-2 py-0.5 bg-accent text-accent-foreground text-[10px] font-bold rounded mb-3 uppercase tracking-widest self-start">
+                          {featuredArticle?.secciones?.[0] ?? 'general'}
+                        </div>
+                        <h2
+                          className="font-bold group-hover:opacity-100 transition-colors text-2xl lg:text-3xl leading-snug"
+                          style={{ color: 'var(--news-text-color)' }}
+                        >
+                          {featuredArticle?.titulo}
+                        </h2>
+                        {featuredArticle?.introHTML && (
+                          <div
+                            className="mt-3 line-clamp-4 text-sm leading-relaxed"
+                            style={{ color: 'var(--news-text-color)' }}
+                            dangerouslySetInnerHTML={{
+                              __html: (() => {
+                                const plainText = featuredArticle.introHTML.replace(/<[^>]*>?/gm, '');
+                                const words = plainText.split(/\s+/).filter(Boolean);
+                                if (words.length <= 20) return plainText;
+                                return words.slice(0, 20).join(' ') + '...';
+                              })()
+                            }}
+                          />
+                        )}
+                        <div className="mt-5">
+                          <span className="text-sm tracking-wide truncate block" style={{ color: 'var(--news-author-color)' }}>
+                            <span className="font-normal">Por</span> <span className="font-bold">{featuredArticle?.opinologo?.firma || 'Redacción'}</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+                
+                {/* Fixture a la derecha (1 columna) */}
+                <div className="lg:col-span-1">
+                  <FixtureBlock />
+                </div>
+              </div>
             ) : (
               <div className="rounded border border-dashed border-border bg-card px-6 py-12 text-center mb-4">
                 <p className="text-lg font-semibold text-white">No hay noticias disponibles</p>
@@ -149,11 +203,12 @@ export default async function Home() {
             )}
           </div>
 
-          {/* Grid de 3 noticias secundarias */}
+          {/* Grid de 2 noticias secundarias */}
           {secondary.length > 0 && (
             <div className="w-full mt-8 mb-16">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {secondary.map((item) => {
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Primeras 2 noticias */}
+                {secondary.slice(0, 2).map((item) => {
                   const seccion = item.secciones?.[0] ?? 'general'
                   const href = seccion && item.link ? `/${seccion}/${item.link}` : null
                   if (!href) return null
@@ -213,13 +268,10 @@ export default async function Home() {
             </div>
           )}
 
-          {/* Banner pausa de hidratación + Fixture */}
+          {/* Banner pausa de hidratación
           <div className="w-full mt-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
-              <HydrationBanner />
-              <FixtureBlock />
-            </div>
-          </div>
+            <HydrationBanner />
+          </div> */}
 
           {/* Videos */}
           <div className="w-full mt-6">

@@ -8,11 +8,11 @@ import { cn } from '@/lib/utils'
 import type { MouseEvent } from 'react'
 
 const links = [
-  { label: 'Últimas', href: '/', action: '' },
-  { label: 'Partidos', href: '/', action: 'partidos' },
-  { label: 'Selecciones', href: '/selecciones' },
-  { label: 'Fuera de juego', href: '/fueradejuego' },
-  { label: 'Videos', href: '/videos' },
+  { label: 'Últimas Noticias', href: '/', action: '' },
+  { label: 'Fixture de Partidos', href: '/', action: 'partidos' },
+  { label: 'Detrás del Juego', href: '/selecciones' },
+  { label: 'Momentos Clave', href: '/fueradejuego' },
+  { label: 'Seguí el Mundial', href: '/videos' },
 ]
 
 export default function Navbar() {
