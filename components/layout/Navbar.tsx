@@ -11,8 +11,8 @@ const links = [
   { label: 'Últimas Noticias', href: '/', action: '' },
   { label: 'Fixture de Partidos', href: '/', action: 'partidos' },
   { label: 'Detrás del Juego', href: '/selecciones' },
-  { label: 'Momentos Clave', href: '/fueradejuego' },
-  { label: 'Seguí el Mundial', href: '/videos' },
+  { label: 'Momentos Clave', href: '/momentos-clave' },
+  { label: 'Videos', href: '/videos' },
 ]
 
 export default function Navbar() {

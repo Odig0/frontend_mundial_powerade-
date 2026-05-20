@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: 'Últimas noticias de la sección Fuera de juego. Análisis, curiosidades y temas relacionados al fútbol.',
     type: 'website',
     locale: 'es_ES',
-    url: `${BASE_URL}/fueradejuego`,
+    url: `${BASE_URL}/momentos-clave`,
     siteName: 'El Deber Deportes',
     images: [
       {
