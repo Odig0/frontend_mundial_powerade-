@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
-import { NewsItem } from '@/lib/api'
-import { getAvailableSectionsAll } from '@/lib/api'
+import type { NewsItem } from '@/lib/news-types'
+import { getAvailableSectionsAll } from '@/lib/news-client'
 import { usePublishedPosts } from '@/hooks/use-published-posts'
 import { Empty } from '@/components/ui/empty'
 import NoticiaCard from './NoticiaCard'

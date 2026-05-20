@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Search } from 'lucide-react'
-import { NewsItem } from '@/lib/api'
+import type { NewsItem } from '@/lib/news-types'
 import { Input } from '@/components/ui/input'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'

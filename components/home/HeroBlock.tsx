@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { NewsItem } from '@/lib/api'
+import type { NewsItem } from '@/lib/news-types'
 import SocialPostButton from '@/components/news/SocialPostButton'
 import { cn } from '@/lib/utils'
 

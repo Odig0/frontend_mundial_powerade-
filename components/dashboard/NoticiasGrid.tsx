@@ -3,7 +3,8 @@
 import { useState, useMemo, useEffect } from 'react'
 import { Search } from 'lucide-react'
 import { Input } from '@/components/ui/input'
-import { NewsItem, formatSectionLabel, getAvailableSectionsAll } from '@/lib/api'
+import type { NewsItem } from '@/lib/news-types'
+import { formatSectionLabel, getAvailableSectionsAll } from '@/lib/news-client'
 import NoticiaCard from './NoticiaCard'
 
 interface NoticiasGridProps {

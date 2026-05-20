@@ -1,7 +1,7 @@
 'use client'
 
 import NewsCard from '@/components/news/NewsCard'
-import { NewsItem } from '@/lib/api'
+import type { NewsItem } from '@/lib/news-types'
 
 interface NewsGridProps {
   news: NewsItem[]

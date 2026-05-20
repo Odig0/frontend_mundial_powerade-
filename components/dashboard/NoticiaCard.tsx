@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { ChevronDown, Edit3 } from 'lucide-react'
-import { NewsItem } from '@/lib/api'
+import type { NewsItem } from '@/lib/news-types'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
@@ -20,7 +20,7 @@ import { usePublishedPosts } from '@/hooks/use-published-posts'
 import { useToast } from '@/hooks/use-toast'
 import SocialPostButton from '@/components/news/SocialPostButton'
 import PublishToggle from './PublishToggle'
-import { formatSectionLabel, updateNewsSections } from '@/lib/api'
+import { formatSectionLabel, updateNewsSections } from '@/lib/news-client'
 
 interface NoticiaCardProps {
   news: NewsItem
