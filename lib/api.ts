@@ -157,81 +157,39 @@ function sortNewsByRecency(items: NewsItem[]) {
   })
 }
 
-export const getNews = cache(async (): Promise<NewsItem[]> => {
-  const CACHE_KEY = 'news_cache'
-  const CACHE_DURATION = 1000 * 60 * 5 // 5 minutes
-
+async function readCachedNewsItems(): Promise<NewsItem[]> {
   if (typeof window !== 'undefined') {
-    const cached = localStorage.getItem(CACHE_KEY)
-    if (cached) {
-      try {
-        const { data, timestamp } = JSON.parse(cached)
-        if (Date.now() - timestamp < CACHE_DURATION) {
-          return data.map(normalizeNewsItem)
-        }
-      } catch {
-        // Invalid cache, continue with fetch
-      }
+    const cached = localStorage.getItem('news_cache')
+    if (!cached) {
+      return []
+    }
+
+    try {
+      const parsed = JSON.parse(cached)
+      return Array.isArray(parsed.data) ? parsed.data.map(normalizeNewsItem) : []
+    } catch {
+      return []
     }
   }
 
   try {
-    const news = await requestJson<NewsItem[]>('/news/latest')
-    const normalized = news.map(normalizeNewsItem)
-
-    if (typeof window !== 'undefined') {
-      try {
-        localStorage.setItem(CACHE_KEY, JSON.stringify({
-          data: news,
-          timestamp: Date.now(),
-        }))
-      } catch {
-        // localStorage error, continue without caching
-      }
-    }
-
-    if (typeof window === 'undefined') {
-      try {
-        const { writeNewsCache } = await import('./cache')
-        await writeNewsCache(news)
-      } catch (error) {
-        console.warn('[API] Unable to persist news cache to disk:', error)
-      }
-    }
-
-    return normalized
+    const { readNewsCache } = await import('./cache')
+    const cached = await readNewsCache()
+    return cached?.news?.length ? cached.news.map(normalizeNewsItem) : []
   } catch (error) {
-    console.warn('[API] Backend news fetch failed, trying local cache fallback:', error)
-
-    if (typeof window === 'undefined') {
-      try {
-        const { readNewsCache } = await import('./cache')
-        const cached = await readNewsCache()
-
-        if (cached?.news?.length) {
-          return cached.news.map(normalizeNewsItem)
-        }
-      } catch (cacheError) {
-        console.warn('[API] Local cache fallback failed:', cacheError)
-      }
-    }
-
-    if (typeof window !== 'undefined') {
-      const cached = localStorage.getItem(CACHE_KEY)
-      if (cached) {
-        try {
-          const { data, timestamp } = JSON.parse(cached)
-          if (Date.now() - timestamp < CACHE_DURATION) {
-            return data.map(normalizeNewsItem)
-          }
-        } catch {
-          // Invalid cache, continue to empty state
-        }
-      }
-    }
-
+    console.warn('[API] Failed to read cached news items:', error)
     return []
   }
+}
+
+export const getNews = cache(async (): Promise<NewsItem[]> => {
+  const cachedNews = await readCachedNewsItems()
+
+  if (!cachedNews.length) {
+    console.warn('[API] News cache is empty or missing. Run the 1 AM sync job to populate it.')
+  }
+
+  return cachedNews
 })
 
 export async function getNewsById(id: string): Promise<NewsItem | undefined> {
@@ -242,7 +200,8 @@ export async function getNewsById(id: string): Promise<NewsItem | undefined> {
       return undefined
     }
 
-    throw error
+    const cachedNews = await readCachedNewsItems()
+    return cachedNews.find((item) => item._id === id)
   }
 }
 
@@ -257,16 +216,23 @@ export async function getNewsByLinkSlug(link: string): Promise<NewsItem | undefi
     )
   } catch (error) {
     if (error instanceof Error && error.message.includes('status 404')) {
-      return undefined
+      const cachedNews = await readCachedNewsItems()
+      return cachedNews.find((item) => item.link === link)
     }
-    // Si el endpoint no existe aún (404/500), retornar undefined silenciosamente
-    return undefined
+
+    const cachedNews = await readCachedNewsItems()
+    return cachedNews.find((item) => item.link === link)
   }
 }
 
 export async function getMundialNews(): Promise<NewsItem[]> {
-  const news = await requestJson<NewsItem[]>('/news/filter/mundial')
-  return sortNewsByRecency(news.map(normalizeNewsItem))
+  try {
+    const news = await requestJson<NewsItem[]>('/news/filter/mundial')
+    return sortNewsByRecency(news.map(normalizeNewsItem))
+  } catch {
+    const cachedNews = await readCachedNewsItems()
+    return sortNewsByRecency(cachedNews.filter((item) => item.secciones?.includes('mundial')))
+  }
 }
 
 export async function getNewsBySection(seccion: string): Promise<NewsItem[]> {
@@ -304,15 +270,11 @@ export async function getNewsByLink(seccion: string, link: string): Promise<News
     return (await getNewsById(matchInLatest._id)) ?? matchInLatest
   }
 
-  // 3. Fallback: endpoint completo de la sección (artículos más antiguos)
-  try {
-    const sectionNews = await getNewsBySectionSlug(seccion)
-    const match = sectionNews.find((item) => item.link === link)
-    if (match) {
-      return (await getNewsById(match._id)) ?? match
-    }
-  } catch {
-    // Endpoint de sección no disponible
+  // 3. Fallback: buscar la sección completa dentro del cache local
+  const sectionNews = await getNewsBySection(seccion)
+  const match = sectionNews.find((item) => item.link === link)
+  if (match) {
+    return (await getNewsById(match._id)) ?? match
   }
 
   return undefined
@@ -349,8 +311,13 @@ export function formatSectionLabel(section: string) {
 }
 
 export async function getNewsBySectionSlug(slug: string): Promise<NewsItem[]> {
-  const news = await requestJson<NewsItem[]>(`/news/section/${encodeURIComponent(slug)}`)
-  return sortNewsByRecency(news.map(normalizeNewsItem))
+  try {
+    const news = await requestJson<NewsItem[]>(`/news/section/${encodeURIComponent(slug)}`)
+    return sortNewsByRecency(news.map(normalizeNewsItem))
+  } catch {
+    const cachedNews = await readCachedNewsItems()
+    return sortNewsByRecency(cachedNews.filter((item) => item.secciones?.includes(slug)))
+  }
 }
 
 export async function updateNewsSections(id: string, sections: string[]): Promise<void> {

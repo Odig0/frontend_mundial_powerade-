@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
 import StarField from '@/components/layout/StarField'
+import { initializeScheduledJobs } from '@/lib/scheduler'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -57,6 +58,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  if (process.env.NODE_ENV === 'production' && process.env.NEXT_PHASE !== 'phase-production-build') {
+    initializeScheduledJobs()
+  }
+
   return (
     <html lang="es" suppressHydrationWarning>
 
