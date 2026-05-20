@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/logo_powerade.png',
+        url: '/gfi.png',
         media: '(prefers-color-scheme: light)',
       },
       {
