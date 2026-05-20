@@ -21,7 +21,6 @@ export const metadata: Metadata = {
       },
       {
         url: '/logo_powerade.png',
-        media: '(prefers-color-scheme: dark)',
       },
       {
         url: '/logo_powerade.png',
