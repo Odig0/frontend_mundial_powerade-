@@ -175,21 +175,63 @@ export const getNews = cache(async (): Promise<NewsItem[]> => {
     }
   }
 
-  const news = await requestJson<NewsItem[]>('/news/latest')
-  const normalized = news.map(normalizeNewsItem)
+  try {
+    const news = await requestJson<NewsItem[]>('/news/latest')
+    const normalized = news.map(normalizeNewsItem)
 
-  if (typeof window !== 'undefined') {
-    try {
-      localStorage.setItem(CACHE_KEY, JSON.stringify({
-        data: news,
-        timestamp: Date.now(),
-      }))
-    } catch {
-      // localStorage error, continue without caching
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem(CACHE_KEY, JSON.stringify({
+          data: news,
+          timestamp: Date.now(),
+        }))
+      } catch {
+        // localStorage error, continue without caching
+      }
     }
-  }
 
-  return normalized
+    if (typeof window === 'undefined') {
+      try {
+        const { writeNewsCache } = await import('./cache')
+        await writeNewsCache(news)
+      } catch (error) {
+        console.warn('[API] Unable to persist news cache to disk:', error)
+      }
+    }
+
+    return normalized
+  } catch (error) {
+    console.warn('[API] Backend news fetch failed, trying local cache fallback:', error)
+
+    if (typeof window === 'undefined') {
+      try {
+        const { readNewsCache } = await import('./cache')
+        const cached = await readNewsCache()
+
+        if (cached?.news?.length) {
+          return cached.news.map(normalizeNewsItem)
+        }
+      } catch (cacheError) {
+        console.warn('[API] Local cache fallback failed:', cacheError)
+      }
+    }
+
+    if (typeof window !== 'undefined') {
+      const cached = localStorage.getItem(CACHE_KEY)
+      if (cached) {
+        try {
+          const { data, timestamp } = JSON.parse(cached)
+          if (Date.now() - timestamp < CACHE_DURATION) {
+            return data.map(normalizeNewsItem)
+          }
+        } catch {
+          // Invalid cache, continue to empty state
+        }
+      }
+    }
+
+    return []
+  }
 })
 
 export async function getNewsById(id: string): Promise<NewsItem | undefined> {

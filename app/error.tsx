@@ -11,9 +11,9 @@ export default function Error({
     <div className="min-h-screen text-foreground flex items-center justify-center px-4">
       <div className="max-w-lg rounded-2xl border border-border bg-card p-8 text-center shadow-xl">
         <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">Error</p>
-        <h1 className="mt-3 text-3xl font-black">No se pudo cargar la noticia</h1>
+        <h1 className="mt-3 text-3xl font-black">No se pudo cargar error de red</h1>
         <p className="mt-3 text-sm text-muted-foreground">
-          {error.message || 'Intenta de nuevo en unos segundos.'}
+          { 'Intenta de nuevo en unos segundos.'}
         </p>
         <button
           type="button"
