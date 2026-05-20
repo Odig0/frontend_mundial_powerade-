@@ -4,6 +4,7 @@ import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import NewsDetail from '@/components/detail/NewsDetail'
 import PageWrapper from '@/components/layout/PageWrapper'
+import { buildArticleTargeting } from '@/lib/adTargeting'
 import { getNewsByLink } from '@/lib/api'
 
 interface Params {
@@ -159,7 +160,7 @@ export default async function DetailPage({ params }: { params: Promise<Params> |
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleSchema) }}
       />
 
-      <PageWrapper>
+      <PageWrapper targeting={buildArticleTargeting(seccion)}>
         <main className="flex-1 max-w-[1200px] min-w-0 py-8 md:py-12">
           <NewsDetail
             id={news._id}

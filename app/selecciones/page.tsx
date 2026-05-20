@@ -6,6 +6,7 @@ import Header from '@/components/layout/Header'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import PageWrapper from '@/components/layout/PageWrapper'
+import { buildSectionTargeting } from '@/lib/adTargeting'
 import Image from 'next/image'
 import { countries, countriesByGroup, getCountryGroupFixtures } from '@/data/fixtures'
 
@@ -33,7 +34,7 @@ export default function SeleccionesPage() {
       <Header />
       <Navbar />
 
-      <PageWrapper>
+      <PageWrapper targeting={buildSectionTargeting('selecciones')}>
         <main className="flex-1 py-8 md:py-12">
           <div className="mb-8 md:mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <div>

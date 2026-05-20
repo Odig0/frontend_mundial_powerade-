@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer'
 import VideoPlayer from '@/components/videos/VideoPlayer'
 import { getDailymotionVideos } from '@/services/dailymotionService'
 import PageWrapper from '@/components/layout/PageWrapper'
+import { buildSectionTargeting } from '@/lib/adTargeting'
 
 const RAW_BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo'
 const BASE_URL = RAW_BASE_URL.replace(/\/$/, '')
@@ -121,7 +122,7 @@ export default async function VideosPage() {
       <Header />
       <Navbar />
 
-      <PageWrapper>
+      <PageWrapper targeting={buildSectionTargeting('videos')}>
         <main className="flex-1 py-8 md:py-12">
           <div className="mb-6">
             <p className="text-[#3CB7FF] font-semibold uppercase tracking-[0.35em] text-xs mb-3">Videos</p>
