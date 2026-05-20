@@ -1,32 +1,37 @@
 import HomeLeftAd from '@/components/publicidad/HomeLeftAd'
 import HomeRightAd from '@/components/publicidad/HomeRightAd'
 import TopBannerAd from '@/components/publicidad/TopBannerAd'
+import BottomBannerAd from '@/components/publicidad/BottomBannerAd'
 
 interface PageWrapperProps {
   children: React.ReactNode
   showTopBanner?: boolean
+  showBottomBanner?: boolean
+  targeting?: Record<string, string>
 }
 
 /**
- * Estandariza el layout de 3 columnas en todas las páginas:
- * [Banner Top] → [Ad Izq | Contenido | Ad Der]
- * Idéntico al layout del home page.
+ * Layout de 3 columnas + banners GPT:
+ * [Top] → [Ad Izq | Contenido (+ Bottom opcional) | Ad Der]
  */
-export default function PageWrapper({ children, showTopBanner = true }: PageWrapperProps) {
+export default function PageWrapper({
+  children,
+  showTopBanner = true,
+  showBottomBanner = false,
+  targeting,
+}: PageWrapperProps) {
   return (
     <>
-      {showTopBanner && <TopBannerAd />}
+      {showTopBanner && <TopBannerAd targeting={targeting} />}
       <div className="flex justify-center w-full max-w-[1900px] mx-auto gap-4 px-4">
-        {/* Lateral Izquierdo 120x600 */}
-        <HomeLeftAd />
+        <HomeLeftAd targeting={targeting} />
 
-        {/* Contenido Central */}
         <div className="flex-1 max-w-[1200px] min-w-0 flex flex-col">
           {children}
+          {showBottomBanner && <BottomBannerAd targeting={targeting} />}
         </div>
 
-        {/* Lateral Derecho 120x600 */}
-        <HomeRightAd />
+        <HomeRightAd targeting={targeting} />
       </div>
     </>
   )

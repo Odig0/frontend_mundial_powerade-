@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer'
 import SectionGrid from '@/components/section/SectionGrid'
 import { getNewsBySectionSlug } from '@/lib/api'
 import PageWrapper from '@/components/layout/PageWrapper'
+import { buildSectionTargeting } from '@/lib/adTargeting'
 
 const BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo'
 
@@ -46,7 +47,7 @@ export default async function MundialPage() {
       <Header />
       <Navbar />
 
-      <PageWrapper>
+      <PageWrapper targeting={buildSectionTargeting('mundial')}>
         <main className="flex-1 py-8 md:py-12">
           <div className="mb-12">
             <h1 className="text-3xl md:text-4xl font-black text-foreground mb-2">Mundial</h1>

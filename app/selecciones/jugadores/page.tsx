@@ -5,8 +5,11 @@ import PlayerCard from '@/components/players/PlayerCard'
 import { argentinianPlayerMock } from '@/data/player_mock'
 import HomeLeftAd from '@/components/publicidad/HomeLeftAd'
 import HomeRightAd from '@/components/publicidad/HomeRightAd'
+import { buildSectionTargeting } from '@/lib/adTargeting'
 
 export default function PlayersPage() {
+  const targeting = buildSectionTargeting('selecciones')
+
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#000000' }}>
       <Header />
@@ -29,7 +32,7 @@ export default function PlayersPage() {
           <div className="lg:grid lg:grid-cols-12 lg:gap-6">
             <aside className="hidden lg:block lg:col-span-2">
               <div className="w-[120px] mx-auto">
-                <HomeLeftAd />
+                <HomeLeftAd targeting={targeting} />
               </div>
             </aside>
 
@@ -43,7 +46,7 @@ export default function PlayersPage() {
 
             <aside className="hidden lg:block lg:col-span-2">
               <div className="w-[120px] mx-auto">
-                <HomeRightAd />
+                <HomeRightAd targeting={targeting} />
               </div>
             </aside>
           </div>
