@@ -11,7 +11,7 @@ const links = [
   { label: 'Últimas Noticias', href: '/', action: '' },
   { label: 'Fixture de Partidos', href: '/', action: 'partidos' },
   { label: 'Detrás del Juego', href: '/fueradejuego' },
-  { label: 'Momentos Clave', href: '/selecciones' },
+  { label: 'Selecciones', href: '/selecciones' },
   { label: 'Videos', href: '/videos' },
 ]
 
