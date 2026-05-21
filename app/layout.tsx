@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
+import PageTransition from '@/components/layout/PageTransition'
 import { initializeScheduledJobs } from '@/lib/scheduler'
 import './globals.css'
 
@@ -116,7 +117,9 @@ export default function RootLayout({
 
       <body className="font-sans antialiased">
         <div style={{ position: 'relative', zIndex: 1 }}>
-          {children}
+          <PageTransition>
+            {children}
+          </PageTransition>
         </div>
 
         {/* Google Tag Manager (noscript) */}
