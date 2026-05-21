@@ -58,7 +58,7 @@ export default function FixtureBlock() {
       style={{ scrollMarginTop: '88px' }}
     >
       <div className="bg-accent text-accent-foreground px-4 py-1.5 text-center font-bold text-xs uppercase tracking-wider flex items-center justify-between">
-        <span className="typography-section-title">Fixture del mundial</span>
+        <span className="typography-section-title text-lg md:text-2xl">Fixture del mundial</span>
         <span className="text-[10px] font-semibold opacity-80">
           {page + 1} / {totalPages}
         </span>
