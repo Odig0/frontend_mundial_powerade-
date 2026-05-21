@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { usePathname, useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
+import MobileTopBannerAd from '@/components/publicidad/MobileTopBannerAd'
 import type { MouseEvent } from 'react'
 
 const links = [
@@ -76,7 +77,8 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="border-b border-white/20 sticky top-0 z-50 h-14" style={{ backgroundColor: 'var(--brand-color)' }}>
+    <>
+      <nav className="border-b border-white/20 sticky top-0 z-50 h-14" style={{ backgroundColor: 'var(--brand-color)' }}>
       <div className="container max-w-[1200px] mx-auto h-full px-4">
         <div className="flex items-center justify-between md:justify-center h-full">
 
@@ -165,5 +167,8 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
+
+      <MobileTopBannerAd targeting={{ portal: 'tribuna' }} />
+    </>
   )
 }
