@@ -13,6 +13,7 @@ import SocialPostButton from '@/components/news/SocialPostButton'
 import HomeLeftAd from '@/components/publicidad/HomeLeftAd'
 import HomeRightAd from '@/components/publicidad/HomeRightAd'
 import TopBannerAd from '@/components/publicidad/TopBannerAd'
+import MobileTopBannerAd from '@/components/publicidad/MobileTopBannerAd'
 import BottomBannerAd from '@/components/publicidad/BottomBannerAd'
 import { getNews } from '@/lib/api'
 import { getDailymotionVideos } from '@/services/dailymotionService'
@@ -124,6 +125,9 @@ export default async function Home() {
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#000000' }}>
       <Header />
       <Navbar />
+
+      {/* Mobile Top Banner Ad 320x100 */}
+      <MobileTopBannerAd targeting={{ portal: 'tribuna' }} />
 
       {/* Top Banner Ad 970x90 */}
       <TopBannerAd targeting={{ portal: 'tribuna' }} />
