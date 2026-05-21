@@ -99,7 +99,7 @@ export default function Navbar() {
 
             <Link
               href="/mundial"
-              className="ml-4 px-5 py-1.5 bg-[#3CB7FF] text-white text-sm font-bold rounded-full hover:bg-[#3CB7FF]/90 transition-all shadow-lg shadow-[#3CB7FF]/20"
+              className="typography-menu ml-4 px-5 py-1.5 bg-[#3CB7FF] text-white text-sm font-semibold rounded-full hover:bg-[#3CB7FF]/90 transition-all shadow-lg shadow-[#3CB7FF]/20"
             >
               SEGUI EL MUNDIAL
             </Link>
@@ -155,7 +155,7 @@ export default function Navbar() {
             href="/mundial"
             onClick={() => setIsOpen(false)}
             className={cn(
-              "typography-menu mt-10 text-center py-5 bg-[#3CB7FF] rounded-2xl text-white text-2xl font-bold shadow-xl shadow-[#3CB7FF]/20 transition-all duration-500",
+              "typography-menu mt-10 text-center py-5 bg-[#3CB7FF] rounded-2xl text-white text-2xl font-semibold shadow-xl shadow-[#3CB7FF]/20 transition-all duration-500",
               isOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             )}
             style={{ transitionDelay: '250ms' }}
