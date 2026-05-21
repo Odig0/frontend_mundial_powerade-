@@ -1,5 +1,23 @@
+/* ============================================================
+   🔤 IMPORTAR FUENTES PERSONALIZADAS
+   ============================================================ */
+
+/* Inter - Google Fonts (Noticias/Cards) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Barlow Condensed - Google Fonts (Menú) */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&display=swap');
+
 @import 'tailwindcss';
 @import 'tw-animate-css';
+
+/* Druk Wide Bold - Local (Hero / Títulos principales) */
+@font-face {
+  font-family: 'Druk Wide Bold';
+  src: url('/fonts/Druk Wide Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -143,8 +161,10 @@
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
+  --font-sans: 'Inter', sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-druk: 'Druk Wide Bold', sans-serif;
+  --font-barlow: 'Barlow Condensed', sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -216,8 +236,9 @@
 
 /* Título de sección de noticias */
 .typography-section-title {
+  font-family: var(--font-druk);
   font-size: var(--news-section-title-size);
-  font-weight: 900;
+  font-weight: 700;
   color: var(--news-text-color);
   line-height: 1.2;
 }
@@ -230,6 +251,7 @@
 
 /* Título de noticia en card (grande) */
 .typography-card-title {
+  font-family: var(--font-sans);
   font-size: var(--news-card-title-size);
   font-weight: 700;
   color: var(--news-text-color);
@@ -245,6 +267,7 @@
 
 /* Título de noticia en card (pequeño) */
 .typography-card-title-small {
+  font-family: var(--font-sans);
   font-size: var(--news-card-title-small-size);
   font-weight: 700;
   color: var(--news-text-color);
@@ -253,6 +276,7 @@
 
 /* Intro/párrafo de noticia */
 .typography-news-intro {
+  font-family: var(--font-sans);
   font-size: var(--news-intro-size);
   color: var(--news-text-color);
   line-height: 1.6;
@@ -260,6 +284,7 @@
 
 /* Autor de la noticia */
 .typography-news-author {
+  font-family: var(--font-sans);
   font-size: var(--news-author-size);
   color: var(--news-author-color);
   line-height: 1.5;
@@ -267,14 +292,16 @@
 
 /* Título detalle de noticia */
 .typography-detail-title {
+  font-family: var(--font-druk);
   font-size: var(--news-detail-title-size);
-  font-weight: 900;
+  font-weight: 700;
   color: var(--news-text-color);
   line-height: 1.2;
 }
 
 /* Intro en detalle de noticia */
 .typography-detail-intro {
+  font-family: var(--font-sans);
   font-size: var(--news-detail-intro-size);
   color: var(--news-text-color);
   line-height: 1.6;
@@ -282,8 +309,9 @@
 
 /* Título featured hero (noticia principal grande) */
 .typography-featured-hero-title {
+  font-family: var(--font-druk);
   font-size: var(--news-featured-hero-title-size);
-  font-weight: 900;
+  font-weight: 700;
   color: #ffffff;
   line-height: 1.1;
 }
@@ -302,6 +330,7 @@
 
 /* Intro featured hero */
 .typography-featured-hero-intro {
+  font-family: var(--font-sans);
   font-size: var(--news-featured-hero-intro-size);
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.5;
@@ -309,6 +338,7 @@
 
 /* Título carousel hero (noticia pequeña en hero) */
 .typography-hero-carousel-title {
+  font-family: var(--font-sans);
   font-size: var(--news-hero-carousel-title-size);
   font-weight: 700;
   color: #ffffff;
@@ -319,6 +349,13 @@
   .typography-hero-carousel-title {
     font-size: var(--news-hero-carousel-title-size-md);
   }
+}
+
+/* Tipografía para menú */
+.typography-menu {
+  font-family: var(--font-barlow);
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 html {

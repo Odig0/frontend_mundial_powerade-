@@ -88,7 +88,7 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   onClick={(e) => handleNavigationClick(e, link.action)}
-                  className="py-3 px-4 text-sm font-semibold text-white/80 hover:text-[#3CB7FF] transition-colors"
+                  className="typography-menu py-3 px-4 text-sm text-white/80 hover:text-[#3CB7FF] transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -142,7 +142,7 @@ export default function Navbar() {
               href={link.href}
               onClick={(e) => handleNavigationClick(e, link.action)}
               className={cn(
-                "py-4 text-2xl font-bold text-white border-b border-white/5 hover:text-[#3CB7FF] transition-all duration-300",
+                "typography-menu py-4 text-2xl text-white border-b border-white/5 hover:text-[#3CB7FF] transition-all duration-300",
                 isOpen ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
               )}
               style={{ transitionDelay: `${i * 50}ms` }}
