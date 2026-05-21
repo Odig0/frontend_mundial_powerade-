@@ -10,8 +10,8 @@ import type { MouseEvent } from 'react'
 const links = [
   { label: 'Últimas Noticias', href: '/', action: '' },
   { label: 'Fixture de Partidos', href: '/', action: 'partidos' },
-  { label: 'Detrás del Juego', href: '/selecciones' },
-  { label: 'Momentos Clave', href: '/fueradejuego' },
+  { label: 'Detrás del Juego', href: '/fueradejuego' },
+  { label: 'Momentos Clave', href: '/selecciones' },
   { label: 'Videos', href: '/videos' },
 ]
 
