@@ -59,9 +59,9 @@ export default function FixtureBlock() {
     >
       <div className="bg-accent text-accent-foreground px-4 py-1.5 text-center font-bold text-xs uppercase tracking-wider flex items-center justify-between">
         <span className="typography-section-title text-lg md:text-2xl">Fixture del mundial</span>
-        <span className="text-[10px] font-semibold opacity-80">
+        {/* <span className="text-[10px] font-semibold opacity-80">
           {page + 1} / {totalPages}
-        </span>
+        </span> */}
       </div>
 
       <div className="border-b border-white/8 bg-background/50 px-3 py-1.5 md:px-4">
