@@ -23,10 +23,10 @@ export default function PageWrapper({
   return (
     <>
       {showTopBanner && <TopBannerAd targeting={targeting} />}
-      <div className="flex justify-center w-full max-w-[1900px] mx-auto gap-4 px-4">
+      <div className="flex justify-center w-full max-w-full overflow-x-hidden mx-auto gap-4 px-4">
         <HomeLeftAd targeting={targeting} />
 
-        <div className="flex-1 max-w-[1200px] min-w-0 flex flex-col">
+        <div className="flex-1 max-w-[1200px] min-w-0 flex flex-col overflow-x-hidden">
           {children}
           {showBottomBanner && <BottomBannerAd targeting={targeting} />}
         </div>

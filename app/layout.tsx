@@ -63,7 +63,7 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning style={{ overflowX: 'hidden' }}>
 
       
       <head>
@@ -115,8 +115,8 @@ export default function RootLayout({
         </Script>
       </head>
 
-      <body className="font-sans antialiased">
-        <div style={{ position: 'relative', zIndex: 1 }}>
+      <body className="font-sans antialiased overflow-x-hidden" style={{ overflowX: 'hidden' }}>
+        <div style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: '100vw', overflow: 'hidden' }}>
           <PageTransition>
             {children}
           </PageTransition>

@@ -17,6 +17,7 @@ export default function VideoCarousel({ videos, onVideoClick }: VideoCarouselPro
     loop: true,
     align: 'start' as const,
     skipSnaps: false,
+    containScroll: 'trimSnaps' as const,
   }), [])
 
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
@@ -50,13 +51,13 @@ export default function VideoCarousel({ videos, onVideoClick }: VideoCarouselPro
   }, [emblaApi])
 
   return (
-    <div className="relative w-full pb-0 pt-0">
+    <div className="relative w-full pb-0 pt-0 overflow-x-hidden">
       <div className="overflow-hidden py-6" ref={emblaRef}>
-        <div className="flex -ml-4">
+        <div className="flex gap-4">
           {videos.map((video, index) => (
             <div
               key={`${video.id}-${index}`}
-              className="flex-[0_0_45%] sm:flex-[0_0_40%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%] pl-4"
+              className="flex-[0_0_45%] sm:flex-[0_0_40%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%]"
             >
               <div className="group relative block w-full aspect-[9/16] rounded-3xl overflow-hidden bg-zinc-900 transition-all duration-500 ring-1 ring-white/10 hover:ring-[#3CB7FF]/50 hover:shadow-[0_0_30px_rgba(60,183,255,0.15)]">
                 <button

@@ -121,7 +121,7 @@ export default async function Home() {
     : null
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#000000' }}>
+    <div className="min-h-screen flex flex-col overflow-x-hidden" style={{ backgroundColor: '#000000' }}>
       <Header />
       <Navbar />
 
@@ -129,13 +129,13 @@ export default async function Home() {
       <TopBannerAd targeting={{ portal: 'tribuna' }} />
 
       {/* Contenedor con laterales publicitarios */}
-      <div className="flex justify-center w-full max-w-[1900px] mx-auto gap-4 px-4">
+      <div className="flex justify-center w-full max-w-full overflow-x-hidden mx-auto gap-4 px-4">
         
         {/* Lateral Izquierdo */}
         <HomeLeftAd targeting={{ portal: 'tribuna' }} />
 
         {/* Contenido Central */}
-        <main className="flex-1 max-w-[1200px] min-w-0 flex flex-col">
+        <main className="flex-1 max-w-[1200px] min-w-0 flex flex-col overflow-x-hidden">
           
           {/* Hero + Fixture arriba */}
           <div className="w-full pt-4">

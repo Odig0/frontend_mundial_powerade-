@@ -78,7 +78,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="border-b border-white/20 sticky top-0 z-50 h-14" style={{ backgroundColor: 'var(--brand-color)' }}>
+      <nav className="border-b border-white/20 sticky top-0 z-50 h-14 overflow-x-hidden" style={{ backgroundColor: 'var(--brand-color)' }}>
       <div className="container max-w-[1200px] mx-auto h-full px-4">
         <div className="flex items-center justify-between md:justify-center h-full">
 
@@ -132,7 +132,7 @@ export default function Navbar() {
       {/* MOBILE MENU (Capa inferior al botón) */}
       <div
         className={cn(
-          "fixed inset-0 z-[60] transition-all duration-500 md:hidden",
+          "fixed inset-0 z-[60] transition-all duration-500 md:hidden overflow-x-hidden",
           isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         )}
         style={{ backgroundColor: 'var(--brand-color)' }}
