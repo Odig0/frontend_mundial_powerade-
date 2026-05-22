@@ -14,7 +14,7 @@ import HomeLeftAd from '@/components/publicidad/HomeLeftAd'
 import HomeRightAd from '@/components/publicidad/HomeRightAd'
 import TopBannerAd from '@/components/publicidad/TopBannerAd'
 import BottomBannerAd from '@/components/publicidad/BottomBannerAd'
-import { getNews } from '@/lib/api'
+import { getNewsWithFallback } from '@/lib/news-service'
 import { getDailymotionVideos } from '@/services/dailymotionService'
 
 const BASE_URL = (process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo').replace(/\/$/, '')
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const [rawNews, videos] = await Promise.all([
-    getNews(),
+    getNewsWithFallback(),
     getDailymotionVideos(),
   ])
 

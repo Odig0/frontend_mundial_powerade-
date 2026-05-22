@@ -8,6 +8,7 @@ import { readNewsCache, writeNewsCache, isCacheFresh } from './cache'
 
 const DEFAULT_API_URL = 'https://dev.eldeber.bo/v1'
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? DEFAULT_API_URL
+const IMAGE_BASE_URL = 'https://cdn.diez.bo/diez/'
 
 /**
  * Build the API URL safely
@@ -17,6 +18,34 @@ function getApiUrl(): string {
     throw new Error('Missing NEXT_PUBLIC_API_URL')
   }
   return API_URL.replace(/\/$/, '')
+}
+
+function buildImageUrl(path: string) {
+  if (!path) {
+    return path
+  }
+
+  if (/^https?:\/\//i.test(path)) {
+    return path
+  }
+
+  return `${IMAGE_BASE_URL}${path.replace(/^\/+/, '')}`
+}
+
+function normalizeNewsItem(item: NewsItem): NewsItem {
+  return {
+    ...item,
+    imagen_home: buildImageUrl(item.imagen_home),
+    imagen_interior: buildImageUrl(item.imagen_interior),
+    opinologo: item.opinologo
+      ? {
+          ...item.opinologo,
+          foto: item.opinologo.foto
+            ? `${IMAGE_BASE_URL}${item.opinologo._id}/${item.opinologo.foto}`
+            : item.opinologo.foto,
+        }
+      : item.opinologo,
+  }
 }
 
 /**
@@ -51,7 +80,7 @@ async function fetchNewsFromBackend(): Promise<NewsItem[]> {
       throw new Error('Backend returned non-array data')
     }
 
-    return data
+    return data.map(normalizeNewsItem)
   } catch (error) {
     clearTimeout(timeoutId)
     if (error instanceof Error) {
