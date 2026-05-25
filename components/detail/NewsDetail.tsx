@@ -9,6 +9,7 @@ interface NewsDetailProps {
   publishedAt?: string
   modifiedAt?: string
   canonicalUrl?: string
+  shareUrl?: string
   imagen_interior: string
   secciones: string[]
   introHTML: string
@@ -101,6 +102,7 @@ export default function NewsDetail({
   publishedAt,
   modifiedAt,
   canonicalUrl,
+  shareUrl,
   imagen_interior,
   secciones,
   introHTML,
@@ -109,6 +111,7 @@ export default function NewsDetail({
 }: NewsDetailProps) {
   const seccion = secciones?.[0] ?? 'general'
   const hasImage = Boolean(imagen_interior?.trim())
+  const urlForSharing = shareUrl || canonicalUrl
 
   return (
     <article
@@ -161,7 +164,7 @@ export default function NewsDetail({
           <div className="text-xs text-muted-foreground">Por</div>
           <div className="font-bold text-foreground text-base">{opinologo_firma || 'Redacción'}</div>
         </div>
-        <ShareButtons url={canonicalUrl} title={titulo} />
+        <ShareButtons url={urlForSharing} title={titulo} />
       </div>
 
       {introHTML && (
@@ -183,7 +186,7 @@ export default function NewsDetail({
       {/* Share buttons bottom */}
       <div className="mt-10 pt-6 border-t border-white/10">
         <p className="text-xs text-muted-foreground uppercase tracking-widest mb-4">Compartir nota</p>
-        <ShareButtons url={canonicalUrl} title={titulo} />
+        <ShareButtons url={urlForSharing} title={titulo} />
       </div>
     </article>
   )

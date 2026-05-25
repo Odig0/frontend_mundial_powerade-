@@ -13,6 +13,7 @@ interface Params {
 }
 
 const BASE_URL = (process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo').replace(/\/$/, '')
+const SHARE_BASE_URL = 'https://tribuna.diez.bo'
 const SITE_NAME = 'El Deber Deportes'
 
 function toAbsoluteUrl(path: string) {
@@ -112,6 +113,7 @@ export default async function DetailPage({ params }: { params: Promise<Params> |
   }
 
   const canonicalUrl = `${BASE_URL}/${seccion}/${link}`
+  const shareUrl = `${SHARE_BASE_URL}/${seccion}/${link}`
   const primarySection = news.secciones?.[0] ?? seccion
   const publishedAt = toIsoDate(news.fecha_a || news.fecha_c)
   const modifiedAt = toIsoDate(news.fecha_c || news.fecha_a)
@@ -168,6 +170,7 @@ export default async function DetailPage({ params }: { params: Promise<Params> |
             fecha={dateString}
             publishedAt={publishedAt}
             modifiedAt={modifiedAt}
+            shareUrl={shareUrl}
             canonicalUrl={canonicalUrl}
             imagen_interior={news.imagen_interior}
             secciones={news.secciones}
