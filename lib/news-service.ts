@@ -145,6 +145,54 @@ export async function getNewsWithFallback(): Promise<NewsItem[]> {
 }
 
 /**
+ * Fetch first 'mundial' news from backend or cache
+ * Returns single NewsItem or null
+ */
+export async function getMundialFeatured(): Promise<NewsItem | null> {
+  // Try backend first
+  try {
+    const url = `${getApiUrl()}/news/filter/mundial`
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 10000)
+
+    const response = await fetch(url, {
+      signal: controller.signal,
+      headers: { Accept: 'application/json' },
+      cache: 'no-store',
+    })
+
+    clearTimeout(timeoutId)
+
+    if (response.ok) {
+      const data = await response.json()
+      if (Array.isArray(data) && data.length > 0) {
+        return normalizeNewsItem(data[0])
+      }
+    }
+  } catch (err) {
+    console.warn('[News Service] fetchMundial backend failed:', err)
+  }
+
+  // Fallback: try cached news and pick first item that looks like mundial
+  try {
+    const cache = await readNewsCache()
+    if (cache && Array.isArray(cache.news) && cache.news.length > 0) {
+      const found = cache.news.find((n) => {
+        const secciones = Array.isArray(n.secciones) ? n.secciones.map(String) : []
+        const tags = Array.isArray((n as any).tags) ? (n as any).tags.map(String) : []
+        return secciones.includes('mundial') || secciones.includes('mundial-2026') || tags.includes('mundial') || tags.includes('mundial-2026')
+      })
+
+      if (found) return normalizeNewsItem(found)
+    }
+  } catch (cacheErr) {
+    console.warn('[News Service] fetchMundial cache fallback failed:', cacheErr)
+  }
+
+  return null
+}
+
+/**
  * Force a cache update from the backend
  * Useful for manual sync or scheduled tasks
  * 

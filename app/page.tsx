@@ -14,7 +14,7 @@ import HomeLeftAd from '@/components/publicidad/HomeLeftAd'
 import HomeRightAd from '@/components/publicidad/HomeRightAd'
 import TopBannerAd from '@/components/publicidad/TopBannerAd'
 import BottomBannerAd from '@/components/publicidad/BottomBannerAd'
-import { getNewsWithFallback } from '@/lib/news-service'
+import { getNewsWithFallback, getMundialFeatured } from '@/lib/news-service'
 import { getDailymotionVideos } from '@/services/dailymotionService'
 
 const BASE_URL = (process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo').replace(/\/$/, '')
@@ -74,16 +74,29 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-  const [rawNews, videos] = await Promise.all([
+  const [rawNews, videos, mundialFeatured] = await Promise.all([
     getNewsWithFallback(),
     getDailymotionVideos(),
+    getMundialFeatured(),
   ])
 
   const news = rawNews.filter((item) => item.imagen_home && item.imagen_home.trim())
-  const featured = news.slice(0, 3)
-  const secondary = news.slice(3, 6)
-  const latest = news.slice(6, 14)
-  const featuredArticle = featured[0]
+
+  // If we have a mundial featured article, use it as the main featured
+  let featuredArticle: typeof news[number] | null = null
+  let remaining = news
+
+  if (mundialFeatured) {
+    featuredArticle = mundialFeatured
+    remaining = news.filter((n) => n._id !== mundialFeatured._id)
+  } else {
+    featuredArticle = news[0] ?? null
+    remaining = news.slice(1)
+  }
+
+  const featured = [featuredArticle].filter(Boolean) as typeof news
+  const secondary = remaining.slice(0, 2)
+  const latest = remaining.slice(2, 10)
   const featuredArticleHref = featuredArticle
     ? (() => {
       const seccion = featuredArticle.secciones?.[0] ?? 'general'
