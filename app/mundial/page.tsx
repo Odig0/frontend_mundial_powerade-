@@ -3,7 +3,7 @@ import Header from '@/components/layout/Header'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import SectionGrid from '@/components/section/SectionGrid'
-import { getNewsBySectionSlug } from '@/lib/api'
+import { getMundialNews } from '@/lib/api'
 import PageWrapper from '@/components/layout/PageWrapper'
 import { buildSectionTargeting } from '@/lib/adTargeting'
 
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 }
 
 export default async function MundialPage() {
-  const news = (await getNewsBySectionSlug('mundial')).filter(
+  const news = (await getMundialNews()).filter(
     (item) => item.imagen_home && item.imagen_home.trim()
   )
 
