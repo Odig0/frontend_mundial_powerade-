@@ -7,7 +7,7 @@ import { getDailymotionVideos } from '@/services/dailymotionService'
 import PageWrapper from '@/components/layout/PageWrapper'
 import { buildSectionTargeting } from '@/lib/adTargeting'
 
-const RAW_BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo'
+const RAW_BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://tribuna.diez.bo'
 const BASE_URL = RAW_BASE_URL.replace(/\/$/, '')
 
 function normalizeVideoParam(videoParam?: string) {

@@ -12,7 +12,7 @@ interface ShareVideoButtonProps {
   overlay?: boolean
 }
 
-const RAW_BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo'
+const RAW_BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://tribuna.diez.bo'
 const BASE_URL = RAW_BASE_URL.replace(/\/$/, '')
 const VIDEOS_PAGE_URL = `${BASE_URL}/videos`
 
