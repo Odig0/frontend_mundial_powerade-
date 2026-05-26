@@ -1,10 +1,33 @@
 {
   "metadata": {
     "version": "1",
-    "timestamp": 1779808658506,
+    "timestamp": 1779809929244,
     "count": 100
   },
   "news": [
+    {
+      "_id": "6a15994405904b0014496ab1",
+      "fecha_c": 1779803412607,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779803274222.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779803274222.jpg",
+      "introHTML": "<p>Marco Peredo volvi&oacute; a referirse a la pol&eacute;mica que rodea a la Asociaci&oacute;n Cruce&ntilde;a de F&uacute;tbol (ACF) por los cobros realizados en divisiones menores, a los que calific&oacute; como una &ldquo;extorsi&oacute;n&rdquo; hacia los padres de familia.</p>",
+      "opinologo": {
+        "_id": "68e3bd4d8486b700145efcf5",
+        "firma": "Roy Alex Muguertegui T.",
+        "foto": "https://cdn.diez.bo/diez/68e3bd4d8486b700145efcf5/1759755631092.png"
+      },
+      "secciones": [
+        "fuera-de-juego"
+      ],
+      "textoHTML": "<p><strong>El exdirigente de la Federaci&oacute;n Boliviana de F&uacute;tbol cuestion&oacute; duramente los pagos exigidos para permitir el cambio de un ni&ntilde;o de un club a otro en categor&iacute;as no profesionales, asegurando que esas pr&aacute;cticas no corresponden al verdadero derecho de formaci&oacute;n.</strong></p><p>&ldquo;Eso que cobran no es derecho de formaci&oacute;n. Nunca se aprobar&iacute;a una norma con esos cobros. El derecho de formaci&oacute;n es otra cosa&rdquo;, sostuvo Peredo, al explicar que este mecanismo &uacute;nicamente se activa cuando un futbolista firma su primer contrato profesional y el club contratante reconoce econ&oacute;micamente a las instituciones que participaron en su formaci&oacute;n.</p><p>Asimismo, afirm&oacute; que los cobros impulsados desde la ACF terminan afectando directamente a las familias con menos recursos. &ldquo;Lo que est&aacute;n haciendo en la ACF es un derecho a la &lsquo;extorsi&oacute;n&rsquo; con los padres de los ni&ntilde;os, a quienes les niegan la posibilidad de cambiarse de un equipo a otro en categor&iacute;as menores y les imponen ese cobro ilegal&rdquo;, manifest&oacute;.</p><p>Peredo remarc&oacute; que muchos padres terminan pagando por temor a truncar el sue&ntilde;o deportivo de sus hijos, mientras que otros, al no contar con los recursos econ&oacute;micos necesarios, se ven obligados a dejar de competir.</p><p>&ldquo;Si quieren cobrar derechos de formaci&oacute;n, formen jugadores que lleguen al profesionalismo y ah&iacute; podr&aacute;n cobrar al club profesional que contrate a ese joven jugador&rdquo;, enfatiz&oacute; el exdirigente, agregando que, estad&iacute;sticamente, apenas uno de cada mil ni&ntilde;os logra llegar al f&uacute;tbol profesional.</p>",
+      "titulo": "Marco Peredo: “Lo que hace la ACF es una extorsión”",
+      "fecha_a": 1779803400000,
+      "prevId": "1779803412",
+      "link": "marco-peredo-lo-que-hace-la-acf-es-una-extorsion_1779803412",
+      "tags": [
+        ""
+      ]
+    },
     {
       "_id": "6a15a2f305904b00144975f6",
       "fecha_c": 1779803384692,
@@ -2023,26 +2046,6 @@
       "fecha_a": 1779324973197,
       "prevId": "1779324382",
       "link": "costa-anuncia-investigacion-de-supuestos-malos-manejos-economicos-en-las-asociaciones_1779324382"
-    },
-    {
-      "_id": "6a0e4c49dbbb8000147c8315",
-      "fecha_c": 1779323349228,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779322118920.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779322118920.jpg",
-      "introHTML": "<p>El boliviano fue titular y particip&oacute; en la jugada del primer gol del &lsquo;Peixe&rsquo;, que ganaba 2-0 en Villa Belmiro, pero termin&oacute; empatando 2-2 frente a San Lorenzo por la quinta jornada de la Copa Sudamericana, complicando sus chances de clasificaci&oacute;n.</p>",
-      "opinologo": {
-        "_id": "68bd2f75484b81000295bbbd",
-        "firma": "Jaime Paniagua",
-        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbd/1764689648901.jpg"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p data-end=\"325\" data-start=\"0\">Santos dej&oacute; escapar una ventaja de dos goles y termin&oacute; empatando 2-2 frente a San Lorenzo en Villa Belmiro, por la quinta jornada de la Copa Sudamericana. El boliviano Miguel Terceros fue titular y tuvo participaci&oacute;n clave en uno de los goles del &lsquo;Peixe&rsquo;, que perdi&oacute; claridad tras la salida del atacante (59&#39;) en el segundo tiempo.</p><p data-end=\"684\" data-start=\"327\">El conjunto brasile&ntilde;o golpe&oacute; r&aacute;pidamente y abri&oacute; el marcador apenas al minuto de juego. Gabriel Bontempo defini&oacute; una jugada iniciada por Miguel Terceros y asistida por Gabigol en un veloz contragolpe. Santos domin&oacute; gran parte de la primera mitad ante un San Lorenzo con dificultades para generar peligro, aunque amenazante en algunas transiciones ofensivas.</p><p data-end=\"867\" data-start=\"686\">Cuando mejor jugaba San Lorenzo, Gabigol ampli&oacute; la ventaja al inicio del complemento con un tiro libre desde fuera del &aacute;rea que termin&oacute; desvi&aacute;ndose en la barrera antes de vencer al arquero Orlando Gill.</p><p data-end=\"1307\" data-start=\"1073\">Sin embargo, el cuadro argentino mejor&oacute; en la segunda mitad y comenz&oacute; a inclinar la cancha. El descuento lleg&oacute; a los 72 minutos mediante Mathias De Ritis, que conect&oacute; de cabeza un centro desde la derecha enviado por Nicol&aacute;s Tripichio.</p><p data-end=\"1498\" data-start=\"1309\">La igualdad definitiva apareci&oacute; a los 84 minutos, cuando Rodrigo Auzmendi aprovech&oacute; una asistencia de Gulli dentro del &aacute;rea para sellar el 2-2 y mantener a San Lorenzo como l&iacute;der del grupo.</p><p data-end=\"1698\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"1500\">Con este resultado, Santos contin&uacute;a comprometido en la tabla y llegar&aacute; a la &uacute;ltima jornada con la obligaci&oacute;n de ganar para mantener sus opciones de avanzar a la repesca rumbo a los octavos de final.</p>",
-      "titulo": "Miguel Terceros aportó en ataque, pero Santos volvió a tropezar en Sudamericana",
-      "fecha_a": 1779323349228,
-      "prevId": "1779323349",
-      "link": "miguel-terceros-aporto-en-ataque-pero-santos-volvio-a-tropezar-en-sudamericana_1779323349"
     }
   ]
 }

@@ -21,6 +21,30 @@ import SocialPostButton from '@/components/news/SocialPostButton'
 import PublishToggle from './PublishToggle'
 import { formatSectionLabel, updateNewsSections } from '@/lib/news-client'
 
+const ALLOWED_SECTION_OPTIONS = [
+  { value: 'futbol', label: 'Fútbol' },
+  { value: 'mundial-2026', label: 'Mundial 2026' },
+  { value: 'fuera-de-juego', label: 'Fuera de juego' },
+]
+
+function normalizeSectionValue(section: string) {
+  const value = section.trim().toLowerCase()
+
+  if (value === 'futbol' || value === 'fútbol') {
+    return 'futbol'
+  }
+
+  if (value === 'mundial' || value === 'mundial-2026') {
+    return 'mundial-2026'
+  }
+
+  if (value === 'fuera de juego' || value === 'fueradejuego' || value === 'fuera-de-juego') {
+    return 'fuera-de-juego'
+  }
+
+  return value
+}
+
 interface NoticiaCardProps {
   news: NewsItem
   availableSections?: string[]
@@ -35,12 +59,13 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
   const [dialogOpen, setDialogOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
-  // Initialize with the current sections, splitting any comma-joined strings
+  // Initialize with the current sections, normalizing legacy values to the new API slugs
   const [selectedSections, setSelectedSections] = useState<string[]>(() =>
-    (news.secciones ?? []).flatMap((s) => s.split(',').map((x) => x.trim())).filter(Boolean)
+    (news.secciones ?? [])
+      .flatMap((s) => s.split(',').map((x) => normalizeSectionValue(x)))
+      .filter((section): section is string => ALLOWED_SECTION_OPTIONS.some((option) => option.value === section))
   )
   const [savingSection, setSavingSection] = useState(false)
-  const safeAvailableSections = Array.isArray(availableSections) ? availableSections : []
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -53,12 +78,10 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
     return () => document.removeEventListener('mousedown', handleOutsideClick)
   }, [])
 
-  // Split any combined "Section A, Section B" entries into individual flat options
-  const sectionOptions = useMemo(() => {
-    const current = (news.secciones ?? []).flatMap((s) => s.split(',').map((x) => x.trim()))
-    const available = safeAvailableSections.flatMap((s) => s.split(',').map((x) => x.trim()))
-    return Array.from(new Set([...current, ...available])).filter(Boolean).sort()
-  }, [safeAvailableSections, news.secciones])
+  const selectedSectionLabels = useMemo(
+    () => selectedSections.map((section) => ALLOWED_SECTION_OPTIONS.find((option) => option.value === section)?.label ?? formatSectionLabel(section)),
+    [selectedSections]
+  )
 
   function toggleSection(section: string) {
     setSelectedSections((prev) =>
@@ -81,7 +104,7 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
       await updateNewsSections(news._id, selectedSections)
       toast({
         title: 'Secciones actualizadas',
-        description: `${news.titulo} → ${selectedSections.join(', ')}.`,
+        description: `${news.titulo} → ${selectedSectionLabels.join(', ')}.`,
       })
       setDialogOpen(false)
       router.refresh()
@@ -190,7 +213,7 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
               >
                 <span className="truncate">
                   {selectedSections.length > 0
-                    ? selectedSections.map(formatSectionLabel).join(', ')
+                      ? selectedSectionLabels.join(', ')
                     : 'Seleccionar sección...'}
                 </span>
                 <ChevronDown className={`h-4 w-4 shrink-0 ml-2 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
@@ -198,19 +221,19 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
 
               {dropdownOpen && (
                 <ul className="absolute z-50 mt-1 w-full rounded-md border border-border bg-background shadow-lg overflow-hidden">
-                  {sectionOptions.map((section) => {
-                    const active = selectedSections.includes(section)
+                    {ALLOWED_SECTION_OPTIONS.map((section) => {
+                      const active = selectedSections.includes(section.value)
                     return (
                       <li
-                        key={section}
-                        onClick={() => toggleSection(section)}
+                          key={section.value}
+                          onClick={() => toggleSection(section.value)}
                         className={`px-3 py-2 text-sm cursor-pointer transition-colors ${
                           active
                             ? 'bg-accent text-accent-foreground'
                             : 'hover:bg-muted text-foreground'
                         }`}
                       >
-                        {formatSectionLabel(section)}
+                          {section.label}
                       </li>
                     )
                   })}
@@ -223,7 +246,7 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
             <Button variant="outline" onClick={() => setDialogOpen(false)} disabled={savingSection}>
               Cancelar
             </Button>
-            <Button onClick={handleUpdateSection} disabled={savingSection || selectedSections.length === 0}>
+            <Button onClick={handleUpdateSection} disabled={savingSection}>
               {savingSection ? 'Guardando...' : 'Guardar cambios'}
             </Button>
           </DialogFooter>

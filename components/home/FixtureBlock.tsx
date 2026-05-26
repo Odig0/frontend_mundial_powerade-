@@ -57,11 +57,8 @@ export default function FixtureBlock() {
       className="flex flex-col max-h-[600px]"
       style={{ scrollMarginTop: '88px' }}
     >
-      <div className="bg-accent text-accent-foreground px-4 py-1.5 text-center font-bold text-xs uppercase tracking-wider flex items-center justify-between">
-        <span className="typography-section-title text-lg md:text-2xl">Fixture del mundial</span>
-        {/* <span className="text-[10px] font-semibold opacity-80">
-          {page + 1} / {totalPages}
-        </span> */}
+      <div className="bg-accent text-accent-foreground px-4 py-1 text-center font-bold text-xs uppercase tracking-wider flex items-center justify-between">
+        <span className="typography-section-title text-sm md:text-base">Fixture del mundial</span>
       </div>
 
       <div className="border-b border-white/8 bg-background/50 px-3 py-1.5 md:px-4">
