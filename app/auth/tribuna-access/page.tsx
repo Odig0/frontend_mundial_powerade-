@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
-import LoginForm from './LoginForm'
 import Image from 'next/image'
+import LoginForm from '../../login/LoginForm'
 
 const AUTH_COOKIE_NAME = 'auth_token'
 

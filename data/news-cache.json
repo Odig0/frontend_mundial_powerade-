@@ -1,10 +1,525 @@
 {
   "metadata": {
     "version": "1",
-    "timestamp": 1779735562577,
+    "timestamp": 1779804689880,
     "count": 100
   },
   "news": [
+    {
+      "_id": "6a15a2f305904b00144975f6",
+      "fecha_c": 1779803384692,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779803147060.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779803147060.jpg",
+      "introHTML": "<p>La FIFA ha oficializado la relaci&oacute;n de los campos base de las 48 selecciones nacionales que participar&aacute;n a partir del 11 de junio en el Mundial 2026, entre las que destaca el cambio del lugar de concentraci&oacute;n de Ir&aacute;n, que ha cambiado Tucson por el Centro Xoloitzcuintle, en Tijuana (M&eacute;xico).</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbb1",
+        "firma": "Agencia EFE"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>La FIFA ha oficializado la relaci&oacute;n de los campos base de las 48 selecciones nacionales que participar&aacute;n a partir del 11 de junio en el Mundial 2026, entre las que destaca el cambio del lugar de concentraci&oacute;n de Ir&aacute;n, que ha cambiado Tucson por el Centro Xoloitzcuintle, en Tijuana (M&eacute;xico).</p><p>La selecci&oacute;n iran&iacute; anunci&oacute; la semana pasada su intenci&oacute;n de que su sede durante el Mundial estuviera en Tijuana, localidad fronteriza con Estados Unidos y localizada en el estado mexicano de Baja California (noroeste), para evitar problemas con los visados estadounidenses.</p><p>Seg&uacute;n inform&oacute;<strong> el presidente de la Federaci&oacute;n Iran&iacute; de F&uacute;tbol</strong>, Mehdi Taj,<strong> &ldquo;con este cambio, el problema de los visados se resolver&aacute; en gran medida&rdquo;,</strong> inform&oacute; la p&aacute;gina web de la Federaci&oacute;n iran&iacute;, as&iacute; como explic&oacute; la FIFA aprob&oacute; la solicitud de trasladar el campo de entrenamiento del equipo nacional a M&eacute;xico tras varias reuniones mantenidas con responsables del organismo y organizadores del Mundial.</p><p><strong>Encuadrada en el grupo G,</strong> Ir&aacute;n tendr&aacute; que disputar sus dos primeros partidos, ante Nueva Zelanda y B&eacute;lgica, los d&iacute;as 16 y 21 de junio en Los &Aacute;ngeles, mientras que el tercer encuentro contra Egipto se jugar&aacute; en Seattle.</p><p>Un total de 39 equipos se concentrar&aacute;n en Estados Unidos, siete en M&eacute;xico y dos en Canad&aacute;, y 25 poblaciones que no albergar&aacute;n partidos durante el torneo alojar&aacute;n a otras tantas selecciones.</p><p>Colombia, Ir&aacute;n, Corea del Sur, M&eacute;xico, Sud&aacute;frica, T&uacute;nez y Uruguay est&aacute;n confirmados como los siete equipos participantes con sede en territorio mexicano; Canad&aacute; y Panam&aacute; se concentrar&aacute;n en instalaciones canadienses y los restantes en Estados Unidos.</p><p><strong>Las poblaciones que no albergar&aacute;n partidos pero s&iacute; selecciones son New Tecumseth</strong>, en Canad&aacute;; Canc&uacute;n, Pachuca y Tijuana, en M&eacute;xico; y Alexandria, Austin, Boca Rat&oacute;n, Charlotte, Chattanooga, Columbus, Goleta, Greenbrier County, Greensboro, Irvine, Mesa, Nashville, Palm Beach Gardens, Portland, Renton, San Diego, Sandy, Santa B&aacute;rbara, Spokane, Tampa y Winston-Salem en Estados Unidos.</p><p>La selecci&oacute;n de instalaciones de entrenamiento de las bases operativas comenz&oacute; oficialmente en 2024, al comunicar a las selecciones aspirantes a clasificarse una primera lista de opciones del m&aacute;ximo nivel, relaci&oacute;n que seg&uacute;n la FIFA se acot&oacute; y mejor&oacute; durante 2025.</p><p>Tras el sorteo de la fase final, en diciembre de 2025, <strong>las por entonces 42 selecciones clasificadas</strong> empezaron a presentar sus elecciones entre m&aacute;s de 60 opciones, en funci&oacute;n, entre otras cosas, de las zonas geogr&aacute;ficas en las que disputar&iacute;an sus partidos de fase de grupos.</p>",
+      "titulo": "La FIFA oficializa Tijuana (México) como campo base de Irán",
+      "fecha_a": 1779803220000,
+      "prevId": "1779803254",
+      "link": "la-fifa-oficializa-tijuana-mexico-como-campo-base-de-iran_1779803254"
+    },
+    {
+      "_id": "6a1594ee05904b0014496717",
+      "fecha_c": 1779800380861,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779800276633.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779800276633.jpg",
+      "introHTML": "<p>La noticia corri&oacute; como un polvor&iacute;n y volvi&oacute; a encender la preocupaci&oacute;n en el socio de Club Blooming, que otra vez observa con inquietud la posibilidad de un nuevo remate sobre la sede principal de la instituci&oacute;n, un patrimonio que en el pasado ya sufri&oacute; afectaciones por problemas judiciales y econ&oacute;micos.</p>",
+      "opinologo": {
+        "_id": "68e3bd4d8486b700145efcf5",
+        "firma": "Roy Alex Muguertegui T.",
+        "foto": "https://cdn.diez.bo/diez/68e3bd4d8486b700145efcf5/1759755631092.png"
+      },
+      "secciones": [
+        "futbol"
+      ],
+      "textoHTML": "<p><strong>El Club Blooming, a trav&eacute;s de un comunicado oficial publicado en sus canales institucionales, inform&oacute; a su afici&oacute;n y a sus asociados que el aviso de remate sobre un terreno registrado en Derechos Reales a nombre de la instituci&oacute;n no afectar&aacute;, bajo ninguna circunstancia, a los predios ubicados en la sede deportiva del club, situada en el octavo anillo de la avenida Beni.</strong></p><p>La entidad celeste busc&oacute; llevar tranquilidad a sus hinchas en medio de la preocupaci&oacute;n generada por la notificaci&oacute;n judicial, aclarando que los terrenos donde actualmente desarrolla sus actividades deportivas permanecen fuera de cualquier riesgo legal relacionado con este proceso.</p><p>Blooming ya tiene un antecedente que marc&oacute; profundamente su historia institucional. El club celeste perdi&oacute; m&aacute;s de 7.789 metros cuadrados de su sede social a ra&iacute;z de un proceso legal derivado de una deuda econ&oacute;mica con la abogada Marisol Negrete.</p><p>Todo se origin&oacute; por un pr&eacute;stamo inicial cercano a los 300.000 d&oacute;lares, gestionado durante la presidencia de Jerjes Justiniano. Con el paso de los a&ntilde;os, la obligaci&oacute;n econ&oacute;mica se increment&oacute; considerablemente debido a los intereses acumulados y al incumplimiento de pago por parte de la dirigencia de aquella &eacute;poca.</p><p>La situaci&oacute;n termin&oacute; en los estrados judiciales y, respaldada por un fallo emitido por un juez en lo Civil y Comercial, la acreedora ejecut&oacute; el remate de la fracci&oacute;n afectada. De esa manera, Marisol Negrete tom&oacute; posesi&oacute;n oficial de los terrenos, consum&aacute;ndose uno de los golpes patrimoniales m&aacute;s duros que sufri&oacute; la instituci&oacute;n cruce&ntilde;a en su historia reciente.</p>",
+      "titulo": "Blooming aclara que el remate no afecta a su sede principal",
+      "fecha_a": 1779800380862,
+      "prevId": "1779800380",
+      "link": "blooming-aclara-que-el-remate-no-afecta-a-su-sede-principal_1779800380",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "_id": "6a158a2205904b0014495cd1",
+      "fecha_c": 1779798526260,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779798455456.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779798455456.jpg",
+      "introHTML": "<p>El delantero&nbsp;manifest&oacute; este lunes su tristeza por no haber sido convocado para representar a Colombia en el Mundial de 2026, pero se&ntilde;al&oacute; que apoyar&aacute; al equipo &quot;desde otro lugar&quot;.</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbb1",
+        "firma": "Agencia EFE"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>El delantero Rafael Santos Borr&eacute;, del Internacional brasile&ntilde;o, manifest&oacute; este lunes su tristeza por no haber sido convocado para representar a Colombia en el Mundial de 2026, pero se&ntilde;al&oacute; que apoyar&aacute; al equipo &quot;desde otro lugar&quot;.</p><p>&quot;Con mucha tristeza de no poder cumplir el sue&ntilde;o de jugar una Copa del Mundo, pero con la tranquilidad de haber dado todo para estar ah&iacute;&quot;, expres&oacute; el ariete de 30 a&ntilde;os en Instagram.</p><p>Este a&ntilde;o, el atacante ha anotado nueve goles con el equipo Colorado de la ciudad de Porto Alegre, de los cuales s&oacute;lo dos los convirti&oacute; en el Brasileirao.</p><p>&quot;Hoy apoyar&eacute; desde otro lugar, alentando a mis compa&ntilde;eros y a nuestra selecci&oacute;n como un colombiano m&aacute;s. Seremos m&aacute;s de 50 millones de corazones latiendo por ustedes&quot;, expres&oacute; Borr&eacute;, a quien le ganaron el puesto otros delanteros como Juan Camilo &#39;Cucho&#39; Hern&aacute;ndez, del Real Betis, y Jhon C&oacute;rdoba, del Krasnodar.</p><p>El delantero, que debut&oacute; en septiembre de 2019 con la selecci&oacute;n colombiana, era habitual en las convocatorias del argentino N&eacute;stor Lorenzo y en las eliminatorias sudamericanas del Mundial de 2026 anot&oacute; dos goles, uno en la victoria por 1-0 sobre Venezuela y otro que le dio el triunfo por 0-1 a los cafeteros ante Paraguay en Asunci&oacute;n.</p><p>Sin embargo, el experimentado atacante -que ha jugado en River Plate, Atl&eacute;tico de Madrid y Eintracht Frankfurt, entre otros- lleva casi dos a&ntilde;os sin anotar con la camiseta tricolor. La &uacute;ltima vez que lo hizo fue el 8 de junio de 2024 en la victoria 1-5 sobre Estados Unidos en una amistoso previo a la Copa Am&eacute;rica.</p><p>La selecci&oacute;n cafetera hace parte del grupo K con Portugal, Uzbekist&aacute;n y Rep&uacute;blica Democr&aacute;tica del Congo, este &uacute;ltimo ganador de una de las repescas que se disputaron en marzo.</p><p>El primer partido de Colombia ser&aacute; ante los asi&aacute;ticos el 17 de junio en el estadio Azteca de Ciudad de M&eacute;xico y seis d&iacute;as despu&eacute;s jugar&aacute; contra los africanos en Guadalajara.</p><p>Los suramericanos cerrar&aacute;n su participaci&oacute;n en la fase de grupos ante los portugueses en Miami el 27 de junio, uno de los partidos m&aacute;s llamativos de la primera ronda del Mundial.</p>",
+      "titulo": "Borré se declara triste por no ir al Mundial, pero apoyará a Colombia \"desde otro lugar\"",
+      "fecha_a": 1779798526260,
+      "prevId": "1779798526",
+      "link": "borre-se-declara-triste-por-no-ir-al-mundial-pero-apoyara-a-colombia-desde-otro-lugar_1779798526"
+    },
+    {
+      "_id": "6a15843f05904b001449587e",
+      "fecha_c": 1779795966580,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779795919644.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779795919644.jpg",
+      "introHTML": "<p>El equipo alte&ntilde;o est&aacute; obligado a vencer a Liga de Quito en la &uacute;ltima fecha y esperar una derrota de Lan&uacute;s para aspirar a los playoffs de la Sudamericana</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbbc",
+        "firma": "Lucas Nazrala",
+        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbc/1759755434737.jpg"
+      },
+      "secciones": [
+        "futbol"
+      ],
+      "textoHTML": "<p>Always Ready <strong>se juega su &uacute;ltima carta este martes (18:00 HB) en Quito,</strong> donde visitar&aacute; a Liga Deportiva Universitaria en el estadio Rodrigo Paz Delgado, obligado a ganar y a esperar una combinaci&oacute;n de resultados para seguir con vida a nivel internacional. El equipo boliviano necesita vencer a los ecuatorianos y aguardar que Mirassol derrote a Lan&uacute;s en Argentina para aspirar a un lugar en los playoffs de la Copa Sudamericana.</p><p><strong>El panorama es complejo para la banda roja</strong>, que llega al cierre del Grupo G con apenas tres puntos, producto de una sola victoria y cuatro derrotas. La ca&iacute;da m&aacute;s reciente, por 1-2 ante Mirassol en Asunci&oacute;n donde ofici&oacute; de local por los conflictos sociales en La Paz y El Alto, lo dej&oacute; en el fondo de la tabla y al borde de la eliminaci&oacute;n.</p><p>Liga de Quito, por su parte, afronta el compromiso con mayor tranquilidad. <strong>Con nueve unidades y mejor diferencia de gol que Lan&uacute;s</strong>, un empate le bastar&aacute; para asegurar su clasificaci&oacute;n a los octavos de final de la Libertadores o, en su defecto, su continuidad en la Sudamericana. El conjunto ecuatoriano ya supo golpear a Always Ready en la ida, cuando se impuso por 1-0 en El Alto.</p><p><strong>La irregular campa&ntilde;a internacional deriv&oacute; en cambios en el banquillo del conunto millonario</strong>. Julio C&eacute;sar Baldivieso dej&oacute; el cargo pese a haber sido campe&oacute;n en 2025, y su lugar fue ocupado por el argentino Marcelo Straccia, quien a&uacute;n no logra revertir el momento deportivo. Bajo su conducci&oacute;n, Always Ready altern&oacute; resultados: gole&oacute; 4-0 a Lan&uacute;s, pero luego empat&oacute; con Independiente Petrolero, perdi&oacute; ante The Strongest y volvi&oacute; a caer frente a Mirassol.</p><p><strong>En el &aacute;mbito local,</strong> el conjunto alte&ntilde;o se ubica en el tercer puesto con 14 unidades, a tres del l&iacute;der, aunque sin encontrar regularidad en su rendimiento. Mientras tanto, Liga tampoco llega en su mejor versi&oacute;n, tras empatar 1-1 con Deportivo Cuenca en la liga ecuatoriana, donde marcha tercero con 24 puntos.</p><p>El duelo ser&aacute; controlado por el &aacute;rbitro colombiano Carlos Ortega y marcar&aacute; el destino de Always Ready en el torneo continental, que necesita un triunfo y un resultado favorable en Argentina para intentar prolongar su participaci&oacute;n en el plano internacional.</p>",
+      "titulo": "Always Ready se aferra al milagro en Quito",
+      "fecha_a": 1779795966580,
+      "prevId": "1779795966",
+      "link": "always-ready-se-aferra-al-milagro-en-quito_1779795966"
+    },
+    {
+      "_id": "6a15778d05904b00144953aa",
+      "fecha_c": 1779791960005,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779791911750.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779791911750.jpg",
+      "introHTML": "<p>Luis de la Fuente, seleccionador espa&ntilde;ol, asegur&oacute; que el Mundial, en el que Espa&ntilde;a debutar&aacute; el 15 de junio ante Cabo Verde, es &quot;el momento de Lamine Yamal&quot;.</p>",
+      "opinologo": {
+        "_id": "68bd2f6f484b81000295baa7",
+        "firma": "Pedro Rivero de Ugarte",
+        "foto": "https://cdn.diez.bo/diez/68bd2f6f484b81000295baa7/1772023196662.jpg"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>&nbsp;Luis de la Fuente, seleccionador espa&ntilde;ol, asegur&oacute; durante &lsquo;Los Desayunos&rsquo;&nbsp;de RTVE y EFE que el Mundial, en el que Espa&ntilde;a debutar&aacute; el 15 de junio ante Cabo Verde, es &quot;el momento de Lamine Yamal&quot; y que &quot;debe aprovecharlo&quot; ya que &quot;es muy bueno&quot;, pero no sabes &quot;c&oacute;mo vas a llegar al siguiente Mundial&quot;.</p><p>&quot;Est&aacute; ilusionad&iacute;simo. Con unas ganas tremendas. Es muy joven pero con una gran madurez. Y sabe que es su momento. Y en la vida hay que aprovechar los momentos. No sabes c&oacute;mo vas a llegar al siguiente Mundial. Y este es el momento de Lamine Yamal. &Eacute;l es muy bueno y ser&aacute; m&aacute;s en la medida en que sus compa&ntilde;eros le hagan rendir mejor. Tenemos, en mi opini&oacute;n, a los mejores del mundo en muchas demarcaciones y eso le va a hacer rendir mejor&quot;, asegur&oacute; De la Fuente.</p><p>El seleccionador espa&ntilde;ol fue protagonista de &#39;Los Desayunos&#39; de RTVE y EFE y entrevistado por los periodistas Juan Carlos Rivero, presentador y comentarista de TVE; Silvia Barba, directora de Deportes de RNE; y Luis Villarejo, director de Deportes de la Agencia EFE.</p><p>El evento se celebr&oacute; en la sede del Instituto Cervantes, en Madrid, fruto de la colaboraci&oacute;n entre las tres organizaciones estatales (EFE, RTVE y el Cervantes), y acudieron Miguel &Aacute;ngel Oliver, presidente de EFE; Luis Garcia Montero, director del Instituto Cervantes; y Ricardo Leiva Rom&aacute;n, director de Deportes del Comit&eacute; Ol&iacute;mpico Espa&ntilde;ol (COE), entre otras autoridades.</p><p>Este evento tuvo lugar un d&iacute;a despu&eacute;s de que De la Fuente diera la lista de 26 convocados para el Mundial, que le permiti&oacute; &quot;palpar la ilusi&oacute;n de todo un pa&iacute;s&quot;.</p><p>&quot;Esa es la palabra clave: ilusi&oacute;n. Y me siento part&iacute;cipe de la ilusi&oacute;n y el sentimiento de selecci&oacute;n que estamos viviendo ahora. Vamos a intentar mantenerlo lo m&aacute;ximo posible&quot;, declar&oacute;.</p><p>Entre los convocados incluy&oacute; al barcelonista Lamine Yamal, quien se encuentra en pleno proceso de recuperaci&oacute;n de una lesi&oacute;n muscular que le ha impedido disputar la &uacute;ltima parte de la temporada. Sin embargo, el seleccionador asegura que espera poder contar con &eacute;l en una etapa temprana del torneo.</p><p>&quot;La situaci&oacute;n de los lesionados es buena, en la altura que cada uno tiene en su proceso de recuperaci&oacute;n. Todos van a llegar para, siendo optimistas, el primer partido. Luego, ya se valorar&aacute; si es interesante que juegue el primer partido. Pero nuestra mirada va m&aacute;s all&aacute; del primer partido&quot;, se&ntilde;al&oacute;.</p><p>Otro de los jugadores inclu&iacute;dos es Mikel Merino, quien volvi&oacute; a tener minutos en el Arsenal el pasado fin de semana tras estar ausente desde finales de enero.</p><p>&quot;Mikel Merino presenta muchos valores que tiene esta selecci&oacute;n y este equipo. Si tengo que recogerle en brazos a su casa para que venga, lo har&eacute;. Mikel Merino hay que esperarle siempre. Est&aacute; recuper&aacute;ndose bien. Y hay otro aspecto importante, que es que no llegar&aacute; tan fatigado como otros compa&ntilde;eros. Va a estar en el mejor momento para rendir con nosotros&quot;, ponder&oacute;.</p><p>Convocatoria sin nombres propios como &Aacute;lvaro Morata, Dani Carvajal o &Aacute;lex Remiro, entre otros, que, asegura, no &quot;fue agradable&quot; dejar sin Mundial pero &quot;con honestidad, tienen que entender&quot; su decisi&oacute;n.</p><h2><b>Sin futbolistas del Real Madrid</b></h2><p>Sin Carvajal, Dean Huijsen, Gonzalo Garc&iacute;a o Fran Garc&iacute;a -estos tres &uacute;ltimos en la prelista de 55 futbolistas-, el Mundial de este verano ser&aacute; el primero en la historia en el que Espa&ntilde;a no tenga representaci&oacute;n de ning&uacute;n jugador del Real Madrid.</p><p>&quot;Para m&iacute;, el equipo m&aacute;s grande que hay es la selecci&oacute;n espa&ntilde;ola. No miro la procedencia de los jugadores. Lo importante es que tenemos jugadores espa&ntilde;oles orgullosos de representar a un pa&iacute;s. Yo soy la &uacute;nica persona que tiene s&oacute;lo una motivaci&oacute;n deportiva en la toma de decisiones, que es buscar lo mejor para mi equipo. Esto es la selecci&oacute;n de todo un pa&iacute;s&quot;, explic&oacute; el seleccionador sobre esta circunstancia.</p><p>S&iacute; hay ocho jugadores del FC Barcelona. Entre ellos, Eric Garc&iacute;a, en su primera llamada con la absoluta desde que Luis de la Fuente es seleccionador.</p><p>&quot;Ha estado conmigo en la sub-19, sub-21, Juegos Ol&iacute;mpicos... en la absoluta no hab&iacute;amos tenido la oportunidad de estar juntos por diferentes motivos. Ha tenido lesiones en los momentos clave&quot;, apunt&oacute;.</p><p>Un Mundial para el que, asegur&oacute;, ya tiene decidido el titular en una de las posiciones que m&aacute;s debate genera en su once titular como es la porter&iacute;a, con Unai Sim&oacute;n, David Raya y Joan Garc&iacute;a convocados.</p><p>&quot;Parece que a veces se toman las decisiones tirando &#39;papelitos&#39;. Todas las decisiones se toman tras analizar mucho y conocer la materia prima. En mi opini&oacute;n, de los diez mejores del mundo seis son espa&ntilde;oles; y hemos elegido a tres. Yo s&eacute; qu&eacute; portero va a jugar el primer partido, pero de aqu&iacute; a entonces puede pasar alguna circunstancia, que ojal&aacute; no pase, y tenga que cambiar de idea&quot;, declar&oacute;.</p><p>Torneo al que Espa&ntilde;a llega como campeona de Europa y, para Luis de la Fuente, en la terna de favoritas a ganar.</p><p>&quot;Se pierde mucho m&aacute;s que se gana, en la vida y en el deporte. Esa sensaci&oacute;n de favoritismo viene desde fuera. Es un Mundial hist&oacute;rico, con hasta diez selecciones capaces de ganar un Mundial. Y estamos entre ellas, pero eso no garantiza que vayamos a ganar&quot;, apunt&oacute;.&nbsp;</p>",
+      "titulo": "Luis de la Fuente: \"El Mundial es el momento de Lamine Yamal\"",
+      "fecha_a": 1779791960006,
+      "prevId": "1779791960",
+      "link": "luis-de-la-fuente-el-mundial-es-el-momento-de-lamine-yamal_1779791960"
+    },
+    {
+      "_id": "6a15763f05904b0014495224",
+      "fecha_c": 1779791522732,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779791443887.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779791443887.jpg",
+      "introHTML": "<p>La Federaci&oacute;n Boliviana de F&uacute;tbol tiene previsto anunciar entre jueves y viernes la lista de convocados para los amistosos de junio en Estados Unidos. La Verde enfrentar&aacute; a Escocia y posiblemente a Argelia en la pr&oacute;xima fecha FIFA.<br />&nbsp;</p>",
+      "opinologo": {
+        "_id": "68bd2f6f484b81000295baa7",
+        "firma": "Pedro Rivero de Ugarte",
+        "foto": "https://cdn.diez.bo/diez/68bd2f6f484b81000295baa7/1772023196662.jpg"
+      },
+      "secciones": [
+        "futbol"
+      ],
+      "textoHTML": "<p>La n&oacute;mina de convocados de la selecci&oacute;n boliviana para los amistosos de junio en Estados Unidos ser&aacute; divulgada entre este jueves y viernes. As&iacute; lo confirm&oacute; a DIEZ un integrante del cuerpo t&eacute;cnico de la Verde.</p><p>&ldquo;Saldr&aacute; entre jueves y viernes de esta semana&rdquo;, expres&oacute;.&nbsp;</p><p>El combinado nacional se alista para afrontar dos compromisos internacionales correspondientes a la pr&oacute;xima fecha FIFA, en lo que ser&aacute; una nueva evaluaci&oacute;n para el plantel dirigido por el cuerpo t&eacute;cnico de la selecci&oacute;n.</p><p>En cuanto a la convocatoria, todo apunta a que Bolivia mantendr&aacute; la base de futbolistas que participaron en el repechaje mundialista disputado en marzo, aunque tambi&eacute;n podr&iacute;an existir algunas novedades.</p><p>Desde el entorno de la selecci&oacute;n no descartan la inclusi&oacute;n de jugadores que vienen destacando tanto en el campeonato local como en ligas del exterior, situaci&oacute;n que todav&iacute;a es analizada por el cuerpo t&eacute;cnico.</p><p>El primer amistoso confirmado ser&aacute; frente a Escocia el pr&oacute;ximo 6 de junio en Nueva Jersey, un encuentro que servir&aacute; para medir el nivel competitivo de la Verde ante una selecci&oacute;n europea.</p><p>Posteriormente, Bolivia pretende enfrentar a Argelia el 10 de junio. Sin embargo, todav&iacute;a resta la confirmaci&oacute;n oficial de la sede para ese compromiso internacional.</p><p>La Federaci&oacute;n Boliviana de F&uacute;tbol contin&uacute;a realizando las gestiones correspondientes para cerrar todos los detalles log&iacute;sticos relacionados con el segundo partido amistoso y la estad&iacute;a de la delegaci&oacute;n en Estados Unidos.</p><p>En cuanto al inicio de la concentraci&oacute;n, la selecci&oacute;n boliviana tiene previsto comenzar trabajos el lunes 1 de junio en Santa Cruz, aunque la confirmaci&oacute;n oficial todav&iacute;a est&aacute; pendiente por parte de la FBF.</p>",
+      "titulo": "La Verde anunciará su convocatoria “entre jueves y viernes”",
+      "fecha_a": 1779791522732,
+      "prevId": "1779791522",
+      "link": "la-verde-anunciara-su-convocatoria-entre-jueves-y-viernes_1779791522",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "_id": "6a1571bd05904b0014494fea",
+      "fecha_c": 1779790346763,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779790287920.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779790287920.jpg",
+      "introHTML": "<p><br />Erwin &lsquo;Platin&iacute;&rsquo; S&aacute;nchez destac&oacute; la responsabilidad de representar al f&uacute;tbol boliviano y asegur&oacute; que el equipo trabaja para consolidar una nueva identidad futbol&iacute;stica sin perder de vista el cl&aacute;sico cruce&ntilde;o.</p>",
+      "opinologo": {
+        "_id": "68bd2f6f484b81000295baa7",
+        "firma": "Pedro Rivero de Ugarte",
+        "foto": "https://cdn.diez.bo/diez/68bd2f6f484b81000295baa7/1772023196662.jpg"
+      },
+      "secciones": [
+        "futbol"
+      ],
+      "textoHTML": "<p>Blooming ya se encuentra en Buenos Aires para enfrentar este mi&eacute;rcoles a River Plate por la &uacute;ltima fecha de la fase de grupos de la Copa Sudamericana. La delegaci&oacute;n celeste arrib&oacute; la madrugada de este martes a la capital argentina y comenz&oacute; a preparar uno de los partidos m&aacute;s exigentes de la temporada.</p><p>Antes del viaje, el entrenador Erwin &lsquo;Platin&iacute;&rsquo; S&aacute;nchez habl&oacute; sobre el desaf&iacute;o que representa enfrentar al conjunto millonario y destac&oacute; la importancia de competir con responsabilidad en el &aacute;mbito internacional.</p><p>&ldquo;Estamos representando al f&uacute;tbol boliviano y tenemos una responsabilidad enorme. Hay que hacer un partido serio y hacer lo que mejor se pueda&rdquo;, manifest&oacute; el director t&eacute;cnico de la academia.</p><p>S&aacute;nchez tambi&eacute;n explic&oacute; que el equipo contin&uacute;a trabajando para fortalecer la propuesta futbol&iacute;stica que pretende implementar desde su llegada al banquillo celeste.</p><p>&ldquo;Hay que trabajar bien, pulir los detalles que no se han podido corregir a&uacute;n e insistir con la idea de juego que queremos&rdquo;, agreg&oacute; el estratega cruce&ntilde;o.</p><p>El DT remarc&oacute; que uno de los principales objetivos de su cuerpo t&eacute;cnico es consolidar una nueva identidad futbol&iacute;stica en Blooming y lograr que el plantel asimile r&aacute;pidamente los conceptos de trabajo.</p><p>&ldquo;Lo que queremos es conseguir una nueva identidad para Blooming y que los jugadores vayan entendiendo lo que uno quiere. El grupo est&aacute; comprometido y sabe cu&aacute;les son los objetivos del club&rdquo;, sostuvo S&aacute;nchez.</p><p>Por su parte, el defensor Jos&eacute; Mar&iacute;a Carrasco asegur&oacute; que el plantel est&aacute; concentrado en cerrar de buena manera su participaci&oacute;n en la Copa Sudamericana, aunque reconoci&oacute; que el cl&aacute;sico cruce&ntilde;o frente a Oriente Petrolero tambi&eacute;n comienza a tomar protagonismo.</p><p>&ldquo;La prioridad es terminar bien la Copa y entender la idea del entrenador, pero tambi&eacute;n pensar en el cl&aacute;sico. Hemos tenido un poco de descanso y m&aacute;s d&iacute;as de trabajo, eso es bueno. Insisto, la prioridad es terminar bien la Copa, aunque miramos el cl&aacute;sico de reojo&rdquo;, expres&oacute; el defensor acad&eacute;mico.</p>",
+      "titulo": "'Platiní'  apunta a River y no descuida el clásico cruceño",
+      "fecha_a": 1779790346763,
+      "prevId": "1779790346",
+      "link": "platini-apunta-a-river-y-no-descuida-el-clasico-cruceno_1779790346",
+      "tags": [
+        "68db66b0d6f5e5000293622c"
+      ]
+    },
+    {
+      "_id": "6a15710d05904b0014494eb9",
+      "fecha_c": 1779790177904,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779790117695.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779790117695.jpg",
+      "introHTML": "<p>Blooming permanecer&aacute; en Buenos Aires&nbsp;despu&eacute;s del duelo ante River Plate y aprovechar&aacute; su estad&iacute;a para preparar el cl&aacute;sico cruce&ntilde;o frente a Oriente Petrolero. El plantel entrenar&aacute; en Casa Amarilla hasta el viernes y retornar&aacute; a Santa Cruz pocas horas antes del compromiso dominical.</p>",
+      "opinologo": {
+        "_id": "68bd2f6f484b81000295baa7",
+        "firma": "Pedro Rivero de Ugarte",
+        "foto": "https://cdn.diez.bo/diez/68bd2f6f484b81000295baa7/1772023196662.jpg"
+      },
+      "secciones": [
+        "futbol"
+      ],
+      "textoHTML": "<p>Blooming decidi&oacute; permanecer en Buenos Aires despu&eacute;s del partido frente a River Plate y aprovechar&aacute; su estad&iacute;a en territorio argentino para preparar el cl&aacute;sico cruce&ntilde;o ante Oriente Petrolero. La academia enfrentar&aacute; este mi&eacute;rcoles al conjunto millonario por la &uacute;ltima fecha de la fase de grupos de la Copa Sudamericana.</p><p>El plantel celeste reci&eacute;n retornar&aacute; a Santa Cruz el s&aacute;bado, a solo un d&iacute;a del compromiso ante los albiverdes, programado para el domingo a las 19:30 en el estadio Ram&oacute;n Tahuichi Aguilera.</p><p>La determinaci&oacute;n fue asumida por la dirigencia y el cuerpo t&eacute;cnico debido a la escasa frecuencia de vuelos entre Argentina y Bolivia, situaci&oacute;n que complicaba el retorno inmediato de la delegaci&oacute;n tras el encuentro copero.</p><p>Por ese motivo, Blooming opt&oacute; por permanecer en Buenos Aires y entrenarse jueves y viernes en Casa Amarilla, el complejo deportivo perteneciente a Boca Juniors, donde buscar&aacute; afinar detalles para el cl&aacute;sico cruce&ntilde;o.</p><p>La delegaci&oacute;n celeste est&aacute; conformada por 27 jugadores que viajaron a Argentina con el objetivo de cerrar de la mejor manera su participaci&oacute;n internacional y luego enfocarse plenamente en el torneo local.</p><p>Uno de los futbolistas que no podr&aacute; ser tomado en cuenta frente a River Plate es Gabriel Valverde, quien debe cumplir una fecha de suspensi&oacute;n. Sin embargo, el defensor s&iacute; trabajar&aacute; con normalidad durante las pr&aacute;cticas pensando en el partido ante Oriente Petrolero.</p><p>Mientras tanto, algunos jugadores permanecieron en Santa Cruz recuper&aacute;ndose de diferentes molestias f&iacute;sicas. Entre ellos se encuentran Richard Spenhay, Mois&eacute;s Villarroel y Jeyson Chura, quienes trabajan junto al cuerpo m&eacute;dico para intentar llegar en condiciones al cl&aacute;sico.</p><p>Blooming tiene previsto entrenarse hasta el viernes en Buenos Aires y ese mismo d&iacute;a, antes de la medianoche, emprender&aacute; retorno a Santa Cruz. La academia buscar&aacute; aprovechar al m&aacute;ximo el tiempo en Argentina para llegar en mejores condiciones a uno de los partidos m&aacute;s importantes del campeonato.</p>",
+      "titulo": "Blooming se queda en Argentina para preparar el clásico cruceño",
+      "fecha_a": 1779790177904,
+      "prevId": "1779790177",
+      "link": "blooming-se-queda-en-argentina-para-preparar-el-clasico-cruceno_1779790177",
+      "tags": [
+        "68db66b0d6f5e5000293622c"
+      ]
+    },
+    {
+      "_id": "6a15702405904b0014494d59",
+      "fecha_c": 1779789951067,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779789880274.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779789880274.jpg",
+      "introHTML": "<p>La academia celeste lleg&oacute; la ma&ntilde;ana de este martes a Buenos Aires para enfrentar a River Plate en el cierre de su participaci&oacute;n en la fase de grupos de la Copa Sudamericana. El plantel se entrenar&aacute; en Casa Amarilla antes del duelo en el estadio Monumental.<br />&nbsp;</p>",
+      "opinologo": {
+        "_id": "68bd2f6f484b81000295baa7",
+        "firma": "Pedro Rivero de Ugarte",
+        "foto": "https://cdn.diez.bo/diez/68bd2f6f484b81000295baa7/1772023196662.jpg"
+      },
+      "secciones": [
+        "futbol"
+      ],
+      "textoHTML": "<p>Blooming arrib&oacute; la ma&ntilde;ana de este martes a Buenos Aires para disputar su &uacute;ltimo partido de la fase de grupos de la Copa Sudamericana frente a River Plate. La academia parti&oacute; desde Santa Cruz durante la madrugada y, tras casi tres horas de vuelo, lleg&oacute; a suelo argentino cerca de las 06:00.</p><p>El equipo cruce&ntilde;o afrontar&aacute; el compromiso del mi&eacute;rcoles con el objetivo de cerrar de buena manera su participaci&oacute;n internacional. Hasta el momento, Blooming a&uacute;n no conoce la victoria en el certamen continental, ya que solo logr&oacute; empatar en su debut precisamente ante River Plate y luego acumul&oacute; derrotas en sus siguientes presentaciones.</p><p>La delegaci&oacute;n celeste est&aacute; conformada por 27 jugadores, quienes quedaron concentrados en un hotel ubicado cerca del Obelisco, uno de los sitios emblem&aacute;ticos de la capital argentina. El plantel permanecer&aacute; all&iacute; hasta el d&iacute;a del encuentro copero.</p><p>Como parte de su planificaci&oacute;n, Blooming tiene previsto entrenarse la tarde de este martes en Casa Amarilla, el complejo deportivo de Boca Juniors. El cuerpo t&eacute;cnico aprovechar&aacute; la pr&aacute;ctica para ultimar detalles t&aacute;cticos y definir el onceno titular que enfrentar&aacute; al conjunto millonario.</p><p>El compromiso entre Blooming y River Plate se disputar&aacute; este mi&eacute;rcoles desde las 20:30 HB en el estadio Monumental de N&uacute;&ntilde;ez, uno de los escenarios m&aacute;s emblem&aacute;ticos del continente y donde el equipo boliviano buscar&aacute; dar pelea ante el favorito del grupo.</p><p>La academia tendr&aacute; varias ausencias importantes para este encuentro. Entre los jugadores que no viajaron se encuentran Mois&eacute;s Villarroel, Richard Spenhay, Diago Gim&eacute;nez, Denilson Dur&aacute;n y Jeyson Chura, todos afectados por distintas lesiones. Adem&aacute;s, no est&aacute; Danny Bejarano por sanci&oacute;n. Gabriel Valverde, tambi&eacute;n suspendido, integra el grupo de viajeros.&nbsp;</p><p>Pese a las bajas y a la complicada campa&ntilde;a internacional, en el plantel existe el deseo de mostrar una mejor imagen en esta &uacute;ltima presentaci&oacute;n copera. El cuerpo t&eacute;cnico considera que un buen rendimiento ante River puede fortalecer an&iacute;micamente al equipo para lo que viene en el torneo local.</p><p>Luego del duelo en Buenos Aires, Blooming deber&aacute; enfocarse r&aacute;pidamente en el cl&aacute;sico cruce&ntilde;o del domingo frente a Oriente Petrolero, un partido clave para las aspiraciones del club en el campeonato nacional y que llega en un momento importante de la temporada.</p>",
+      "titulo": "Blooming ya está en Buenos Aires para desafiar a River Plate",
+      "fecha_a": 1779789951067,
+      "prevId": "1779789951",
+      "link": "blooming-ya-esta-en-buenos-aires-para-desafiar-a-river-plate_1779789951",
+      "tags": [
+        "68db66b0d6f5e5000293622c"
+      ]
+    },
+    {
+      "_id": "6a14f4e2dfe364001426f329",
+      "fecha_c": 1779759809624,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779759292477.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779759292477.jpg",
+      "introHTML": "<p>El conjunto b&uacute;lgaro asegur&oacute; su clasificaci&oacute;n a competencias europeas luego de terminar segundo en la fase campeonato de la Liga de Bulgaria. El lateral boliviano fue titular durante gran parte de la campa&ntilde;a y se consolid&oacute; como una de las figuras del equipo.</p><p>&nbsp;</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbbd",
+        "firma": "Jaime Paniagua",
+        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbd/1764689648901.jpg"
+      },
+      "secciones": [
+        "futbol"
+      ],
+      "textoHTML": "<p>&nbsp;</p><p data-end=\"382\" data-start=\"0\">Medina disputar&aacute; competencias europeas la pr&oacute;xima temporada.<strong> El CSKA 1948 Sofia, equipo donde milita el lateral boliviano, asegur&oacute; su clasificaci&oacute;n internacional tras finalizar en el segundo puesto de la fase campeonato de la Primera Liga de Bulgaria con 67 puntos</strong>. El boleto qued&oacute; sellado luego del empate sin goles frente al PFC Levski Sofia en la &uacute;ltima jornada de los play-offs.</p><p data-end=\"737\" data-start=\"384\">Tras concretarse el objetivo, el futbolista boliviano comparti&oacute; un mensaje en sus redes sociales:<strong> &ldquo;La temporada ha llegado a su fin y hemos logrado nuestro objetivo de clasificar a nuestro equipo para la Conference Europa League. </strong>Felicitaciones a mis compa&ntilde;eros, al cuerpo t&eacute;cnico, a la directiva y a la afici&oacute;n. Vamos a por nuevos y mayores objetivos&rdquo;.</p><p data-end=\"1019\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"739\">El lateral nacional fue una de las piezas m&aacute;s importantes del conjunto b&uacute;lgaro durante la temporada. <strong>Disput&oacute; la mayor&iacute;a de los encuentros y en varios partidos port&oacute; el cintillo de capit&aacute;n, consolid&aacute;ndose como uno de los referentes del equipo gracias a su regularidad y liderazgo.</strong></p>",
+      "titulo": "El CSKA 1948 Sofia de Diego Medina jugará la Conference League la próxima temporada",
+      "fecha_a": 1779759809624,
+      "prevId": "1779759809",
+      "link": "el-cska-1948-sofia-de-diego-medina-jugara-la-conference-league-la-proxima-temporada_1779759809"
+    },
+    {
+      "_id": "6a14f5a5dfe364001426f3e5",
+      "fecha_c": 1779758886527,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779758701790.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779758703470.jpg",
+      "introHTML": "<p>El plantel se alista para recibir el mi&eacute;rcoles (20:30) a Independiente Rivadavia de Mendoza, por Copa Libertadores. El DT Alejandro Restrepo tiene toda la plantilla a disposici&oacute;n.</p>",
+      "opinologo": {
+        "_id": "68bd2f76484b81000295bbcc",
+        "firma": "Jorge Asturizaga Quisbert",
+        "foto": "https://cdn.diez.bo/diez/68bd2f76484b81000295bbcc/1759758585365.jpg"
+      },
+      "secciones": [
+        "futbol"
+      ],
+      "textoHTML": "<p>El primer d&iacute;a de trabajo de Bol&iacute;var en Santa Cruz para recibir el mi&eacute;rcoles a Independiente Rivadavia de Mendoza <strong>se desarroll&oacute; este lunes en instalaciones de su Academia, donde los chicos que se forman all&iacute; pudieron compartir unos minutos con el primer plantel.</strong></p><p><strong>El club report&oacute; mediante sus canales oficiales que chicos de las categor&iacute;as Sub-13 a la Sub-17 y Primera B (segunda divisi&oacute;n del ascenso de Santa Cruz)</strong> pudieron primero ver de cerca a los jugadores profesionales y luego hablar unos minutos con ellos.</p><p><strong>El encuentro tuvo como testimonio una fotograf&iacute;a grupal en el predio.</strong></p><p>En el plano netamente futbol&iacute;stico <strong>el t&eacute;cnico Alejandro Restrepo orden&oacute; aspectos t&aacute;cticos de lo que pretende de los jugadores en cancha,</strong> seg&uacute;n el desarrollo de los partidos.</p><p><strong>Este mi&eacute;rcoles cerrar&aacute; entrenamientos en el mismo lugar con una labor t&aacute;ctica.</strong></p><p><strong>Depender&aacute; de Restrepo si ratifica la l&iacute;nea de tres zagueros</strong> presentada en R&iacute;o de Janeiro contra Fluminense con Vladimir Soria o la modifica.</p><p>Con <strong>una victoria el mi&eacute;rcoles por cualquier marcador sellar&aacute; su clasificaci&oacute;n</strong> a los octavos de final.</p>",
+      "titulo": "El plantel de Bolívar comparte con chicos de la Academia de Santa Cruz",
+      "fecha_a": 1779759960000,
+      "prevId": "1779758886",
+      "link": "el-plantel-de-bolivar-comparte-con-chicos-de-la-academia-de-santa-cruz_1779758886"
+    },
+    {
+      "_id": "6a14e93cdfe364001426e472",
+      "fecha_c": 1779755670865,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779755440319.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779755440319.jpg",
+      "introHTML": "<p>El entrenador de Guabir&aacute;, Leonardo Eg&uuml;ez, ya comenz&oacute; a planificar el pr&oacute;ximo compromiso de su equipo frente a San Antonio en Cochabamba, aunque todo depender&aacute; de que los conflictos pol&iacute;tico-sociales en el pa&iacute;s permitan el normal desarrollo del campeonato de la Divisi&oacute;n Profesional.</p>",
+      "opinologo": {
+        "_id": "68e3bd4d8486b700145efcf5",
+        "firma": "Roy Alex Muguertegui T.",
+        "foto": "https://cdn.diez.bo/diez/68e3bd4d8486b700145efcf5/1759755631092.png"
+      },
+      "secciones": [
+        "futbol"
+      ],
+      "textoHTML": "<p>En Guabir&aacute;, el p&aacute;rate obligado en la Liga tambi&eacute;n le permiti&oacute; al cuerpo t&eacute;cnico rojo ganar tiempo para trabajar en distintos aspectos del plantel. &Eacute;g&uuml;ez reconoci&oacute; que estas semanas han servido para recuperar futbolistas lesionados y ajustar detalles futbol&iacute;sticos dentro del equipo.<strong> &ldquo;Nos ayuda en el tema de recuperar algunos jugadores que ten&iacute;amos en etapa de recuperaci&oacute;n de lesiones, tambi&eacute;n para corregir detalles dentro de la cancha&rdquo;, sostuvo el estratega azucarero.</strong></p><p>Inicialmente, Guabir&aacute; debi&oacute;&nbsp;enfrentar el pasado fin&nbsp;de semana a Club Bol&iacute;var, pero la modificaci&oacute;n del calendario cambi&oacute; el enfoque hacia el duelo frente a San Antonio en condici&oacute;n de visitante. Pese al cambio de rival, el entrenador dej&oacute; en claro que la esencia futbol&iacute;stica del equipo no sufrir&aacute; modificaciones.<strong> &ldquo;La idea de juego siempre ser&aacute; la misma sin importar el rival o la cancha donde nos toque, aunque s&iacute; var&iacute;a un poco la estrategia para ejecutar el plan de partido&rdquo;, explic&oacute;.</strong></p><p>En cuanto al estado del plantel, el t&eacute;cnico confirm&oacute; que no existen bajas por suspensi&oacute;n y que algunos jugadores terminar&aacute;n de recuperarse en el transcurso de la semana, situaci&oacute;n que considera positiva para ampliar las variantes dentro del equipo.</p><p>&ldquo;Esta semana se terminar&aacute;n de recuperar un par m&aacute;s que faltan, eso es favorable para tener mayores opciones&rdquo;, afirm&oacute;.</p><p>Finalmente, &Eacute;g&uuml;ez remarc&oacute; que durante la semana existe una priorizaci&oacute;n t&aacute;ctica dependiendo del rival de turno, aunque dej&oacute; claro que la identidad futbol&iacute;stica del equipo no est&aacute; en discusi&oacute;n.</p><p>&ldquo;Se hace una priorizaci&oacute;n t&aacute;ctica sobre el rival dentro de la metodolog&iacute;a de trabajo de la semana. El ADN no se cambia, siempre buscaremos ser protagonistas e intentar hacer f&uacute;tbol&rdquo;, concluy&oacute;.</p>",
+      "titulo": "Guabirá no cambiará el ADN de su juego",
+      "fecha_a": 1779756043655,
+      "prevId": "1779755670",
+      "link": "guabira-no-cambiara-el-adn-de-su-juego_1779755670",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "_id": "6a14e5d5dfe364001426dd8d",
+      "fecha_c": 1779755486821,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779754940552.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779754940552.jpg",
+      "introHTML": "<p>Bolivia recibir&aacute; a Paraguay el pr&oacute;ximo 5 de junio en Santa Cruz, en su &uacute;ltimo compromiso como local antes de cerrar la Liga de Naciones Conmebol&nbsp;frente a Per&uacute; en condici&oacute;n de visitante. La Verde ya no tiene opciones de clasificar al Mundial de la categor&iacute;a.</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbbd",
+        "firma": "Jaime Paniagua",
+        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbd/1764689648901.jpg"
+      },
+      "secciones": [
+        "futbol"
+      ],
+      "textoHTML": "<section data-scroll-anchor=\"false\" data-testid=\"conversation-turn-26\" data-turn=\"assistant\" data-turn-id=\"request-WEB:ce3b24ec-bac0-4b0e-84ba-5275f89a508a-12\" data-turn-id-container=\"request-WEB:ce3b24ec-bac0-4b0e-84ba-5275f89a508a-12\" dir=\"auto\"><p data-end=\"384\" data-start=\"0\">La selecci&oacute;n femenina de Bolivia a<strong>fronta&nbsp;su&nbsp;&uacute;ltimo&nbsp;compromiso&nbsp;como local en la Conmebol&nbsp;Liga de Naciones Femenina con el objetivo de despedirse de buena manera ante su p&uacute;blico. </strong>El combinado nacional recibir&aacute; a Paraguay el pr&oacute;ximo 5 de junio en el estadio Tahuichi de Santa Cruz, en un duelo correspondiente a la octava jornada del torneo clasificatorio rumbo al Mundial Femenino 2027.</p><p data-end=\"790\" data-start=\"386\">Con miras a este<strong> encuentro y al cierre de las eliminatorias frente a Per&uacute; como visitante, la entrenadora&nbsp;Jury Villarroel present&oacute; una co</strong>nvocatoria integrada por 28 futbolistas. Bolivia ocupa la &uacute;ltima posici&oacute;n de la tabla con solo una unidad sumada en siete presentaciones, resultado que la dej&oacute; fuera de la pelea por los boletos a la Copa del Mundo que se disputar&aacute; en Brasil.</p><p data-end=\"1247\" data-start=\"1007\">Los trabajos de preparaci&oacute;n arrancar&aacute;n e<strong>n Santa Cruz de la Sierra y se extender&aacute;n hasta el compromiso ante Paraguay. Posteriormente, el combi</strong>nado nacional viajar&aacute; a Per&uacute; para disputar la novena y &uacute;ltima fecha de la competencia sudamericana.</p><p data-end=\"1463\" data-start=\"1249\"><strong>La n&oacute;mina presentada por Villarroel est&aacute; compuest</strong>a por las arqueras Hillary Raschell Saavedra, Melody Kimberly Merino y Mar&iacute;a Isabel Riveros; las defensoras Issela Wara Plata, Samantha Nicole Alurralde, Viviana Ram&iacute;rez, Mercedes Emily Kirey Torrez, Soraya Paulina S&aacute;nchez, Lenny Carol Lafuente, Karen Alejandra Rodr&iacute;guez, Aide Mendiola, Nashimi Segovia y Marianela Mu&ntilde;oz.</p><p data-end=\"2196\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"1838\">En el mediocampo fueron convocadas Olivia Yoshi Tamaki, Wendy Vaneza Baltazar, Naomi Viruez, Abigail Quiroz, Anabel Flores, &Aacute;ngela Patricia C&aacute;rdenas y Karla Lorena Paz. Mientras que en ofensiva destacan Brandy Valeria Flores, Carla Patricia M&eacute;ndez, Fabiana Flores, Maribel Rocha, Cielo Jazm&iacute;n Veizaga, Thalia Rueda, Thiara Renjifo e Ilsen Victoria Rodr&iacute;guez.</p></section>",
+      "titulo": "La Verde femenina quiere despedirse de la Liga de Naciones con una alegría en el Tahuichi",
+      "fecha_a": 1779755486821,
+      "prevId": "1779755486",
+      "link": "la-verde-femenina-quiere-despedirse-de-la-liga-de-naciones-con-una-alegria-en-el-tahuichi_1779755486"
+    },
+    {
+      "_id": "6a14df12dfe364001426d39d",
+      "fecha_c": 1779752881518,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779752776594.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779752776594.jpg",
+      "introHTML": "<p>El paraguayo Gustavo Florent&iacute;n lleg&oacute; sin hacer ruido. Apenas pis&oacute; suelo cruce&ntilde;o, se dirigi&oacute; a la sede de Oriente Petrolero, en la zona de El Trompillo, para tomar contacto con el plantel refinero y comenzar oficialmente una nueva etapa en el banco albiverde.</p>",
+      "opinologo": {
+        "_id": "68e3bd4d8486b700145efcf5",
+        "firma": "Roy Alex Muguertegui T.",
+        "foto": "https://cdn.diez.bo/diez/68e3bd4d8486b700145efcf5/1759755631092.png"
+      },
+      "secciones": [
+        "futbol"
+      ],
+      "textoHTML": "<p><strong>La dirigencia de Oriente se inclin&oacute; por el estratega guaran&iacute; con la misi&oacute;n de recuperar la competitividad del equipo, luego de un inicio de temporada discreto bajo la conducci&oacute;n de David Gonz&aacute;lez</strong>. La apuesta apunta a reencontrar estabilidad futbol&iacute;stica y resultados en un semestre donde el cuadro refinero necesita reaccionar.</p><p>Una vez se oficialice el acuerdo contractual, Florent&iacute;n se convertir&aacute; en el segundo entrenador de Oriente Petrolero en esta temporada. El paraguayo asumir&aacute; el desaf&iacute;o de enderezar el rumbo del equipo y devolverle protagonismo en la Liga de la Divisi&oacute;n Profesional.</p><p><strong>El nuevo conductor refinero cuenta con un amplio recorrido en el f&uacute;tbol sudamericano. </strong>En Paraguay dirigi&oacute; a clubes como Cerro Porte&ntilde;o, Deportivo Capiat&aacute;, Sportivo Luque&ntilde;o, Club Guaran&iacute;, Sol de Am&eacute;rica y General Caballero. Tambi&eacute;n tuvo pasos por Huachipato en Chile, Sport Recife en Brasil y por el f&uacute;tbol colombiano en equipos como Deportivo Pasto, Atl&eacute;tico Bucaramanga, &Aacute;guilas Doradas y Jaguares de C&oacute;rdoba. En Bolivia, su &uacute;nica experiencia fue al mando de The Strongest.</p><p><strong>El primer gran reto ya aparece en el horizonte: el cl&aacute;sico cruce&ntilde;o frente a Blooming, programado para este domingo desde las 19:30 en el estadio&nbsp;Ram&oacute;n Tahuichi</strong> Aguilera, un escenario donde Florent&iacute;n tendr&aacute; su estreno bajo la presi&oacute;n y la pasi&oacute;n de uno de los duelos m&aacute;s calientes del f&uacute;tbol boliviano.</p><p>&nbsp;</p>",
+      "titulo": "Gustavo Florentín fue presentado en Oriente Petrolero ",
+      "fecha_a": 1779753285590,
+      "prevId": "1779752881",
+      "link": "gustavo-florentin-fue-presentado-en-oriente-petrolero_1779752881"
+    },
+    {
+      "_id": "6a14d8dadfe364001426c7d5",
+      "fecha_c": 1779751770979,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779751242264.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779751242264.jpg",
+      "introHTML": "<p>El rosarino abandon&oacute; el &uacute;ltimo partido del Inter Miami por molestias musculares, generando preocupaci&oacute;n en la selecci&oacute;n argentina. Sin embargo, el parte m&eacute;dico descart&oacute; una lesi&oacute;n grave y el tiempo estimado de recuperaci&oacute;n ser&iacute;a de entre 10 y 14 d&iacute;as.</p><p>&nbsp;</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbbd",
+        "firma": "Jaime Paniagua",
+        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbd/1764689648901.jpg"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p data-end=\"378\" data-start=\"0\">A poco m&aacute;s de dos semanas del inicio del Mundial 2026, la selecci&oacute;n argentina recibi&oacute; una noticia que gener&oacute; preocupaci&oacute;n alrededor de Lionel Messi. <strong>El capit&aacute;n albiceleste termin&oacute; con molestias f&iacute;sicas tras el vibrante triunfo del Inter Miami por 6-4 frente a Philadelphia Union en la MLS,</strong> situaci&oacute;n que oblig&oacute; a realizarle estudios m&eacute;dicos para conocer el alcance del problema.</p><p data-end=\"738\" data-start=\"380\">Los ex&aacute;menes realizados al atacante rosarino<strong> descartaron una lesi&oacute;n grave y confirmaron &uacute;nicamente una distensi&oacute;n leve en el isquiotibial izquierdo. Seg&uacute;n trascendi&oacute; desde el entorno de la selecci&oacute;n argentina, </strong>el tiempo estimado de recuperaci&oacute;n<strong> oscila entre los 10 y 14 d&iacute;as, por lo que en principio no correr&iacute;a riesgo</strong> su presencia en el estreno mundialista.</p><p data-end=\"982\" data-start=\"740\">Aunque todav&iacute;a es una inc&oacute;gnita si podr&aacute; disputar los amistosos <strong>preparatorios ante Honduras e Islandia, todo apunta a que Messi llegar&aacute; en condiciones para el debut de la Albiceleste frente a Argelia, programado para el 16 de junio en Kansas.</strong></p><p data-end=\"1370\" data-start=\"984\">Despu&eacute;s del compromiso ante Philadelphia, <strong>tanto Messi como Rodrigo De Paul finalizaron su participaci&oacute;n con Inter Miami antes de sumarse a los entrenamientos dirigidos por Lionel Scaloni. </strong></p><p data-end=\"1370\" data-start=\"984\">Sin embargo, Messi no es el &uacute;nico futbolista argentino que atraviesa inconvenientes f&iacute;sicos. <strong>Jugadores importantes como Gonzalo Montiel, Nahuel Molina, Cristian Romero, Nicol&aacute;s Gonz&aacute;lez y Emiliano &ldquo;Dibu&rdquo; Mart&iacute;nez tambi&eacute;n arrastran distintas molestias mientras buscan llegar en plenitud al</strong> torneo en el que Argentina defender&aacute; el t&iacute;tulo obtenido en Qatar.</p><p data-end=\"2130\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"1728\">Como parte de la preparaci&oacute;n final, el conjunto de Scaloni disputar&aacute; dos amistosos en Estados Unidos: <strong>el 6 de junio frente a Honduras en Texas y el 9 ante Islandia en Alabama. Luego llegar&aacute; el esperado estreno mundialista contra Argelia por el Grupo J. M&aacute;s adelante, </strong>Argentina enfrentar&aacute; a Austria el 22 de junio y cerrar&aacute; la fase de grupos ante Jordania el 27, ambos encuentros en la ciudad de Dallas.</p>",
+      "titulo": "Argentina respira: Messi no sufrió una lesión grave antes del Mundial",
+      "fecha_a": 1779751770980,
+      "prevId": "1779751770",
+      "link": "argentina-respira-messi-no-sufrio-una-lesion-grave-antes-del-mundial_1779751770"
+    },
+    {
+      "_id": "6a14d779dfe364001426c41d",
+      "fecha_c": 1779751089564,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779751063064.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779751063064.jpg",
+      "introHTML": "<p>Colombia, Uruguay, Ir&aacute;n, Corea del Sur, Sud&aacute;frica, T&uacute;nez y el combinado mexicano instalar&aacute;n sus bases de preparaci&oacute;n en distintas ciudades del pa&iacute;s anfitri&oacute;n.</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbb1",
+        "firma": "Agencia EFE"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>La FIFA confirm&oacute; este lunes que las selecciones de Colombia, Ir&aacute;n, Corea del Sur, Sud&aacute;frica, Uruguay, T&uacute;nez y M&eacute;xico tendr&aacute;n su campamento base en este pa&iacute;s para el Mundial 2026 que arrancar&aacute; el 11 de junio pr&oacute;ximo.<br /><br />El equipo de Sud&aacute;frica, que se medir&aacute; al conjunto local en la inauguraci&oacute;n que se realizar&aacute; en el Estadio Azteca se concentrar&aacute; en Pachuca, Hidalgo, que se encuentra a 90 kil&oacute;metros al norte de la capital mexicana.<br /><br />En el Mundial, Sud&aacute;frica formar&aacute; parte del grupo A junto a M&eacute;xico, Corea del Sur y Rep&uacute;blica Checa.<br /><br />Corea del Sur tendr&aacute; su concentraci&oacute;n en Guadalajara, Jalisco, al occidente del pa&iacute;s, en las instalaciones del Chivas del Guadalajara, uno de los equipos m&aacute;s populares de la liga local.<br /><br />M&eacute;xico, orientada por Javier Aguirre, tendr&aacute; su cuartel general en el Centro de Alto Rendimiento de la Federaci&oacute;n Mexicana de F&uacute;tbol que est&aacute; ubicado al sur de Ciudad de M&eacute;xico, en la zona en la que se ubica el Estadio Azteca.<br /><br />Ir&aacute;n, integrante del grupo G con B&eacute;lgica, Egipto y Nueva Zelanda, a pesar de que no jugar&aacute; ninguno de sus partidos en este pa&iacute;s, tendr&aacute; su concentraci&oacute;n en Tijuana, Baja California, al norte de M&eacute;xico, en las instalaciones del equipo Xolos de Tijuana de la liga local, algo que confirm&oacute; m&aacute;s temprano Claudia Sheinbaum, presidenta del pa&iacute;s.<br /><br />&quot;Estados Unidos no quiere que la selecci&oacute;n iran&iacute; se quede a pernoctar en Estados Unidos. Entonces nos preguntaron: &#39;&iquest;Pueden pernoctar en M&eacute;xico?&#39; Y dijimos s&iacute;, sin problema, no tenemos ning&uacute;n problema&quot;, asever&oacute; la mandataria en su conferencia de este lunes.<br /><br />La selecci&oacute;n de Colombia, que forma parte del grupo K junto a Portugal, Rep&uacute;blica Democr&aacute;tica del Congo y Uzbekist&aacute;n, trabajar&aacute; en Guadalajara, en las instalaciones del Atlas, otro equipo de la liga local.<br /><br />El conjunto colombiano debutar&aacute; en el Mundial el 17 de junio ante Uzbekist&aacute;n en el Estadio Azteca, el d&iacute;a 23 se medir&aacute; a RD del Congo en el estadio Guadalajara y cerrar&aacute; la fase de grupos contra Portugal el d&iacute;a 27 en Miami.<br /><br />Uruguay, que est&aacute; en el grupo H con Espa&ntilde;a, Cabo Verde y Arabia Saud&iacute;, se concentrar&aacute; en Canc&uacute;n, Quintana Roo, al sur de M&eacute;xico, en el Mayakoba Training Center.<br /><br />El equipo del seleccionador argentino Marcelo Bielsa s&oacute;lo tendr&aacute; un partido en M&eacute;xico, el 26 de junio ante Espa&ntilde;a en el estadio Guadalajara.<br /><br />Y T&uacute;nez, que comparte el grupo F con Pa&iacute;ses Bajos, Jap&oacute;n y Suecia, se quedar&aacute; en Monterrey, Nuevo Le&oacute;n, al norte del pa&iacute;s.</p>",
+      "titulo": "FIFA confirma las selecciones que tendrán base en México durante el Mundial 2026",
+      "fecha_a": 1779751089564,
+      "prevId": "1779751089",
+      "link": "fifa-confirma-las-selecciones-que-tendran-base-en-mexico-durante-el-mundial-2026_1779751089"
+    },
+    {
+      "_id": "6a14d6ffdfe364001426c3a5",
+      "fecha_c": 1779751058045,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779750894497.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779750894497.jpg",
+      "introHTML": "<p>En su tercera participaci&oacute;n consecutiva en torneos internacionales de futsal, el cuadro orure&ntilde;o volvi&oacute; a tropezar en el arranque y comenz&oacute; su camino copero con una nueva decepci&oacute;n.</p>",
+      "opinologo": {
+        "_id": "68bd2f6e484b81000295ba6e",
+        "firma": "DIEZ EL DEBER"
+      },
+      "secciones": [
+        "futbol"
+      ],
+      "textoHTML": "<p><strong>El futsal sudamericano volvi&oacute; a encender motores. La CONMEBOL Libertadores Futsal 2026 abri&oacute; el tel&oacute;n en Carlos Barbosa, Brasil</strong>, con una jornada inaugural cargada de intensidad, ilusi&oacute;n y el habitual aroma copero que re&uacute;ne a los mejores clubes del continente. Doce equipos comenzaron la carrera rumbo al t&iacute;tulo m&aacute;s importante de la regi&oacute;n, con Pe&ntilde;arol defendiendo la corona y los representantes brasile&ntilde;os intentando imponer condiciones en casa.</p><p>La primera fecha dej&oacute; claro que en este certamen no existe margen para la distracci&oacute;n. Cada partido puede marcar el destino de los equipos y cada punto empieza a tener valor de oro en la pelea por avanzar de ronda. Entre debuts, reencuentros y duelos de estilos, la Libertadores arranc&oacute; con emociones desde el primer minuto.</p><p><strong>En el Grupo A, Boca Juniors tuvo un estreno firme y derrot&oacute; por 3-0 a Fantasmas Morales Moralitos de Bolivia.</strong> El conjunto xeneize mostr&oacute; contundencia y orden para sacar adelante un partido clave en el inicio del torneo.</p><p>Francisco Taliercio fue una de las grandes figuras de la noche al marcar un doblete: primero apareci&oacute; tras una jugada de tiro de esquina y luego capitaliz&oacute; un descuido defensivo para ampliar la diferencia. En el complemento, Facundo Russo termin&oacute; de sentenciar el encuentro y asegur&oacute; los primeros tres puntos para el cuadro argentino.</p><p>La jornada inaugural tambi&eacute;n dej&oacute; otros resultados destacados: Nacional gole&oacute; 7-2 a Colo Colo, mientras que Cerro Porte&ntilde;o venci&oacute; 3-2 a Deportivo Lyon Cali en un duelo ajustado. Por su parte, Magnus Futsal hizo pesar su favoritismo y derrot&oacute; 5-1 a Divino Ni&ntilde;o, y Centauros super&oacute; 3-1 a Panta Walon.</p>",
+      "titulo": "Fantasmas MM comenzó goleado por Boca Juniors en la Libertadores Futsal ",
+      "fecha_a": 1779752374713,
+      "prevId": "1779751058",
+      "link": "fantasmas-mm-comenzo-goleado-por-boca-juniors-en-la-libertadores-futsal_1779751058"
+    },
+    {
+      "_id": "6a14d335dfe364001426bb82",
+      "fecha_c": 1779750470670,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779750084401.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779750086032.jpg",
+      "introHTML": "<p>El estratega de The Strongest se&ntilde;al&oacute; que los insumos que requiere el plantel para su labor diaria alcanzar&aacute;n hasta el jueves de esta semana. &ldquo;No es lo mismo trabajar en incertidumbre&rdquo;, apunt&oacute;.</p>",
+      "opinologo": {
+        "_id": "68bd2f76484b81000295bbcc",
+        "firma": "Jorge Asturizaga Quisbert",
+        "foto": "https://cdn.diez.bo/diez/68bd2f76484b81000295bbcc/1759758585365.jpg"
+      },
+      "secciones": [
+        "futbol"
+      ],
+      "textoHTML": "<p><strong>Sixto Vizuete</strong>, el director t&eacute;cnico de The Strongest, <strong>sugiri&oacute; a la dirigencia del f&uacute;tbol boliviano determinar la suspensi&oacute;n del torneo de la Liga</strong> hasta que vuelva la normalidad al pa&iacute;s.</p><p>&ldquo;Pienso que la Federaci&oacute;n debe tomar una determinaci&oacute;n y ser claros y precisos. <strong>No se est&aacute; jugando, no hay posibilidades ni garant&iacute;as de que los jugadores entrenen bien y tampoco&nbsp;hay la posibilidad de hacer los partidos</strong>&rdquo;, dijo Vizuete este lunes.</p><p><strong>Asegur&oacute; que su criterio</strong>&nbsp;todav&iacute;a no le comunic&oacute; al presidente del club, Daniel Terrazas.</p><p>&ldquo;Pienso y digo que <strong>no es lo mismo trabajar en esta incertidumbre que trabajar resuelto el problema y que se cumplan todos los partidos&nbsp;y con facilidades para todos los equipos</strong>. Creo que es lo salom&oacute;nico, lo mejor&rdquo;, a&ntilde;adi&oacute;.</p><p><strong>Dos cotejos del Tigre fueron suspendidos hasta el momento, uno de la octava jornada con Oriente Petrolero y otro de la novena con GV San Jos&eacute; en Oruro</strong>. El tercero puede ser el cl&aacute;sico.</p><p>&ldquo;<strong>Sin el objetivo de jugar baja el &aacute;nimo y eso es normal, les he hablado a los jugadores que tenemos que seguir, no bajar los brazos.</strong> Si se arregla de la noche a la ma&ntilde;ana tenemos que estar listos&rdquo;, manifest&oacute; Vizuete.</p><p><strong>Cont&oacute; que los insumos para el trabajo del plantel como el desayuno para los futbolistas y el agua para las pr&aacute;cticas alcanzar&aacute;n hasta el jueves</strong> y que luego se ver&aacute; si se hace un alto en las sesiones.</p><p>M&aacute;s temprano el presidente del club, <strong>Daniel Terrazas, admiti&oacute; que se analiza la determinaci&oacute;n de suspender los entrenamientos e incluso cerrar la atenci&oacute;n del Complejo The Strongest porque es dif&iacute;cil para el personal llegar hasta el recinto</strong>, tomando en cuenta que el servicio de transporte p&uacute;blico se redujo al m&iacute;nimo por la falta de combustible.</p><p><strong>Hasta el momento se suspendieron 17 partidos del torneo Todos contra Todos.</strong> Son dos de la sexta jornada, otros dos de la s&eacute;ptima, cinco de la sexta y ocho de la novena.</p><p><strong>La disputa de la d&eacute;cima jornada contempla partidos del viernes 29 de mayo al lunes 1 de junio.</strong></p><p><strong>Bolivia pasa por un momento de tensi&oacute;n social con bloqueos de carreteras, marchas y protestas sobre todo en La Paz y El Alto.</strong></p>",
+      "titulo": "Director técnico de The Strongest sugiere paralizar el torneo por los conflictos sociales ",
+      "fecha_a": 1779751740000,
+      "prevId": "1779750470",
+      "link": "director-tecnico-de-the-strongest-sugiere-paralizar-el-torneo-por-los-conflictos-sociales_1779750470"
+    },
+    {
+      "_id": "6a14cfd1dfe364001426b36c",
+      "fecha_c": 1779749186705,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779749099141.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779749099141.jpg",
+      "introHTML": "<p>El espa&ntilde;ol y el colombiano, ambos nacionalizados mexicanos, ya trabajan bajo las &oacute;rdenes de Javier Aguirre para ganarse un lugar en la lista definitiva del &ldquo;Tri&rdquo;.</p><p>&nbsp;</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbb1",
+        "firma": "Agencia EFE"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>El espa&ntilde;ol &Aacute;lvaro Fidalgo y el colombiano Juli&aacute;n Qui&ntilde;ones, naturalizados mexicanos, se unieron este lunes a la concentraci&oacute;n a la selecci&oacute;n mexicana de f&uacute;tbol que se prepara para el Mundial 2026.<br /><br />&quot;La direcci&oacute;n deportiva de selecciones nacionales informa que los jugadores &Aacute;lvaro Fidalgo y Juli&aacute;n Qui&ntilde;ones se integraron este d&iacute;a a la concentraci&oacute;n de la selecci&oacute;n mexicana de cara a los partidos amistosos previos al inicio de la Copa Mundial de la FIFA 2026&quot;, inform&oacute; la selecci&oacute;n nacional a trav&eacute;s de un comunicado.<br /><br />Fidalgo, jugador del Real Betis espa&ntilde;ol, y Qui&ntilde;ones, del Al-Qadisiyah saud&iacute;, buscar&aacute;n confirmar su lugar en la lista de los 26 elementos que asistir&aacute;n a la justa mundialista en el par de amistosos que le quedan al tri.<br /><br />El equipo del seleccionador Javier &#39;Vasco&#39; Aguirre se medir&aacute; el pr&oacute;ximo s&aacute;bado a la selecci&oacute;n de Australia en Pasadena, California, y cerrar&aacute; su preparaci&oacute;n el 4 de junio ante Serbia en Toluca, Estado de M&eacute;xico.<br /><br />La selecci&oacute;n mexicana debutar&aacute; en el Mundial 2026 el pr&oacute;ximo 11 de junio en su partido contra Sud&aacute;frica que se realizar&aacute; en el Estadio Azteca.<br /><br />Fidalgo, de 29 a&ntilde;os, es un centrocampista que surgi&oacute; de la cantera del Real Madrid.<br /><br />En M&eacute;xico cobr&oacute; relevancia gracias a su buen desempe&ntilde;o en el Am&eacute;rica, equipo al que ayud&oacute; a ganar un tricampeonato.<br /><br />Sus actuaciones lo llevaron a firmar con el Real Betis, conjunto con el que esta campa&ntilde;a jug&oacute; nueve partidos de liga, tres de Europa League y uno de Copa del Rey.<br /><br />De su lado, Qui&ntilde;ones se report&oacute; luego de una gran temporada en la liga saud&iacute; en la que se proclam&oacute; m&aacute;ximo anotador en la &uacute;ltima jornada con un triplete, lo que lo convierte en una pieza fuerte ante la falta de gol que hist&oacute;ricamente ha acusado la selecci&oacute;n mexicana.<br /><br />M&eacute;xico, que arranc&oacute; su concentraci&oacute;n para el Mundial de manera anticipada desde hace tres semanas, se prepara en el Centro de Alto Rendimiento de la Federaci&oacute;n Mexicana de F&uacute;tbol, al sur de la capital.</p>",
+      "titulo": "Fidalgo y Quiñones, los naturalizados que buscan un lugar en el Mundial con México",
+      "fecha_a": 1779749186706,
+      "prevId": "1779749186",
+      "link": "fidalgo-y-quinones-los-naturalizados-que-buscan-un-lugar-en-el-mundial-con-mexico_1779749186"
+    },
+    {
+      "_id": "6a14c7c1dfe364001426a18b",
+      "fecha_c": 1779747276358,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779747255262.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779747255262.jpg",
+      "introHTML": "<p>El seleccionador colombiano asegur&oacute; que eligi&oacute; a los jugadores por rendimiento actual, habl&oacute; del estado f&iacute;sico de James Rodr&iacute;guez y evit&oacute; referirse a su continuidad tras el torneo mundialista.</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbb1",
+        "firma": "Agencia EFE"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>El seleccionador de Colombia, N&eacute;stor Lorenzo, apel&oacute; este lunes a la unidad del pa&iacute;s alrededor de su equipo y dijo que privilegi&oacute; el &quot;rendimiento actual&quot; de los jugadores al presentar en una rueda de prensa a los 26 convocados para el Mundial de 2026, conferencia en la que evit&oacute; hablar de su futuro despu&eacute;s del torneo.<br /><br />&quot;Creo que la actualidad del Cucho en este momento es mejor&quot;, afirm&oacute; Lorenzo al justificar la presencia del delantero Juan Camilo Hern&aacute;ndez (Real Betis-ESP) y la ausencia de Rafael Santos Borr&eacute;, una de las decisiones m&aacute;s dif&iacute;ciles que tom&oacute; para conformar la n&oacute;mina colombiana para el campeonato de M&eacute;xico, Estados Unidos y Canad&aacute;.<br /><br />Sobre James Rodr&iacute;guez, capit&aacute;n y principal referente del equipo, Lorenzo asegur&oacute; que lleg&oacute; &quot;muy bien&quot; a la concentraci&oacute;n pese a algunas molestias f&iacute;sicas menores en los &uacute;ltimos d&iacute;as.<br /><br />&quot;James est&aacute; bien, lleg&oacute; muy bien, ha entrenado mucho, tuvo un peque&ntilde;o dolorcito que lo alej&oacute; de un de un par de entrenamientos, pero est&aacute; bien, est&aacute; en buena forma&quot;, dijo.<br /><br />El entrenador insisti&oacute; en que la elaboraci&oacute;n de la lista fue compleja incluso desde la preselecci&oacute;n de 55 futbolistas y explic&oacute; que evalu&oacute; factores como el nivel competitivo de las ligas, el estado f&iacute;sico, lesiones recientes, continuidad y cambios de club o entrenador.<br /><br />Lorenzo tambi&eacute;n explic&oacute; que el cambio de fecha del amistoso preparatorio con Costa Rica previsto inicialmente para el 29 de mayo, que se jugar&aacute; el 1 de junio, alter&oacute; los planes iniciales del cuerpo t&eacute;cnico, que pretend&iacute;a trabajar primero con un grupo ampliado de entre 30 y 32 futbolistas antes de definir la convocatoria definitiva.<br /><br />&quot;La idea era preparar el partido del 29 como un banco de prueba (...) pero como el partido se pas&oacute; a posterior a la fecha que FIFA nos da para entregar la lista definitiva, pensamos que era mejor dar la lista ahora&quot;, explic&oacute;.<br /><br />Al cierre de la rueda de prensa, el entrenador fue consultado sobre si esta ser&aacute; su &uacute;ltima convocatoria al frente de Colombia, pero evit&oacute; entregar definiciones sobre su continuidad.<br /><br />&quot;No lo s&eacute;. Por ahora, hasta que tengo contrato s&iacute;. Me preparo para el Mundial, nada m&aacute;s. No pienso despu&eacute;s del Mundial. Dios dir&aacute;&quot;, respondi&oacute; el estratega, cuyo vinculo con Colombia est&aacute; vigente hasta julio pr&oacute;ximo.</p>",
+      "titulo": "Néstor Lorenzo prioriza el momento futbolístico y deja mensajes antes del Mundial",
+      "fecha_a": 1779747276358,
+      "prevId": "1779747276",
+      "link": "nestor-lorenzo-prioriza-el-momento-futbolistico-y-deja-mensajes-antes-del-mundial_1779747276"
+    },
+    {
+      "_id": "6a14c470dfe3640014269cb0",
+      "fecha_c": 1779746180020,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779746089944.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779746089944.jpg",
+      "introHTML": "<p>Adalberto Carrasquilla abandon&oacute; lesionado el duelo de la Liga MX y su presencia en la Copa del Mundo 2026 qued&oacute; en duda a pocas horas de conocerse la lista final.</p><p>&nbsp;</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbb1",
+        "firma": "Agencia EFE"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>A menos de 24 horas de que el seleccionador de Panam&aacute;, Thomas Christiansen, revele la lista definitiva de 26 jugadores para el Mundial 2026, el pa&iacute;s vive con incertidumbre la posible lesi&oacute;n de su estrella, Adalberto Carrasquilla, poco antes del inicio de la cita mundialista.<br /><br />La imagen de Carrasquilla abandonando el terreno de juego el pasado domingo entre visibles gestos de dolor y l&aacute;grimas, encendi&oacute; las alarmas en Panam&aacute; y la incertidumbre crece mientras se esperan los resultados m&eacute;dicos, que seg&uacute;n reportes de la prensa local se conocer&aacute;n con certeza este martes.<br /><br />La lesi&oacute;n del centrocampista paname&ntilde;o se produjo en el minuto 59 del encuentro de vuelta de la final de la Liga MX entre Pumas y Cruz Azul, cuando fue a disputar un bal&oacute;n dividido con Amaury Garc&iacute;a. Tras el contacto, el &quot;Coco&quot; qued&oacute; tendido sobre el c&eacute;sped, mostrando fuertes muestras de dolor.<br /><br />La posible baja de Carrasquilla, aparentemente por una lesi&oacute;n muscular seg&uacute;n se aprecia en las im&aacute;genes posteriores al partido, coloca a Christiansen ante un escenario inesperado y delicado: definir su lista mundialista sin certezas sobre el estado f&iacute;sico de su principal referente en el mediocampo y, de ser necesario, buscar con premura un reemplazo.<br /><br />El grupo de jugadores concentrado desde ayer en un hotel de la capital tambi&eacute;n sigue de cerca la evoluci&oacute;n de su compa&ntilde;ero, seg&uacute;n fuentes cercanas a la concentraci&oacute;n.<br /><br />Y no es para menos, porque Carrasquilla no solo es una pieza clave dentro del esquema y la idea futbol&iacute;stica de Christiansen; tambi&eacute;n es uno de los l&iacute;deres deportivos y an&iacute;micos del grupo que clasific&oacute; a Panam&aacute; a su segunda Copa del Mundo.<br /><br />En redes sociales, la reacci&oacute;n fue inmediata. Mensajes de apoyo de aficionados, exjugadores y periodistas deportivos inundaron las plataformas digitales: &quot;Que no sea nada grave&rdquo;, &quot;Panam&aacute; est&aacute; contigo, Coco&quot;, &quot;Pido a Dios que tome control y que no sea nada grave. Necesitamos a Carrasquilla en el mundial&quot; y &quot;Te esperamos en el Mundial&quot; fueron algunas de las frases que m&aacute;s se repet&iacute;an en las redes.<br /><br />Por ahora, los paname&ntilde;os ans&iacute;an noticias alentadoras desde M&eacute;xico con el parte m&eacute;dico definitivo y esperan que la escena que dej&oacute; helado al pa&iacute;s termine siendo apenas un susto y que Carrasquilla pueda recuperarse a tiempo y volver a conducir, una vez m&aacute;s, el juego de Panam&aacute;.&nbsp;</p>",
+      "titulo": "Panamá espera el parte médico de su estrella en plena cuenta regresiva al Mundial",
+      "fecha_a": 1779746180020,
+      "prevId": "1779746180",
+      "link": "panama-espera-el-parte-medico-de-su-estrella-en-plena-cuenta-regresiva-al-mundial_1779746180"
+    },
+    {
+      "_id": "6a14bd57dfe3640014268dc5",
+      "fecha_c": 1779745471859,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779745268203.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779745268203.jpg",
+      "introHTML": "<p>La principal figura canadiense fue incluida en la preconvocatoria de 32 jugadores para el Mundial 2026, aunque Jesse Marsch confirm&oacute; que el lateral del Bayern M&uacute;nich no llegar&aacute; a tiempo para el estreno ante Bosnia y Herzegovina por una lesi&oacute;n muscular.</p><p>&nbsp;</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbb1",
+        "firma": "Agencia EFE"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>Canad&aacute; incluy&oacute; este lunes a su principal estrella, Alphonso Davies, en la lista de 32 jugadores convocados para la concentraci&oacute;n previa al Mundial de 2026, aunque el seleccionador Jesse Marsch admiti&oacute; que el defensa no estar&aacute; listo para el partido inaugural del torneo frente a Bosnia y Herzegovina el 12 de junio.<br /><br />Marsch declar&oacute; este lunes que espera que Davies pueda jugar &ldquo;en alg&uacute;n momento&rdquo; del Mundial, aunque se&ntilde;al&oacute; que el capit&aacute;n canadiense no llegar&aacute; a tiempo para el debut de la selecci&oacute;n anfitriona.<br /><br />El t&eacute;cnico a&ntilde;adi&oacute; que el jugador del Bayern de M&uacute;nich no se incorporar&aacute; inmediatamente a la concentraci&oacute;n de la localidad estadounidense de Charlotte (Carolina del Norte), que comenz&oacute; este lunes, y que se unir&aacute; al grupo el 31 de mayo en Edmonton.<br /><br />La Federaci&oacute;n Canadiense de F&uacute;tbol (Canada Soccer) anunci&oacute; que el grupo se reunir&aacute; entre el 25 y el 29 de mayo en Charlotte antes de que Marsch revele la convocatoria definitiva para el Mundial el pr&oacute;ximo 29 de mayo en un programa especial emitido por varias cadenas nacionales.<br /><br />Canada Soccer explic&oacute; que, debido a lesiones y compromisos de clubes, los futbolistas se incorporar&aacute;n progresivamente &ldquo;en coordinaci&oacute;n con sus respectivos clubes y cuerpos m&eacute;dicos&rdquo;, priorizando la condici&oacute;n f&iacute;sica de los jugadores.<br /><br />Davies, de 25 a&ntilde;os, ha atravesado un largo periodo marcado por problemas f&iacute;sicos. El lateral sufri&oacute; en marzo una lesi&oacute;n muscular que le impidi&oacute; disputar amistosos con Canad&aacute; y recay&oacute; el 8 de mayo con una nueva lesi&oacute;n en los isquiotibiales mientras jugaba con el Bayern.<br /><br />Davies figura en una convocatoria que incluye tambi&eacute;n a Jonathan David, Cyle Larin, Stephen Eust&aacute;quio, Tajon Buchanan y Alistair Johnston.<br /><br />Canad&aacute; disputar&aacute; dos partidos de preparaci&oacute;n antes del torneo: frente a Uzbekist&aacute;n el 1 de junio en Edmonton y contra Irlanda el 5 de junio en Montreal.<br /><br />La selecci&oacute;n canadiense qued&oacute; encuadrada en el Grupo B del Mundial junto a Bosnia y Herzegovina, Catar y Suiza. Sus encuentros de la fase de grupos se jugar&aacute;n el 12 de junio en Toronto y el 18 y 24 de junio en Vancouver.&nbsp;</p>",
+      "titulo": "Canadá espera por Alphonso Davies para el Mundial 2026",
+      "fecha_a": 1779745471859,
+      "prevId": "1779745471",
+      "link": "canada-espera-por-alphonso-davies-para-el-mundial-2026_1779745471",
+      "tags": [
+        ""
+      ]
+    },
+    {
+      "_id": "6a14ba15dfe36400142688d0",
+      "fecha_c": 1779744306534,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779744287311.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779744287311.jpg",
+      "introHTML": "<p>El culebr&oacute;n institucional ahora tambi&eacute;n golpea a Blooming. Una citaci&oacute;n de remate de una parte de su sede encendi&oacute; las alarmas en la dirigencia celeste, que r&aacute;pidamente tuvo que movilizarse para intentar apagar el incendio y evitar que el club reciba otro duro golpe en medio de un panorama ya complicado.</p>",
+      "opinologo": {
+        "_id": "68e3bd4d8486b700145efcf5",
+        "firma": "Roy Alex Muguertegui T.",
+        "foto": "https://cdn.diez.bo/diez/68e3bd4d8486b700145efcf5/1759755631092.png"
+      },
+      "secciones": [
+        "futbol"
+      ],
+      "textoHTML": "<p><strong>La crisis golpea con fuerza a Blooming. El equipo celeste, que recientemente qued&oacute; eliminado de la Copa Sudamericana, ahora enfrenta un nuevo problema institucional tras conocerse una notificaci&oacute;n de Audiencia de Remate por&nbsp;una parte de&nbsp;su sede social. La cita con la justicia est&aacute;&nbsp;</strong>se&ntilde;alada para este viernes 5 de junio a las 9:00.</p><p>El documento judicial establece: &ldquo;El Dr. Alberto Cayetano Borda Sereger, juez p&uacute;blico civil y comercial 13 de la capital, hace saber dentro del proceso ejecutivo seguido por Amali Vespa de Rivero en contra de Club Deportivo Blooming&rdquo;.</p><p>Seg&uacute;n se pudo conocer, el lote de terreno ubicado en la zona noroeste, U.V. 33 y 58 de la ciudad de Andr&eacute;s Ib&aacute;&ntilde;ez, Primera Secci&oacute;n de Santa Cruz de la Sierra, con una superficie de 8.016,63 metros cuadrados, figura registrado en Derechos Reales bajo la matr&iacute;cula 7.01.1.99.0052278 y ser&aacute; rematado con una rebaja del 20% sobre la base inicial.</p><p>El valor establecido para el remate asciende a 5.875.809,26 d&oacute;lares, monto fijado luego de la reducci&oacute;n correspondiente. Asimismo, se inform&oacute; que las personas interesadas deber&aacute;n presentarse el d&iacute;a y hora se&ntilde;alados acreditando el 20% sobre el valor base del remate.</p><p><strong>Diez se comunic&oacute; con dirigentes&nbsp;de la instituci&oacute;n&nbsp;celeste, y la respuesta fue inmediata, asegurando que ese tema se tocar&aacute; la noche del lunes</strong> en reuni&oacute;n ordinaria.</p><p>Mientras la situaci&oacute;n institucional genera preocupaci&oacute;n en filas acad&eacute;micas, el plantel profesional intenta enfocarse en el desaf&iacute;o internacional que tendr&aacute; esta semana en Argentina.</p><p><strong>La delegaci&oacute;n celeste partir&aacute; la madrugada de este martes en un vuelo comercial dividido en dos grupos. </strong>El primero viajar&aacute; a las 3:00 y el segundo lo har&aacute; a las 06:00 de la ma&ntilde;ana.</p><p>Dentro de la log&iacute;stica preparada por el club, Blooming entrenar&aacute; en el Complejo Pedro Pompilio, conocido como Casa Amarilla, predio utilizado actualmente por las divisiones menores y el f&uacute;tbol femenino de Boca Juniors.</p><p>El compromiso ante River Plate est&aacute; programado para este mi&eacute;rcoles desde las 20:30 en el estadio Monumental, en un encuentro donde el conjunto cruce&ntilde;o buscar&aacute; cambiar el panorama futbol&iacute;stico en medio de un delicado contexto institucional.</p>",
+      "titulo": "Blooming eliminado de la Copa afronta una citación de remate",
+      "fecha_a": 1779746100000,
+      "prevId": "1779744306",
+      "link": "blooming-eliminado-de-la-copa-afronta-una-citacion-de-remate_1779744306"
+    },
+    {
+      "_id": "6a14994ddfe36400142663f9",
+      "fecha_c": 1779742689105,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779742616782.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779742616782.jpg",
+      "introHTML": "<p>&quot;Estados Unidos no quiere que la selecci&oacute;n iran&iacute; se quede a pernoctar en Estados Unidos. Entonces nos preguntaron: &#39;&iquest;Pueden pernoctar en M&eacute;xico?&#39; Y dijimos &#39;s&iacute;, sin problema, no tenemos ning&uacute;n problema&#39;&quot;, explic&oacute; la mandataria Claudia Sheinbaum.</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbb1",
+        "firma": "Agencia EFE"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>La presidenta de M&eacute;xico, <strong>Claudia Sheinbaum, confirm&oacute; este lunes que las autoridades del pa&iacute;s est&aacute;n estudiando la posibilidad de que la selecci&oacute;n de f&uacute;tbol de Ir&aacute;n pueda pernoctar y tener su base en la ciudad de Tijuana </strong>(norte) durante la Copa del Mundo ante las trabas puestas por Estados Unidos.<br /><br /><strong>&quot;Vino la representaci&oacute;n de la FIFA a trav&eacute;s de una persona (...) Estados Unidos no quiere que la selecci&oacute;n iran&iacute; se quede a pernoctar en Estados Unidos.</strong> Entonces nos preguntaron: &#39;&iquest;Pueden pernoctar en M&eacute;xico?&#39; Y dijimos &#39;s&iacute;, sin problema, no tenemos ning&uacute;n problema&#39;&quot;, explic&oacute; la mandataria en su conferencia de prensa diaria.<br /><br /><strong>La nueva sede de los futbolistas de Ir&aacute;n ser&iacute;a en la ciudad de Tijuana,</strong> fronteriza con Estados Unidos y localizada en el estado mexicano de Baja California (noroeste).<br /><br /><strong>Sheinbaum destac&oacute; que la selecci&oacute;n asi&aacute;tica pernoctar&iacute;a en M&eacute;xico y solo ir&iacute;a a Estados Unidos a jugar s</strong>us tres partidos previstos en la fase de grupos del Mundial de F&uacute;tbol.<br /><br /><strong>&quot;Nosotros no tenemos por qu&eacute; negar la posibilidad de que se queden en M&eacute;xico</strong>. Entonces s&iacute; dimos esa opci&oacute;n y se est&aacute; revisando&quot;, a&ntilde;adi&oacute;.<br /><br />Esta posibilidad est&aacute; siendo analizada por la representante del Gobierno de M&eacute;xico para la Copa del Mundo de 2026, Gabriela Cuevas, y la secretaria de Turismo, Josefina Rodr&iacute;guez, en coordinaci&oacute;n con responsables de la FIFA.<br /><br /><strong>La presidenta subray&oacute; que en M&eacute;xico &quot;no habr&iacute;a&quot; problema con los visados para los futbolistas de la Rep&uacute;blica Isl&aacute;mica.</strong><br /><br />La selecci&oacute;n de f&uacute;tbol de Ir&aacute;n hab&iacute;a anunciado la semana pasada su intenci&oacute;n de que su sede durante el Mundial fuera en Tijuana para evitar problemas con los visados estadounidenses.<br /><br /><strong>Encuadrada en el grupo G, Ir&aacute;n tendr&aacute; que disputar sus dos primeros partidos, ante Nueva Zelanda y B&eacute;lgica, los d&iacute;as 16 y 21 de junio en Los &Aacute;ngeles</strong>, mientras que el tercer encuentro contra Egipto se jugar&aacute; en Seattle.<br /><br /><strong>Los medios iran&iacute;es han especulado en las &uacute;ltimas semanas con que Washington </strong>podr&iacute;a negar los visados a miembros de la delegaci&oacute;n iran&iacute; que hayan tenido v&iacute;nculos con la Guardia Revolucionaria, considerada por Estados Unidos una organizaci&oacute;n terrorista.<br /><br />Ir&aacute;n hab&iacute;a condicionado previamente su participaci&oacute;n en el Mundial a la aceptaci&oacute;n de diez puntos, entre ellos garant&iacute;as en materia de seguridad, desplazamientos y respeto a los s&iacute;mbolos de la Rep&uacute;blica Isl&aacute;mica, adem&aacute;s de la expedici&oacute;n de visados para toda la plantilla.&nbsp;</p>",
+      "titulo": "México está preparado para que Irán se instale en Tijuana durante el Mundial",
+      "fecha_a": 1779742689106,
+      "prevId": "1779742689",
+      "link": "mexico-esta-preparado-para-que-iran-se-instale-en-tijuana-durante-el-mundial_1779742689"
+    },
+    {
+      "_id": "6a14996ddfe3640014266435",
+      "fecha_c": 1779735019995,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779734972935.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779734972935.jpg",
+      "introHTML": "<p>El entrenador espa&ntilde;ol a&uacute;n no rescindi&oacute; contrato con Oriente Petrolero y exige el pago de dos meses de salario adeudados. Si la dirigencia no cancela hasta este lunes, iniciar&aacute; una demanda para cobrar la totalidad de su v&iacute;nculo, valuado en 160 mil d&oacute;lares.<br />&nbsp;</p>",
+      "opinologo": {
+        "_id": "68bd2f6f484b81000295baa7",
+        "firma": "Pedro Rivero de Ugarte",
+        "foto": "https://cdn.diez.bo/diez/68bd2f6f484b81000295baa7/1772023196662.jpg"
+      },
+      "secciones": [
+        "futbol"
+      ],
+      "textoHTML": "<p>La situaci&oacute;n econ&oacute;mica e institucional de Oriente Petrolero vuelve a quedar en el centro de la escena. El entrenador espa&ntilde;ol Joaqu&iacute;n Monasterio Gonz&aacute;lez, quien dej&oacute; el club hace m&aacute;s de una semana, lanz&oacute; un ultim&aacute;tum a la dirigencia refinera y exige el pago inmediato de los salarios adeudados para evitar un conflicto legal de mayor magnitud.</p><p>Seg&uacute;n se conoci&oacute;, al cuerpo t&eacute;cnico se le deben 35 mil d&oacute;lares, monto correspondiente a dos meses de salario. La representaci&oacute;n del entrenador otorg&oacute; plazo hasta este lunes para que la instituci&oacute;n pueda cancelar la deuda y as&iacute; proceder con la rescisi&oacute;n formal del contrato.</p><p>En caso de que no exista una respuesta favorable por parte de la dirigencia, Gonz&aacute;lez iniciar&aacute; un reclamo para exigir el pago total del v&iacute;nculo firmado con el club, cifra que alcanzar&iacute;a aproximadamente los 160 mil d&oacute;lares. La advertencia genera preocupaci&oacute;n en Oriente, que atraviesa un delicado panorama financiero.</p><p>&ldquo;Hoy tenemos reuni&oacute;n con el abogado. Dimos plazo hasta hoy. Ma&ntilde;ana (martes) se reclamar&aacute; el pago completo del contrato. No nos dan respuesta alguna&rdquo;, expres&oacute; Jos&eacute; Carlos Fern&aacute;ndez, representante del entrenador, en contacto con DIEZ.</p><p>El t&eacute;cnico espa&ntilde;ol lleg&oacute; a Oriente Petrolero a comienzos de la presente temporada con la misi&oacute;n de reencaminar al equipo en el campeonato nacional. Sin embargo, los resultados deportivos nunca terminaron de convencer y el rendimiento colectivo estuvo lejos de las expectativas de la dirigencia y de la hinchada albiverde.</p><p>Durante su ciclo, el equipo mostr&oacute; irregularidad tanto en condici&oacute;n de local como de visitante, situaci&oacute;n que termin&oacute; debilitando el proyecto deportivo. La salida del entrenador se produjo en medio de cuestionamientos y de un ambiente tenso por la crisis institucional que atraviesa el club refinero.</p><p>Mientras tanto, la dirigencia trabaja contrarreloj para conseguir recursos econ&oacute;micos que permitan resolver la situaci&oacute;n contractual del entrenador y, posteriormente, avanzar en la contrataci&oacute;n de un nuevo director t&eacute;cnico para encarar lo que resta de la temporada.</p><p>Por ahora, el plantel profesional contin&uacute;a entren&aacute;ndose bajo el mando interino de Jorge Ortiz, quien asumi&oacute; de manera provisional a la espera de que la dirigencia defina el futuro del banquillo refinero y logre destrabar el conflicto con el estratega espa&ntilde;ol.</p>",
+      "titulo": "González pone contra las cuerdas a Oriente y exige el pago inmediato",
+      "fecha_a": 1779735019995,
+      "prevId": "1779735019",
+      "link": "gonzalez-pone-contra-las-cuerdas-a-oriente-y-exige-el-pago-inmediato_1779735019",
+      "tags": [
+        "68db66afd6f5e5000293622a"
+      ]
+    },
     {
       "_id": "6a149701dfe36400142660a7",
       "fecha_c": 1779734369445,
@@ -1528,497 +2043,6 @@
       "fecha_a": 1779323349228,
       "prevId": "1779323349",
       "link": "miguel-terceros-aporto-en-ataque-pero-santos-volvio-a-tropezar-en-sudamericana_1779323349"
-    },
-    {
-      "_id": "6a0e4c03dbbb8000147c8269",
-      "fecha_c": 1779322359180,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779322028270.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779322029895.jpg",
-      "introHTML": "<p>Se&ntilde;al&oacute; que &ldquo;no existe capacidad&rdquo; para trasladar a los clubes a la capital oriental para que no se posterguen m&aacute;s partidos del certamen.</p>",
-      "opinologo": {
-        "_id": "68bd2f76484b81000295bbcc",
-        "firma": "Jorge Asturizaga Quisbert",
-        "foto": "https://cdn.diez.bo/diez/68bd2f76484b81000295bbcc/1759758585365.jpg"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p>La Federaci&oacute;n Boliviana de F&uacute;tbol (FBF) <strong>descart&oacute; la posibilidad de centralizar el campeonato de la Liga en Santa Cruz.</strong></p><p>Esa posibilidad surgi&oacute; en d&iacute;as anteriores, pero <strong>el presidente de la FBF, Fernando Costa, la descart&oacute; de forma contundente.</strong></p><p><strong>&ldquo;No. Hay que descartar ello, no existe capacidad para que se lleve a cabo (en una ciudad) en calidad y en formato esos partidos&rdquo;,</strong> dijo Costa este mi&eacute;rcoles luego de la reuni&oacute;n de Comit&eacute; Ejecutivo de la FBF.</p><p><strong>La Central Obrera Boliviana (COB) declar&oacute; huelga general indefinida en el pa&iacute;s desde el 1 de mayo.</strong> A la medida se unieron organizaciones sociales como Juntas de Vecinos de El Alto.</p><p>Hay bloqueo de caminos<strong>. Las ciudades m&aacute;s afectadas son La Paz y El Alto.</strong></p><p>Por ese motivo <strong>han sido postergados 14 partidos del torneo Todos contra Todos. Ocho fueron reprogramados para los primeros d&iacute;as de junio</strong> y corresponden a jornadas anteriores.</p><p><strong>Otros seis, de la novena jornada prevista para el fin de semana, fueron suspendidos sin fecha</strong> oficialmente este mi&eacute;rcoles.</p><p>&nbsp;</p>",
-      "titulo": "FBF descarta la posibilidad de centralizar el Todos contra Todos en Santa Cruz",
-      "fecha_a": 1779323520000,
-      "prevId": "1779322359",
-      "link": "fbf-descarta-posibilidad-de-centralizar-el-todos-contra-todos-en-santa-cruz_1779322359"
-    },
-    {
-      "_id": "6a0e3f62dbbb8000147c6d80",
-      "fecha_c": 1779320017886,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779319071267.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779319073546.jpg",
-      "introHTML": "<p>Seis partidos fueron postergados. V&iacute;ctor Hugo Mansilla, integrante del Comit&eacute; Ejecutivo de la FBF, declar&oacute; la suspensi&oacute;n de la novena jornada. M&aacute;s tarde el titular de la entidad, Fernando Costa,&nbsp;desminti&oacute; la versi&oacute;n&nbsp;y se&ntilde;al&oacute; que todav&iacute;a se analiza la situaci&oacute;n.</p>",
-      "opinologo": {
-        "_id": "68bd2f76484b81000295bbcc",
-        "firma": "Jorge Asturizaga Quisbert",
-        "foto": "https://cdn.diez.bo/diez/68bd2f76484b81000295bbcc/1759758585365.jpg"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p>La Federaci&oacute;n Boliviana de F&uacute;tbol (FBF) todav&iacute;a <strong>analiza la evoluci&oacute;n de los conflictos sociales en el pa&iacute;s antes de anunciar oficialmente si se suspende la novena jornada del torneo Todos contra Todos&nbsp;</strong>o se da luz verde para algunos de los compromisos. Hasta ahora van seis partidos suspendidos.</p><p><strong>El Comit&eacute; Ejecutivo de la FBF se reuni&oacute; este mi&eacute;rcoles en La Paz</strong> y hubo dos declaraciones diferentes respecto al tema.</p><p><strong>Primero habl&oacute; escuetamente V&iacute;ctor Hugo Mansilla, director por el f&uacute;tbol de aficionados, quien sostuvo: &ldquo;La Liga se ha suspendido&rdquo;, se&ntilde;al&oacute; y agreg&oacute; que est&aacute; ratificado el calendario de la Copa Sim&oacute;n Bol&iacute;var,</strong> pues el certamen est&aacute; en la instancia regional.</p><p>Casi una hora despu&eacute;s <strong>el presidente Fernando Costa desminti&oacute; la declaraci&oacute;n de Mansilla y se&ntilde;al&oacute; que la situaci&oacute;n est&aacute; en an&aacute;lisis.</strong></p><p><strong>&ldquo;Desmentir la suspensi&oacute;n de la fecha nueve, se est&aacute; trabajando con la Direcci&oacute;n de Competiciones, m&aacute;s el VAR y la televisi&oacute;n para dar viabilidad a la mayor cantidad de partidos&rdquo;</strong>, dijo Costa.</p><p>A la pregunta <strong>respecto de la declaraci&oacute;n anterior de Mansilla apunt&oacute;: &ldquo;Estamos haciendo lo posible en base a los informes de factibilidad de la empresa productora, sobre todo del VAR</strong>, para jugar la mayor cantidad de partidos&rdquo;.</p><h2 class=\"titulo_en_cuerpo\" style=\"font-size:20px;font-weight:700;\">Seis postergados</h2><p><strong>Seis de los ocho cotejos est&aacute;n suspendidos: GV San Jos&eacute; ante The Strongest no se disputar&aacute; por el bloqueo en la carretera a Oruro</strong>. Daniel Terrazas, presidente del Tigre, se present&oacute; en la FBF y solicit&oacute; la postergaci&oacute;n.</p><p><strong>Tampoco jugar&aacute;&nbsp;Nacional ante&nbsp;Real Oruro &ldquo;porque no puede llegar el cami&oacute;n del VAR</strong>, no hay factibilidad&rdquo;, se&ntilde;al&oacute; Costa.</p><p>Por el mismo motivo <strong>habr&aacute; nueva fecha para el lance Independiente frente a Real Potos&iacute;.</strong></p><p>Bol&iacute;var inform&oacute; mediante sus canales oficiales que el lance con Guabir&aacute;, del domingo 24 de mayo, ser&aacute; reprogramado. <strong>El problema en la sede de Gobierno es que hay bloqueo de caminos en El Alto y en los accesos a la sede de Gobierno desde esa ciudad.</strong></p><p>Raz&oacute;n diferente <strong>pero postergado al fin es el duelo entre Blooming y&nbsp;Real Tomayapo. La FBF suspendi&oacute; porque no se cumple el tiempo suficiente de recuperaci&oacute;n entre partidos.</strong> El celeste cruce&ntilde;o jugar&aacute; el jueves un partido de Copa Sudamericana frente a Carabobo de Venezuela.</p><p><strong>El sexto lance afectado es el Always Ready contra Universitario</strong>, previsto para el s&aacute;bado (15:00) en El Alto.</p><p><strong>Costa se&ntilde;al&oacute; que en Cochabamba hay posibilidad de jugar porque las unidades m&oacute;viles de la televisi&oacute;n y del VAR est&aacute;n en esa ciudad.</strong></p><p>Para el viernes est&aacute; programado <strong>San Antonio - ABB desde las 15:00, pero aqu&iacute; surge el inconveniente de que el club pace&ntilde;o realiza sus desplazamientos al interior por tierra.</strong></p><p><strong>El partido que parece no tendr&aacute; inconvenientes es Aurora -&nbsp;Oriente</strong>, el domingo desde las 19:30.</p><p><span style=\"font-size: 18px; font-weight: 700;\">La novena jornada</span></p><p><strong>Viernes, 22 de mayo</strong></p><p>Cochabamba, 15:00 San Antonio -&nbsp;ABB</p><p>Oruro, 20:00 GV San Jos&eacute; -&nbsp;The Strongest (postergado)</p><p><strong>S&aacute;bado, 23 de mayo</strong></p><p>El Alto, 15:00 Always Ready -&nbsp;Universitario (postergado)</p><p>Sucre, 17:15 Independiente -&nbsp;Real Potos&iacute; (postergado)</p><p>Santa Cruz, 19:30 Blooming -&nbsp;Real Tomayapo (postergado)</p><p><strong>Domingo, 24 de mayo</strong></p><p>Potos&iacute;, 15:00 Nacional -&nbsp;Real Oruro (postergado)</p><p>La Paz, 17:15 Bol&iacute;var -&nbsp;Guabir&aacute; (postergado)</p><p>Cochabamba, 19:30 Aurora -&nbsp;Oriente</p>",
-      "titulo": "Los conflictos sociales vuelven a bloquear el fútbol boliviano ",
-      "fecha_a": 1779321480000,
-      "prevId": "1779320017",
-      "link": "los-conflictos-sociales-vuelven-a-bloquear-el-futbol-boliviano_1779320017"
-    },
-    {
-      "_id": "6a0e2b27dbbb8000147c5f8b",
-      "fecha_c": 1779313829920,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779313452486.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779313452486.jpg",
-      "introHTML": "<p>El delantero del Santos presenta un edema en la pantorrilla derecha y estar&aacute; algunos d&iacute;as de baja, aunque llegar&aacute; en condiciones para sumarse al equipo de Carlo Ancelotti rumbo al Mundial 2026.</p>",
-      "opinologo": {
-        "_id": "68bd2f75484b81000295bbb1",
-        "firma": "Agencia EFE"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p>El coordinador del N&uacute;cleo de Salud del Santos, Rodrigo Zogaib, confirm&oacute; este mi&eacute;rcoles que Neymar sufre un edema en la pantorrilla derecha, que, sin embargo, no le impedir&aacute; estar en buenas condiciones el 27 de mayo, cuando se concentrar&aacute; con la selecci&oacute;n brasile&ntilde;a para el Mundial 2026.<br /><br />&quot;Neymar tiene una peque&ntilde;a lesi&oacute;n en la pantorrilla, un edema. Pero, de acuerdo con nuestra planificaci&oacute;n, su evoluci&oacute;n le permitir&aacute; estar apto la pr&oacute;xima semana cuando se integrar&aacute; a la selecci&oacute;n&quot;, afirm&oacute; Zogaib en una entrevista al portal deportivo Ge.<br /><br />El m&eacute;dico confirm&oacute; la lesi&oacute;n tan solo dos d&iacute;as despu&eacute;s de que Neymar fuera incluido en la lista de 26 convocados por el t&eacute;cnico Carlo Ancelotti para la selecci&oacute;n brasile&ntilde;a que disputar&aacute; el Mundial a partir del pr&oacute;ximo mes en Estados Unidos, Canad&aacute; y M&eacute;xico.<br /><br />Su inclusi&oacute;n en la lista, que le permitir&aacute; disputar su cuarto Mundial tras haber sido la m&aacute;xima estrella de Brasil en 2014, 2018 y 2022, fue una sorpresa debido a que Ancelotti no lo incluy&oacute; en ninguna de sus convocatorias anteriores y en varias oportunidades aclar&oacute; que solo convocar&iacute;a a jugadores al 100 % de sus condiciones y que el delantero del Santos no lo estaba.<br /><br />La aclaraci&oacute;n de Zogaib se produce en medio de especulaciones de que la lesi&oacute;n puede comprometer la participaci&oacute;n de Neymar en el Mundial y de que el jugador ser&iacute;a reservado en los primeros cuatro d&iacute;as de entrenamiento y hasta en el amistoso que Brasil disputar&aacute; contra Panam&aacute; el 31 de mayo en el Maracan&aacute; para despedirse de sus hinchas.<br /><br />El edema, diagnosticado tras el partido del pasado domingo en que el Santos encaj&oacute; una goleada por 0-3 en casa ante el Coritiba, tiene dos mil&iacute;metros y obligar&aacute; al delantero a permanecer de baja entre cinco y diez d&iacute;as.<br /><br />Como consecuencia de la lesi&oacute;n, el Santos no incluy&oacute; a su estrella en la lista de convocados para el partido de este mi&eacute;rcoles con el San Lorenzo argentino por la Copa Sudamericana y tampoco lo aprovechar&aacute; en el partido del pr&oacute;ximo s&aacute;bado por el Campeonato Brasile&ntilde;o.<br /><br />El Santos, sin embargo, a&uacute;n no descart&oacute; la posibilidad de alinear a Neymar en el partido del martes de la pr&oacute;xima semana con el Deportivo Cuenca por la &uacute;ltima jornada de la fase de grupos de la Sudamericana.<br /><br />Ello indicar&iacute;a que el atacante estar&iacute;a en buenas condiciones y actuar&iacute;a un d&iacute;a antes de concentrarse con la selecci&oacute;n brasile&ntilde;a.<br /><br />Seg&uacute;n versiones de prensa, el tratamiento del futbolista en el Centro de Entrenamientos &#39;Rey Pel&eacute;&#39; del Santos, conducido por m&eacute;dicos del club y los particulares de Neymar, es seguido a distancia por los galenos de la Confederaci&oacute;n Brasile&ntilde;a de F&uacute;tbol (CBF).&nbsp;</p>",
-      "titulo": "Neymar sufre lesión muscular, pero no peligra su presencia en la selección de Brasil",
-      "fecha_a": 1779313829920,
-      "prevId": "1779313829",
-      "link": "neymar-sufre-lesion-muscular-pero-no-peligra-su-presencia-en-la-seleccion-de-brasil_1779313829"
-    },
-    {
-      "_id": "6a0e264adbbb8000147c5ad4",
-      "fecha_c": 1779312966673,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779312459730.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779312459730.jpg",
-      "introHTML": "<p>El conjunto ingl&eacute;s gole&oacute; 3-0 al Friburgo en la final disputada en Estambul, rompi&oacute; una sequ&iacute;a de 44 a&ntilde;os sin t&iacute;tulos europeos y permiti&oacute; que Unai Emery se consolide como el entrenador m&aacute;s ganador en la historia del torneo con cinco coronas.</p>",
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p>El Aston Villa logr&oacute; la primera Europa League&nbsp;de su historia, a las &oacute;rdenes del entrenador Unai Emery, que agrand&oacute; su dominio de esta competici&oacute;n con su quinto t&iacute;tulo del torneo conseguido como t&eacute;cnico, tras haberlo ganado antes en tres ocasiones con el Sevilla y en una con el Villarreal.&nbsp;</p><p>El equipo de Birmingham, que se impuso por 3-0 al Friburgo en la final de Estambul, aument&oacute; a cinco los t&iacute;tulos ganados por Inglaterra desde el cambio de denominaci&oacute;n de Copa de la UEFA a Liga Europa, todav&iacute;a lejos de Espa&ntilde;a, que ha conquistado nueve (cinco del Sevilla, tres del Atl&eacute;tico de Madrid y uno del Villarreal).&nbsp;</p><p>Si se contabilizan tambi&eacute;n la Copa de la UEFA y la Copa de Ferias, sus precedentes, los conjuntos ingleses ocupan la segunda plaza por pa&iacute;ses en el palmar&eacute;s, con once, todav&iacute;a a tres de distancia de los clubes espa&ntilde;oles.&nbsp;</p><p>El Aston Villa toma el relevo como campe&oacute;n al Tottenham, que venci&oacute; la pasada campa&ntilde;a por 1-0 al Manchester United en la final.<br /><strong>-- Historial:</strong><br />-------------------- EUROPA LEAGUE --------------------------<br />A&ntilde;o &nbsp; &nbsp; &nbsp; &nbsp; Campe&oacute;n &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Subcampe&oacute;n &nbsp; &nbsp; &nbsp; &nbsp; Resultados<br />2025/26 Aston Villa (ING) &nbsp; Friburgo (ALE) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3-0<br />2024/25 Tottenham (ING) &nbsp;Manchester Utd (ING) &nbsp;1-0<br />2023/24 Atalanta (ITA) &nbsp; &nbsp; &nbsp;B. Leverkusen (ALE) &nbsp;3-0<br />2022/23 Sevilla (ESP) &nbsp; &nbsp; &nbsp; Roma (ITA) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1-1 (P)<br />2021/22 Eintracht (ALE) &nbsp; &nbsp; Rangers (ESC) &nbsp; &nbsp; &nbsp; &nbsp;1-1 (P)<br />2020/21 Villarreal (ESP) &nbsp; &nbsp;Manchester Utd (ING) 1-1 (P)<br />2019/20 Sevilla (ESP) &nbsp; &nbsp; &nbsp; Inter Mil&aacute;n (ITA) &nbsp; &nbsp;3-2<br />2018/19 Chelsea (ING) &nbsp; &nbsp; &nbsp; Arsenal (ING) &nbsp; &nbsp; &nbsp; &nbsp;4-1<br />2017/18 At. Madrid (ESP) &nbsp; &nbsp;O. Marsella (FRA) &nbsp; &nbsp;3-0<br />2016/17 Manchester U. (ING) Ajax (HOL) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2-0<br />2015/16 Sevilla (ESP) &nbsp; &nbsp; &nbsp; Liverpool (ING) &nbsp; &nbsp; &nbsp;3-1<br />2014/15 Sevilla (ESP) &nbsp; &nbsp; &nbsp; Dnipro (UCR) &nbsp; &nbsp; &nbsp; &nbsp; 3-2<br />2013/14 Sevilla (ESP) &nbsp; &nbsp; &nbsp; Benfica (POR) &nbsp; &nbsp; &nbsp; &nbsp;0-0 (P)<br />2012/13 Chelsea (ING) &nbsp; &nbsp; &nbsp; Benfica (POR) &nbsp; &nbsp; &nbsp; &nbsp;2-1<br />2011/12 At. Madrid (ESP) &nbsp; &nbsp;Athletic Bilbao(ESP) 3-0<br />2010/11 Oporto (POR) &nbsp; &nbsp; &nbsp; &nbsp;Sporting Braga (POR) 1-0<br />2009/10 At. Madrid (ESP) &nbsp; &nbsp;Fulham (ING) &nbsp; &nbsp; &nbsp; &nbsp; 2-1(Pr&oacute;rroga)<br />----------------------- COPA DE LA UEFA ------------------<br />2008/09 Shakhtar (UCR) &nbsp; &nbsp; &nbsp;Werder Bremen (ALE) &nbsp;2-1(Pr&oacute;rroga)<br />2007/08 Zenit (RUS) &nbsp; &nbsp; &nbsp; &nbsp; Rangers (ESC) &nbsp; &nbsp; &nbsp; &nbsp;2-0<br />2006/07 Sevilla (ESP) &nbsp; &nbsp; &nbsp; Espanyol (ESP) &nbsp; &nbsp; &nbsp; 2-2 (P)<br />2005/06 Sevilla (ESP) &nbsp; &nbsp; &nbsp; Middlesbrough (ING) &nbsp;4-0<br />2004/05 CSKA Mosc&uacute; (RUS) &nbsp; &nbsp;Sporting Lisboa(POR) 3-1<br />2003/04 Valencia (ESP) &nbsp; &nbsp; &nbsp;O. Marsella (FRA) &nbsp; &nbsp;2-0<br />2002/03 Oporto (POR) &nbsp; &nbsp; &nbsp; &nbsp;Celtic (ESC) &nbsp; &nbsp; &nbsp; &nbsp; 3-2<br />2001/02 Feyenoord (HOL) &nbsp; &nbsp; Borussia D. (ALE) &nbsp; &nbsp;3-2<br />2000/01 Liverpool (ING) &nbsp; &nbsp; Alav&eacute;s (ESP) &nbsp; &nbsp; &nbsp; &nbsp; 5-4 (++)<br />1999/00 Galatasaray (TUR) &nbsp; Arsenal (ING) &nbsp; &nbsp; &nbsp; &nbsp;0-0 (P)<br />1998/99 Parma (ITA) &nbsp; &nbsp; &nbsp; &nbsp; O. Marsella (FRA) &nbsp; &nbsp;3-0<br />1997/98 Inter Mil&aacute;n (ITA) &nbsp; Lazio (ITA) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3-0<br />1996/97 Schalke 04 (ALE) &nbsp; &nbsp;Inter Mil&aacute;n (ITA) &nbsp; &nbsp;1-0, 0-1 (P)<br />1995/96 Bayern M&uacute;nich (ALE) G. Burdeos (FRA) &nbsp; &nbsp; 2-0, 3-1<br />1994/95 Parma (ITA) &nbsp; &nbsp; &nbsp; &nbsp; Juventus (ITA) &nbsp; &nbsp; &nbsp; 1-0, 1-1<br />1993/94 Inter (ITA) &nbsp; &nbsp; &nbsp; &nbsp; Salzburgo (AUT) &nbsp; &nbsp; &nbsp;1-0, 1-0<br />1992/93 Juventus (ITA) &nbsp; &nbsp; &nbsp;B. Dortmund (ALE) &nbsp; &nbsp;3-1, 3-0<br />1991/92 Ajax (HOL) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Torino (ITA) &nbsp; &nbsp; &nbsp; &nbsp; 2-2, 0-0<br />1990/91 Inter (ITA) &nbsp; &nbsp; &nbsp; &nbsp; Roma (ITA) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2-0, 0-1<br />1989/90 Juventus (ITA) &nbsp; &nbsp; &nbsp;Fiorentina (ITA) &nbsp; &nbsp; 3-1, 0-0<br />1988/89 N&aacute;poles (ITA) &nbsp; &nbsp; &nbsp; Stuttgart (ALE) &nbsp; &nbsp; &nbsp;2-1, 3-3<br />1987/88 B. Leverkusen(ALE) &nbsp;Espanyol (ESP) &nbsp; &nbsp; &nbsp; 0-3, 3-0 (P)<br />1986/87 Goteborg (SUE) &nbsp; &nbsp; &nbsp;Dundee United (ESC) &nbsp;1-0, 1-1<br />1985/86 Real Madrid (ESP) &nbsp; Colonia (ALE) &nbsp; &nbsp; &nbsp; &nbsp;5-1, 0-2<br />1984/85 Real Madrid (ESP) &nbsp; Videoton (HUN) &nbsp; &nbsp; &nbsp; 3-0, 0-1<br />1983/84 Tottenham (ING) &nbsp; &nbsp; Anderlecht (BEL) &nbsp; &nbsp; 1-1, 2-1<br />1982/83 Anderlecht (BEL) &nbsp; &nbsp;Benfica (POR) &nbsp; &nbsp; &nbsp; &nbsp;1-0, 1-1<br />1981/82 Goteborg (SUE) &nbsp; &nbsp; &nbsp;Hamburgo (ALE) &nbsp; &nbsp; &nbsp; 1-0, 3-0<br />1980/81 Ipswich Town (ING) &nbsp;AZ 67 (HOL) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3-0, 2-4<br />1979/80 Eintracht F.(ALE) &nbsp; Borussia Moen. (ALE) 2-3, 1-0<br />1978/79 Borussia M.(ALE) &nbsp; &nbsp;Estrella Roja (YUG) &nbsp;1-1, 1-0<br />1977/78 PSV (HOL) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Bastia (FRA) &nbsp; &nbsp; &nbsp; &nbsp; 0-0, 3-0<br />1976/77 Juventus (ITA) &nbsp; &nbsp; &nbsp;Ath. Bilbao (ESP) &nbsp; &nbsp;1-0, 1-2<br />1975/76 Liverpool (ING) &nbsp; &nbsp; Brujas (BEL) &nbsp; &nbsp; &nbsp; &nbsp; 3-2, 1-1<br />1974/75 Borussia M.(ALE) &nbsp; &nbsp;Twente Ens. (HOL) &nbsp; &nbsp;0-0, 5-1<br />1973/74 Feyenoord (HOL) &nbsp; &nbsp; Tottenham (ING) &nbsp; &nbsp; &nbsp;2-2, 2-0<br />1972/73 Liverpool (ING) &nbsp; &nbsp; Borussia M. (ALE) &nbsp; &nbsp;3-0, 0-2<br />1971/72 Tottenham (ING) &nbsp; &nbsp; Wolverhampton (ING) &nbsp;2-1, 1-1<br />------------------- COPA DE FERIAS -----------------------<br />1971 Leeds United (ING) &nbsp; &nbsp; Juventus (ITA) &nbsp; &nbsp; &nbsp; 2-2, 1-1<br />1970 Arsenal (ING) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Anderlecht (BEL) &nbsp; &nbsp; 1-3, 3-0<br />1969 Newcastle (ING) &nbsp; &nbsp; &nbsp; &nbsp;Ujpest Dozsa (HUN) &nbsp; 3-0, 3-2<br />1968 Leeds United (ING) &nbsp; &nbsp; Ferencvaros (HUN) &nbsp; &nbsp;1-0, 0-0<br />1967 Din. Zagreb (YUG) &nbsp; &nbsp; &nbsp;Leeds Untd.(ING) &nbsp; &nbsp; 2-0, 0-0<br />1966 Barcelona (ESP) &nbsp; &nbsp; &nbsp; &nbsp;Zaragoza (ESP) &nbsp; &nbsp; &nbsp; 0-1, 4-2<br />1965 Ferencvaros (HUN) &nbsp; &nbsp; &nbsp;Juventus Tur&iacute;n (ITA) 1-0 (+)<br />1964 Zaragoza (ESP) &nbsp; &nbsp; &nbsp; &nbsp; Valencia (ESP) &nbsp; &nbsp; &nbsp; 2-1 (+)<br />1963 Valencia (ESP) &nbsp; &nbsp; &nbsp; &nbsp; Din. Zagreb (YUG) &nbsp; &nbsp;2-0, 2-1<br />1962 Valencia (ESP) &nbsp; &nbsp; &nbsp; &nbsp; Barcelona (ESP) &nbsp; &nbsp; &nbsp;6-2, 1-1<br />1961 Roma (ITA) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Birmingham (ING) &nbsp; &nbsp; 2-0, 2-2<br />1960 Barcelona (ESP) &nbsp; &nbsp; &nbsp; &nbsp;Birmingham (ING) &nbsp; &nbsp; 1-1, 4-1<br />1958 Barcelona (ESP) &nbsp; &nbsp; &nbsp; &nbsp;Sel. Londres &nbsp; &nbsp; &nbsp; &nbsp; 2-2, 6-0</p><p>- Entre 1958 y 1971 el torneo se denomin&oacute; Copa de Ferias.<br />- A partir de 1998 la final ha sido a partido &uacute;nico.<br />(P) El t&iacute;tulo se decidi&oacute; en la tanda de penales.<br />(++): la final se decidi&oacute; con gol de oro.&nbsp;</p>",
-      "titulo": "Aston Villa gana su primera Europa League y Emery conquista la quinta",
-      "fecha_a": 1779312966674,
-      "prevId": "1779312966",
-      "link": "aston-villa-gana-su-primera-europa-league-y-emery-conquista-la-quinta_1779312966"
-    },
-    {
-      "_id": "6a0e220cdbbb8000147c55d9",
-      "fecha_c": 1779311861994,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779311122894.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779311122894.jpg",
-      "introHTML": "<p>El equipo de Unai Emery venci&oacute; 3-0 en la final disputada en Estambul, rompi&oacute; una sequ&iacute;a de 44 a&ntilde;os sin t&iacute;tulos internacionales y le dio al t&eacute;cnico espa&ntilde;ol su quinta Europa League como entrenador.</p>",
-      "opinologo": {
-        "_id": "68bd2f75484b81000295bbb1",
-        "firma": "Agencia EFE"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p>Si tienes que ir a la guerra, ll&eacute;vate un fusil. Si tienes que ir a una isla desierta, no te olvides un buen libro. Y si tienes que jugar una final de la Europa League, te tiene que entrenar Unai Emery. No hay m&aacute;s. El t&eacute;cnico de Hondarribia es M&iacute;ster Europa League. Su Aston Villa venci&oacute; al Friburgo (0-3) y su palmar&eacute;s est&aacute; adornado ya por cinco t&iacute;tulos en esta competici&oacute;n. Inigualable.<br /><br />Tres con el Sevilla, una con el Villarreal y ahora otra con el Aston Villa, que llevaba 44 a&ntilde;os sin un t&iacute;tulo europeo y 30 desde la &uacute;ltima vez que tocaban plata. Muy lejos quedaba la Copa de Europa y la Supercopa de 1982 y tambi&eacute;n la Copa de la Liga de 1996. Una generaci&oacute;n entera de aficionados de este club de Birmingham no sab&iacute;an lo que era ganar un t&iacute;tulo y sentirse campeones. Y entonces lleg&oacute; Emery, que ha destrozado todas las expectativas y ha hecho saltar de alegr&iacute;a hasta al futuro rey de Inglaterra, que disfrut&oacute; como un &#39;Villano&#39; m&aacute;s del milagro que ha construido Emery.<br /><br />Porque nadie hubiera apostado a principios de temporada que este equipo estar&iacute;a un 20 de mayo clasificado ya a la Champions League y a noventa minutos de ganar un trofeo europeo. Pero Emery mejora todo lo que toca y el Villa sali&oacute; al Besiktas Park como un equipo ganador, por muchas d&eacute;cadas que hubiesen pasado sin ganar.<br /><br />Pasaron los primeros cuarenta minutos de nervios y se quitaron la presi&oacute;n de encima en los cinco minutos previos al descanso. Ah&iacute; lleg&oacute; una volea magn&iacute;fica de Youri Tielemans. El belga ya fue h&eacute;roe del Leicester City al ganar para ellos una FA Cup con un golazo y aqu&iacute; repiti&oacute; culminando una jugada de estrategia a la salida de un c&oacute;rner para encaminar la final hacia Birmingham.<br /><br />Cinco minutos despu&eacute;s de ese golazo, respondi&oacute; Emi Buend&iacute;a con uno incluso mejor, con un disparo curvo desde la frontal directo a la escuadra que sentenci&oacute; la final antes del descanso. Los alemanes estaban at&oacute;nitos, les hab&iacute;an arrollado con la guardia baja y en un momento psicol&oacute;gico tremendo. Se fueron al descanso pensando que esto estaba finiquitado.<br /><br />Y el f&uacute;tbol, aunque ya depar&oacute; alguna ins&oacute;lita remontada en Estambul en el pasado, esta vez no tuvo cartas debajo de la manga. A los trece minutos tras la reanudaci&oacute;n, Buend&iacute;a asisti&oacute; a Morgan Rogers y la final se termin&oacute;.<br /><br />De agarrar a un equipo al borde del descenso hace menos de cuatro a&ntilde;os a sacarlo de la depresi&oacute;n y convertirlo en un campe&oacute;n europeo. Las l&aacute;grimas en la grada eran l&oacute;gicas; en el campo tambi&eacute;n. Emery ha logrado lo inimaginable con una plantilla que se deshac&iacute;a a principios de temporada por la falta de inversi&oacute;n debido a las restricciones del &#39;fair play&#39; financiero y a la que hizo creer que todo era posible el propio Emery.<br /><br />El de Hondarribia puede ahora colocarse su quinta corona en la Europa League, mientras en Birmingham saborean un entorchado que sabe tan bien como la Copa de Europa que ganaron en 1982. Todo gracias a Unai Emery.</p>",
-      "titulo": "Aston Villa golea al Friburgo y es campeón de la Europa League",
-      "fecha_a": 1779311861995,
-      "prevId": "1779311861",
-      "link": "aston-villa-golea-al-friburgo-y-es-campeon-de-la-europa-league_1779311861"
-    },
-    {
-      "_id": "6a0e09a4dbbb8000147c4657",
-      "fecha_c": 1779306948254,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779306646619.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779306646619.jpg",
-      "introHTML": "<p>Roberto Carlos Fern&aacute;ndez aport&oacute; con una asistencia y Yomar Rocha fue titular en la victoria 2-0 del Akron sobre Rotor Volgogrado, por el partido de ida del descenso indirecto en Rusia.</p>",
-      "opinologo": {
-        "_id": "68bd2f75484b81000295bbbd",
-        "firma": "Jaime Paniagua",
-        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbd/1764689648901.jpg"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p data-end=\"275\" data-start=\"0\">Dio el primer golpe. <strong>El FC Akron de los bolivianos Roberto Carlos Fern&aacute;ndez y Yomar Rocha logr&oacute; una importante victoria por 2-0 ante Rotor Volgogrado en el partido de ida del descenso indirecto en Rusia. </strong>Los dos tantos del equipo rojo fueron convertidos por Gilson Benchimol.</p><p data-end=\"489\" data-start=\"277\">Ambos laterales nacionales fueron titulares y <strong>Roberto Carlos Fern&aacute;ndez aport&oacute; con una asistencia para el segundo gol de Benchimol.</strong> El ex Blooming y Bol&iacute;var&nbsp;disput&oacute; 78 minutos, mientras que Rocha complet&oacute; todo el encuentro.</p><p data-end=\"713\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"491\">Con esta ventaja de dos goles en el global, <strong>Akron qued&oacute; a un paso de asegurar su permanencia en la primera divisi&oacute;n rusa.</strong> El partido de revancha est&aacute; programado para el 25 de este mes, donde el equipo boliviano ser&aacute; local.</p><p>&nbsp;</p>",
-      "titulo": "Con aporte boliviano, Akron gana y sueña con quedarse en la primera división rusa",
-      "fecha_a": 1779306948254,
-      "prevId": "1779306948",
-      "link": "con-aporte-boliviano-akron-gana-y-suena-con-quedarse-en-la-primera-division-rusa_1779306948"
-    },
-    {
-      "_id": "6a0df49bdbbb8000147c38a5",
-      "fecha_c": 1779299550738,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779299504115.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779299504115.jpg",
-      "introHTML": "<p>La Federaci&oacute;n Boliviana de F&uacute;tbol decidi&oacute; suspender la novena fecha del torneo Todos contra Todos debido a los conflictos sociales que atraviesa el pa&iacute;s y que impiden garantizar la seguridad para la disputa de los encuentros.<br />&nbsp;</p>",
-      "opinologo": {
-        "_id": "68bd2f6f484b81000295baa7",
-        "firma": "Pedro Rivero de Ugarte",
-        "foto": "https://cdn.diez.bo/diez/68bd2f6f484b81000295baa7/1772023196662.jpg"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p>El Comit&eacute; Ejecutivo de la Federaci&oacute;n Boliviana de F&uacute;tbol (FBF) determin&oacute; este mi&eacute;rcoles la suspensi&oacute;n total de la novena jornada del torneo Todos contra Todos. La decisi&oacute;n fue tomada en la ciudad de La Paz, durante una reuni&oacute;n encabezada por el presidente federativo, Fernando Costa.</p><p>La medida responde a los conflictos sociales que afectan a diferentes regiones del pa&iacute;s y que complican la log&iacute;stica y la seguridad necesarias para el normal desarrollo de los compromisos programados para este fin de semana.</p><p>DIEZ estuvo presente en la reuni&oacute;n del Comit&eacute; Ejecutivo y pudo constatar la informaci&oacute;n proporcionada por los dirigentes, quienes coincidieron en que actualmente no existen las condiciones adecuadas para llevar adelante la fecha del campeonato profesional.</p><p>Entre los principales inconvenientes mencionados se encuentran los bloqueos de carreteras, las dificultades de traslado para los clubes y la imposibilidad de garantizar la seguridad tanto de las delegaciones como de los aficionados.</p><p>Los partidos que quedaron suspendidos por la novena fecha son: San Antonio vs. ABB, GV San Jos&eacute; vs. The Strongest, Always Ready vs. Universitario, Independiente vs. Real Potos&iacute;, Blooming vs. Real Tomayapo, Nacional Potos&iacute; vs. Real Oruro, Bol&iacute;var vs. Guabir&aacute; y Aurora vs. Oriente Petrolero.</p><p>Desde la FBF tambi&eacute;n aclararon que los encuentros correspondientes a la Copa Sim&oacute;n Bol&iacute;var se disputar&aacute;n con normalidad, debido a que actualmente se desarrolla la fase regional del certamen, lo que facilita la organizaci&oacute;n y el traslado de los equipos participantes.</p><p>Por el momento, la federaci&oacute;n no confirm&oacute; las fechas de reprogramaci&oacute;n para los partidos suspendidos, aunque se espera que en los pr&oacute;ximos d&iacute;as se analice el calendario para evitar una mayor acumulaci&oacute;n de encuentros en el torneo boliviano.</p>",
-      "titulo": "¡No se juega la fecha 9! Conflictos sociales obligan a parar el fútbol",
-      "fecha_a": 1779299550738,
-      "prevId": "1779299550",
-      "link": "no-se-juega-la-fecha-9-conflictos-sociales-obligan-a-parar-el-futbol_1779299550"
-    },
-    {
-      "_id": "6a0deb59dbbb8000147c27b5",
-      "fecha_c": 1779297183213,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779297138704.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779297138704.jpg",
-      "introHTML": "<p>El dirigente de Atl&eacute;tico Juniors, Daniele Stabile, expres&oacute; su preocupaci&oacute;n por la crisis institucional que atraviesa la ACF y confirm&oacute; que la asociaci&oacute;n envi&oacute; una carta a la FBF y al Comit&eacute; Electoral solicitando la convocatoria inmediata a elecciones.<br />&nbsp;</p>",
-      "opinologo": {
-        "_id": "68bd2f6f484b81000295baa7",
-        "firma": "Pedro Rivero de Ugarte",
-        "foto": "https://cdn.diez.bo/diez/68bd2f6f484b81000295baa7/1772023196662.jpg"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p>La incertidumbre contin&uacute;a rodeando a la Asociaci&oacute;n Cruce&ntilde;a de F&uacute;tbol (ACF). Este mi&eacute;rcoles, Daniele Stabile, dirigente del club Atl&eacute;tico Juniors de la Primera A, confirm&oacute; que el Comit&eacute; Ejecutivo de la asociaci&oacute;n envi&oacute; una carta formal a la Federaci&oacute;n Boliviana de F&uacute;tbol (FBF) y al Comit&eacute; Electoral solicitando la convocatoria inmediata a elecciones.</p><p>En conversaci&oacute;n con DIEZ, Stabile asegur&oacute; que los clubes afiliados llevan m&aacute;s de dos a&ntilde;os exigiendo un proceso democr&aacute;tico que permita renovar la dirigencia de la ACF, debido a que consideran que el actual directorio ya cumpli&oacute; su ciclo.</p><p>&ldquo;El d&iacute;a martes la ACF envi&oacute; una carta a la FBF donde se solicita al Comit&eacute; Electoral y a la misma federaci&oacute;n que convoquen a elecciones. Vivimos con incertidumbre hace m&aacute;s de dos a&ntilde;os, entonces esperamos que finalmente se puedan realizar&rdquo;, manifest&oacute; el dirigente.</p><p>Stabile record&oacute; que el conflicto institucional no es reciente y que varios clubes incluso asumieron medidas dr&aacute;sticas en el pasado para hacer visible su descontento. &ldquo;Venimos hace dos a&ntilde;os peleando por esto. Incluso, en una ocasi&oacute;n, 12 clubes paramos y no jugamos el torneo a manera de protesta y salimos perjudicados&rdquo;, sostuvo.</p><p>El representante de Atl&eacute;tico Juniors tambi&eacute;n cuestion&oacute; la continuidad del actual directorio de la asociaci&oacute;n, al considerar que su mandato ya expir&oacute; hace bastante tiempo. &ldquo;Hace dos a&ntilde;os que el directorio actual feneci&oacute;. Es un directorio ya vencido, el cual deber&iacute;a llamar a elecciones. No miramos atr&aacute;s, solo nos queda enfocarnos en el presente y el futuro&rdquo;, afirm&oacute;.</p><p>Asimismo, revel&oacute; que la solicitud enviada a la federaci&oacute;n fue impulsada tras conversaciones recientes con el presidente de la ACF, Fernando Barrios. &ldquo;Anoche le solicitamos al presidente Fernando Barrios la carta y se la elabor&oacute;&rdquo;, explic&oacute; Stabile.</p><p>El dirigente no ocult&oacute; su preocupaci&oacute;n por el estado actual de la asociaci&oacute;n cruce&ntilde;a y lament&oacute; el deterioro institucional que, seg&uacute;n indic&oacute;, afecta directamente al f&uacute;tbol local. &ldquo;La Asociaci&oacute;n se est&aacute; cayendo a pedazos. Es lamentable y solo queremos que se haga gesti&oacute;n. Queremos que quien asuma el cargo haga las cosas de buena forma&rdquo;, expres&oacute;.</p><p>Finalmente, Stabile remarc&oacute; que el principal pedido de los clubes es que exista transparencia y democracia dentro de la ACF. &ldquo;Solo queremos que haya democracia y que los clubes afiliados tengan la posibilidad de elegir la opci&oacute;n que mejor les parezca. Hay que tener un plan de trabajo; si queremos hacer bien las cosas, hay que hacerlas bien desde la ra&iacute;z&rdquo;, concluy&oacute;.</p>",
-      "titulo": "“Queremos democracia”: la exigencia de los clubes afiliados a la ACF",
-      "fecha_a": 1779297183213,
-      "prevId": "1779297183",
-      "link": "queremos-democracia-la-exigencia-de-los-clubes-afiliados-a-la-acf_1779297183",
-      "tags": [
-        ""
-      ]
-    },
-    {
-      "_id": "6a0de292dbbb8000147c1a24",
-      "fecha_c": 1779296089633,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779296059511.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779296059511.jpg",
-      "introHTML": "<p>El abogado Eduardo Martins confirm&oacute; que el club pedir&aacute; los fundamentos del fallo y presentar&aacute; una apelaci&oacute;n ante Conmebol, al considerar desproporcionada la suspensi&oacute;n de cuatro meses.</p>",
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p>Blooming ya mueve fichas en defensa de Danny Bejarano. Tras la sanci&oacute;n de cuatro meses impuesta por la Conmebol por un presunto acto de racismo, el abogado Eduardo Martins confirm&oacute; que el club solicitar&aacute; los fundamentos del fallo y presentar&aacute; una apelaci&oacute;n para intentar reducir el castigo.</p><p><strong>&ldquo;Es una sanci&oacute;n de la unidad disciplinaria a partir del informe del delegado del partido ante Carabobo, por una frase desafortunada de Dani Bejarano&rdquo;,</strong> explic&oacute; Martins, quien detall&oacute; que la Conmebol consider&oacute; que se vulner&oacute; el art&iacute;culo 15 del C&oacute;digo Disciplinario, que contempla sanciones m&iacute;nimas de diez partidos o cuatro meses.</p><p>El castigo no solo deja al jugador&nbsp;fuera de la Copa Sudamericana, sino que tambi&eacute;n se extiende al torneo local. &ldquo;<strong>Incluye partidos nacionales e internacionales, no puede jugar, est&aacute; suspendido&rdquo;</strong>, precis&oacute; el abogado.</p><p>Sin embargo, desde la defensa consideran que la sanci&oacute;n es desmedida. <strong>&ldquo;Est&aacute; mal lo que dijo Dani Bejarano, puede caber una sanci&oacute;n, pero cuatro meses me parece una sobreactuaci&oacute;n&rdquo;</strong>, sostuvo Martins, marcando la l&iacute;nea argumentativa que presentar&aacute; el club en su apelaci&oacute;n.</p><p>En ese sentido, el jurista tambi&eacute;n cuestion&oacute; el contexto en el que se produjo el hecho. &ldquo;Estas cuestiones hay que contextualizarlas. Dentro de una cancha se dicen muchas cosas, tampoco me voy a hacer el inocente&rdquo;, afirm&oacute;, aunque aclar&oacute; su postura: &ldquo;Estoy totalmente en contra de los insultos racistas&rdquo;.</p><p>Martins tambi&eacute;n puso en duda la contundencia del caso al se&ntilde;alar que &ldquo;ni siquiera el jugador habr&iacute;a escuchado lo que dijo Dani Bejarano&rdquo;, y remarc&oacute; que situaciones similares dentro del campo de juego muchas veces no reciben el mismo tratamiento.</p><p>Adem&aacute;s, apunt&oacute; a una supuesta desigualdad en la valoraci&oacute;n de estos hechos.<strong> &ldquo;Los jugadores de Blooming tuvieron que soportar insultos racistas y no pas&oacute; lo mismo&rdquo;</strong>, asegur&oacute;.</p><p>Sobre los pr&oacute;ximos pasos, el abogado explic&oacute; que el club pedir&aacute; los fundamentos del fallo y luego avanzar&aacute; con la apelaci&oacute;n. Incluso, no descart&oacute; escalar el caso a instancias mayores. &ldquo;A lo mejor esto se extiende un poco m&aacute;s&hellip; terminemos con el TAS, no lo s&eacute;&rdquo;, advirti&oacute;.</p><p>En cuanto a los tiempos, Martins estim&oacute; que &ldquo;en un mes deber&iacute;amos tener una decisi&oacute;n&rdquo; por parte de la Conmebol.</p><p>Mientras tanto, Bejarano contin&uacute;a suspendido y Blooming pierde a una pieza clave en un tramo decisivo de la temporada, a la espera de que la v&iacute;a legal pueda cambiar el rumbo del caso.</p>",
-      "titulo": "Blooming apelará sanción a Bejarano: “Es excesiva”",
-      "fecha_a": 1779296040000,
-      "prevId": "1779296082",
-      "link": "blooming-apelara-sancion-a-bejarano-es-excesiva_1779296082"
-    },
-    {
-      "_id": "6a0dbc95dbbb8000147bec76",
-      "fecha_c": 1779285949552,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779285845144.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779285845144.jpg",
-      "introHTML": "<p>El Aston Villa de Unai Emery y el Friburgo se enfrentan por el t&iacute;tulo de la Europa League en una final hist&oacute;rica que se disputar&aacute; a las 15:00 (HB)&nbsp;en Estambul, con ambos equipos a un paso de la gloria europea.</p>",
-      "opinologo": {
-        "_id": "68bd2f75484b81000295bbb1",
-        "firma": "Agencia EFE"
-      },
-      "secciones": [
-        "fuera de juego"
-      ],
-      "textoHTML": "<p>Cuando Unai Emery lleg&oacute; al Aston Villa a finales de 2022, se puso un reto por delante. Clasificar al equipo a Europa y ganar un t&iacute;tulo. Muchos le tomaron por loco. Ese Villa, comandado por Steven Gerrard en el banquillo, estaba al borde del descenso. Pensar en estar en Europa o ganar el primer t&iacute;tulo en casi tres d&eacute;cadas era poco m&aacute;s que una quimera. Muchos, adem&aacute;s, no pensaban en Emery como el ganador del Sevilla, Valencia y Villarreal, sino que le recordaban por su corto paso por el Arsenal.</p><p>La apuesta de los de Birmingham y del propio Emery fue alta, pero esta no tard&oacute; en pagar. Emery ha cumplido la primera parte de su promesa y ha clasificado al Villa a Europa en cada uno de las cuatro temporadas que ha estado all&iacute;; la segunda parte, el ansiado t&iacute;tulo, est&aacute; a un partido, en Estambul contra el Friburgo, de distancia.</p><p>Pese a que el Aston Villa fue campe&oacute;n de Europa en 1982, no saboreaba una final europea desde ese mismo a&ntilde;o. Entre aquella gesta y la llegada de Emery, el equipo no sab&iacute;a ni lo que era estar en unas semifinales y su mejor resultado eran los cuartos de final de la UEFA en 1998.</p><p>La transformaci&oacute;n de Emery en este equipo es total y ahora pisa territorio conocido. El vasco ha dirigido cinco finales de Europa League, tres con el Sevilla, una con el Villarreal y una con el Arsenal, y ha ganado cuatro de ellas. Solo perdi&oacute; la del Arsenal, contra el Chelsea en 2019, y est&aacute; considerado el t&eacute;cnico m&aacute;s exitoso de la historia de la competici&oacute;n. M&iacute;ster Europa League, le llaman.</p><p>Para el partido de este martes, el once de Emery solo guarda una duda, si Amadou Onana se recuperar&aacute; a tiempo o si su lugar en el centro del campo lo tomar&aacute; Victor Lindelof. Pese a que el Villa tiene otras opciones para ese puesto de acompa&ntilde;ante de Youri Tielemans, el central sueco ha sido la opci&oacute;n favorita de Emery en los &uacute;ltimos cuatro partidos y puede imponerse en la alineaci&oacute;n a Douglas Luiz y Lamare Bogarde.</p><p>Para el Friburgo, la final de la Liga de Europa es sin duda alguna el partido m&aacute;s importante de la historia del club que por primera vez llega a esa instancia en una competici&oacute;n europea.</p><p>El meta, Noah Atubol&uacute; ha sostenido que tambi&eacute;n es el partido m&aacute;s importante en la carrera de la mayor&iacute;a de los jugadores del club.</p><p>&quot;Una final as&iacute; es para casi todos en el equipo el punto m&aacute;ximo que han alcanzado hasta ahora en sus carreras&quot;, dijo Atubol&uacute; en declaraciones al canal RTL.</p><p>&quot;Se siente una gran gratitud por lo alcanzado hasta ahora, pero todos queremos dar tambi&eacute;n el &uacute;ltimo paso, lograr lo que nunca antes hab&iacute;a logrado el club en la historia y conquistar el t&iacute;tulo&quot;, dijo, por su parte, el entrenador, Julian Schuster.</p><p>El capit&aacute;n, Chistian G&uuml;nter, dijo que aunque el Aston Villa es un rival d&iacute;ficl en un partido &quot;todo es posible&quot;.</p><p>El Friburgo es un club que, con un presupuesto claramente inferior al de los grandes de la Bundesliga, ha apostado siempre por proyectos a largo plazo</p><p>Desde 1991 el club s&oacute;lo ha tenido cinco entrenadores y dos de ellos, Volker Finke entre 1991 y 2007 y Christian Streich entre 2011 y 2024, han estado m&aacute;s de diez a&ntilde;os en el banquillo lo que muestra una clara voluntad de continuidad.</p><p>Schuster, sucesor y disc&iacute;pulo de Steich y exjugador y excapit&aacute;n del club, lleva tres a&ntilde;os en el banquillo.</p><p>El Friburgo se ha asegurad al menos su presencia en la Liga Conferencia tras golear en la &uacute;ltima jornada de la Bundesliga al Leipzig por 4-1.</p><p>En la plantilla hay jugadores experimentados, como el central Mathias Ginter o Vincenzo Grifo, que viene jugando de extremo, y tambi&eacute;n jugadores de gran proyecci&oacute;n como Johan Manzambi, probablemente el mejor de la plantilla actual en la parte ofensiva.</p>",
-      "titulo": "Aston Villa y Friburgo a un paso de la historia en la Europa League",
-      "fecha_a": 1779285180000,
-      "prevId": "1779285949",
-      "link": "aston-villa-y-friburgo-a-un-paso-de-la-historia-en-la-europa-league_1779285949"
-    },
-    {
-      "_id": "6a0da83ddbbb8000147bd5b0",
-      "fecha_c": 1779283156572,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779282813508.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779282813508.jpg",
-      "introHTML": "<p>El entrenador paraguayo, de 47 a&ntilde;os, est&aacute; cerca de asumir en Oriente Petrolero. Su carrera incluye pasos por 12 equipos y una experiencia en Bolivia con The Strongest</p>",
-      "opinologo": {
-        "_id": "68bd2f75484b81000295bbbc",
-        "firma": "Lucas Nazrala",
-        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbc/1759755434737.jpg"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p>A la espera de la confirmaci&oacute;n oficial, todo indica que Gustavo Florent&iacute;n ser&aacute; el nuevo director t&eacute;cnico de Oriente Petrolero. El entrenador paraguayo, de 47 a&ntilde;os, llegar&iacute;a al club refinero con una amplia trayectoria en el f&uacute;tbol sudamericano y un recorrido que respalda su perfil.</p><p>Desde su debut como entrenador en 2015, Florent&iacute;n ha dirigido a un total de 12 equipos en distintos pa&iacute;ses de la regi&oacute;n. En su curr&iacute;culum aparecen clubes como Cerro Porte&ntilde;o, Guaran&iacute;, Huachipato, Atl&eacute;tico Bucaramanga y &Aacute;guilas Doradas, adem&aacute;s de su paso por el f&uacute;tbol boliviano.</p><p>En 2021 tuvo una breve experiencia en The Strongest, donde permaneci&oacute; durante cuatro meses. A pesar de dejar al equipo en el primer lugar, el paraguayo present&oacute; su renuncia en agosto de ese a&ntilde;o, cerrando as&iacute; su etapa en el conjunto pace&ntilde;o.</p><p>En cuanto a sus n&uacute;meros, Florent&iacute;n acumula 239 partidos dirigidos como profesional, con un balance de 90 victorias, 66 empates y 83 derrotas. Estas cifras reflejan un rendimiento competitivo a lo largo de su carrera, marcada por constantes desaf&iacute;os en ligas exigentes.</p><p>Su &uacute;ltimo equipo fue Jaguares de C&oacute;rdoba, en Colombia, donde dirigi&oacute; seis encuentros antes de presentar su renuncia en la presente temporada.</p><p>Con este recorrido, Florent&iacute;n asoma como una opci&oacute;n para intentar encaminar a Oriente Petrolero, que busca recuperar protagonismo y encontrar estabilidad en su proyecto deportivo.</p><p>&nbsp;</p>",
-      "titulo": "Los números de Florentín, el técnico que se acerca a Oriente Petrolero",
-      "fecha_a": 1779283156572,
-      "prevId": "1779283156",
-      "link": "los-numeros-de-florentin-el-tecnico-que-se-acerca-a-oriente-petrolero_1779283156"
-    },
-    {
-      "_id": "6a0db183dbbb8000147bdd4f",
-      "fecha_c": 1779282401014,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779282351366.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779282351366.jpg",
-      "introHTML": "<p>Carlos Lampe expres&oacute; su preocupaci&oacute;n por los conflictos sociales que afectan al pa&iacute;s y especialmente a La Paz, ciudad donde reside junto a su familia y donde Bol&iacute;var debe jugar la pr&oacute;xima semana por la Copa Libertadores. El arquero habl&oacute; tras la derrota ante Fluminense en R&iacute;o de Janeiro.<br />&nbsp;</p>",
-      "opinologo": {
-        "_id": "68bd2f6f484b81000295baa7",
-        "firma": "Pedro Rivero de Ugarte",
-        "foto": "https://cdn.diez.bo/diez/68bd2f6f484b81000295baa7/1772023196662.jpg"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p>Luego de la derrota de Bol&iacute;var por 2-1 ante Fluminense en R&iacute;o de Janeiro, Carlos Lampe dej&oacute; de lado por un momento el an&aacute;lisis futbol&iacute;stico y se refiri&oacute; a la complicada situaci&oacute;n social que atraviesa Bolivia, especialmente la ciudad de La Paz.</p><p>El arquero de la academia pace&ntilde;a habl&oacute; en zona mixta y reconoci&oacute; que tanto &eacute;l como su familia viven con preocupaci&oacute;n los conflictos que se registran en distintos puntos del pa&iacute;s, donde La Paz se ha convertido en el principal foco de enfrentamientos y movilizaciones.</p><p>&ldquo;Estamos pasando un momento complicado, es dif&iacute;cil. Lo estamos sintiendo mucho y nuestras familias tampoco la pasan bien&rdquo;, expres&oacute; Lampe, visiblemente afectado por el contexto social que atraviesa el pa&iacute;s.</p><p>La consulta al guardameta estuvo relacionada directamente con los conflictos sociales que afectan a varias ciudades bolivianas. Sin embargo, el futbolista hizo &eacute;nfasis en la situaci&oacute;n que se vive en La Paz, lugar donde reside actualmente junto a sus seres queridos.</p><p>&ldquo;Vivimos en La Paz y es ah&iacute; donde est&aacute;n m&aacute;s fuertes los conflictos. La pr&oacute;xima semana nos toca jugar en La Paz, en nuestra casa y con nuestra gente&rdquo;, agreg&oacute; el experimentado arquero celeste.</p><p>En el plano deportivo, Bol&iacute;var cay&oacute; ajustadamente ante Fluminense en Brasil, aunque el resultado mantiene con vida al conjunto pace&ntilde;o en la lucha por avanzar a los octavos de final de la Copa Libertadores.</p><p>La academia depende de s&iacute; misma para lograr la clasificaci&oacute;n. Para ello, deber&aacute; derrotar el pr&oacute;ximo mi&eacute;rcoles a Independiente Rivadavia en condici&oacute;n de local, en un compromiso decisivo para sus aspiraciones internacionales.</p><p>Sin embargo, todav&iacute;a existe incertidumbre sobre la sede donde se disputar&aacute; ese encuentro. La Conmebol sigue de cerca la situaci&oacute;n en Bolivia debido a los conflictos sociales e incluso ya traslad&oacute; algunos partidos de clubes bolivianos a Asunci&oacute;n, Paraguay, por motivos de seguridad.</p>",
-      "titulo": "Bolívar vive incertidumbre por su próximo partido como local en la Libertadores",
-      "fecha_a": 1779282401014,
-      "prevId": "1779282401",
-      "link": "bolivar-vive-incertidumbre-por-su-proximo-partido-como-local-en-la-libertadores_1779282401"
-    },
-    {
-      "_id": "6a0da1cbdbbb8000147bce8a",
-      "fecha_c": 1779279654704,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779279616295.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779279616295.jpg",
-      "introHTML": "<p>Oriente Petrolero tiene pr&aacute;cticamente asegurada la contrataci&oacute;n del paraguayo Gustavo Florent&iacute;n como nuevo director t&eacute;cnico. La dirigencia albiverde ultima detalles para cerrar el acuerdo y espera la llegada del entrenador en las pr&oacute;ximas horas.<br />&nbsp;</p>",
-      "opinologo": {
-        "_id": "68bd2f6f484b81000295baa7",
-        "firma": "Pedro Rivero de Ugarte",
-        "foto": "https://cdn.diez.bo/diez/68bd2f6f484b81000295baa7/1772023196662.jpg"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p>Oriente Petrolero est&aacute; muy cerca de anunciar oficialmente a Gustavo Florent&iacute;n como su nuevo director t&eacute;cnico. La informaci&oacute;n fue confirmada a DIEZ este mi&eacute;rcoles por la ma&ntilde;ana por una de las principales autoridades del club albiverde.</p><p>&ldquo;Ya tenemos pr&aacute;cticamente todo cerrado con Gustavo Florent&iacute;n&rdquo;, se&ntilde;alaron desde la dirigencia refinera, que en los &uacute;ltimos d&iacute;as intensific&oacute; las negociaciones para encontrar al reemplazante del espa&ntilde;ol David Gonz&aacute;lez.</p><p>Seg&uacute;n pudo conocer DIEZ, &uacute;nicamente restan detalles administrativos para concretar el acuerdo definitivo entre ambas partes. &ldquo;Solo faltan algunos detalles, definir su llegada y que firme el contrato que se le enviar&aacute; hoy&rdquo;, agregaron desde Oriente Petrolero.</p><p>Desde el pasado s&aacute;bado, cuando se oficializ&oacute; la salida de David Gonz&aacute;lez, la dirigencia inici&oacute; la b&uacute;squeda de un entrenador extranjero. Entre todas las alternativas analizadas, el nombre de Gustavo Florent&iacute;n fue el que m&aacute;s consenso gener&oacute; dentro del club.</p><p>El entrenador paraguayo convenci&oacute; con su proyecto deportivo tanto al presidente Ronald Raldes como al director ejecutivo Cristian Figueroa. Adem&aacute;s, otro factor importante para avanzar en las negociaciones fue que el estratega se ajusta al presupuesto econ&oacute;mico que maneja actualmente la instituci&oacute;n.</p><p>Si no surge ning&uacute;n inconveniente de &uacute;ltimo momento, Florent&iacute;n firmar&aacute; su contrato en las pr&oacute;ximas horas y posteriormente viajar&aacute; a Santa Cruz para asumir oficialmente el mando del primer plantel albiverde.</p><p>Para el t&eacute;cnico nacido en Paraguay, esta ser&iacute;a su sexta experiencia internacional como entrenador. En Bolivia ya dirigi&oacute; a The Strongest, mientras que en Brasil estuvo al frente de Sport Recife.</p><p>Adem&aacute;s, el estratega tambi&eacute;n tuvo pasos por el f&uacute;tbol colombiano, donde dirigi&oacute; a Deportivo Pasto, &Aacute;guilas Doradas y Jaguares de C&oacute;rdoba, acumulando experiencia en distintos campeonatos del continente.</p>",
-      "titulo": "Oriente Petrolero tiene “prácticamente cerrado” a Gustavo Florentín",
-      "fecha_a": 1779279654704,
-      "prevId": "1779279654",
-      "link": "oriente-petrolero-tiene-practicamente-cerrado-a-gustavo-florentin_1779279654",
-      "tags": [
-        "68db66afd6f5e5000293622a"
-      ]
-    },
-    {
-      "_id": "6a0d9e7ddbbb8000147bc82d",
-      "fecha_c": 1779278201075,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779278148328.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779278148328.jpg",
-      "introHTML": "<p>El equipo de Carlo Ancelotti para el Mundial 2026 presenta un promedio de edad de 28,7 a&ntilde;os, el m&aacute;s alto en la historia de la Canarinha en Copas del Mundo, reflejando una clara inclinaci&oacute;n por la experiencia.</p>",
-      "opinologo": {
-        "_id": "68bd2f75484b81000295bbbc",
-        "firma": "Lucas Nazrala",
-        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbc/1759755434737.jpg"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p>La selecci&oacute;n brasile&ntilde;a que disputar&aacute; el Mundial de 2026 no solo buscar&aacute; el ansiado sexto t&iacute;tulo, sino que lo har&aacute; con un rasgo distintivo: ser&aacute; la m&aacute;s experimentada de su historia en este tipo de competiciones.</p><p>Los 26 jugadores convocados por Carlo Ancelotti tienen una edad promedio de 28,7 a&ntilde;os, superando el registro de Qatar 2022 (27,8) y quedando muy por encima del equipo campe&oacute;n en Corea-Jap&oacute;n 2002 (26,2). Esta cifra tambi&eacute;n rebasa a la Brasil campeona en Estados Unidos 1994 (27,4), que hasta ahora era la m&aacute;s &ldquo;veterana&rdquo; en consagrarse, y contrasta con la selecci&oacute;n de M&eacute;xico 1970, la m&aacute;s joven campeona con 24,4 a&ntilde;os.</p><p>El dato no es casual. Once de los convocados superan los 30 a&ntilde;os, una cifra mayor a la de 2022, cuando eran nueve. La decisi&oacute;n responde a una postura clara del t&eacute;cnico italiano, quien prioriz&oacute; futbolistas consolidados y con recorrido en la &eacute;lite.</p><p>&ldquo;Valorizamos la experiencia en el alto nivel. Llamamos jugadores que no necesit&aacute;bamos poner a prueba&rdquo;, explic&oacute; Ancelotti, justificando su elecci&oacute;n.</p><p>Uno de los casos m&aacute;s llamativos es el del arquero Weverton, de 38 a&ntilde;os, quien se convirti&oacute; en la gran sorpresa de la lista. El guardameta no hab&iacute;a sido considerado en convocatorias anteriores del entrenador, pero termin&oacute; imponi&eacute;ndose en la disputa por un cupo frente a opciones m&aacute;s j&oacute;venes como Bento (26) y Hugo Souza (27).</p><p>Weverton es, adem&aacute;s, el jugador de mayor edad del plantel, seguido por nombres de peso como Alex Sandro (35), Casemiro (34) y Neymar (34), este &uacute;ltimo protagonista de otra de las grandes novedades de la lista. Pese a las dudas previas sobre su estado f&iacute;sico, el delantero disputar&aacute; su cuarto Mundial tras haber sido figura en 2014, 2018 y 2022.</p><p>La lista de futbolistas experimentados contin&uacute;a con Fabinho (34), Danilo (34), Alisson (33), Marquinhos (32), Douglas Santos (32) y Ederson (32), reforzando una columna vertebral cargada de recorrido internacional.</p><p>Sin embargo, el recambio aparece con mayor fuerza en el ataque. A excepci&oacute;n de Neymar, los delanteros presentan un perfil m&aacute;s joven, con nombres como Matheus Cunha (26), Vin&iacute;cius J&uacute;nior (25) y Luiz Henrique (25).</p><p>El contraste lo marcan Endrick y Rayan, ambos de 19 a&ntilde;os, quienes representan la nueva generaci&oacute;n del f&uacute;tbol brasile&ntilde;o. Junto a ellos aparece Wesley, de 22, como otro de los m&aacute;s j&oacute;venes del grupo. Ninguno de estos futbolistas hab&iacute;a nacido cuando Brasil conquist&oacute; su &uacute;ltimo Mundial en 2002.</p><p>De esta manera, Brasil llega a la Copa del Mundo con una mezcla marcada por la experiencia en la base del equipo y juventud en ataque, pero con un dato que no pasa desapercibido: nunca antes la Canarinha hab&iacute;a afrontado un Mundial con una plantilla tan &ldquo;madura&rdquo;.</p>",
-      "titulo": "Brasil llega al Mundial 2026 con el plantel más longevo de su historia",
-      "fecha_a": 1779278201075,
-      "prevId": "1779278201",
-      "link": "brasil-llega-al-mundial-2026-con-el-plantel-mas-longevo-de-su-historia_1779278201"
-    },
-    {
-      "_id": "6a0da092dbbb8000147bcb31",
-      "fecha_c": 1779278093737,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779277988814.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779277988814.jpg",
-      "introHTML": "<p>La Federaci&oacute;n Boliviana de F&uacute;tbol ya analiza la solicitud de convocatoria a elecciones presentada por la Asociaci&oacute;n Cruce&ntilde;a de F&uacute;tbol. El pedido fue remitido al Comit&eacute; Electoral, instancia encargada de verificar el cumplimiento de la normativa vigente.</p>",
-      "opinologo": {
-        "_id": "68bd2f6f484b81000295baa7",
-        "firma": "Pedro Rivero de Ugarte",
-        "foto": "https://cdn.diez.bo/diez/68bd2f6f484b81000295baa7/1772023196662.jpg"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p>La Federaci&oacute;n Boliviana de F&uacute;tbol (FBF) ya considera la solicitud de convocatoria a elecciones presentada por la Asociaci&oacute;n Cruce&ntilde;a de F&uacute;tbol (ACF). Fuentes del ente federativo confirmaron a DIEZ que el tr&aacute;mite fue recibido y derivado a las instancias correspondientes para su evaluaci&oacute;n.</p><p>La solicitud fue realizada por el propio Comit&eacute; Ejecutivo de la ACF, encabezado por su presidente, Fernando Barrios. El pedido busca activar el proceso electoral dentro de la asociaci&oacute;n cruce&ntilde;a en cumplimiento de la normativa federativa.</p><p>Desde la FBF se&ntilde;alaron que la documentaci&oacute;n ya fue remitida al Comit&eacute; Electoral, organismo encargado de revisar el cumplimiento de los requisitos establecidos antes de oficializar cualquier convocatoria.</p><p>&ldquo;Ya se consider&oacute; la solicitud de convocatoria a elecciones de la ACF y se remiti&oacute; al Comit&eacute; Electoral de la FBF. De igual manera, inicialmente tambi&eacute;n se convocar&aacute; a elecciones en Beni y Oruro&rdquo;, indicaron a DIEZ fuentes cercanas al ente federativo.</p><p>Asimismo, explicaron que ahora el proceso queda enteramente en manos del Comit&eacute; Electoral, que deber&aacute; analizar la legalidad y viabilidad del pedido antes de aprobar el cronograma correspondiente.</p><p>&ldquo;Eso pasa directamente al Comit&eacute; Electoral, cuyos integrantes eval&uacute;an el cumplimiento de la norma para la solicitud, definen el calendario y posteriormente proceden a aceptar y convocar&rdquo;, agregaron desde la FBF.</p>",
-      "titulo": "La ACF solicitó oficialmente la convocatoria a elecciones",
-      "fecha_a": 1779277980000,
-      "prevId": "1779278027",
-      "link": "la-acf-solicito-oficialmente-la-convocatoria-a-elecciones_1779278027"
-    },
-    {
-      "_id": "6a0d9d7adbbb8000147bc653",
-      "fecha_c": 1779277252835,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779277204930.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779277204930.jpg",
-      "introHTML": "<p>Blooming afrontar&aacute; el duelo ante Carabobo con varias ausencias importantes. Entre lesiones, suspensiones y sanciones, Platin&iacute; S&aacute;nchez deber&aacute; rearmar el equipo para el encuentro de este jueves por la Copa Sudamericana en el estadio Ram&oacute;n Tahuichi Aguilera.<br />&nbsp;</p>",
-      "opinologo": {
-        "_id": "68bd2f6f484b81000295baa7",
-        "firma": "Pedro Rivero de Ugarte",
-        "foto": "https://cdn.diez.bo/diez/68bd2f6f484b81000295baa7/1772023196662.jpg"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p>Blooming ultimar&aacute; detalles este mi&eacute;rcoles para el partido frente a Carabobo por la Copa Sudamericana. El encuentro se disputar&aacute; este jueves desde las 20:30 en el estadio Ram&oacute;n Tahuichi Aguilera, donde la academia cruce&ntilde;a buscar&aacute; sumar un triunfo clave a pesar de las numerosas bajas que afectan al plantel.</p><p>El entrenador Erwin S&aacute;nchez dirigir&aacute; la &uacute;ltima pr&aacute;ctica en la sede del club y dejar&aacute; definido el once titular. El martes, el estratega realiz&oacute; una sesi&oacute;n de f&uacute;tbol en la que comenz&oacute; a delinear el equipo, aunque debi&oacute; trabajar sin varios jugadores considerados habituales titulares.</p><p>Entre las ausencias confirmadas aparecen Gabriel Valverde y Mat&iacute;as Abisab, quienes no podr&aacute;n estar disponibles debido a suspensiones por expulsi&oacute;n. Ambos futbolistas ven&iacute;an siendo piezas importantes dentro del esquema del equipo celeste.</p><p>A esas bajas se suma Mois&eacute;s Villarroel, que presenta una lesi&oacute;n muscular y no logr&oacute; recuperarse a tiempo para el compromiso internacional. El mediocampista qued&oacute; descartado y continuar&aacute; bajo tratamiento m&eacute;dico.</p><p>Otro de los futbolistas que no podr&aacute; ser tomado en cuenta es Roberto Hinojosa. El volante colombiano debe cumplir un partido de suspensi&oacute;n por acumulaci&oacute;n de tarjetas amarillas, lo que obliga al cuerpo t&eacute;cnico a buscar alternativas en la mitad de la cancha.</p><p>La situaci&oacute;n tambi&eacute;n alcanza a Danny Bejarano, quien fue sancionado por Conmebol tras haber incurrido en un acto racista contra un jugador de Carabobo. El mediocampista recibi&oacute; una suspensi&oacute;n de cuatro meses, aunque la dirigencia de Blooming anunci&oacute; que apelar&aacute; el castigo con la intenci&oacute;n de reducir la sanci&oacute;n.</p><p>Todos los futbolistas mencionados ven&iacute;an siendo habituales titulares tanto con Mauricio Soria como con Ra&uacute;l Guti&eacute;rrez, situaci&oacute;n que representa un verdadero dolor de cabeza para Platin&iacute; S&aacute;nchez en la previa del compromiso copero.</p><p>Adem&aacute;s, Diago Gim&eacute;nez tambi&eacute;n qued&oacute; al margen del encuentro debido a una lesi&oacute;n en la rodilla. El jugador sufri&oacute; una dolencia f&iacute;sica que lo mantendr&aacute; alejado de las canchas durante varias semanas, aumentando a&uacute;n m&aacute;s los problemas para el cuerpo t&eacute;cnico celeste.</p>",
-      "titulo": "Blooming: 'Platiní' busca soluciones ante múltiples ausencias",
-      "fecha_a": 1779277252835,
-      "prevId": "1779277252",
-      "link": "blooming-platini-busca-soluciones-ante-multiples-ausencias_1779277252",
-      "tags": [
-        "68db66b0d6f5e5000293622c"
-      ]
-    },
-    {
-      "_id": "6a0d9c65dbbb8000147bc440",
-      "fecha_c": 1779277018066,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779276925003.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779276925003.jpg",
-      "introHTML": "<p>El director ejecutivo de Oriente Petrolero, Cristian Figueroa, habl&oacute; en exclusiva con DIEZ sobre el perfil que busca la dirigencia para el nuevo entrenador albiverde. El dirigente asegur&oacute; que el pr&oacute;ximo DT deber&aacute; conocer la exigencia del club, ser motivador y tener la capacidad de hacer competitivo al equipo.</p>",
-      "opinologo": {
-        "_id": "68bd2f6f484b81000295baa7",
-        "firma": "Pedro Rivero de Ugarte",
-        "foto": "https://cdn.diez.bo/diez/68bd2f6f484b81000295baa7/1772023196662.jpg"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p>En Oriente Petrolero contin&uacute;a la b&uacute;squeda del nuevo director t&eacute;cnico. La dirigencia albiverde espera cerrar la contrataci&oacute;n en las pr&oacute;ximas horas y este mi&eacute;rcoles podr&iacute;a hacerse oficial el nombre del entrenador que asumir&aacute; las riendas del primer plantel.</p><p>Cristian Figueroa, director ejecutivo del club, convers&oacute; con DIEZ y explic&oacute; cu&aacute;les son las principales caracter&iacute;sticas que debe reunir el nuevo estratega refinero. El dirigente remarc&oacute; que uno de los aspectos m&aacute;s importantes ser&aacute; el conocimiento de la instituci&oacute;n y la presi&oacute;n que implica dirigir al equipo cruce&ntilde;o.</p><p>&ldquo;El director t&eacute;cnico que llegue a Oriente debe saber lo que es el club y conocer lo que pesa la camiseta. Eso es fundamental&rdquo;, expres&oacute; Figueroa, dejando en claro que la dirigencia busca un perfil con personalidad y experiencia para afrontar el desaf&iacute;o.</p><p>Adem&aacute;s, el ejecutivo albiverde sostuvo que el futuro entrenador tendr&aacute; que reunir varias condiciones tanto en lo futbol&iacute;stico como en el manejo del grupo. La intenci&oacute;n es encontrar un DT que pueda recuperar r&aacute;pidamente el rendimiento del equipo.</p><p>&ldquo;Un entrenador tiene que tener muchas cualidades. Debe llegarle a los jugadores, ser motivador, hacer jugar bien al equipo y, por supuesto, ser ganador&rdquo;, a&ntilde;adi&oacute; el dirigente, quien tambi&eacute;n destac&oacute; la necesidad de devolverle protagonismo al club en el torneo.</p><p>Figueroa confirm&oacute; que la dirigencia analiza diferentes opciones para ocupar el cargo, aunque aclar&oacute; que todos los candidatos son extranjeros. Por el momento, no existen entrenadores bolivianos entre las alternativas que maneja Oriente Petrolero.</p><p>La expectativa en el club es que el nuevo director t&eacute;cnico sea anunciado oficialmente este mi&eacute;rcoles y pueda arribar al pa&iacute;s lo antes posible para asumir el mando del plantel profesional y comenzar a trabajar de cara a los pr&oacute;ximos compromisos.</p><p>Mientras tanto, el equipo contin&uacute;a entren&aacute;ndose bajo las &oacute;rdenes de Jorge Ortiz, quien se desempe&ntilde;a como entrenador interino. Los albiverdes ya enfocan toda su atenci&oacute;n en el partido del s&aacute;bado frente a Aurora, en Cochabamba, por la novena fecha del torneo todos contra todos. El encuentro est&aacute; programado para las 19:30.</p>",
-      "titulo": "Oriente busca un DT que conozca “el peso de la camiseta”",
-      "fecha_a": 1779277018066,
-      "prevId": "1779277018",
-      "link": "oriente-busca-un-dt-que-conozca-el-peso-de-la-camiseta_1779277018",
-      "tags": [
-        "68db66afd6f5e5000293622a"
-      ]
-    },
-    {
-      "_id": "6a0d98cedbbb8000147bc0d4",
-      "fecha_c": 1779276909704,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779276863043.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779276863043.jpg",
-      "introHTML": "<p>El equipo capitalino, ya eliminado de la Copa Sudamericana, jugar&aacute; este mi&eacute;rcoles a las 20:00 en Asunci&oacute;n tras el cambio de sede dispuesto por Conmebol debido a los conflictos sociales en Bolivia.</p>",
-      "opinologo": {
-        "_id": "68bd2f75484b81000295bbbc",
-        "firma": "Lucas Nazrala",
-        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbc/1759755434737.jpg"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p>Con Independiente Petrolero sin chances de clasificaci&oacute;n, el conjunto de Sucre enfrentar&aacute; esta noche a Botafogo de Brasil en un duelo correspondiente al Grupo E de la Copa Sudamericana. El partido se disputar&aacute; desde las 20:00 en el estadio La Huerta de Asunci&oacute;n, Paraguay.</p><p>El compromiso deb&iacute;a jugarse en Sucre, donde el &ldquo;Matador&rdquo; ten&iacute;a previsto despedirse de su p&uacute;blico en esta edici&oacute;n del torneo. Sin embargo, los conflictos sociales que atraviesa el pa&iacute;s obligaron a la Conmebol a trasladar el encuentro a un escenario neutral.</p><p>Independiente viaj&oacute; el lunes rumbo a Paraguay junto a Always Ready, ya que ambos clubes bolivianos tuvieron que modificar la sede de sus partidos por esta situaci&oacute;n. El traslado signific&oacute; un golpe an&iacute;mico para el plantel, que expres&oacute; su molestia antes de emprender el viaje.</p><p>En lo deportivo, el equipo dirigido por Thiago Leitao afrontar&aacute; el encuentro con algunas bajas. No estar&aacute;n el lateral Sa&uacute;l Torres, expulsado en la fecha pasada ante Caracas FC, ni el mediocampista Thomaz Santos, quien contin&uacute;a lesionado. En contrapartida, el defensor brasile&ntilde;o Eduardo Porto volver&aacute; a estar disponible tras cumplir una fecha de suspensi&oacute;n.</p><p>Del otro lado, Botafogo tambi&eacute;n llega con ausencias, ya que varios jugadores no estar&aacute;n disponibles por lesi&oacute;n.</p><p>El conjunto brasile&ntilde;o lidera el grupo con 10 puntos y necesita sumar para asegurar el primer lugar, mientras que Caracas FC, con 8 unidades, se mantiene al acecho. Racing, tercero con 4 puntos, completa la serie.</p><p>Para Independiente, el objetivo pasa por cerrar su participaci&oacute;n con dignidad. Tras este partido, deber&aacute; disputar su &uacute;ltimo compromiso del grupo ante Racing en Avellaneda, tambi&eacute;n fuera del pa&iacute;s.</p>",
-      "titulo": "Independiente Petrolero se mide ante Botafogo lejos de casa",
-      "fecha_a": 1779276840000,
-      "prevId": "1779276887",
-      "link": "independiente-petrolero-se-mide-ante-botafogo-lejos-de-casa_1779276887"
-    },
-    {
-      "_id": "6a0d2cc1dbbb8000147ba5d3",
-      "fecha_c": 1779248635891,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779248440788.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779248440788.jpg",
-      "introHTML": "<p>Con varias pol&eacute;micas en el cierre, incluido un gol anulado a Merentiel, Boca empat&oacute; 1-1 ante Cruzeiro y qued&oacute; obligado a ganar en la &uacute;ltima fecha para asegurar su clasificaci&oacute;n.</p>",
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p>Cruzeiro logr&oacute; este martes un empate 1-1 ante Boca Juniors en Buenos Aires, con un jugador menos, por la quinta jornada del Grupo D de la Copa Libertadores y llega con ventaja a la &uacute;ltima fecha.<br /><br />Miguel Merentiel (m.15) abri&oacute; la cuenta para el local, mientras que Fagner (m.54) estableci&oacute; el resultado definitivo para una visita que termin&oacute; con diez jugadores por la expulsi&oacute;n de Gerson (m.67).<br /><br />Este resultado deja a Cruzeiro l&iacute;der con ocho puntos, Universidad Cat&oacute;lica y Boca en segundo lugar con siete y &uacute;ltimo Barcelona con tres, pero todav&iacute;a resta el duelo de este jueves entre chilenos y ecuatorianos.<br /><br />El partido tuvo un comienzo a puro empuje para Boca que luego de tres oportunidades que tuvieron respuestas del portero Ot&aacute;vio, lleg&oacute; a abrir el marcador con un tiro libre de Leandro Paredes que el uruguayo Miguel Merentiel empuj&oacute; sobre la l&iacute;nea.<br /><br />Boca lentamente se fue replegando y Cruzeiro termin&oacute; mejor la primera parte, al punto que con esta misma t&oacute;nica de juego lleg&oacute; al empate en el minuto 54 con un pase cruzado que deriv&oacute; en Fagner para que con un remate furibundo anot&oacute; el 1-1.<br /><br />A partir de ese momento fue todo tensi&oacute;n para Boca que empujado por su p&uacute;blico tuvo varias opciones que encontraron en Ot&aacute;vio y en la falta de punter&iacute;a las razones para no poder comandar el resultado.<br /><br />Cruzeiro tuvo dos claras para ponerse en ventaja a trav&eacute;s de Kaio Jorge y luego con el ingresado N&eacute;iser Villarreal, la segunda con una reacci&oacute;n sensacional del portero Leandro Brey.<br /><br />En el minuto 67 fue expulsado Gerson por una dura entrada a Leandro Paredes y en los dos &uacute;ltimos minutos llegaron dos pol&eacute;micas de la noche: primero un gol anulado a Merentiel por una mano previa de Milton Delgado y luego una supuesta mano de Lucas Romero que el &aacute;rbitro no sancion&oacute;.<br /><br />En la &uacute;ltima jornada del Grupo D, Boca recibir&aacute; a Universidad Cat&oacute;lica, mientras que Cruzeiro ser&aacute; local de Barcelona.</p>",
-      "titulo": "Entre polémicas y tensión, Boca empató con Cruzeiro en La Bombonera",
-      "fecha_a": 1779248635891,
-      "prevId": "1779248635",
-      "link": "entre-polemicas-y-tension-boca-empato-con-cruzeiro-en-la-bombonera_1779248635"
-    },
-    {
-      "_id": "6a0d160edbbb8000147b9dc7",
-      "fecha_c": 1779242973763,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779242841574.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779242841574.jpg",
-      "introHTML": "<p>El equipo alte&ntilde;o jug&oacute; como local en Paraguay por los conflictos sociales en la sede de Gobierno. Termin&oacute; 1-2 a favor del equipo brasile&ntilde;o.</p>",
-      "opinologo": {
-        "_id": "68bd2f6e484b81000295ba6e",
-        "firma": "DIEZ EL DEBER"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p><strong>Always Ready cay&oacute; ante Mirassol (2-1) y qued&oacute; eliminado de la Copa Libertadores de Am&eacute;ricas.</strong> El equipo boliviano jug&oacute; de local la noche del martes en el estadio La Huerta de Asunci&oacute;n, debido a los problemas sociales que lo obligaron a alejarse de El Alto pace&ntilde;o.</p><p><strong>A los 11 minutos de iniciadas las acciones, Shaylon abri&oacute; el marcador </strong>para el equipo brasile&ntilde;o que, con el triunfo, se meti&oacute; en los octavos de la Libertadores. En el complemento, los dirigidos por Marcelo Straccia reaccionaron e igualaron el tanteador por intermedio de Jes&uacute;s Maraude (75&rsquo;).</p><p><strong>El juvenil de 18 a&ntilde;os marc&oacute; un bonito gol con un remate cruzado que venci&oacute; la resistencia de Fabio. </strong>En el primer tiempo (34&rsquo;), al mismo jugador nacional le anularon un gol por posici&oacute;n adelantada.</p><p>Cuando Always buscaba el segundo, <strong>apareci&oacute; Nathan Fogaca, que minutos antes hab&iacute;a ingresado por Alesson, para poner el 2-1 definitivo.</strong></p><p>El tanto sentenci&oacute; a Always que cerrar&aacute; la fase del Grupo G ante Liga de Quito en Ecuador. En el partido de ida se impuso (0-1) el cuadro ecuatoriano con gol de Gabriel Villamil.</p>",
-      "titulo": "Always Ready pierde ante Mirassol y queda eliminado de la Libertadores ",
-      "fecha_a": 1779242940000,
-      "prevId": "1779242973",
-      "link": "always-ready-pierde-ante-mirassol-y-queda-eliminado-de-la-libertadores_1779242973",
-      "tags": [
-        ""
-      ]
-    },
-    {
-      "_id": "6a0d0c1cdbbb8000147b9197",
-      "fecha_c": 1779240271967,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779240178429.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779240180730.jpg",
-      "introHTML": "<p>El partido contra Independiente Rivadavia de Mendoza est&aacute; programado para el mi&eacute;rcoles 27 de mayo (20.30) en el estadio Hernando Siles. El club espera que se mantenga la programaci&oacute;n en La Paz.</p>",
-      "opinologo": {
-        "_id": "68bd2f76484b81000295bbcc",
-        "firma": "Jorge Asturizaga Quisbert",
-        "foto": "https://cdn.diez.bo/diez/68bd2f76484b81000295bbcc/1759758585365.jpg"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p><strong>En Bol&iacute;var no quieren saber de la posibilidad de un cambio de sede del partido contra Independiente Rivadavia de Mendoza</strong>. El club espera que se mantenga la programaci&oacute;n en el estadio Hernando Siles.</p><p><strong>El cotejo est&aacute; programado para el mi&eacute;rcoles 27 de mayo (20.30).</strong></p><p>&ldquo;Ojal&aacute; se juegue en La Paz, <strong>merecemos jugar en La Paz porque somos locales y necesitamos jugar en La Paz</strong>&rdquo;, fue la contundente respuesta del t&eacute;cnico Vladimir Soria cuando le consultaron si le informaron algo de un posible cambio de sede.</p><p><strong>Por los conflictos sociales que afectan a seis departamentos del pa&iacute;s, la Conmebol decidi&oacute; llevar dos cotejos a Luque, Paraguay</strong>: El Always Ready vs. Mirassol, de Libertadores; y el Independiente vs. Botafogo, de la Sudamericana.</p><p>Las medidas determinadas por la Central Obrera Boliviana (COB) el 1 de mayo se mantienen <strong>y La Paz es la ciudad m&aacute;s afectada con bloqueos, protestas y un cerco que corta los accesos a la ciudad.</strong></p><p>Del partido se&ntilde;al&oacute; que <strong>Bol&iacute;var obtuvo un resultado que le permite depender de s&iacute; mismo</strong> para acceder a los octavos de final.</p><p>Tambi&eacute;n expres&oacute; que <strong>hay cansancio en el grupo por la seguidilla de partidos de Liga y Copa</strong>.</p><p>El plantel tiene previsto regresar este mi&eacute;rcoles a La Paz.</p>",
-      "titulo": "Soria: “Ojalá se juegue en La Paz, merecemos jugar en La Paz”.",
-      "fecha_a": 1779240515299,
-      "prevId": "1779240271",
-      "link": "soria-ojala-se-juegue-en-la-paz-merecemos-jugar-en-la-paz_1779240271"
-    },
-    {
-      "_id": "6a0cddc8e1f6600014966def",
-      "fecha_c": 1779239142517,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779239090947.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779239090947.jpg",
-      "introHTML": "<p>El entrenador espa&ntilde;ol volvi&oacute; a sembrar dudas sobre su continuidad en Manchester en medio de versiones que apuntan a una posible salida.</p>",
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p>Pep Guardiola, t&eacute;cnico del Manchester City, insisti&oacute; en que le queda un a&ntilde;o de contrato y en que las decisiones sobre su futuro se tomar&aacute;n a final de temporada.<br /><br />El t&eacute;cnico catal&aacute;n, pese a ese a&ntilde;o extra en su acuerdo con el City, est&aacute; ultimando su salida del club, que ser&aacute; oficial, aunque, hasta entonces, ha mantenido la inc&oacute;gnita al hablar en &quot;Sky Sports&quot; tras el empate contra el Bournemouth que les impide ganar la Premier League.<br /><br />&quot;Me queda un a&ntilde;o de contrato. Cuando acabe la temporada, veremos&quot;, dijo Guardiola, al que le queda un partido por delante por dirigir al City.<br /><br />&quot;No os voy a decir mi decisi&oacute;n porque tengo que hablar con el presidente, con los jugadores, con mi cuerpo t&eacute;cnico... Cuando jugamos por la FA Cup, por la clasificaci&oacute;n a la Champions, por la Premier, solo tengo una cosa en la cabeza, tener al equipo al m&aacute;s alto nivel. Y es lo que hemos hecho&quot;.<br /><br />Tras diez a&ntilde;os en el City, Guardiola puede estar viviendo sus &uacute;ltimos d&iacute;as en el City y el anuncio de su salida puede ser inminente, sirviendo el partido del domingo en el Etihad Stadium contra el Aston Villa, ya sin nada en juego, como homenaje al t&eacute;cnico que ha ganado veinte t&iacute;tulos desde 2016.&nbsp;</p>",
-      "titulo": "“Cuando acabe la temporada, veremos”: Guardiola no asegura seguir en el City",
-      "fecha_a": 1779239142518,
-      "prevId": "1779239142",
-      "link": "cuando-acabe-la-temporada-veremos-guardiola-no-asegura-seguir-en-el-city_1779239142"
-    },
-    {
-      "_id": "6a0d05fae1f6600014969248",
-      "fecha_c": 1779238743881,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779238548022.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779238549872.jpg",
-      "introHTML": "<p>Est&aacute; mejor colocado que Fluminense si hay empate en puntos entre ambos. Deportivo La Guaira le puede arrebatar el segundo lugar, siempre y cuando gane sus dos partidos, el primero en casa y el segundo de visitante.</p>",
-      "opinologo": {
-        "_id": "68bd2f76484b81000295bbcc",
-        "firma": "Jorge Asturizaga Quisbert",
-        "foto": "https://cdn.diez.bo/diez/68bd2f76484b81000295bbcc/1759758585365.jpg"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p>El panorama de Bol&iacute;var en el Grupo C de la Copa Libertadores de Am&eacute;rica es favorable. <strong>Un triunfo por cualquier marcador sobre Independiente Rivadavia de Argentina la pr&oacute;xima semana en condici&oacute;n de local, le puede permitir sacar boleto a los octavos de final.</strong></p><p>De lo &uacute;nico que tiene que preocuparse en este momento <strong>es que el cuadro venezolano Deportivo La Guaira (tres puntos) no gane los dos partidos que le quedan</strong>. Este jueves en casa contra Independiente Rivadavia y la pr&oacute;xima semana en el Maracan&aacute; frente a Fluminense.</p><p><strong>Si ello ocurre har&aacute; nueve unidades y abrochar&aacute; la segunda posici&oacute;n. </strong></p><p><strong>Independiente es primero del grupo con 10 puntos y ya est&aacute; clasificado. Bol&iacute;var y Fluminense comparten el segundo lugar con cinco. La Guaira suma tres.</strong></p><p>Ganarle 2-0 a Fluminense en La Paz y caer 2-1 en R&iacute;o de Janeiro <strong>dejan a la Academia mejor ubicada en el grupo respecto al conjunto brasile&ntilde;o en caso de empate en puntos.</strong></p><p><strong>Al &ldquo;Flu&rdquo; le sirve derrotar a La Guaira y esperar que Bol&iacute;var pierda o empate</strong> en casa con el cuadro argentino.</p><p>Una igualdad en R&iacute;o de Janeiro <strong>le puede ser &uacute;til al brasile&ntilde;o solo si Bol&iacute;var cae de local.</strong></p><p>&nbsp;</p>",
-      "titulo": "¿Qué necesita Bolívar para clasificarse a octavos de la Libertadores?",
-      "fecha_a": 1779240787033,
-      "prevId": "1779238743",
-      "link": "que-necesita-bolivar-para-clasificarse-a-octavos-de-la-libertadores_1779238743"
-    },
-    {
-      "_id": "6a0cfc25e1f660001496871d",
-      "fecha_c": 1779236219091,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779237123687.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779237123687.jpg",
-      "introHTML": "<p>La ilusi&oacute;n se mantiene y tendr&aacute; que refrendarla en la &uacute;ltima jornada de la fase de grupos de la Libertadores contra el ya clasificado Independiente Rivadavia, la pr&oacute;xima semana en La Paz.</p>",
-      "opinologo": {
-        "_id": "68bd2f76484b81000295bbcc",
-        "firma": "Jorge Asturizaga Quisbert",
-        "foto": "https://cdn.diez.bo/diez/68bd2f76484b81000295bbcc/1759758585365.jpg"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p><strong>Bol&iacute;var estaba sosteniendo un empate heroico en el estadio Maracan&aacute; de R&iacute;o de Janeiro hasta el minuto 74, pero termin&oacute; perdiendo 2-1 frente a Fluminense,</strong> este martes por la quinta jornada de la fase de grupos de la Copa Libertadores de Am&eacute;rica.</p><p>Es <strong>una derrota que no duele mucho porque sali&oacute; bien parado del m&iacute;tico escenario y con la chance intacta de clasificarse a los octavos de final.</strong></p><p><strong>Ganando por cualquier marcador la pr&oacute;xima semana en La Paz frente al ya clasificado Independiente Rivadavia</strong>, sacar&aacute; boleto para la pr&oacute;xima instancia.</p><p>La Academia y Fluminense comparten el segundo lugar del Grupo C con cinco puntos, <strong>pero Bol&iacute;var est&aacute; mejor ubicado, merced a su promedio de gol en los duelos entre ambos.</strong></p><p><strong>Independiente tiene 10 puntos y Deportivo La Guaira suma tres. </strong>Se medir&aacute;n el jueves en Venezuela.</p><p><span style=\"font-size:16px;\"><strong>El partido</strong></span></p><p>Se plant&oacute; bien la Academia en el Maracan&aacute;. <strong>El t&eacute;cnico Vladimir Soria dispuso l&iacute;nea de cinco jugadores en defensa.</strong></p><p>Adem&aacute;s <strong>cont&oacute; con la solidaridad de sus compa&ntilde;eros, que retrocedieron metros para colaborar</strong> contra el asedio carioca.</p><p>Se puso cuesta arriba el juego <strong>a los cinco minutos con el gol de Luciano Acosta</strong> luego de una serie de rebotes en el &aacute;rea.</p><p>Bol&iacute;var <strong>fue superado en el primer cuarto de hora</strong> en la que no arm&oacute; jugadas de ataque.</p><p>Pero el ritmo del juego<strong> dio un giro radical con el empate a los 24 minutos. Patricio Rodr&iacute;guez lanz&oacute; un fino y preciso pase al &aacute;rea desde unos 30 metros, pivote&oacute; Dorny Romero y Antonio Melgar defini&oacute; </strong>lejos del arquero Fabio.</p><p>El sorprendido fue Fluminense que se acerc&oacute; al &aacute;rea, pero muchas veces lo hizo sin fuerza<strong>. Hubo un tiro de media distancia de H&eacute;rcules que Carlos Lampe envi&oacute; al tiro de esquina.</strong></p><p>La Academia sigui&oacute; aguantando el peso del partido <strong>en el segundo tiempo con un inspirado Lampe que detuvo pelotas con destino de red.</strong></p><p>Hubo <strong>un gol de Fluminense anotado por Castillo, pero una milim&eacute;trica posici&oacute;n adelantada</strong> invalid&oacute; la conquista.</p><p><strong>A los 71 minutos lleg&oacute; el 2-1 obra de John Kennedy luego de un centro de Jeferson Soteldo</strong>. El goleador conect&oacute; de primera y super&oacute; a Lampe.</p><p><strong>Un espectacular Lampe impidi&oacute; a los 89 minutos el gol que pod&iacute;a ser lapidario para los celestes</strong>, se tir&oacute; al piso y con una mano sac&oacute; una definici&oacute;n de Samuel Xavier.</p><p>Despu&eacute;s, <strong>en el &uacute;ltimo intento del local, el golero volvi&oacute; a estirarse para impedir la resoluci&oacute;n</strong> de Germ&aacute;n Cano.</p>",
-      "titulo": "Bolívar cae en el Maracaná, pero depende de sí mismo para clasificarse",
-      "fecha_a": 1779236760000,
-      "prevId": "1779236219",
-      "link": "bolivar-cae-en-el-maracana-pero-depende-de-si-mismo-para-clasificarse_1779236219"
-    },
-    {
-      "_id": "6a0cd61ae1f66000149667f1",
-      "fecha_c": 1779226426250,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1779226222300.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779226222300.jpg",
-      "introHTML": "<p>El medio ABC inform&oacute; que el entrenador paraguayo asumir&aacute; el mando del equipo refinero tras la salida de David Gonz&aacute;lez.<strong> </strong></p>",
-      "opinologo": {
-        "_id": "68bd2f75484b81000295bbbd",
-        "firma": "Jaime Paniagua",
-        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbd/1764689648901.jpg"
-      },
-      "secciones": [
-        "futbol"
-      ],
-      "textoHTML": "<p data-end=\"333\" data-start=\"0\">Oriente Petrolero ya tendr&iacute;a nuevo entrenador. Tras la salida del espa&ntilde;ol David Gonz&aacute;lez de la instituci&oacute;n refinera, varios nombres comenzaron a sonar para ocupar el cargo. Entre los principales candidatos aparecieron Claudio Biaggio y el paraguayo Gustavo Florent&iacute;n, siendo este &uacute;ltimo el que tom&oacute; mayor fuerza en las &uacute;ltimas horas.</p><p data-end=\"701\" data-start=\"335\">Incluso,<strong> el medio paraguayo ABC ya dio por oficializada la llegada del estratega al conjunto albiverde. &ldquo;El entrenador paraguayo Gustavo Atilano Florent&iacute;n afrontar&aacute; una nueva experiencia internacional, esta vez para dirigir al Oriente Petrolero de Bolivia, qu</strong>e ser&aacute; su segundo club en el vecino pa&iacute;s, despu&eacute;s del The Strongest de La Paz, en 2021&rdquo;, public&oacute; el portal.</p><p data-end=\"964\" data-start=\"703\">Para el entrenador nacido en Paraguar&iacute;, esta ser&iacute;a su sexta experiencia internacional como director t&eacute;cnico, luego de sus pasos por The Strongest de Bolivia, Sport Recife de Brasil y los clubes colombianos Deportivo Pasto, &Aacute;guilas Doradas y Jaguares de C&oacute;rdoba.</p><p data-end=\"1216\" data-start=\"966\">Desde la interna refinera, miembros de la dirigencia comentaron a DIEZ que todo apunta a que Florent&iacute;n ser&aacute; el elegido para asumir el mando del primer plantel, principalmente por el perfil que buscan y por su conocimiento previo del f&uacute;tbol boliviano.</p><p data-end=\"1350\" data-start=\"1218\">&ldquo;Todo indica que Gustavo Florent&iacute;n ser&aacute; el elegido,<strong> aunque todav&iacute;a no hay nada confirmado&rdquo;, se&ntilde;alaron desde la dirigencia albiverde.</strong></p><p data-end=\"1544\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"1352\">Adem&aacute;s,<strong> la intenci&oacute;n de Oriente Petrolero es cerrar todos los detalles contractuales durante este martes para posteriormente realizar la presentaci&oacute;n oficial del nuevo entrenador el mi&eacute;rcoles.</strong></p>",
-      "titulo": "Desde Paraguay dan por hecho la llegada de Gustavo Florentín a Oriente ",
-      "fecha_a": 1779226426250,
-      "prevId": "1779226426",
-      "link": "desde-paraguay-dan-por-hecho-la-llegada-de-gustavo-florentin-a-oriente_1779226426"
     }
   ]
 }

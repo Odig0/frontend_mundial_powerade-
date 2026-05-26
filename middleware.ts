@@ -10,7 +10,7 @@ export function middleware(request: NextRequest) {
     const token = request.cookies.get(AUTH_COOKIE_NAME)?.value
 
     if (!token) {
-      const loginUrl = new URL('/login', request.url)
+      const loginUrl = new URL('/auth/tribuna-access', request.url)
       loginUrl.searchParams.set('from', pathname)
       return NextResponse.redirect(loginUrl)
     }

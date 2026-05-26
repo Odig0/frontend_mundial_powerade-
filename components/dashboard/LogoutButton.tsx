@@ -15,7 +15,7 @@ export function LogoutButton() {
     try {
       await fetch('/api/auth/logout', { method: 'POST' })
       clearAuthToken()
-      router.push('/login')
+      router.push('/auth/tribuna-access')
       router.refresh()
     } catch (error) {
       setIsLoading(false)

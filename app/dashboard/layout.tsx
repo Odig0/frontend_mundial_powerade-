@@ -19,7 +19,7 @@ export default async function DashboardLayout({
   const token = cookieStore.get(AUTH_COOKIE_NAME)?.value
 
   if (!token) {
-    redirect('/login')
+    redirect('/auth/tribuna-access')
   }
 
   return <DashboardShell>{children}</DashboardShell>
