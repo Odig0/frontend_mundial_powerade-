@@ -15,7 +15,6 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
 import { LogoutButton } from './LogoutButton'
-import Image from 'next/image'
 
 interface DashboardSidebarProps {
   username: string
@@ -31,21 +30,7 @@ export default function DashboardSidebar({ username }: DashboardSidebarProps) {
 
   return (
     <Sidebar collapsible="icon" className="border-r border-border">
-      <SidebarHeader className="gap-4">
-        <div className="flex items-center gap-2">
-          <div className="relative h-8 w-8 flex-shrink-0">
-            <Image
-              src="/powerade.png"
-              alt="Powerade"
-              fill
-              className="object-contain"
-            />
-          </div>
-          <span className="hidden group-data-[collapsible=icon]:hidden font-bold text-sm truncate">
-            Dashboard
-          </span>
-        </div>
-      </SidebarHeader>
+      <SidebarHeader className="gap-2" />
 
       <SidebarContent>
         <SidebarGroup>

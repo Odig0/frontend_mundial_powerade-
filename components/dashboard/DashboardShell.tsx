@@ -1,5 +1,6 @@
 'use client'
 
+import '@/styles/dashboard.css'
 import { SidebarProvider } from '@/components/ui/sidebar'
 import DashboardSidebar from './DashboardSidebar'
 import DashboardHeader from './DashboardHeader'
@@ -12,11 +13,11 @@ interface DashboardShellProps {
 export default function DashboardShell({ children, username = 'Usuario' }: DashboardShellProps) {
   return (
     <SidebarProvider defaultOpen={false}>
-      <div className="absolute inset-0 z-20 flex w-full">
+      <div className="db-shell">
         <DashboardSidebar username={username} />
-        <div className="flex-1 flex flex-col overflow-hidden">
+        <div className="db-content-area">
           <DashboardHeader />
-          <main className="flex-1 overflow-auto">{children}</main>
+          <main className="db-main">{children}</main>
         </div>
       </div>
     </SidebarProvider>

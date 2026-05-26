@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { ChevronDown, Edit3 } from 'lucide-react'
 import type { NewsItem } from '@/lib/news-types'
-import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -99,42 +98,34 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
 
   return (
     <>
-      <div className="group relative flex flex-col overflow-hidden rounded-lg border border-border bg-card transition-all hover:border-accent hover:shadow-lg lg:flex-row">
+      <div className="db-card">
         {/* Image Container */}
-        <div className="relative w-full overflow-hidden bg-muted aspect-video lg:w-[420px] lg:shrink-0 lg:aspect-auto">
+        <div className="db-card-img-wrap">
           <Image
             src={news.imagen_home}
             alt={news.titulo}
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition-transform duration-300"
+            sizes="(max-width: 640px) 100vw, 240px"
           />
 
           {/* Badge - Published */}
           {publicada && (
-            <Badge className="absolute top-2 right-2 bg-green-500/90 text-white">
-              Publicada
-            </Badge>
+            <span className="db-badge-published">Publicada</span>
           )}
 
           {/* Badge - Section */}
-          <Badge variant="secondary" className="absolute top-2 left-2 capitalize">
-            {seccion}
-          </Badge>
+          <span className="db-badge-section capitalize">{seccion}</span>
         </div>
 
         {/* Content */}
-        <div className="flex flex-1 flex-col p-3 gap-3 lg:p-4">
+        <div className="db-card-body">
           {/* Title */}
-          <div className="min-h-[2.5rem]">
-            <h3 className="font-semibold text-sm leading-snug text-foreground line-clamp-2 group-hover:text-accent transition-colors">
-              {news.titulo}
-            </h3>
-          </div>
+          <h3 className="db-card-title">{news.titulo}</h3>
 
           {/* Date */}
           {news.fecha_a && (
-            <p className="text-xs text-muted-foreground">
+            <p className="db-card-date">
               {new Date(news.fecha_a).toLocaleDateString('es-BO', {
                 year: 'numeric',
                 month: 'short',
@@ -144,7 +135,7 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
           )}
 
           {/* Actions */}
-          <div className="mt-auto flex flex-col items-stretch gap-2 pt-2 border-t border-border/50">
+          <div className="db-card-actions">
             {/* Generate Image Button */}
             <SocialPostButton id={news._id} titulo={news.titulo} inline className="w-full justify-center" />
 
