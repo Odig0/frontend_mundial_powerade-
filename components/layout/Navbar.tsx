@@ -18,6 +18,7 @@ const links = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [activeItem, setActiveItem] = useState('home')
   const pathname = usePathname()
   const router = useRouter()
 
@@ -38,21 +39,29 @@ export default function Navbar() {
     if (pathname === '/') {
       const hash = window.location.hash.slice(1)
       if (hash) {
+        setActiveItem(hash)
         const element = document.getElementById(hash)
         if (element) {
           setTimeout(() => {
             element.scrollIntoView({ behavior: 'smooth' })
           }, 100)
         }
+      } else {
+        setActiveItem('home')
       }
+    } else {
+      setActiveItem(pathname)
     }
   }, [pathname])
 
   function handleNavigationClick(e: MouseEvent<HTMLAnchorElement>, action?: string) {
+    const target = action || 'home'
+    setActiveItem(target)
+    setIsOpen(false)
+
     if (!action) return
 
     e.preventDefault()
-    setIsOpen(false)
 
     const scrollToSection = (anchorId: string) => {
       const element = document.getElementById(anchorId)
@@ -90,7 +99,12 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   onClick={(e) => handleNavigationClick(e, link.action)}
-                  className="typography-menu py-3 px-4 text-sm text-white/80 hover:text-[#3CB7FF] transition-colors"
+                  className={cn(
+                    'typography-menu py-3 px-4 text-sm transition-colors',
+                    activeItem === (link.action || 'home') || (link.href !== '/' && activeItem === link.href)
+                      ? 'text-[#3CB7FF]'
+                      : 'text-white/80 hover:text-[#3CB7FF]'
+                  )}
                 >
                   {link.label}
                 </Link>
@@ -144,7 +158,10 @@ export default function Navbar() {
               href={link.href}
               onClick={(e) => handleNavigationClick(e, link.action)}
               className={cn(
-                "typography-menu py-4 text-2xl text-white border-b border-white/5 hover:text-[#3CB7FF] transition-all duration-300",
+                "typography-menu py-4 text-2xl border-b border-white/5 transition-all duration-300",
+                activeItem === (link.action || 'home') || (link.href !== '/' && activeItem === link.href)
+                  ? 'text-[#3CB7FF]'
+                  : 'text-white hover:text-[#3CB7FF]',
                 isOpen ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
               )}
               style={{ transitionDelay: `${i * 50}ms` }}
