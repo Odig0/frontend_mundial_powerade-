@@ -93,3 +93,13 @@ export async function updateNewsSections(id: string, sections: string[]): Promis
     }),
   })
 }
+
+export async function assignPosicionPortada(newsId: string, posicionPortada: number): Promise<void> {
+  await requestJson('/news/posicion-portada', {
+    method: 'POST',
+    body: JSON.stringify({
+      newsId,
+      posicion_portada: posicionPortada,
+    }),
+  })
+}

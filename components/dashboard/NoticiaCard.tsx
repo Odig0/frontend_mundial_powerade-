@@ -18,7 +18,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { usePublishedPosts } from '@/hooks/use-published-posts'
 import { useToast } from '@/hooks/use-toast'
 import SocialPostButton from '@/components/news/SocialPostButton'
-import { formatSectionLabel, updateNewsSections } from '@/lib/news-client'
+import { formatSectionLabel, updateNewsSections, assignPosicionPortada } from '@/lib/news-client'
 
 const ALLOWED_SECTION_OPTIONS = [
   { value: 'mundial-2026', label: 'Mundial 2026' },
@@ -54,6 +54,9 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
   const [dialogOpen, setDialogOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const [positionDialogOpen, setPositionDialogOpen] = useState(false)
+  const [selectedPosition, setSelectedPosition] = useState<number | null>(null)
+  const [savingPosition, setSavingPosition] = useState(false)
   // Initialize with the current sections, normalizing legacy values to the new API slugs
   const [selectedSections, setSelectedSections] = useState<string[]>(() =>
     (news.secciones ?? [])
@@ -111,6 +114,36 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
       })
     } finally {
       setSavingSection(false)
+    }
+  }
+
+  async function handleAssignPosition() {
+    if (!selectedPosition) {
+      toast({
+        title: 'Posición requerida',
+        description: 'Selecciona una posición entre 1 y 5 antes de guardar.',
+        variant: 'destructive',
+      })
+      return
+    }
+
+    setSavingPosition(true)
+    try {
+      await assignPosicionPortada(news._id, selectedPosition)
+      toast({
+        title: 'Orden en portada actualizado',
+        description: `${news.titulo} → posición ${selectedPosition}.`,
+      })
+      setPositionDialogOpen(false)
+      router.refresh()
+    } catch (error) {
+      toast({
+        title: 'No se pudo actualizar',
+        description: error instanceof Error ? error.message : 'Revisa el endpoint de posición en portada.',
+        variant: 'destructive',
+      })
+    } finally {
+      setSavingPosition(false)
     }
   }
 
@@ -174,6 +207,20 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
               Actualizar sección
             </Button>
 
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              className="w-full justify-center"
+              onClick={() => {
+                setSelectedPosition(null)
+                setPositionDialogOpen(true)
+              }}
+            >
+              <Edit3 className="h-4 w-4" />
+              Orden en portada
+            </Button>
+
             {/* Publicar / despublicar oculto temporalmente en la UI */}
           </div>
         </div>
@@ -234,6 +281,49 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
             </Button>
             <Button onClick={handleUpdateSection} disabled={savingSection}>
               {savingSection ? 'Guardando...' : 'Guardar cambios'}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={positionDialogOpen} onOpenChange={setPositionDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Orden en portada</DialogTitle>
+            <DialogDescription>
+              Selecciona una sola posición del 1 al 5. Si otra noticia ya ocupa esa posición, se moverá automáticamente.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-3">
+            <label className="text-sm font-medium text-foreground">Posición</label>
+            <div className="grid grid-cols-5 gap-2">
+              {[1, 2, 3, 4, 5].map((position) => {
+                const active = selectedPosition === position
+                return (
+                  <button
+                    key={position}
+                    type="button"
+                    onClick={() => setSelectedPosition(position)}
+                    className={`rounded-md border px-3 py-3 text-sm font-semibold transition-colors ${
+                      active
+                        ? 'border-accent bg-accent text-accent-foreground'
+                        : 'border-border bg-background text-foreground hover:border-accent'
+                    }`}
+                  >
+                    {position}
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setPositionDialogOpen(false)} disabled={savingPosition}>
+              Cancelar
+            </Button>
+            <Button onClick={handleAssignPosition} disabled={savingPosition || selectedPosition === null}>
+              {savingPosition ? 'Guardando...' : 'Guardar posición'}
             </Button>
           </DialogFooter>
         </DialogContent>
