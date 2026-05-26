@@ -43,7 +43,7 @@ export default function SectionGrid({ news, itemsPerPage = 12 }: SectionGridProp
             onClick={handleLoadMore}
             className="px-6 py-3 bg-primary text-black font-bold rounded hover:bg-accent transition-colors"
           >
-            Load More
+            Cargar mas noticias
           </button>
         </div>
       )}
