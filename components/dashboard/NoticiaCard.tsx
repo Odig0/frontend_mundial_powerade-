@@ -21,7 +21,6 @@ import SocialPostButton from '@/components/news/SocialPostButton'
 import { formatSectionLabel, updateNewsSections } from '@/lib/news-client'
 
 const ALLOWED_SECTION_OPTIONS = [
-  { value: 'futbol', label: 'Fútbol' },
   { value: 'mundial-2026', label: 'Mundial 2026' },
   { value: 'fuera-de-juego', label: 'Fuera de juego' },
 ]
@@ -29,9 +28,6 @@ const ALLOWED_SECTION_OPTIONS = [
 function normalizeSectionValue(section: string) {
   const value = section.trim().toLowerCase()
 
-  if (value === 'futbol' || value === 'fútbol') {
-    return 'futbol'
-  }
 
   if (value === 'mundial' || value === 'mundial-2026') {
     return 'mundial-2026'
@@ -188,7 +184,7 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
           <DialogHeader>
             <DialogTitle>Actualizar sección</DialogTitle>
             <DialogDescription>
-              Cambia la sección principal de esta noticia y guarda el ajuste en la base de datos.
+              Cambia la sección principal de esta noticia y se mostrara en la sección correspondiente del sitio.
             </DialogDescription>
           </DialogHeader>
 
