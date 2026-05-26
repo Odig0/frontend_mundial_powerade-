@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { usePathname, useRouter } from 'next/navigation'
@@ -18,7 +18,8 @@ const links = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [activeItem, setActiveItem] = useState('home')
+  const [activeItem, setActiveItem] = useState<string | null>(null)
+  const hasMounted = useRef(false)
   const pathname = usePathname()
   const router = useRouter()
 
@@ -36,6 +37,11 @@ export default function Navbar() {
 
   // Scrollear a sección si hay hash en la URL
   useEffect(() => {
+    if (!hasMounted.current) {
+      hasMounted.current = true
+      return
+    }
+
     if (pathname === '/') {
       const hash = window.location.hash.slice(1)
       if (hash) {
@@ -158,10 +164,10 @@ export default function Navbar() {
               href={link.href}
               onClick={(e) => handleNavigationClick(e, link.action)}
               className={cn(
-                "typography-menu py-4 text-2xl border-b border-white/5 transition-all duration-300",
-                activeItem === (link.action || 'home') || (link.href !== '/' && activeItem === link.href)
-                  ? 'text-[#3CB7FF]'
-                  : 'text-white hover:text-[#3CB7FF]',
+                  'typography-menu py-4 text-2xl border-b border-white/5 transition-all duration-300',
+                  activeItem === (link.action || 'home') || (link.href !== '/' && activeItem === link.href)
+                    ? 'text-[#3CB7FF]'
+                    : 'text-white hover:text-[#3CB7FF]',
                 isOpen ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
               )}
               style={{ transitionDelay: `${i * 50}ms` }}
