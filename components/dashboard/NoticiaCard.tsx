@@ -173,7 +173,7 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
                 )
                 setDialogOpen(true)
               }}
-              disabled={sectionOptions.length === 0}
+              disabled={ALLOWED_SECTION_OPTIONS.length === 0}
             >
               <Edit3 className="h-4 w-4" />
               Actualizar sección
