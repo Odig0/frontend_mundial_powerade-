@@ -329,3 +329,21 @@ export async function updateNewsSections(id: string, sections: string[]): Promis
   })
 }
 
+/**
+ * Obtiene noticias de la sección "fuera-de-juego" desde el endpoint dedicado.
+ * Endpoint: GET /v1/news/filter/fuera-de-juego
+ * Fallback: filtra el caché local por la sección "fuera-de-juego".
+ */
+export async function getFueraDeJuegoNews(): Promise<NewsItem[]> {
+  try {
+    const news = await requestJson<NewsItem[]>('/news/filter/fuera-de-juego')
+    return sortNewsByRecency(news.map(normalizeNewsItem))
+  } catch {
+    const cachedNews = await readCachedNewsItems()
+    return sortNewsByRecency(
+      cachedNews.filter((item) =>
+        item.secciones?.some((s) => s.toLowerCase().replace(/\s+/g, '-') === 'fuera-de-juego')
+      )
+    )
+  }
+}

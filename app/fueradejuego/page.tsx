@@ -3,21 +3,21 @@ import Header from '@/components/layout/Header'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import SectionGrid from '@/components/section/SectionGrid'
-import { getNewsBySectionSlug } from '@/lib/api'
+import { getFueraDeJuegoNews } from '@/lib/api'
 import PageWrapper from '@/components/layout/PageWrapper'
 import { buildSectionTargeting } from '@/lib/adTargeting'
 
 const BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo'
 
 export const metadata: Metadata = {
-  title: 'Momentos Clave - El Deber Deportes',
+  title: 'Fuera de Juego - El Deber Deportes',
   description:
-    'Últimas noticias de Momentos Clave. Análisis, curiosidades y temas destacados del fútbol y el deporte.',
-  keywords: ['momentos clave', 'noticias', 'deportes', 'análisis'],
+    'Últimas noticias de Fuera de Juego. Análisis, curiosidades y temas destacados del fútbol y el deporte.',
+  keywords: ['fuera de juego', 'noticias', 'deportes', 'análisis'],
   openGraph: {
-    title: 'Momentos Clave - El Deber Deportes',
+    title: 'Fuera de Juego - El Deber Deportes',
     description:
-      'Últimas noticias de Momentos Clave. Análisis, curiosidades y temas destacados del fútbol.',
+      'Últimas noticias de Fuera de Juego. Análisis, curiosidades y temas destacados del fútbol.',
     type: 'website',
     locale: 'es_ES',
     url: `${BASE_URL}/fueradejuego`,
@@ -27,20 +27,21 @@ export const metadata: Metadata = {
         url: '/logo_powerade.png',
         width: 1200,
         height: 630,
-        alt: 'Momentos Clave - El Deber Deportes',
+        alt: 'Fuera de Juego - El Deber Deportes',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Momentos Clave - El Deber Deportes',
+    title: 'Fuera de Juego - El Deber Deportes',
     description: 'Últimas noticias y análisis',
     images: ['/logo_powerade.png'],
   },
 }
 
 export default async function FueraDeJuegoPage() {
-  const news = (await getNewsBySectionSlug('fuera de juego')).filter(
+  // Usa el endpoint dedicado: GET /v1/news/filter/fuera-de-juego
+  const news = (await getFueraDeJuegoNews()).filter(
     (item) => item.imagen_home && item.imagen_home.trim()
   )
 
@@ -53,7 +54,7 @@ export default async function FueraDeJuegoPage() {
         <main className="flex-1 py-8 md:py-12">
           <div className="mb-12">
             <h1 className="text-3xl md:text-4xl font-black text-foreground mb-2">
-              Momentos Clave
+              Fuera de Juego
             </h1>
             <p className="text-muted-foreground">Últimas actualizaciones y noticias</p>
           </div>
