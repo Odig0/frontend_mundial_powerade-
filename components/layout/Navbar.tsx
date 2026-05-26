@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { usePathname, useRouter } from 'next/navigation'
@@ -19,7 +19,6 @@ const links = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeItem, setActiveItem] = useState<string | null>(null)
-  const hasMounted = useRef(false)
   const pathname = usePathname()
   const router = useRouter()
 
@@ -37,11 +36,6 @@ export default function Navbar() {
 
   // Scrollear a sección si hay hash en la URL
   useEffect(() => {
-    if (!hasMounted.current) {
-      hasMounted.current = true
-      return
-    }
-
     if (pathname === '/') {
       const hash = window.location.hash.slice(1)
       if (hash) {
@@ -53,7 +47,7 @@ export default function Navbar() {
           }, 100)
         }
       } else {
-        setActiveItem('home')
+        setActiveItem(null)
       }
     } else {
       setActiveItem(pathname)
