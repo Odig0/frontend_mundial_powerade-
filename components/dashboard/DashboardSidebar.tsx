@@ -22,7 +22,6 @@ interface DashboardSidebarProps {
 
 const navItems = [
   { href: '/dashboard/noticias', icon: Newspaper, label: 'Noticias' },
-  { href: '/dashboard/publicaciones', icon: CheckSquare, label: 'Publicadas' },
 ]
 
 export default function DashboardSidebar({ username }: DashboardSidebarProps) {

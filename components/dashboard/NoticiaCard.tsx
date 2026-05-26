@@ -18,7 +18,6 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { usePublishedPosts } from '@/hooks/use-published-posts'
 import { useToast } from '@/hooks/use-toast'
 import SocialPostButton from '@/components/news/SocialPostButton'
-import PublishToggle from './PublishToggle'
 import { formatSectionLabel, updateNewsSections } from '@/lib/news-client'
 
 const ALLOWED_SECTION_OPTIONS = [
@@ -179,16 +178,7 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
               Actualizar sección
             </Button>
 
-            {/* Publish Toggle */}
-            {isLoaded ? (
-              <PublishToggle
-                isPublished={publicada}
-                onToggle={() => togglePublished(news._id)}
-                className="w-full"
-              />
-            ) : (
-              <Skeleton className="h-9 w-full rounded-md" />
-            )}
+            {/* Publicar / despublicar oculto temporalmente en la UI */}
           </div>
         </div>
       </div>
