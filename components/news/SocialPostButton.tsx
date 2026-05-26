@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef } from 'react'
-import { Share2, Download, X, Loader2, Copy, RefreshCw, Check } from 'lucide-react'
+import { Share2, Download, X, Loader2, RefreshCw, Check } from 'lucide-react'
 import { getAuthToken } from '@/lib/api-client'
 
 interface SocialPostButtonProps {
@@ -28,7 +28,6 @@ export default function SocialPostButton({ id, titulo, inline = false, className
   const [post, setPost] = useState<GeneratedPost | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [copiedImg, setCopiedImg] = useState(false)
   const [publishingFacebook, setPublishingFacebook] = useState(false)
   const [publishSuccessFacebook, setPublishSuccessFacebook] = useState(false)
   const [publishingInstagram, setPublishingInstagram] = useState(false)
@@ -225,20 +224,6 @@ export default function SocialPostButton({ id, titulo, inline = false, className
     a.click()
   }
 
-  async function handleCopyImage() {
-    if (!post?.processedUrl) return
-    try {
-      const res = await fetch(post.processedUrl)
-      const blob = await res.blob()
-      await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])
-      setCopiedImg(true)
-      setTimeout(() => setCopiedImg(false), 2000)
-    } catch {
-      handleDownload()
-    }
-  }
-
-
   const isHorizontal = post?.formato !== 'vertical'
 
   return (
@@ -323,20 +308,13 @@ export default function SocialPostButton({ id, titulo, inline = false, className
               {/* Botones */}
               {post && !loading && (
                 <>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 gap-2">
                     <button
                       onClick={handleDownload}
                       className="flex items-center justify-center gap-2 bg-accent text-accent-foreground font-bold py-2.5 rounded hover:opacity-90 transition-opacity text-sm"
                     >
                       <Download className="w-4 h-4" />
                       Descargar imagen
-                    </button>
-                    <button
-                      onClick={handleCopyImage}
-                      className="flex items-center justify-center gap-2 bg-[#162032] border border-[#1e3048] text-white font-semibold py-2.5 rounded hover:border-accent transition-colors text-sm"
-                    >
-                      {copiedImg ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
-                      {copiedImg ? 'Copiada!' : 'Copiar imagen'}
                     </button>
                   </div>
 
