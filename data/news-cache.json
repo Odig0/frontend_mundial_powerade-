@@ -1,10 +1,29 @@
 {
   "metadata": {
     "version": "1",
-    "timestamp": 1779891986059,
-    "count": 34
+    "timestamp": 1779893493457,
+    "count": 35
   },
   "news": [
+    {
+      "_id": "6a16fe812eb6f10014523a7e",
+      "fecha_c": 1779892422071,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779892118880.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779892118880.jpg",
+      "introHTML": "<p>Hungr&iacute;a firm&oacute; en 1982 la mayor goleada en la historia de los Mundiales con un 10-1 ante El Salvador en Elche.</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbb1",
+        "firma": "Agencia EFE"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>Si bien la figura de Paolo Rossi y la selecci&oacute;n italiana que lideraba suele ser la principal postal del Mundial de Espa&ntilde;a 1982, en el calendario tambi&eacute;n qued&oacute; se&ntilde;alado el 15 de junio como la fecha en la que se registr&oacute; la mayor goleada en la historia del torneo: el 10-1 de Hungr&iacute;a a El Salvador en Elche.</p><p>Poco pudo hacer El Salvador en el Nuevo Estadio ante la avalancha de goles, a pesar de que lleg&oacute; a conseguir un ins&iacute;pido descuento gracias a la anotaci&oacute;n de Luis Baltazar Ram&iacute;rez, el &uacute;nico gol salvadore&ntilde;o en los Mundiales.</p><p>El vendaval h&uacute;ngaro de esa noche consagr&oacute; adem&aacute;s el registro individual de L&aacute;szl&oacute; Kiss. El atacante salt&oacute; al campo desde el banquillo de suplentes para firmar el triplete mundialista m&aacute;s r&aacute;pido jam&aacute;s visto, en un intervalo de solo siete minutos y 42 segundos, sellando la &uacute;nica ocasi&oacute;n en la que una selecci&oacute;n alcanz&oacute; en el marcador el doble d&iacute;gito en el torneo.</p><p>Aquel hito de 1982 no fue una anomal&iacute;a aislada para el balompi&eacute; de Hungr&iacute;a, que tambi&eacute;n es due&ntilde;o del segundo escal&oacute;n en el podio de las mayores humillaciones ofensivas. En la cita de Suiza 1954, la m&iacute;tica generaci&oacute;n de los &#39;Magiares M&aacute;gicos&#39; comandada por Ferenc Pusk&aacute;s vapule&oacute; con un 9-0 a Corea del Sur en su debut.</p><p>Esa misma diferencia de nueve anotaciones se repiti&oacute; dos d&eacute;cadas m&aacute;s tarde en el certamen de Alemania 1974. En la fase de grupos, la poderosa escuadra de Yugoslavia no tuvo piedad ante un debutante conjunto de Zaire, actual Rep&uacute;blica Democr&aacute;tica del Congo, al que despach&oacute; con otro categ&oacute;rico 9-0.</p><p>En la ronda de eliminaci&oacute;n directa tambi&eacute;n han podido verse aut&eacute;nticas palizas. Tal vez la primera tuvo lugar en los cuartos de final de Francia 1938, instancia donde el combinado de Suecia desmantel&oacute; por completo las aspiraciones de Cuba al recetarle un doloroso 8-0 que se mantiene invicto en fases decisivas.</p><p><span style=\"font-size:18px;\"><strong>Alemania, protagonista de algunas de las mayores goleadas</strong></span></p><p>Una cantidad similar de goles cay&oacute; d&eacute;cadas despu&eacute;s sobre una Brasil que actuaba de anfitriona en 2014 ante Alemania, que no mostr&oacute; misericordia alguna y asest&oacute; a la Verdeamarela un 7-1 en las semifinales para proclamarse m&aacute;s tarde campeones, un marcador que tambi&eacute;n consigui&oacute; Italia ante Estados Unidos en 1934.</p><p>El registro m&aacute;s abultado del presente siglo cobr&oacute; vida en las canchas de Corea-Jap&oacute;n 2002, tambi&eacute;n a manos de la selecci&oacute;n germana, que castig&oacute; con un implacable 8-0 a Arabia Saud&iacute; en una noche en la que un joven Miroslav Klose, autor de un triplete de cabeza, present&oacute; sus credenciales goleadoras.</p><p>En total, tres encuentros se han cerrado con un 8-0 en el tablero, mientras otros cinco han culminado con un humillante 7-0, el m&aacute;s reciente de ellos en la victoria de Espa&ntilde;a sobre Costa Rica en Qatar 2022, con un doblete de Ferran Torres que sentenci&oacute; la peor derrota costarricense en el torneo y el mayor triunfo espa&ntilde;ol.</p><p>En la edici&oacute;n de Norteam&eacute;rica, la mirada estar&aacute; puesta en el debut de naciones con menor rodaje internacional frente a las potencias, donde la ampliaci&oacute;n del formato a 48 selecciones genera expectativa ante la duda de si los arcos volver&aacute;n a sufrir marcadores de esc&aacute;ndalo.</p><p>Mientras el mundo del f&uacute;tbol se prepara para un calendario extendido y de alta exigencia en 2026, los registros anotadores muestran distintos ejemplos de letalidad, pero ning&uacute;n ataque ha logrado igualar la efectividad de aquella noche en Elche, consolidando a ese 15 de junio como la frontera inalcanzable del abuso goleador en los Mundiales.</p>",
+      "titulo": "A 15 días del Mundial 2026: El día que El Salvador fue víctima de la mayor goleada",
+      "fecha_a": 1779892422071,
+      "prevId": "1779892422",
+      "link": "a-15-dias-del-mundial-2026-el-dia-que-el-salvador-fue-victima-de-la-mayor-goleada_1779892422"
+    },
     {
       "_id": "6a16f4c32eb6f10014522dc5",
       "fecha_c": 1779889871838,
@@ -77,8 +96,7 @@
       "titulo": "Valverde se suma a la selección uruguaya con la ilusión de ganar el Mundial",
       "fecha_a": 1779881580000,
       "prevId": "1779881630",
-      "link": "valverde-se-suma-a-la-seleccion-uruguaya-con-la-ilusion-de-ganar-el-mundial_1779881630",
-      "posicion_portada": 3
+      "link": "valverde-se-suma-a-la-seleccion-uruguaya-con-la-ilusion-de-ganar-el-mundial_1779881630"
     },
     {
       "_id": "6a163a8305904b00144a0ab4",
@@ -97,8 +115,7 @@
       "titulo": "Panamá anuncia sus convocados para el Mundial con una vuelta histórica",
       "fecha_a": 1779842148315,
       "prevId": "1779842148",
-      "link": "panama-anuncia-sus-convocados-para-el-mundial-con-una-vuelta-historica_1779842148",
-      "posicion_portada": 4
+      "link": "panama-anuncia-sus-convocados-para-el-mundial-con-una-vuelta-historica_1779842148"
     },
     {
       "_id": "6a16385e05904b00144a06ce",
@@ -118,7 +135,7 @@
       "fecha_a": 1779841302357,
       "prevId": "1779841302",
       "link": "paraguay-quiere-sorprender-en-el-mundial-y-alfaro-avisa-aun-no-vimos-lo-mejor_1779841302",
-      "posicion_portada": 5
+      "posicion_portada": 2
     },
     {
       "_id": "6a16370205904b00144a04b6",
@@ -158,7 +175,7 @@
       "fecha_a": 1779840438843,
       "prevId": "1779840438",
       "link": "koeman-podemos-vencer-a-cualquier-seleccion_1779840438",
-      "posicion_portada": 2
+      "posicion_portada": 3
     },
     {
       "_id": "6a1631d005904b001449fdfb",
@@ -230,7 +247,8 @@
       "titulo": "Vancouver será el centro de operaciones de Canadá en el Mundial 2026",
       "fecha_a": 1779837474535,
       "prevId": "1779837474",
-      "link": "vancouver-sera-el-centro-de-operaciones-de-canada-en-el-mundial-2026_1779837474"
+      "link": "vancouver-sera-el-centro-de-operaciones-de-canada-en-el-mundial-2026_1779837474",
+      "posicion_portada": 4
     },
     {
       "_id": "6a1622a605904b001449eb3d",
@@ -249,7 +267,8 @@
       "titulo": "Marruecos anuncia sus futbolistas para el Mundial y quiere reafirmar su crecimiento",
       "fecha_a": 1779836520918,
       "prevId": "1779836520",
-      "link": "marruecos-anuncia-sus-futbolistas-para-el-mundial-y-quiere-reafirmar-su-crecimiento_1779836520"
+      "link": "marruecos-anuncia-sus-futbolistas-para-el-mundial-y-quiere-reafirmar-su-crecimiento_1779836520",
+      "posicion_portada": 5
     },
     {
       "_id": "6a161ee705904b001449e7d9",

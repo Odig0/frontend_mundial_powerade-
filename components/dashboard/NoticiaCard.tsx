@@ -164,6 +164,10 @@ export default function NoticiaCard({ news, availableSections = [] }: NoticiaCar
           {publicada && (
             <span className="db-badge-published">Publicada</span>
           )}
+          {/* Badge - Position on portada (1-5) - visible only in dashboard */}
+          {typeof (news as any).posicion_portada === 'number' && Number.isFinite((news as any).posicion_portada) && (news as any).posicion_portada > 0 && (
+            <span className="db-badge-posicion">{(news as any).posicion_portada}</span>
+          )}
 
           {/* Badge - Section */}
           <span className="db-badge-section capitalize">{seccion}</span>

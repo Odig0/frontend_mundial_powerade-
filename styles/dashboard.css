@@ -242,6 +242,20 @@
   border-radius: 999px;
 }
 
+/* Badge - portada position number */
+.db-badge-posicion {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem; /* moved further right */
+  background: rgba(14,165,233,0.95); /* bright blue */
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(2,6,23,0.6);
+}
+
 /* Content side */
 .db-card-body {
   flex: 1;
