@@ -15,6 +15,7 @@ export interface NewsItem {
   introHTML: string
   opinologo: Opinologo
   prevId: string
+  posicion_portada?: number
   secciones: string[]
   textoHTML: string
   titulo: string

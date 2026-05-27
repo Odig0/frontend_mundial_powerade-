@@ -1,10 +1,30 @@
 {
   "metadata": {
     "version": "1",
-    "timestamp": 1779890231362,
-    "count": 33
+    "timestamp": 1779891986059,
+    "count": 34
   },
   "news": [
+    {
+      "_id": "6a16f4c32eb6f10014522dc5",
+      "fecha_c": 1779889871838,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779889630592.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779889630592.jpg",
+      "introHTML": "<p>El mediocampista&nbsp;fue el primero en llegar a la concentraci&oacute;n de Brasil en Teres&oacute;polis rumbo al Mundial 2026. La &ldquo;Canarinha&rdquo; inicia su preparaci&oacute;n con evaluaciones, amistosos y el debut programado ante Marruecos.</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbbc",
+        "firma": "Lucas Nazrala",
+        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbc/1759755434737.jpg"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>El centrocampista brasile&ntilde;o Casemiro fue el primero en llegar a la concentraci&oacute;n de la selecci&oacute;n brasile&ntilde;a en Teres&oacute;polis, en la sierra de R&iacute;o de Janeiro, para preparar el Mundial 2026, inform&oacute; este mi&eacute;rcoles la CBF.</p><p>Los otros 25 jugadores convocados por el seleccionador Carlo Ancelotti se presentar&aacute;n en la Granja Comary, donde se encuentra el centro de alto rendimiento de la Confederaci&oacute;n Brasile&ntilde;a de F&uacute;tbol (CBF), en las pr&oacute;ximas horas y d&iacute;as.</p><p>Casemiro, que acaba de poner fin a su etapa en el Manchester United, arrib&oacute; a la concentraci&oacute;n la noche del martes, antes incluso que Ancelotti y sus auxiliares t&eacute;cnicos, que tienen previsto incorporarse en la ma&ntilde;ana de este mi&eacute;rcoles.</p><p>Para la llegada de los futbolistas hasta la Granja Comary, la CBF ha fletado helic&oacute;pteros como una &quot;forma de garantizar su puntualidad, adem&aacute;s de proporcionar mayor seguridad a los convocados, teniendo en cuenta el gran flujo de veh&iacute;culos&quot; en ese horario, seg&uacute;n la entidad.</p><p>Los jugadores pasar&aacute;n por una evaluaci&oacute;n f&iacute;sica y cl&iacute;nica, y en la tarde de este mismo mi&eacute;rcoles tendr&aacute;n su primera sesi&oacute;n de entrenamiento, que ser&aacute; a puerta cerrada, sin la presencia de medios de comunicaci&oacute;n.</p><p>Brasil disputar&aacute; dos amistosos antes de iniciar su andadura en el Mundial 2026, que empezar&aacute; el pr&oacute;ximo mes en Estados Unidos, M&eacute;xico y Canad&aacute;, y ser&aacute; el m&aacute;s largo de la historia.</p><p>El primero ser&aacute; el domingo contra Panam&aacute; en el estadio Maracan&aacute; de R&iacute;o de Janeiro y ya el 6 de junio jugar&aacute; con Egipto en el Huntington Bank Field de Cleveland (EE.UU.).</p><p>La pentacampeona del mundo disputar&aacute; en territorio estadounidense toda la primera fase del certamen.</p><p>Debutar&aacute; en el Grupo C el 13 de junio frente a Marruecos, en Nueva Jersey, y luego se enfrentar&aacute; con Hait&iacute; el 19 de junio, en Filadelfia, y a Escocia, cinco d&iacute;as despu&eacute;s, en Miami.</p>",
+      "titulo": "Casemiro abre la concentración de Brasil rumbo al Mundial 2026",
+      "fecha_a": 1779891438867,
+      "prevId": "1779889871",
+      "link": "casemiro-abre-la-concentracion-de-brasil-rumbo-al-mundial-2026_1779889871"
+    },
     {
       "_id": "6a16ebac2eb6f100145226ce",
       "fecha_c": 1779888408085,
@@ -18,7 +38,8 @@
       "titulo": "Países Bajos apuesta por experiencia y juventud para el Mundial 2026",
       "fecha_a": 1779888408085,
       "prevId": "1779888408",
-      "link": "paises-bajos-apuesta-por-experiencia-y-juventud-para-el-mundial-2026_1779888408"
+      "link": "paises-bajos-apuesta-por-experiencia-y-juventud-para-el-mundial-2026_1779888408",
+      "posicion_portada": 1
     },
     {
       "_id": "6a16d6352eb6f10014521373",
@@ -56,7 +77,8 @@
       "titulo": "Valverde se suma a la selección uruguaya con la ilusión de ganar el Mundial",
       "fecha_a": 1779881580000,
       "prevId": "1779881630",
-      "link": "valverde-se-suma-a-la-seleccion-uruguaya-con-la-ilusion-de-ganar-el-mundial_1779881630"
+      "link": "valverde-se-suma-a-la-seleccion-uruguaya-con-la-ilusion-de-ganar-el-mundial_1779881630",
+      "posicion_portada": 3
     },
     {
       "_id": "6a163a8305904b00144a0ab4",
@@ -75,7 +97,8 @@
       "titulo": "Panamá anuncia sus convocados para el Mundial con una vuelta histórica",
       "fecha_a": 1779842148315,
       "prevId": "1779842148",
-      "link": "panama-anuncia-sus-convocados-para-el-mundial-con-una-vuelta-historica_1779842148"
+      "link": "panama-anuncia-sus-convocados-para-el-mundial-con-una-vuelta-historica_1779842148",
+      "posicion_portada": 4
     },
     {
       "_id": "6a16385e05904b00144a06ce",
@@ -94,7 +117,8 @@
       "titulo": "Paraguay quiere sorprender en el Mundial y Alfaro avisa: “Aún no vimos lo mejor”",
       "fecha_a": 1779841302357,
       "prevId": "1779841302",
-      "link": "paraguay-quiere-sorprender-en-el-mundial-y-alfaro-avisa-aun-no-vimos-lo-mejor_1779841302"
+      "link": "paraguay-quiere-sorprender-en-el-mundial-y-alfaro-avisa-aun-no-vimos-lo-mejor_1779841302",
+      "posicion_portada": 5
     },
     {
       "_id": "6a16370205904b00144a04b6",
@@ -133,7 +157,8 @@
       "titulo": "Koeman: “Podemos vencer a cualquier selección”",
       "fecha_a": 1779840438843,
       "prevId": "1779840438",
-      "link": "koeman-podemos-vencer-a-cualquier-seleccion_1779840438"
+      "link": "koeman-podemos-vencer-a-cualquier-seleccion_1779840438",
+      "posicion_portada": 2
     },
     {
       "_id": "6a1631d005904b001449fdfb",
@@ -357,8 +382,7 @@
       "titulo": "Luis de la Fuente: \"El Mundial es el momento de Lamine Yamal\"",
       "fecha_a": 1779791960006,
       "prevId": "1779791960",
-      "link": "luis-de-la-fuente-el-mundial-es-el-momento-de-lamine-yamal_1779791960",
-      "posicion_portada": 1
+      "link": "luis-de-la-fuente-el-mundial-es-el-momento-de-lamine-yamal_1779791960"
     },
     {
       "_id": "6a14d8dadfe364001426c7d5",

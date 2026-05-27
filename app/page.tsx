@@ -14,7 +14,7 @@ import HomeLeftAd from '@/components/publicidad/HomeLeftAd'
 import HomeRightAd from '@/components/publicidad/HomeRightAd'
 import TopBannerAd from '@/components/publicidad/TopBannerAd'
 import BottomBannerAd from '@/components/publicidad/BottomBannerAd'
-import { getNewsWithFallback, getMundialFeatured } from '@/lib/news-service'
+import { getNewsWithFallback } from '@/lib/news-service'
 import { getDailymotionVideos } from '@/services/dailymotionService'
 
 const BASE_URL = (process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo').replace(/\/$/, '')
@@ -43,6 +43,13 @@ function stripHtml(html: string) {
 
 function serializeJsonLd(data: unknown) {
   return JSON.stringify(data).replace(/</g, '\\u003c')
+}
+
+function getPosicionPortada(item: { posicion_portada?: number | string | null }) {
+  const rawValue = item.posicion_portada
+  const parsedValue = typeof rawValue === 'string' ? Number(rawValue) : rawValue
+
+  return Number.isFinite(parsedValue) && parsedValue ? parsedValue : Number.POSITIVE_INFINITY
 }
 
 export const metadata: Metadata = {
@@ -74,25 +81,27 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-  const [rawNews, videos, mundialFeatured] = await Promise.all([
+  const [rawNews, videos] = await Promise.all([
     getNewsWithFallback(),
     getDailymotionVideos(),
-    getMundialFeatured(),
   ])
 
-  const news = rawNews.filter((item) => item.imagen_home && item.imagen_home.trim())
+  const news = rawNews
+    .filter((item) => item.imagen_home && item.imagen_home.trim())
+    .slice()
+    .sort((left, right) => {
+      const leftPosition = getPosicionPortada(left)
+      const rightPosition = getPosicionPortada(right)
 
-  // If we have a mundial featured article, use it as the main featured
-  let featuredArticle: typeof news[number] | null = null
-  let remaining = news
+      if (leftPosition !== rightPosition) {
+        return leftPosition - rightPosition
+      }
 
-  if (mundialFeatured) {
-    featuredArticle = mundialFeatured
-    remaining = news.filter((n) => n._id !== mundialFeatured._id)
-  } else {
-    featuredArticle = news[0] ?? null
-    remaining = news.slice(1)
-  }
+      return (right.fecha_a || right.fecha_c || 0) - (left.fecha_a || left.fecha_c || 0)
+    })
+
+  const featuredArticle = news[0] ?? null
+  const remaining = news.slice(1)
 
   const featured = [featuredArticle].filter(Boolean) as typeof news
   const secondary = remaining.slice(0, 2)
