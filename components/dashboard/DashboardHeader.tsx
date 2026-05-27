@@ -1,6 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 import Image from 'next/image'
 import { SidebarTrigger } from '@/components/ui/sidebar'
 import { Separator } from '@/components/ui/separator'
@@ -26,15 +27,17 @@ export default function DashboardHeader() {
 
       {/* Center: logo */}
       <div className="db-header-logo-center">
-        <div style={{ position: 'relative', width: 160, height: 44 }}>
-          <Image
-            src="/logo_powerade.png"
-            alt="Powerade"
-            fill
-            className="object-contain"
-            priority
-          />
-        </div>
+        <Link href="/" aria-label="Ir al home" className="block">
+          <div style={{ position: 'relative', width: 160, height: 44 }}>
+            <Image
+              src="/logo_powerade.png"
+              alt="Powerade"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+        </Link>
       </div>
 
       {/* Right: spacer to balance left */}
