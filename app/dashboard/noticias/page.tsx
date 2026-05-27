@@ -14,7 +14,17 @@ async function NoticiasContent() {
   const filteredNews = news.filter(
     (item) => item.imagen_home?.trim() && belongsToDashboardSection(item.secciones)
   )
-  return <NoticiasGrid news={filteredNews} />
+  // Put portada positions 1..5 first (ordered), then the rest
+  const positioned = filteredNews
+    .filter((n) => typeof (n as any).posicion_portada === 'number' && Number.isFinite((n as any).posicion_portada) && (n as any).posicion_portada >= 1 && (n as any).posicion_portada <= 5)
+    .slice()
+    .sort((a, b) => ((a as any).posicion_portada || 0) - ((b as any).posicion_portada || 0))
+
+  const rest = filteredNews.filter((n) => !positioned.find((p) => p._id === n._id))
+
+  const ordered = [...positioned, ...rest]
+
+  return <NoticiasGrid news={ordered} />
 }
 
 function NoticiasLoading() {
