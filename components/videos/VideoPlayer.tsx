@@ -157,7 +157,7 @@ export default function VideoPlayer({ videos: initialVideos, startIndex = 0 }: V
   if (!videos || videos.length === 0) {
     return (
       <div className="w-full bg-blue-900/20 border border-blue-500 rounded-lg p-8 text-center">
-        <p className="text-white mb-2">⚠️ No hay videos disponibles</p>
+        <p className="text-white mb-2"> No hay videos disponibles</p>
         <p className="text-xs text-blue-300">
           Videos recibidos: {videos?.length ?? 0}
         </p>
