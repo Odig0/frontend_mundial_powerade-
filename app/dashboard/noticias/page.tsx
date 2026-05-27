@@ -1,11 +1,19 @@
 import { Suspense } from 'react'
-import { getNews } from '@/lib/api'
+import { getNewsWithFallback } from '@/lib/news-service'
 import NoticiasGrid from '@/components/dashboard/NoticiasGrid'
 import { Skeleton } from '@/components/ui/skeleton'
 
+const DASHBOARD_SECTIONS = new Set(['mundial-2026', 'fuera-de-juego'])
+
+function belongsToDashboardSection(sections: string[] | undefined) {
+  return (sections ?? []).some((section) => DASHBOARD_SECTIONS.has(section.trim().toLowerCase()))
+}
+
 async function NoticiasContent() {
-  const news = await getNews()
-  const filteredNews = news.filter((item) => item.imagen_home?.trim())
+  const news = await getNewsWithFallback()
+  const filteredNews = news.filter(
+    (item) => item.imagen_home?.trim() && belongsToDashboardSection(item.secciones)
+  )
   return <NoticiasGrid news={filteredNews} />
 }
 

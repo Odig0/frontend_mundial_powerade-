@@ -1,9 +1,8 @@
 'use client'
 
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import { Search } from 'lucide-react'
 import type { NewsItem } from '@/lib/news-types'
-import { getAvailableSectionsAll } from '@/lib/news-client'
 import NoticiaCard from './NoticiaCard'
 
 interface NoticiasGridProps {
@@ -12,18 +11,6 @@ interface NoticiasGridProps {
 
 export default function NoticiasGrid({ news }: NoticiasGridProps) {
   const [searchTerm, setSearchTerm] = useState('')
-  const [sections, setSections] = useState<string[]>([])
-
-  useEffect(() => {
-    async function loadSections() {
-      try {
-        const availableSections = await getAvailableSectionsAll()
-        setSections(availableSections)
-      } catch (error) {
-      }
-    }
-    loadSections()
-  }, [])
 
   // Filter news
   const filteredNews = useMemo(() => {
@@ -56,7 +43,7 @@ export default function NoticiasGrid({ news }: NoticiasGridProps) {
       {filteredNews.length > 0 ? (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
           {filteredNews.map((item) => (
-            <NoticiaCard key={item._id} news={item} availableSections={sections} />
+            <NoticiaCard key={item._id} news={item} />
           ))}
         </div>
       ) : (
