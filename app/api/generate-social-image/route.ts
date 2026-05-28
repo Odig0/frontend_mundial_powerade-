@@ -58,6 +58,8 @@ export async function POST(request: NextRequest) {
     if (!fs.existsSync(selloPath)) throw new Error(`Sello not found: ${selloPath}`)
     const selloBuffer = fs.readFileSync(selloPath)
 
+    // Usar fuentes genéricas (no usar las de public/fonts)
+
     // Obtener dimensiones del sello
     const selloMeta = await sharp(selloBuffer).metadata()
     const selloW = selloMeta.width ?? 400
@@ -90,7 +92,7 @@ export async function POST(request: NextRequest) {
           <text 
             x="${fmt.width - 30}" 
             y="50" 
-            font-family="Arial, sans-serif" 
+            font-family="Helvetica, Arial, sans-serif" 
             font-size="40" 
             font-weight="bold"
             fill="white"
@@ -134,7 +136,7 @@ export async function POST(request: NextRequest) {
       const tituloSvg = `
         <svg width="${titleBoxWidth}" height="${svgHeight}" xmlns="http://www.w3.org/2000/svg">
           <style>
-            .title { font-family: 'Georgia', 'Times New Roman', serif; font-weight:700; font-size: ${titleFontSize}px; fill:#ffffff; stroke:#000000; stroke-opacity:0.6; stroke-width:6; paint-order:stroke; stroke-linejoin:round; }
+            .title { font-family: Helvetica, Arial, sans-serif; font-weight:700; font-size: ${titleFontSize}px; fill:#ffffff; stroke:#000000; stroke-opacity:0.6; stroke-width:6; paint-order:stroke; stroke-linejoin:round; }
             tspan { display:block; }
           </style>
           <text class="title" x="${padding}" y="${padding + 24 + titleOffsetY}">

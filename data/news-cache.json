@@ -1,10 +1,128 @@
 {
   "metadata": {
     "version": "1",
-    "timestamp": 1779908621790,
-    "count": 36
+    "timestamp": 1779974167346,
+    "count": 42
   },
   "news": [
+    {
+      "_id": "6a183bce5858c20014467328",
+      "fecha_c": 1779973255916,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779973204929.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779973204929.jpg",
+      "introHTML": "<p>El delantero brasile&ntilde;o fue diagnosticado con una lesi&oacute;n muscular de grado II en el gemelo y estar&aacute; fuera entre dos y tres semanas. Su presencia en el debut de Brasil ante Marruecos por el Mundial 2026 qued&oacute; en duda.</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbb1",
+        "firma": "Agencia EFE"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>Neymar, concentrado con la selecci&oacute;n brasile&ntilde;a para el Mundial 2026, fue diagnosticado con una lesi&oacute;n muscular de grado II en la regi&oacute;n del gemelo y estar&aacute; de baja de &quot;dos a tres semanas&quot;, aunque no abandonar&aacute; la Canarinha, inform&oacute; este jueves la CBF.</p><p>El m&eacute;dico de la selecci&oacute;n brasile&ntilde;a, Rodrigo Lasmar, se&ntilde;al&oacute; en rueda de prensa que el 10 del Santos seguir&aacute; &quot;un tratamiento intensivo&quot; en los pr&oacute;ximos d&iacute;as con los profesionales de la &#39;Sele&ccedil;&atilde;o&#39;.</p><p>Neymar se uni&oacute; el mi&eacute;rcoles a la concentraci&oacute;n brasile&ntilde;a en Teres&oacute;polis, en la sierra de R&iacute;o de Janeiro, junto a otra veintena de los convocados por el t&eacute;cnico italiano Carlo Ancelotti.</p><p>Sin embargo, se perdi&oacute; el primer entrenamiento y acudi&oacute; a una cl&iacute;nica para someterse a &quot;ex&aacute;menes complementarios&quot;.</p><p>El Santos inform&oacute; en los d&iacute;as previos a la concentraci&oacute;n de que el atacante ten&iacute;a apenas un &quot;edema&quot; en el gemelo, pero la Confederaci&oacute;n Brasile&ntilde;a de F&uacute;tbol (CBF) quiso tener su propio diagn&oacute;stico.</p><p>Ney se someti&oacute; as&iacute; a una resonancia magn&eacute;tica que constat&oacute; una &quot;lesi&oacute;n muscular de grado II en el gemelo&quot;, seg&uacute;n especific&oacute; Lasmar ante los periodistas.</p><p>&quot;Seguir&aacute; bajo tratamiento intensivo con nosotros y en una plazo de dos a tres semanas estar&aacute; liberado. Esa es la expectativa&quot;, afirm&oacute; el doctor.</p><p>De esta forma, Neymar se perder&aacute; seguro los dos amistosos previos de la Canarinha antes del Mundial ante Panam&aacute;, el domingo en el estadio Maracan&aacute;, y Egipto, el pr&oacute;ximo 6 de junio en el Huntington Bank Field de Cleveland (Estados Unidos).</p><p>Seg&uacute;n esos plazos, tambi&eacute;n ser&aacute; duda para el debut en el Grupo C del Mundial de Estados Unidos, M&eacute;xico y Canad&aacute; ante Marruecos, el pr&oacute;ximo 13 de junio, en Nueva Jersey.</p><p>Brasil se enfrentar&aacute; despu&eacute;s con Hait&iacute; el 19 de junio, en Filadelfia, y a Escocia, cinco d&iacute;as despu&eacute;s, en Miami.</p><p>La presencia de Neymar en la lista de Ancelotti fue toda una sorpresa, pues el t&eacute;cnico italiano nunca le hab&iacute;a convocado desde que asumi&oacute; las riendas de la Canarinha, en mayo de 2025.</p><p>Sin embargo, &lsquo;Carletto&rsquo; opt&oacute; finalmente por llamarle a filas despu&eacute;s de observar su progresi&oacute;n f&iacute;sica en los &uacute;ltimos meses y de haber conseguido cierta continuidad con la camiseta del Santos.&nbsp;</p>",
+      "titulo": "Neymar sufre lesión y enciende las alarmas en Brasil a días del Mundial",
+      "fecha_a": 1779973255916,
+      "prevId": "1779973255",
+      "link": "neymar-sufre-lesion-y-enciende-las-alarmas-en-brasil-a-dias-del-mundial_1779973255"
+    },
+    {
+      "_id": "6a1767b52eb6f10014528e9b",
+      "fecha_c": 1779920263693,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779920014759.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779920014759.jpg",
+      "introHTML": "<p>El volante croata podr&iacute;a retirarse tras el Mundial 2026, torneo en el que buscar&aacute; volver a llevar a su selecci&oacute;n a lo m&aacute;s alto junto a una generaci&oacute;n que mezcla juventud y experiencia.</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbbd",
+        "firma": "Jaime Paniagua",
+        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbd/1764689648901.jpg"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<section data-scroll-anchor=\"false\" data-testid=\"conversation-turn-72\" data-turn=\"assistant\" data-turn-id=\"request-6a0f0a7f-98f4-83e9-9af1-245027660ac2-19\" data-turn-id-container=\"request-6a0f0a7f-98f4-83e9-9af1-245027660ac2-19\" dir=\"auto\"><p data-end=\"458\" data-start=\"0\">El Mundial 2026 aparece como el escenario perfecto para marcar el cierre de una generaci&oacute;n hist&oacute;rica en el f&uacute;tbol mundial. Mientras figuras como Lionel Messi y Cristiano Ronaldo afrontan posiblemente su &uacute;ltima Copa del Mundo, nuevas estrellas como Lamine Yamal y Kylian Mbapp&eacute; comienzan a tomar el protagonismo del escenario internacional.</p><p data-end=\"814\" data-start=\"460\">En medio de ese cambio generacional, otro nombre hist&oacute;rico podr&iacute;a despedirse definitivamente de los Mundiales. Se trata de Luka Modrić, capit&aacute;n de la Selecci&oacute;n de f&uacute;tbol de Croacia, quien estar&iacute;a considerando poner fin a su carrera profesional tras la cita mundialista que se disputar&aacute; en Estados Unidos, M&eacute;xico y Canad&aacute;.</p><p data-end=\"1116\" data-start=\"816\">La informaci&oacute;n fue revelada desde Italia por el periodista Nicol&ograve; Schira, quien asegur&oacute; que el mediocampista croata tendr&iacute;a decidido cerrar su etapa como futbolista luego de su paso por AC Milan y tras disputar el torneo con su selecci&oacute;n nacional.</p><p data-end=\"1452\" data-start=\"1118\">A sus 40 a&ntilde;os, Modrić se prepara para disputar su quinta Copa del Mundo, luego de haber debutado en Alemania 2006. El volante fue la gran figura de la hist&oacute;rica Croacia finalista en Rusia 2018 y ese mismo a&ntilde;o logr&oacute; conquistar el Bal&oacute;n de Oro, rompiendo la hegemon&iacute;a que durante m&aacute;s de una d&eacute;cada mantuvieron Messi y Cristiano Ronaldo.</p><p data-end=\"1760\" data-start=\"1454\">Su posible retiro llega en un momento complicado para el Milan, club que qued&oacute; fuera de la pr&oacute;xima edici&oacute;n de la Champions League tras un cierre irregular de temporada en la Serie A. Esa situaci&oacute;n gener&oacute; incertidumbre dentro de la instituci&oacute;n y tambi&eacute;n impact&oacute; en el futuro del experimentado mediocampista.</p><p data-end=\"496\" data-start=\"0\">Croacia, una de las selecciones protagonistas de los &uacute;ltimos Mundiales, buscar&aacute; volver a competir en lo m&aacute;s alto del certamen,&nbsp;con una generaci&oacute;n que combina experiencia, jerarqu&iacute;a y juventud. Los croatas intentar&aacute;n volver a pelear por llegar lejos en el torneo tras el subcampeonato conseguido en Rusia 2018 y el hist&oacute;rico tercer lugar en Catar 2022. Esta es la lista de convocados:</p><p data-end=\"2103\" data-start=\"1762\">Arqueros<br data-end=\"2116\" data-start=\"2113\" />Dominik Livaković &ndash; Dinamo (CRO).<br data-end=\"2152\" data-start=\"2149\" />Dominik Kotarski &ndash; Copenhague (DEN).<br data-end=\"2191\" data-start=\"2188\" />Ivor Pandur &ndash; Hull City (ENG).</p><p data-end=\"2488\" data-start=\"2225\">Defensas<br data-end=\"2236\" data-start=\"2233\" />Jo&scaron;ko Gvardiol &ndash; Manchester City (ENG).<br data-end=\"2278\" data-start=\"2275\" />Duje Ćaleta-Car &ndash; Real Sociedad (ESP).<br data-end=\"2319\" data-start=\"2316\" />Josip &Scaron;utalo &ndash; Ajax (NED).<br data-end=\"2348\" data-start=\"2345\" />Josip Stani&scaron;ić &ndash; Bayern (GER).<br data-end=\"2381\" data-start=\"2378\" />Marin Pongračić &ndash; Fiorentina (ITA).<br data-end=\"2419\" data-start=\"2416\" />Martin Erlić &ndash; Midtjylland (DEN).<br data-end=\"2455\" data-start=\"2452\" />Luka Vu&scaron;ković &ndash; Hamburgo (GER).</p><p data-end=\"2834\" data-start=\"2490\">Mediocampistas<br data-end=\"2507\" data-start=\"2504\" />Luka Modrić &ndash; Milan (ITA).<br data-end=\"2536\" data-start=\"2533\" />Mateo Kovačić &ndash; Manchester City (ENG).<br data-end=\"2577\" data-start=\"2574\" />Mario Pa&scaron;alić &ndash; Atalanta (ITA).<br data-end=\"2611\" data-start=\"2608\" />Nikola Vla&scaron;ić &ndash; Torino (ITA).<br data-end=\"2643\" data-start=\"2640\" />Luka Sučić &ndash; Real Sociedad (ESP).<br data-end=\"2679\" data-start=\"2676\" />Martin Baturina &ndash; Como (ITA).<br data-end=\"2711\" data-start=\"2708\" />Kristijan Jakić &ndash; Augsburgo (GER).<br data-end=\"2747\" data-start=\"2744\" />Petar Sučić &ndash; Inter (ITA).<br data-end=\"2776\" data-start=\"2773\" />Nikola Moro &ndash; Bologna (ITA).<br data-end=\"2807\" data-start=\"2804\" />Toni Fruk &ndash; Rijeka (CRO).</p><p data-end=\"3046\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"2836\">Delanteros<br data-end=\"2849\" data-start=\"2846\" />Ivan Peri&scaron;ić &ndash; PSV (NED).<br data-end=\"2877\" data-start=\"2874\" />Andrej Kramarić &ndash; Hoffenheim (GER).<br data-end=\"2915\" data-start=\"2912\" />Ante Budimir &ndash; Osasuna (ESP).<br data-end=\"2947\" data-start=\"2944\" />Marco Pa&scaron;alić &ndash; Orlando City (USA).<br data-end=\"2985\" data-start=\"2982\" />Petar Musa &ndash; Dallas (USA).<br data-end=\"3014\" data-start=\"3011\" />Igor Matanović &ndash; Friburgo&nbsp;(GER).</p></section>",
+      "titulo": "Croacia sueña con otra hazaña mientras Modric prepara su despedida",
+      "fecha_a": 1779920220000,
+      "prevId": "1779920261",
+      "link": "croacia-suena-con-otra-hazana-mientras-modric-prepara-su-despedida_1779920261"
+    },
+    {
+      "_id": "6a17656c2eb6f10014528aa7",
+      "fecha_c": 1779918768354,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779918575619.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779918575619.jpg",
+      "introHTML": "<p>El astro brasile&ntilde;o se incorpor&oacute; a la &lsquo;Canarinha&rsquo; de Carlo Ancelotti a pocos d&iacute;as del Mundial 2026, aunque una molestia en la pantorrilla mantiene en alerta a todo Brasil antes del debut ante Marruecos.</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbbd",
+        "firma": "Jaime Paniagua",
+        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbd/1764689648901.jpg"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<section data-scroll-anchor=\"false\" data-testid=\"conversation-turn-64\" data-turn=\"assistant\" data-turn-id=\"request-6a0f0a7f-98f4-83e9-9af1-245027660ac2-15\" data-turn-id-container=\"request-6a0f0a7f-98f4-83e9-9af1-245027660ac2-15\" dir=\"auto\"><p data-end=\"407\" data-start=\"0\">La llegada de Neymar a la concentraci&oacute;n de selecci&oacute;n de Brasil acapar&oacute; toda la atenci&oacute;n en el inicio de los trabajos de la &lsquo;Canarinha&rsquo; rumbo al Copa Mundial 2026. El atacante arrib&oacute; este mi&eacute;rcoles a la Confederaci&oacute;n&nbsp;Brasile&ntilde;a&nbsp;de Futebol, ubicada en la Granja Comary, en las afueras de R&iacute;o de Janeiro, a bordo de su helic&oacute;ptero privado.</p><p data-end=\"796\" data-start=\"409\">Sin embargo, m&aacute;s all&aacute; del impacto medi&aacute;tico por su llegada, en Brasil existe preocupaci&oacute;n por el estado f&iacute;sico del delantero. Neymar arrastra un peque&ntilde;o edema de dos mil&iacute;metros en la pantorrilla, lesi&oacute;n que sufri&oacute; durante la derrota de Santos&nbsp;frente a Coritiba, d&iacute;as antes de confirmarse su convocatoria para la Copa del Mundo.</p><p data-end=\"1100\" data-start=\"798\">Desde aquella molestia, el futbolista no volvi&oacute; a disputar encuentros oficiales y se perdi&oacute; compromisos ante Gremio, San Lorenzo&nbsp;y Deportivo Cuenca. Durante ese tiempo, trabaj&oacute; de manera diferenciada para evitar una reca&iacute;da.</p><p data-end=\"1413\" data-start=\"1102\">Apenas aterriz&oacute; en el centro de entrenamiento de la CBF, Neymar fue sometido a evaluaciones m&eacute;dicas. Los pr&oacute;ximos estudios ser&aacute;n determinantes para conocer el alcance real de la lesi&oacute;n y definir si llegar&aacute; en condiciones al debut mundialista.</p><p data-end=\"1846\" data-start=\"1415\">El entrenador Carlo Ancelotti recibi&oacute; al delantero con un abrazo, aunque internamente saben que el panorama todav&iacute;a genera incertidumbre. Todo apunta a que Neymar no participar&iacute;a en los amistosos previos frente a Panam&aacute; y Egipto, mientras que su presencia en el estreno mundialista ante Marruecos sigue en duda.</p><p data-end=\"2135\" data-start=\"1848\">Antes de viajar a R&iacute;o de Janeiro, el propio Neymar intent&oacute; llevar tranquilidad sobre su situaci&oacute;n f&iacute;sica y minimiz&oacute; las molestias en declaraciones a la prensa. Brasil aguardar&aacute; la evoluci&oacute;n de su m&aacute;xima figura, que disputar&aacute; su cuarta Copa del Mundo tras participar en 2014, 2018 y 2022.</p><p data-end=\"2291\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"2137\">La &lsquo;Canarinha&rsquo; integrar&aacute; el Grupo C del Mundial 2026 junto a Marruecos, Selecci&oacute;n de f&uacute;tbol de Escocia y Selecci&oacute;n de f&uacute;tbol de Hait&iacute;.</p></section>",
+      "titulo": "Neymar llega a la concentración en helicóptero y Brasil cruza los dedos por su recuperación",
+      "fecha_a": 1779918720000,
+      "prevId": "1779918735",
+      "link": "neymar-llega-a-la-concentracion-en-helicoptero-y-brasil-cruza-los-dedos-por-su-recuperacion_1779918735"
+    },
+    {
+      "_id": "6a1762a42eb6f100145284d6",
+      "fecha_c": 1779918170185,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779917826473.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779917826473.jpg",
+      "introHTML": "<p>El cuerpo t&eacute;cnico de Javier Aguirre trabajar&aacute; con los 26 futbolistas de la lista preliminar a d&iacute;as de definir el plantel que disputar&aacute; la Copa del Mundo.</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbbd",
+        "firma": "Jaime Paniagua",
+        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbd/1764689648901.jpg"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<section data-scroll-anchor=\"false\" data-testid=\"conversation-turn-59\" data-turn=\"user\" data-turn-id=\"f27a34ea-f9a4-499b-b7b4-41a288faab5f\" data-turn-id-container=\"f27a34ea-f9a4-499b-b7b4-41a288faab5f\" dir=\"auto\">La selecci&oacute;n de f&uacute;tbol de M&eacute;xico contin&uacute;a ajustando detalles para la Copa Mundial de la FIFA 2026 y este jueves sumar&aacute; a dos piezas importantes en ofensiva: Ra&uacute;l Jim&eacute;nez y C&eacute;sar Huerta se incorporar&aacute;n a la concentraci&oacute;n del equipo en Pasadena, California.</section><section data-scroll-anchor=\"false\" data-testid=\"conversation-turn-60\" data-turn=\"assistant\" data-turn-id=\"request-6a0f0a7f-98f4-83e9-9af1-245027660ac2-13\" data-turn-id-container=\"request-6a0f0a7f-98f4-83e9-9af1-245027660ac2-13\" dir=\"auto\"><p data-end=\"703\" data-start=\"324\">La llegada de ambos atacantes permitir&aacute; que el entrenador Javier Aguirre trabaje pr&aacute;cticamente con el grupo completo de 26 futbolistas que forman parte de la lista preliminar rumbo a la Copa del Mundo. El objetivo del cuerpo t&eacute;cnico es aprovechar los &uacute;ltimos amistosos de preparaci&oacute;n para definir la n&oacute;mina definitiva, la cual ser&aacute; anunciada el 1 de junio.</p><p data-end=\"1106\" data-start=\"705\">Jim&eacute;nez y Huerta aparecen como alternativas importantes para potenciar el ataque del &lsquo;Tri&rsquo;, especialmente pensando en los encuentros amistosos frente a&nbsp;Australia y Serbia. El primero se disputar&aacute; el 30 de mayo en el Rose Bowl, mientras que el segundo ser&aacute; el 4 de junio en el Estadio Nemesio D&iacute;ez.</p><p data-end=\"1455\" data-start=\"1108\">La concentraci&oacute;n mexicana ya cuenta con futbolistas que militan en el exterior y jugadores de la Liga MX que comenzaron trabajos desde inicios de mayo. Aguirre y su equipo de trabajo analizar&aacute;n el estado f&iacute;sico y el rendimiento de cada jugador, sobre todo de aquellos que vienen saliendo de lesiones o llegan tras una temporada exigente en Europa.</p><p data-end=\"1733\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"1457\">M&eacute;xico iniciar&aacute; su camino mundialista el 11 de junio frente a Selecci&oacute;n de f&uacute;tbol de Sud&aacute;frica por el Grupo A. En esa misma zona tambi&eacute;n aparecen Selecci&oacute;n de f&uacute;tbol de Corea del Sur y Selecci&oacute;n de f&uacute;tbol de Rep&uacute;blica Checa como rivales en la primera fase del torneo.</p></section>",
+      "titulo": "Raúl Jiménez y Huerta se unen a la concentración de México",
+      "fecha_a": 1779918170185,
+      "prevId": "1779918170",
+      "link": "raul-jimenez-y-huerta-se-unen-a-la-concentracion-de-mexico_1779918170"
+    },
+    {
+      "_id": "6a1760fa2eb6f1001452815a",
+      "fecha_c": 1779917428430,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779917063939.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779917063939.jpg",
+      "introHTML": "<p>El entrenador de Selecci&oacute;n de f&uacute;tbol de Argentina habl&oacute; sobre las ausencias en la lista preliminar para el Mundial 2026, explic&oacute; por qu&eacute; Paulo Dybala qued&oacute; fuera y mostr&oacute; preocupaci&oacute;n por el estado f&iacute;sico de Lionel Messi.</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbbd",
+        "firma": "Jaime Paniagua",
+        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbd/1764689648901.jpg"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p data-end=\"348\" data-start=\"0\">A pocos d&iacute;as de oficializar la lista definitiva de 26 futbolistas para el Mundial 2026, Lionel Scaloni habl&oacute; con DsSports&nbsp;sobre el panorama actual de la selecci&oacute;n argentina y reconoci&oacute; que todav&iacute;a existen dudas dentro del cuerpo t&eacute;cnico, principalmente por el estado f&iacute;sico de varios jugadores que llegan con molestias o poca continuidad.</p><p data-end=\"815\" data-start=\"350\">El entrenador argentino&nbsp;explic&oacute; que la decisi&oacute;n final estar&aacute; ligada al presente futbol&iacute;stico y a la condici&oacute;n f&iacute;sica de cada jugador. En ese sentido, remarc&oacute; que algunos futbolistas no llegan en plenitud y que esperan hasta &uacute;ltimo momento para evaluar su evoluci&oacute;n antes de realizar cambios en la convocatoria. Scaloni se&ntilde;al&oacute; que la intenci&oacute;n es sostener la base del grupo, aunque admiti&oacute; que siguen atentos a la recuperaci&oacute;n de algunos nombres importantes.</p><p data-end=\"1317\" data-start=\"817\">Uno de los temas que m&aacute;s repercusi&oacute;n gener&oacute; fue la ausencia de Paulo Dybala en la lista preliminar. El DT argentino destac&oacute; la calidad y el gran cierre de temporada del atacante con su club, pero explic&oacute; que la competencia interna y la aparici&oacute;n de j&oacute;venes futbolistas terminaron inclinando la balanza hacia otros nombres. Adem&aacute;s, dej&oacute; en claro que no fue el &uacute;nico campe&oacute;n del mundo que qued&oacute; fuera de consideraci&oacute;n y que las decisiones responden al presente de cada jugador.</p><p data-end=\"1802\" data-start=\"1319\">Scaloni tambi&eacute;n se refiri&oacute; a la situaci&oacute;n de Nico Paz, quien arrastra molestias en la rodilla izquierda y no pudo disputar el &uacute;ltimo encuentro con Como 1907. El seleccionador asegur&oacute; que conf&iacute;a en la decisi&oacute;n de Cesc F&agrave;bregas y considera que el mediocampista no jug&oacute; porque realmente no estaba en condiciones f&iacute;sicas. Ahora esperan evaluarlo personalmente cuando llegue a la concentraci&oacute;n de Argentina.</p><p data-end=\"2289\" data-start=\"1804\">Otro foco de atenci&oacute;n pasa por Lionel Messi, quien termin&oacute; con molestias musculares tras un partido con Inter Miami CF. Scaloni cont&oacute; que siguieron el encuentro desde el predio de entrenamiento y notaron r&aacute;pidamente que el capit&aacute;n pidi&oacute; el cambio por una incomodidad f&iacute;sica. Aunque las primeras se&ntilde;ales no ser&iacute;an alarmantes, el cuerpo t&eacute;cnico aguardar&aacute; estudios m&eacute;dicos y la evoluci&oacute;n del jugador antes de sacar conclusiones definitivas.</p><p data-end=\"2739\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"2291\">Finalmente, el entrenador argentino abri&oacute; la puerta a varios futbolistas j&oacute;venes convocados para los amistosos previos ante Honduras e Islandia. Nicol&aacute;s Capaldo, Agust&iacute;n Giay y el arquero Santiago Beltr&aacute;n aparecen como alternativas que podr&iacute;an meterse en la n&oacute;mina final, pensando no solo en el presente inmediato, sino tambi&eacute;n en posibles imprevistos antes del debut mundialista.</p>",
+      "titulo": "Argentina define su lista mundialista: Scaloni habla de Dybala y Messi",
+      "fecha_a": 1779917400000,
+      "prevId": "1779917426",
+      "link": "argentina-define-su-lista-mundialista-scaloni-habla-de-dybala-y-messi_1779917426"
+    },
+    {
+      "_id": "6a1759b62eb6f100145276a3",
+      "fecha_c": 1779915700794,
+      "imagen_home": "https://cdn.diez.bo/diez/052026/1779915278048.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/052026/1779915278048.jpg",
+      "introHTML": "<p>La Roja centroamericana afrontar&aacute; su segunda Copa del Mundo con el promedio de edad m&aacute;s alto del torneo, varios sobrevivientes de Rusia 2018 y el objetivo de firmar la mejor participaci&oacute;n mundialista de su historia.</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbb1",
+        "firma": "Agencia EFE"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>La selecci&oacute;n de Panam&aacute; afrontar&aacute; el Mundial de 2026 con una convocatoria marcada por la experiencia, el regreso de varios jugadores que estuvieron en Rusia 2018 y la ambici&oacute;n de firmar la mejor participaci&oacute;n mundialista de su historia.</p><p>Estas son siete claves, con algunos datos de Transfermarkt, para entender c&oacute;mo llega la Roja centroamericana a la pr&oacute;xima Copa del Mundo.</p><h2><b>1. La selecci&oacute;n con mayor promedio de edad</b></h2><p>Panam&aacute; afrontar&aacute; su segundo Mundial con una plantilla de amplia experiencia, al punto de convertirse en la selecci&oacute;n con el promedio de edad m&aacute;s alto del torneo: 30,4 a&ntilde;os.</p><p>El equipo supera el promedio de edad que present&oacute; en Rusia 2018, cuando tuvo una media de 29,7 a&ntilde;os.</p><h2><b>2. Juventud y experiencia en equilibrio</b></h2><p>Aunque suele decirse que no hay jugadores j&oacute;venes o veteranos, sino buenos o malos, la convocatoria paname&ntilde;a combina experiencia y juventud.</p><p>Entre los m&aacute;s experimentados destaca Alberto Quintero, de 38 a&ntilde;os, una de las sorpresas del llamado de Christiansen. Junto a &eacute;l figuran Eric Davis (35), An&iacute;bal Godoy (36), Luis Mej&iacute;a (35) y Cecilio Waterman.</p><p>La cuota joven del plantel la aportan Azar&iacute;as Londo&ntilde;o, Edgardo Fari&ntilde;a y Jos&eacute; C&oacute;rdoba, todos con 24 a&ntilde;os.</p><h2><b>3. Mundialistas y debutantes</b></h2><p>La convocatoria de Panam&aacute; incluye a siete jugadores que ya disputaron minutos en Rusia 2018 y que buscar&aacute;n sumar su segundo Mundial: Ismael D&iacute;az, Yoel B&aacute;rcenas, Amir Murillo, Fidel Escobar, An&iacute;bal Godoy, Jos&eacute; Luis Rodr&iacute;guez y Eric Davis.</p><p>El resto vivir&aacute; su primera experiencia mundialista: Orlando Mosquera, Luis Mej&iacute;a, C&eacute;sar Samudio, Andr&eacute;s Andrade, Jiovanny Ramos, Jos&eacute; C&oacute;rdoba, Adalberto Carrasquilla, Cristian Mart&iacute;nez, C&eacute;sar Blackman, Carlos Harvey, C&eacute;sar Yanis, Jos&eacute; Fajardo, Azar&iacute;as Londo&ntilde;o, Cecilio Waterman, Edgardo Fari&ntilde;a y Tom&aacute;s Rodr&iacute;guez.</p><h2><b>4. El valor de la plantilla</b></h2><p>En t&eacute;rminos de valor de mercado, Panam&aacute; figura entre las selecciones menos cotizadas del Mundial. Seg&uacute;n Transfermarkt, ocupa el puesto 42 entre las selecciones clasificadas, pese a que el 92,3 % de sus convocados &mdash;24 de 26&mdash; militan fuera del pa&iacute;s.</p><p>Dentro del Grupo L, la selecci&oacute;n paname&ntilde;a est&aacute; valorada en 38,7 millones de d&oacute;lares, por debajo de Ghana (277,4 millones), Croacia (433,5 millones) e Inglaterra, la segunda selecci&oacute;n m&aacute;s valiosa del Mundial 2026, con 1.721 millones de d&oacute;lares.</p><h2><b>5. El grupo de las selecciones con dos Mundiales</b></h2><p>Panam&aacute; disputar&aacute; apenas su segunda Copa del Mundo, tras su debut en Rusia 2018, y forma parte de un reducido grupo de selecciones con dos participaciones mundialistas.</p><p>En esa lista aparecen tambi&eacute;n Rep&uacute;blica Checa, Bosnia y Herzegovina, Hait&iacute;, Catar e Irak.</p><p>Entre ellas, Panam&aacute; destaca por regresar al torneo ocho a&ntilde;os despu&eacute;s de su estreno. Hait&iacute; disput&oacute; su &uacute;nico Mundial en 1974; Bosnia y Herzegovina, en 2014; Rep&uacute;blica Checa, en 2006, mientras que Catar fue anfitri&oacute;n en 2022 y su clasificaci&oacute;n al Mundial 2026 marca su primera participaci&oacute;n por m&eacute;rito deportivo.</p><h2><b>6. La n&uacute;mero 33 del mundo</b></h2><p>Panam&aacute; llega al Mundial 2026 ubicada en el puesto 33 del ranking FIFA, su mejor carta de presentaci&oacute;n antes del torneo. Adem&aacute;s, es la cuarta mejor selecci&oacute;n de la Concacaf.</p><p>Cuando comenz&oacute; Rusia 2018, en junio de ese a&ntilde;o, Panam&aacute; ocupaba el puesto 55 del escalaf&oacute;n.</p><p>La Roja ser&aacute;, adem&aacute;s, la &uacute;nica representante centroamericana en la Copa del Mundo 2026.</p><h2><b>7. El reto de mejorar Rusia 2018</b></h2><p>El gran objetivo paname&ntilde;o ser&aacute; superar lo hecho en su debut mundialista. As&iacute; lo ha se&ntilde;alado Thomas Christiansen: mejorar la actuaci&oacute;n de Rusia 2018.</p><p>En aquella participaci&oacute;n, Panam&aacute; cerr&oacute; su paso por el torneo sin puntos tras tres derrotas. Marc&oacute; dos goles y recibi&oacute; once.</p><p>El principal hito fue el primer gol de Panam&aacute; en la historia de los Mundiales, obra del capit&aacute;n Felipe Baloy en la derrota 6-1 frente a Inglaterra.</p><p>En el Mundial 2026, Panam&aacute; afrontar&aacute; el grupo L, sin duda de alta exigencia, junto a Inglaterra, Croacia y Ghana, selecci&oacute;n con la que debutar&aacute; el 17 de junio en Toronto, Canad&aacute;.</p><p>Para esta cita mundialista, la ilusi&oacute;n pasa por conseguir la primera victoria y, con el nuevo formato de competencia, so&ntilde;ar tambi&eacute;n con avanzar a la siguiente ronda.&nbsp;</p>",
+      "titulo": "Panamá, la selección más veterana y ambiciosa del Mundial 2026",
+      "fecha_a": 1779915700794,
+      "prevId": "1779915700",
+      "link": "panama-la-seleccion-mas-veterana-y-ambiciosa-del-mundial-2026_1779915700"
+    },
     {
       "_id": "6a1725172eb6f100145257c5",
       "fecha_c": 1779901963023,
@@ -22,7 +140,8 @@
       "titulo": "La FIFA, investigada por las ventas de boletos del Mundial en Nueva York y Nueva Jersey",
       "fecha_a": 1779901920000,
       "prevId": "1779901963",
-      "link": "la-fifa-investigada-por-las-ventas-de-boletos-del-mundial-en-nueva-york-y-nueva-jersey_1779901963"
+      "link": "la-fifa-investigada-por-las-ventas-de-boletos-del-mundial-en-nueva-york-y-nueva-jersey_1779901963",
+      "posicion_portada": 2
     },
     {
       "_id": "6a1723742eb6f1001452560a",
@@ -172,8 +291,7 @@
       "titulo": "Paraguay quiere sorprender en el Mundial y Alfaro avisa: “Aún no vimos lo mejor”",
       "fecha_a": 1779841302357,
       "prevId": "1779841302",
-      "link": "paraguay-quiere-sorprender-en-el-mundial-y-alfaro-avisa-aun-no-vimos-lo-mejor_1779841302",
-      "posicion_portada": 2
+      "link": "paraguay-quiere-sorprender-en-el-mundial-y-alfaro-avisa-aun-no-vimos-lo-mejor_1779841302"
     },
     {
       "_id": "6a16370205904b00144a04b6",
