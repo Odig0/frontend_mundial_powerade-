@@ -443,11 +443,11 @@ export default function SeleccionesPage() {
 
       {playersModalOpen && (
         <div
-          className="fixed inset-0 z-[120] bg-zinc-950/25 backdrop-blur-sm px-3 pb-3 pt-16 md:px-6 md:pb-6 md:pt-20 lg:px-8 lg:pb-8 lg:pt-24"
+          className="fixed inset-0 z-[120] overflow-y-auto bg-zinc-950/25 backdrop-blur-sm px-3 py-6 md:px-6 md:py-8 lg:px-8 lg:py-10"
           onClick={closePlayersModal}
         >
           <div
-            className="mx-auto flex h-[calc(100vh-4rem)] min-h-0 w-full max-w-[1480px] flex-col overflow-hidden rounded-[28px] border border-white/10 bg-zinc-800/62 shadow-2xl shadow-black/50 ring-1 ring-[#3CB7FF]/12 backdrop-blur-2xl md:h-[calc(100vh-5rem)] lg:h-[calc(100vh-6rem)]"
+            className="mx-auto flex min-h-[calc(100vh-3rem)] w-full max-w-[1480px] flex-col overflow-hidden rounded-[28px] border border-white/10 bg-zinc-800/62 shadow-2xl shadow-black/50 ring-1 ring-[#3CB7FF]/12 backdrop-blur-2xl md:min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)]"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex h-full min-h-0 flex-col">
