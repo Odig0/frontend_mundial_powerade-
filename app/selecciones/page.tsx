@@ -14,6 +14,45 @@ import { getCountryCode, type SeleccionPlayersResponse } from '@/lib/selecciones
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? 'https://dev.eldeber.bo/v1'
 
+function normalizeText(value?: string | null) {
+  return (value ?? '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+}
+
+function getPositionOrder(player: SeleccionPlayersResponse['jugadores'][number]) {
+  const positionCode = normalizeText(player.posicion?.codigo)
+  const positionName = normalizeText(player.posicion?.nombre)
+
+  if (
+    positionCode.includes('forward') ||
+    positionCode.includes('attacker') ||
+    positionCode.includes('striker') ||
+    positionCode.includes('winger') ||
+    positionName.includes('delanter') ||
+    positionName.includes('atac') ||
+    positionName.includes('punta') ||
+    positionName.includes('extremo')
+  ) {
+    return 0
+  }
+
+  if (positionCode.includes('midfielder') || positionName.includes('mediocamp')) {
+    return 1
+  }
+
+  if (positionCode.includes('defender') || positionName.includes('defens')) {
+    return 2
+  }
+
+  if (positionCode.includes('goalkeeper') || positionName.includes('porter')) {
+    return 3
+  }
+
+  return 4
+}
+
 export default function SeleccionesPage() {
   const [viewMode, setViewMode] = useState<'all' | 'groups'>('all')
   const [selectedCountryName, setSelectedCountryName] = useState('Argentina')
@@ -22,29 +61,6 @@ export default function SeleccionesPage() {
   const [playersError, setPlayersError] = useState<string | null>(null)
   const [playersModalOpen, setPlayersModalOpen] = useState(false)
   const playersScrollRef = useRef<HTMLDivElement | null>(null)
-
-  const getPositionOrder = (player: SeleccionPlayersResponse['jugadores'][number]) => {
-    const positionCode = player.posicion?.codigo?.toLowerCase() ?? ''
-    const positionName = player.posicion?.nombre?.toLowerCase() ?? ''
-
-    if (positionCode.includes('forward') || positionCode.includes('attacker') || positionName.includes('delanter')) {
-      return 0
-    }
-
-    if (positionCode.includes('midfielder') || positionName.includes('mediocamp')) {
-      return 1
-    }
-
-    if (positionCode.includes('defender') || positionName.includes('defens')) {
-      return 2
-    }
-
-    if (positionCode.includes('goalkeeper') || positionName.includes('porter')) {
-      return 3
-    }
-
-    return 4
-  }
 
   const selectedCountry = useMemo(
     () => countries.find((country) => country.name === selectedCountryName) ?? countries[0],
@@ -83,6 +99,24 @@ export default function SeleccionesPage() {
     }
 
     return `${day}/${month}`
+  }
+
+  const resetPageScroll = () => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }
+
+  const resetPlayersScroll = () => {
+    const container = playersScrollRef.current
+    if (!container) {
+      return
+    }
+
+    container.scrollTop = 0
+    container.scrollTo({ top: 0, behavior: 'auto' })
   }
 
   useEffect(() => {
@@ -134,6 +168,8 @@ export default function SeleccionesPage() {
       return
     }
 
+    resetPageScroll()
+
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
 
@@ -157,17 +193,64 @@ export default function SeleccionesPage() {
     }
 
     requestAnimationFrame(() => {
-      playersScrollRef.current?.scrollTo({ top: 0, behavior: 'auto' })
+      resetPageScroll()
+      resetPlayersScroll()
     })
   }, [playersModalOpen, selectedCountryName, orderedPlayers.length])
+
+  useEffect(() => {
+    if (!playersModalOpen || playersLoading) {
+      return
+    }
+
+    requestAnimationFrame(() => {
+      resetPageScroll()
+      resetPlayersScroll()
+
+      requestAnimationFrame(() => {
+        resetPageScroll()
+        resetPlayersScroll()
+      })
+    })
+  }, [playersModalOpen, selectedCountryName, playersLoading, playersResponse])
 
   const handleCountryClick = (countryName: string) => {
     setSelectedCountryName(countryName)
     setPlayersModalOpen(true)
+
+    requestAnimationFrame(() => {
+      resetPageScroll()
+      resetPlayersScroll()
+
+      requestAnimationFrame(() => {
+        resetPageScroll()
+        resetPlayersScroll()
+      })
+    })
   }
 
   const closePlayersModal = () => {
     setPlayersModalOpen(false)
+  }
+
+  const setPlayersScrollContainer = (node: HTMLDivElement | null) => {
+    playersScrollRef.current = node
+
+    if (!node) {
+      return
+    }
+
+    node.scrollTop = 0
+    node.scrollTo({ top: 0, behavior: 'auto' })
+
+    requestAnimationFrame(() => {
+      if (!playersScrollRef.current) {
+        return
+      }
+
+      playersScrollRef.current.scrollTop = 0
+      playersScrollRef.current.scrollTo({ top: 0, behavior: 'auto' })
+    })
   }
 
   return (
@@ -355,63 +438,19 @@ export default function SeleccionesPage() {
             </div>
           )}
 
-          <section id="jugadores" className="mt-14 scroll-mt-24">
-            <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-              <div>
-                <p className="text-[#3CB7FF] font-semibold uppercase tracking-[0.35em] text-xs mb-3">
-                  Plantilla
-                </p>
-                <h2 className="text-2xl md:text-3xl font-black text-foreground leading-tight">
-                  {selectedCountry?.name}
-                </h2>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  {selectedCountryCode
-                    ? `Código: ${selectedCountryCode}`
-                    : 'Haz clic en una selección para ver sus jugadores.'}
-                </p>
-              </div>
-
-            </div>
-
-            {playersLoading ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
-                {Array.from({ length: 6 }).map((_, index) => (
-                  <div key={index} className="h-[390px] animate-pulse rounded-2xl border border-white/10 bg-white/5" />
-                ))}
-              </div>
-            ) : playersError ? (
-              <div className="rounded-2xl border border-dashed border-white/10 bg-card px-6 py-10 text-center">
-                <p className="text-lg font-semibold text-foreground">No pudimos cargar los jugadores</p>
-                <p className="mt-2 text-sm text-muted-foreground">{playersError}</p>
-              </div>
-            ) : playersResponse?.jugadores?.length ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
-                {orderedPlayers.map((player) => (
-                  <PlayerCard key={player._id} player={player} />
-                ))}
-              </div>
-            ) : (
-              <div className="rounded-2xl border border-dashed border-white/10 bg-card px-6 py-10 text-center">
-                <p className="text-lg font-semibold text-foreground">Selecciona una selección</p>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Aquí aparecerán las tarjetas de jugadores con foto, edad, altura, peso y posición.
-                </p>
-              </div>
-            )}
-          </section>
         </main>
       </PageWrapper>
 
       {playersModalOpen && (
         <div
-          className="fixed inset-0 z-[120] bg-zinc-950/25 backdrop-blur-sm p-3 md:p-6 lg:p-8"
+          className="fixed inset-0 z-[120] bg-zinc-950/25 backdrop-blur-sm px-3 pb-3 pt-16 md:px-6 md:pb-6 md:pt-20 lg:px-8 lg:pb-8 lg:pt-24"
           onClick={closePlayersModal}
         >
           <div
-            className="mx-auto flex h-full w-full max-w-[1480px] flex-col overflow-hidden rounded-[28px] border border-white/10 bg-zinc-800/62 shadow-2xl shadow-black/50 ring-1 ring-[#3CB7FF]/12 backdrop-blur-2xl"
+            className="mx-auto flex h-[calc(100vh-4rem)] min-h-0 w-full max-w-[1480px] flex-col overflow-hidden rounded-[28px] border border-white/10 bg-zinc-800/62 shadow-2xl shadow-black/50 ring-1 ring-[#3CB7FF]/12 backdrop-blur-2xl md:h-[calc(100vh-5rem)] lg:h-[calc(100vh-6rem)]"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="flex h-full flex-col">
+            <div className="flex h-full min-h-0 flex-col">
               <div className="flex items-start justify-between gap-4 border-b border-white/10 px-5 py-4 md:px-7 md:py-5">
                 <div>
                   <p className="text-[#3CB7FF] font-semibold uppercase tracking-[0.35em] text-xs mb-2">
@@ -434,8 +473,9 @@ export default function SeleccionesPage() {
 
               <div
                 key={selectedCountryName}
-                ref={playersScrollRef}
-                className="flex-1 overflow-y-auto px-5 py-5 md:px-7 md:py-6"
+                ref={setPlayersScrollContainer}
+                className="flex-1 min-h-0 overflow-y-auto px-5 py-5 md:px-7 md:py-6"
+                style={{ overflowAnchor: 'none' }}
               >
                 <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
                   <div>
