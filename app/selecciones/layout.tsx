@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Selecciones ',
-  description: 'Todas las selecciones participantes en el Mundial 2026.',
+  description: 'Las 48 selecciones participantes. Haz clic para ver los jugadores.',
   openGraph: {
     title: 'Selecciones',
-    description: 'Todas las selecciones participantes en el Mundial 2026.',
+    description: 'Las 48 selecciones participantes. Haz clic para ver los jugadores.',
     type: 'website',
     locale: 'es_ES',
     siteName: '',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Selecciones',
-    description: 'Todas las selecciones participantes en el Mundial 2026.',
+    description: 'Las 48 selecciones participantes. Haz clic para ver los jugadores.',
     images: ['/selecciones_banderas.png'],
   },
 }

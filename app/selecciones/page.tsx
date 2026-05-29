@@ -154,8 +154,8 @@ export default function SeleccionesPage() {
               </h1>
               <p className="mt-3 max-w-2xl text-sm md:text-base text-muted-foreground">
                 {viewMode === 'all'
-                  ? `Las ${countries.length} selecciones participantes en el Mundial 2026.`
-                  : 'Los 12 grupos del Mundial 2026.'}
+                  ? `Las 48 selecciones participantes. Haz clic en cada una para ver su plantilla.`
+                  : 'Los 12 grupos del Mundial.'}
               </p>
             </div>
 
@@ -332,7 +332,9 @@ export default function SeleccionesPage() {
                   {selectedCountry?.name}
                 </h2>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  {selectedCountryCode ? `Código: ${selectedCountryCode}` : 'Selecciona un país para ver sus jugadores.'}
+                  {selectedCountryCode
+                    ? `Código: ${selectedCountryCode}`
+                    : 'Haz clic en una selección para ver sus jugadores.'}
                 </p>
               </div>
 
