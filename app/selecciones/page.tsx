@@ -1,12 +1,13 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import Header from '@/components/layout/Header'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import PageWrapper from '@/components/layout/PageWrapper'
 import { buildSectionTargeting } from '@/lib/adTargeting'
 import Image from 'next/image'
+import { X } from 'lucide-react'
 import { countries, countriesByGroup, getCountryGroupFixtures } from '@/data/fixtures'
 import PlayerCard from '@/components/selecciones/PlayerCard'
 import { getCountryCode, type SeleccionPlayersResponse } from '@/lib/selecciones'
@@ -19,6 +20,8 @@ export default function SeleccionesPage() {
   const [playersResponse, setPlayersResponse] = useState<SeleccionPlayersResponse | null>(null)
   const [playersLoading, setPlayersLoading] = useState(false)
   const [playersError, setPlayersError] = useState<string | null>(null)
+  const [playersModalOpen, setPlayersModalOpen] = useState(false)
+  const playersScrollRef = useRef<HTMLDivElement | null>(null)
 
   const getPositionOrder = (player: SeleccionPlayersResponse['jugadores'][number]) => {
     const positionCode = player.posicion?.codigo?.toLowerCase() ?? ''
@@ -126,15 +129,45 @@ export default function SeleccionesPage() {
     }
   }, [selectedCountryCode, selectedCountryName])
 
+  useEffect(() => {
+    if (!playersModalOpen) {
+      return
+    }
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setPlayersModalOpen(false)
+      }
+    }
+
+    window.addEventListener('keydown', handleEscape)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', handleEscape)
+    }
+  }, [playersModalOpen])
+
+  useLayoutEffect(() => {
+    if (!playersModalOpen) {
+      return
+    }
+
+    requestAnimationFrame(() => {
+      playersScrollRef.current?.scrollTo({ top: 0, behavior: 'auto' })
+    })
+  }, [playersModalOpen, selectedCountryName, orderedPlayers.length])
+
   const handleCountryClick = (countryName: string) => {
     setSelectedCountryName(countryName)
+    setPlayersModalOpen(true)
+  }
 
-    window.requestAnimationFrame(() => {
-      const playersSection = document.getElementById('jugadores')
-      if (playersSection) {
-        playersSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }
-    })
+  const closePlayersModal = () => {
+    setPlayersModalOpen(false)
   }
 
   return (
@@ -338,11 +371,6 @@ export default function SeleccionesPage() {
                 </p>
               </div>
 
-              {playersResponse && (
-                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-foreground">
-                  <span className="font-bold text-[#3CB7FF]">{playersResponse.total_jugadores}</span> jugadores cargados
-                </div>
-              )}
             </div>
 
             {playersLoading ? (
@@ -373,6 +401,81 @@ export default function SeleccionesPage() {
           </section>
         </main>
       </PageWrapper>
+
+      {playersModalOpen && (
+        <div
+          className="fixed inset-0 z-[120] bg-zinc-950/25 backdrop-blur-sm p-3 md:p-6 lg:p-8"
+          onClick={closePlayersModal}
+        >
+          <div
+            className="mx-auto flex h-full w-full max-w-[1480px] flex-col overflow-hidden rounded-[28px] border border-white/10 bg-zinc-800/62 shadow-2xl shadow-black/50 ring-1 ring-[#3CB7FF]/12 backdrop-blur-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex h-full flex-col">
+              <div className="flex items-start justify-between gap-4 border-b border-white/10 px-5 py-4 md:px-7 md:py-5">
+                <div>
+                  <p className="text-[#3CB7FF] font-semibold uppercase tracking-[0.35em] text-xs mb-2">
+                    Plantilla
+                  </p>
+                  <h2 className="text-2xl md:text-4xl font-black text-foreground leading-tight">
+                    {selectedCountry?.name}
+                  </h2>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={closePlayersModal}
+                  className="shrink-0 rounded-full border border-white/10 bg-white/5 p-3 text-white transition-colors hover:bg-[#3CB7FF] hover:text-white"
+                  aria-label="Cerrar plantilla"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+
+              <div
+                key={selectedCountryName}
+                ref={playersScrollRef}
+                className="flex-1 overflow-y-auto px-5 py-5 md:px-7 md:py-6"
+              >
+                <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+                  <div>
+                    <p className="text-sm text-muted-foreground">
+                      {selectedCountryCode ? `Código: ${selectedCountryCode}` : 'Haz clic en una selección para ver sus jugadores.'}
+                    </p>
+                  </div>
+
+                </div>
+
+                {playersLoading ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                    {Array.from({ length: 6 }).map((_, index) => (
+                      <div key={index} className="h-[390px] animate-pulse rounded-2xl border border-white/10 bg-white/5" />
+                    ))}
+                  </div>
+                ) : playersError ? (
+                  <div className="rounded-2xl border border-dashed border-white/10 bg-card px-6 py-10 text-center">
+                    <p className="text-lg font-semibold text-foreground">No pudimos cargar los jugadores</p>
+                    <p className="mt-2 text-sm text-muted-foreground">{playersError}</p>
+                  </div>
+                ) : orderedPlayers.length ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 pb-6">
+                    {orderedPlayers.map((player) => (
+                      <PlayerCard key={player._id} player={player} />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="rounded-2xl border border-dashed border-white/10 bg-card px-6 py-10 text-center">
+                    <p className="text-lg font-semibold text-foreground">Selecciona una selección</p>
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      Aquí aparecerán las tarjetas de jugadores con foto, edad, altura, peso y posición.
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </div>
