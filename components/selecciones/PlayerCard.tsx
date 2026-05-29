@@ -50,8 +50,13 @@ export default function PlayerCard({ player }: { player: SeleccionJugador }) {
   return (
     <article className="overflow-hidden rounded-2xl border border-white/10 bg-card shadow-lg shadow-black/20 transition-transform duration-300 hover:-translate-y-1 hover:border-[#3CB7FF]/60 hover:shadow-[#3CB7FF]/20">
       <div className="relative h-40 overflow-hidden bg-gradient-to-br from-white/10 via-black/20 to-black">
-        <div className="absolute left-3 top-3 z-10 rounded-full bg-black/70 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.25em] text-white/90">
-          #{player.numero_playera ?? '--'}
+        <div className="absolute right-3 top-3 z-10 flex min-w-14 flex-col items-end rounded-2xl border border-[#3CB7FF]/60 bg-[#3CB7FF]/15 px-2.5 py-1 text-white shadow-lg shadow-black/25 backdrop-blur-sm">
+          <span className="text-[9px] font-bold uppercase tracking-[0.28em] text-[#8FD9FF]">
+            Dorsal
+          </span>
+          <span className="text-lg font-black leading-none text-white">
+            #{player.numero_playera ?? '--'}
+          </span>
         </div>
 
         {player.foto && !hasImageError ? (
