@@ -1,7 +1,6 @@
 'use client'
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useEffect, useMemo, useState } from 'react'
 import Header from '@/components/layout/Header'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -9,10 +8,23 @@ import PageWrapper from '@/components/layout/PageWrapper'
 import { buildSectionTargeting } from '@/lib/adTargeting'
 import Image from 'next/image'
 import { countries, countriesByGroup, getCountryGroupFixtures } from '@/data/fixtures'
+import PlayerCard from '@/components/selecciones/PlayerCard'
+import { getCountryCode, type SeleccionPlayersResponse } from '@/lib/selecciones'
+
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? 'https://dev.eldeber.bo/v1'
 
 export default function SeleccionesPage() {
-  const router = useRouter()
   const [viewMode, setViewMode] = useState<'all' | 'groups'>('all')
+  const [selectedCountryName, setSelectedCountryName] = useState('Argentina')
+  const [playersResponse, setPlayersResponse] = useState<SeleccionPlayersResponse | null>(null)
+  const [playersLoading, setPlayersLoading] = useState(false)
+  const [playersError, setPlayersError] = useState<string | null>(null)
+
+  const selectedCountry = useMemo(
+    () => countries.find((country) => country.name === selectedCountryName) ?? countries[0],
+    [selectedCountryName]
+  )
+  const selectedCountryCode = getCountryCode(selectedCountry?.name ?? '')
 
   const formatMatchDate = (date: string) => {
     const [year, month, day] = date.split('-')
@@ -23,10 +35,59 @@ export default function SeleccionesPage() {
     return `${day}/${month}`
   }
 
+  useEffect(() => {
+    if (!selectedCountryCode) {
+      setPlayersResponse(null)
+      setPlayersError('No encontramos el código de esta selección.')
+      return
+    }
+
+    const abortController = new AbortController()
+
+    async function loadPlayers() {
+      try {
+        setPlayersLoading(true)
+        setPlayersError(null)
+
+        const response = await fetch(`${API_BASE_URL}/mundial-2026/players/equipo/${selectedCountryCode}`, {
+          signal: abortController.signal,
+          cache: 'no-store',
+        })
+
+        if (!response.ok) {
+          throw new Error(`No se pudieron cargar los jugadores de ${selectedCountryName}`)
+        }
+
+        const data = (await response.json()) as SeleccionPlayersResponse
+        setPlayersResponse(data)
+      } catch (error) {
+        if ((error as Error).name === 'AbortError') {
+          return
+        }
+
+        setPlayersResponse(null)
+        setPlayersError('No se pudieron cargar los jugadores en este momento.')
+      } finally {
+        setPlayersLoading(false)
+      }
+    }
+
+    loadPlayers()
+
+    return () => {
+      abortController.abort()
+    }
+  }, [selectedCountryCode, selectedCountryName])
+
   const handleCountryClick = (countryName: string) => {
-    // if (countryName === 'Argentina') {
-    //   router.push('/selecciones/jugadores')
-    // }
+    setSelectedCountryName(countryName)
+
+    window.requestAnimationFrame(() => {
+      const playersSection = document.getElementById('jugadores')
+      if (playersSection) {
+        playersSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    })
   }
 
   return (
@@ -213,6 +274,54 @@ export default function SeleccionesPage() {
               ))}
             </div>
           )}
+
+          <section id="jugadores" className="mt-14 scroll-mt-24">
+            <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+              <div>
+                <p className="text-[#3CB7FF] font-semibold uppercase tracking-[0.35em] text-xs mb-3">
+                  Plantilla
+                </p>
+                <h2 className="text-2xl md:text-3xl font-black text-foreground leading-tight">
+                  {selectedCountry?.name}
+                </h2>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  {selectedCountryCode ? `Código: ${selectedCountryCode}` : 'Selecciona un país para ver sus jugadores.'}
+                </p>
+              </div>
+
+              {playersResponse && (
+                <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-foreground">
+                  <span className="font-bold text-[#3CB7FF]">{playersResponse.total_jugadores}</span> jugadores cargados
+                </div>
+              )}
+            </div>
+
+            {playersLoading ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                {Array.from({ length: 6 }).map((_, index) => (
+                  <div key={index} className="h-[390px] animate-pulse rounded-2xl border border-white/10 bg-white/5" />
+                ))}
+              </div>
+            ) : playersError ? (
+              <div className="rounded-2xl border border-dashed border-white/10 bg-card px-6 py-10 text-center">
+                <p className="text-lg font-semibold text-foreground">No pudimos cargar los jugadores</p>
+                <p className="mt-2 text-sm text-muted-foreground">{playersError}</p>
+              </div>
+            ) : playersResponse?.jugadores?.length ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                {playersResponse.jugadores.map((player) => (
+                  <PlayerCard key={player._id} player={player} />
+                ))}
+              </div>
+            ) : (
+              <div className="rounded-2xl border border-dashed border-white/10 bg-card px-6 py-10 text-center">
+                <p className="text-lg font-semibold text-foreground">Selecciona una selección</p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Aquí aparecerán las tarjetas de jugadores con foto, edad, altura, peso y posición.
+                </p>
+              </div>
+            )}
+          </section>
         </main>
       </PageWrapper>
 

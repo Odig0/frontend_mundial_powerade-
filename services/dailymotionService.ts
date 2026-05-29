@@ -25,8 +25,8 @@ interface DailymotionVideo {
   share_url?: string;
 }
 
-const PLAYLIST_ID = "xc8in8"
-
+// const PLAYLIST_ID = process.env.NEXT_PUBLIC_DAILYMOTION_PLAYLIST;
+ const PLAYLIST_ID = "xc8in8";
 /**
  * Obtiene la lista de videos de una playlist específica de Dailymotion.
  * 

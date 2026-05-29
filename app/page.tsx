@@ -17,7 +17,7 @@ import BottomBannerAd from '@/components/publicidad/BottomBannerAd'
 import { getNewsWithFallback } from '@/lib/news-service'
 import { getDailymotionVideos } from '@/services/dailymotionService'
 
-const BASE_URL = (process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo').replace(/\/$/, '')
+const BASE_URL = (process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo/v1').replace(/\/$/, '')
 const SITE_NAME = 'DIEZ'
 
 function toAbsoluteUrl(path: string) {
