@@ -20,11 +20,58 @@ export default function SeleccionesPage() {
   const [playersLoading, setPlayersLoading] = useState(false)
   const [playersError, setPlayersError] = useState<string | null>(null)
 
+  const getPositionOrder = (player: SeleccionPlayersResponse['jugadores'][number]) => {
+    const positionCode = player.posicion?.codigo?.toLowerCase() ?? ''
+    const positionName = player.posicion?.nombre?.toLowerCase() ?? ''
+
+    if (positionCode.includes('forward') || positionCode.includes('attacker') || positionName.includes('delanter')) {
+      return 0
+    }
+
+    if (positionCode.includes('midfielder') || positionName.includes('mediocamp')) {
+      return 1
+    }
+
+    if (positionCode.includes('defender') || positionName.includes('defens')) {
+      return 2
+    }
+
+    if (positionCode.includes('goalkeeper') || positionName.includes('porter')) {
+      return 3
+    }
+
+    return 4
+  }
+
   const selectedCountry = useMemo(
     () => countries.find((country) => country.name === selectedCountryName) ?? countries[0],
     [selectedCountryName]
   )
   const selectedCountryCode = getCountryCode(selectedCountry?.name ?? '')
+
+  const orderedPlayers = useMemo(() => {
+    if (!playersResponse?.jugadores) {
+      return []
+    }
+
+    return [...playersResponse.jugadores].sort((left, right) => {
+      const leftOrder = getPositionOrder(left)
+      const rightOrder = getPositionOrder(right)
+
+      if (leftOrder !== rightOrder) {
+        return leftOrder - rightOrder
+      }
+
+      const leftJersey = left.numero_playera ?? Number.POSITIVE_INFINITY
+      const rightJersey = right.numero_playera ?? Number.POSITIVE_INFINITY
+
+      if (leftJersey !== rightJersey) {
+        return leftJersey - rightJersey
+      }
+
+      return (left.nombre_display || left.nombre || '').localeCompare(right.nombre_display || right.nombre || '', 'es')
+    })
+  }, [playersResponse])
 
   const formatMatchDate = (date: string) => {
     const [year, month, day] = date.split('-')
@@ -309,7 +356,7 @@ export default function SeleccionesPage() {
               </div>
             ) : playersResponse?.jugadores?.length ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
-                {playersResponse.jugadores.map((player) => (
+                {orderedPlayers.map((player) => (
                   <PlayerCard key={player._id} player={player} />
                 ))}
               </div>
