@@ -14,7 +14,7 @@ interface Params {
 
 const BASE_URL = (process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo').replace(/\/$/, '')
 const SHARE_BASE_URL = 'https://tribuna.diez.bo'
-const SITE_NAME = 'El Deber Deportes'
+const SITE_NAME = ''
 
 function toAbsoluteUrl(path: string) {
   if (!path) {
@@ -64,7 +64,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> | P
     }
   }
 
-  const title = `${news.titulo} - El Deber Deportes`
+  const title = `${news.titulo} `
   const description = news.introHTML ? extractTextFromHtml(news.introHTML) : news.titulo
   const image = news.imagen_interior || '/logo_powerade.png'
   const canonicalUrl = `${BASE_URL}/${seccion}/${link}`
@@ -79,7 +79,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> | P
       type: 'article',
       locale: 'es_ES',
       url: canonicalUrl,
-      siteName: 'El Deber Deportes',
+      siteName: '',
       publishedTime: news.fecha_c ? new Date(news.fecha_c).toISOString() : undefined,
       images: [
         {

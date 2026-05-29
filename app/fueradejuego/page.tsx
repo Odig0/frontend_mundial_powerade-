@@ -10,30 +10,30 @@ import { buildSectionTargeting } from '@/lib/adTargeting'
 const BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo'
 
 export const metadata: Metadata = {
-  title: 'Fuera de Juego - El Deber Deportes',
+  title: 'Fuera de Juego',
   description:
     'Últimas noticias de Fuera de Juego. Análisis, curiosidades y temas destacados del fútbol y el deporte.',
   keywords: ['fuera de juego', 'noticias', 'deportes', 'análisis'],
   openGraph: {
-    title: 'Fuera de Juego - El Deber Deportes',
+    title: 'Fuera de Juego',
     description:
       'Últimas noticias de Fuera de Juego. Análisis, curiosidades y temas destacados del fútbol.',
     type: 'website',
     locale: 'es_ES',
     url: `${BASE_URL}/fueradejuego`,
-    siteName: 'El Deber Deportes',
+    siteName: '',
     images: [
       {
         url: '/logo_powerade.png',
         width: 1200,
         height: 630,
-        alt: 'Fuera de Juego - El Deber Deportes',
+        alt: 'Fuera de Juego',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Fuera de Juego - El Deber Deportes',
+    title: 'Fuera de Juego',
     description: 'Últimas noticias y análisis',
     images: ['/logo_powerade.png'],
   },

@@ -10,28 +10,28 @@ import { buildSectionTargeting } from '@/lib/adTargeting'
 const BASE_URL = process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo'
 
 export const metadata: Metadata = {
-  title: 'Mundial - El Deber Deportes',
+  title: 'Mundial',
   description: 'Últimas noticias del Mundial 2026. Cobertura completa de todos los partidos, selecciones y análisis del campeonato mundial.',
   keywords: ['mundial 2026', 'mundial', 'noticias', 'fútbol', 'deportes'],
   openGraph: {
-    title: 'Mundial - El Deber Deportes',
+    title: 'Mundial',
     description: 'Últimas noticias del Mundial 2026. Cobertura completa de todos los partidos.',
     type: 'website',
     locale: 'es_ES',
     url: `${BASE_URL}/mundial`,
-    siteName: 'El Deber Deportes',
+    siteName: '',
     images: [
       {
         url: '/logo_powerade.png',
         width: 1200,
         height: 630,
-        alt: 'Mundial - El Deber Deportes',
+        alt: 'Mundial',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mundial - El Deber Deportes',
+    title: 'Mundial',
     description: 'Cobertura del Mundial 2026',
     images: ['/logo_powerade.png'],
   },

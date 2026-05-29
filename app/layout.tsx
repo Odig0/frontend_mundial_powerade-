@@ -10,7 +10,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Powerade - El Deber Deportes',
+  title: 'Powerade',
   description: 'Cobertura completa del Mundial 2026: partidos, selecciones, noticias, videos y análisis deportivos.',
   keywords: ['mundial 2026', 'fútbol', 'deportes', 'noticias', 'videos'],
   metadataBase: new URL('https://dev.eldeber.bo'),
@@ -31,23 +31,23 @@ export const metadata: Metadata = {
     apple: '/logo_powerade.png',
   },
   openGraph: {
-    title: 'Powerade - El Deber Deportes',
+    title: 'Powerade',
     description: 'Cobertura completa del Mundial 2026: partidos, selecciones, noticias, videos y análisis deportivos.',
     type: 'website',
     locale: 'es_ES',
-    siteName: 'El Deber Deportes',
+    siteName: '',
     images: [
       {
         url: '/logo_powerade.png',
         width: 1200,
         height: 630,
-        alt: 'El Deber Deportes',
+        alt: '',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Powerade - El Deber Deportes',
+    title: 'Powerade',
     description: 'Cobertura completa del Mundial 2026: partidos, selecciones, noticias, videos y análisis deportivos.',
     images: ['/logo_powerade.png'],
   },

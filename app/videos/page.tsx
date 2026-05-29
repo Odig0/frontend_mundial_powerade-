@@ -42,8 +42,8 @@ export async function generateMetadata({
   })
 
   if (selectedVideo) {
-    const title = `${selectedVideo.titulo} - Videos | El Deber Deportes`
-    const description = `Mira este video en El Deber Deportes: ${selectedVideo.titulo}`
+      const title = `${selectedVideo.titulo} - Videos`
+      const description = `Mira este video: ${selectedVideo.titulo}`
     const canonicalUrl = `${BASE_URL}/videos?video=${selectedVideoId}`
 
     return {
@@ -56,7 +56,7 @@ export async function generateMetadata({
         title,
         description,
         url: canonicalUrl,
-        siteName: 'El Deber Deportes',
+        siteName: '',
           type: 'video.other',
           images: [
             {
@@ -81,7 +81,7 @@ export async function generateMetadata({
     }
   }
 
-  const defaultTitle = 'Videos - El Deber Deportes'
+  const defaultTitle = 'Videos '
   const defaultDescription = 'Todos los videos disponibles desde Dailymotion'
 
   return {
@@ -94,14 +94,14 @@ export async function generateMetadata({
       title: defaultTitle,
       description: defaultDescription,
       url: `${BASE_URL}/videos`,
-      siteName: 'El Deber Deportes',
+      siteName: '',
       type: 'website',
       images: [
         {
           url: '/videos.png',
           width: 1200,
           height: 630,
-          alt: 'Videos - El Deber Deportes',
+          alt: 'Videos',
         },
       ],
     },

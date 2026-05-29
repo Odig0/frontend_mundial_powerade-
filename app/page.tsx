@@ -18,7 +18,7 @@ import { getNewsWithFallback } from '@/lib/news-service'
 import { getDailymotionVideos } from '@/services/dailymotionService'
 
 const BASE_URL = (process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo').replace(/\/$/, '')
-const SITE_NAME = 'El Deber Deportes'
+const SITE_NAME = 'DIEZ'
 
 function toAbsoluteUrl(path: string) {
   if (!path) {
@@ -53,28 +53,28 @@ function getPosicionPortada(item: { posicion_portada?: number | string | null })
 }
 
 export const metadata: Metadata = {
-  title: 'Powerade - El Deber Deportes',
+  title: 'Powerade',
   description: 'Cobertura completa del Mundial 2026: partidos, selecciones, noticias, videos y análisis deportivos en vivo.',
   keywords: ['mundial 2026', 'fútbol', 'deportes', 'noticias'],
   openGraph: {
-    title: 'Powerade - El Deber Deportes',
+    title: 'Powerade',
     description: 'Cobertura completa del Mundial 2026: partidos, selecciones, noticias, videos y análisis deportivos.',
     type: 'website',
     locale: 'es_ES',
     url: BASE_URL,
-    siteName: 'El Deber Deportes',
+    siteName: '',
     images: [
       {
         url: '/logo_powerade.png',
         width: 1200,
         height: 630,
-        alt: 'El Deber Deportes - Powerade',
+        alt: 'Powerade',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Powerade - El Deber Deportes',
+    title: 'Powerade',
     description: 'Cobertura del Mundial 2026',
     images: ['/logo_powerade.png'],
   },
