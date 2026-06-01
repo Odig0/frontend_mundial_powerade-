@@ -31,6 +31,9 @@ export interface SyncResponse {
 const DEFAULT_API_URL = 'https://dev.eldeber.bo/v1'
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? DEFAULT_API_URL
 const IMAGE_BASE_URL = 'https://cdn.diez.bo/diez/'
+const AUTOMATIC_SYNC_COOLDOWN_MS = 30_000
+
+let lastAutomaticSyncAt = 0
 
 function getApiUrl() {
   if (!API_URL) {
@@ -158,6 +161,30 @@ function sortNewsByRecency(items: NewsItem[]) {
   })
 }
 
+function getSectionVariants(section: string) {
+  const normalized = section.trim().toLowerCase()
+  const variants = new Set<string>([normalized])
+
+  if (normalized === 'mundial-2026') {
+    variants.add('mundial')
+  }
+
+  if (normalized === 'mundial') {
+    variants.add('mundial-2026')
+  }
+
+  return Array.from(variants)
+}
+
+function matchesSection(item: NewsItem, section: string) {
+  const variants = getSectionVariants(section)
+  return item.secciones?.some((value) => variants.includes(value.trim().toLowerCase())) ?? false
+}
+
+function findNewsByLinkAndSection(items: NewsItem[], section: string, link: string) {
+  return items.find((item) => item.link === link && matchesSection(item, section))
+}
+
 async function readCachedNewsItems(): Promise<NewsItem[]> {
   if (typeof window !== 'undefined') {
     const cached = localStorage.getItem('news_cache')
@@ -246,39 +273,52 @@ export async function getNewsBySection(seccion: string): Promise<NewsItem[]> {
 }
 
 export async function getNewsByLink(seccion: string, link: string): Promise<NewsItem | undefined> {
-  // 1. Endpoint directo por link (más rápido - ya implementado en el backend)
-  const direct = await getNewsByLinkSlug(link)
-  if (direct) {
-    return direct
-  }
-
-  // 2. Fallbacks por si el endpoint directo falla o tiene delay
-  if (seccion.toLowerCase() === 'mundial') {
-    const mundialNews = await getMundialNews()
-    const match = mundialNews.find((item) => item.link === link)
-    if (!match) {
-      return undefined
+  async function resolveNews() {
+    const direct = await getNewsByLinkSlug(link)
+    if (direct) {
+      return direct
     }
-    return (await getNewsById(match._id)) ?? match
+
+    if (seccion.toLowerCase() === 'mundial' || seccion.toLowerCase() === 'mundial-2026') {
+      const mundialNews = await getMundialNews()
+      const match = findNewsByLinkAndSection(mundialNews, seccion, link) ?? mundialNews.find((item) => item.link === link)
+      if (match) {
+        return (await getNewsById(match._id)) ?? match
+      }
+    }
+
+    const latestNews = await getNews()
+    const matchInLatest = findNewsByLinkAndSection(latestNews, seccion, link)
+    if (matchInLatest) {
+      return (await getNewsById(matchInLatest._id)) ?? matchInLatest
+    }
+
+    const sectionNews = await getNewsBySection(seccion)
+    const match = findNewsByLinkAndSection(sectionNews, seccion, link) ?? sectionNews.find((item) => item.link === link)
+    if (match) {
+      return (await getNewsById(match._id)) ?? match
+    }
+
+    return undefined
   }
 
-  // 3. Buscar en noticias recientes cacheadas
-  const latestNews = await getNews()
-  const matchInLatest = latestNews.find(
-    (item) => item.secciones?.includes(seccion) && item.link === link
-  )
-  if (matchInLatest) {
-    return (await getNewsById(matchInLatest._id)) ?? matchInLatest
+  const news = await resolveNews()
+  if (news) {
+    return news
   }
 
-  // 3. Fallback: buscar la sección completa dentro del cache local
-  const sectionNews = await getNewsBySection(seccion)
-  const match = sectionNews.find((item) => item.link === link)
-  if (match) {
-    return (await getNewsById(match._id)) ?? match
+  const now = Date.now()
+  if (now - lastAutomaticSyncAt >= AUTOMATIC_SYNC_COOLDOWN_MS) {
+    lastAutomaticSyncAt = now
+
+    try {
+      await syncNews()
+    } catch (error) {
+      console.warn('[API] Automatic sync before detail retry failed:', error)
+    }
   }
 
-  return undefined
+  return resolveNews()
 }
 
 export async function getAvailableSections(): Promise<string[]> {

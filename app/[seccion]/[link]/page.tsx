@@ -1,8 +1,8 @@
-import { notFound } from 'next/navigation'
 import Header from '@/components/layout/Header'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import NewsDetail from '@/components/detail/NewsDetail'
+import NewsDetailPending from '@/components/detail/NewsDetailPending'
 import PageWrapper from '@/components/layout/PageWrapper'
 import { buildArticleTargeting } from '@/lib/adTargeting'
 import { getNewsByLink } from '@/lib/api'
@@ -109,7 +109,7 @@ export default async function DetailPage({ params }: { params: Promise<Params> |
   const news = await getNewsByLink(seccion, link)
 
   if (!news) {
-    notFound()
+    return <NewsDetailPending seccion={seccion} link={link} />
   }
 
   const canonicalUrl = `${BASE_URL}/${seccion}/${link}`
