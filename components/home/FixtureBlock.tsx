@@ -3,10 +3,14 @@
 import { useState, useMemo } from 'react'
 import { ChevronRight, ChevronLeft } from 'lucide-react'
 import { partidos } from '@/data/fixtures'
+import StandingsModal from '@/components/home/StandingsModal'
+import FixtureModal from '@/components/home/FixtureModal'
 
 export default function FixtureBlock() {
   const [page, setPage] = useState(0)
   const [selectedGroup, setSelectedGroup] = useState<string | null>(null)
+  const [standingsOpen, setStandingsOpen] = useState(false)
+  const [fixtureOpen, setFixtureOpen] = useState(false)
   const itemsPerPage = 4
 
   const formatDate = (dateString: string) => {
@@ -54,14 +58,14 @@ export default function FixtureBlock() {
   return (
     <div
       id="partidos"
-      className="flex flex-col max-h-[600px]"
+      className="flex flex-col max-h-[800px]"
       style={{ scrollMarginTop: '88px' }}
     >
-      <div className="bg-accent text-accent-foreground px-4 py-1 text-center font-bold text-xs uppercase tracking-wider flex items-center justify-between">
+      <div className="bg-accent text-accent-foreground mx-3 md:mx-4 mt-2 rounded-xl px-3 py-1.5 font-bold text-xs uppercase tracking-wider flex items-center justify-between gap-2">
         <span className="typography-section-title !text-xs md:!text-sm">Fixture del mundial</span>
       </div>
 
-      <div className="border-b border-white/8 bg-background/50 px-3 py-1.5 md:px-4">
+      <div className="border-b border-white/8 bg-background/50 px-3 pt-2 pb-3 md:px-4 flex flex-col gap-2">
         <select
           value={selectedGroup || 'TODOS'}
           onChange={handleGroupChange}
@@ -74,6 +78,29 @@ export default function FixtureBlock() {
             </option>
           ))}
         </select>
+
+        {/* ── Botones de acción ── */}
+        <div className="grid grid-cols-2 gap-2">
+          {/* Fixture Completo */}
+          <button
+            type="button"
+            onClick={() => setFixtureOpen(true)}
+            className="flex items-center justify-center gap-1.5 rounded-lg bg-accent px-2 py-2 text-[10px] font-black uppercase tracking-wider text-white transition-all hover:brightness-110 active:scale-95 cursor-pointer"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Fixture Completo
+          </button>
+
+          {/* Tabla — funcional */}
+          <button
+            type="button"
+            onClick={() => setStandingsOpen(true)}
+            className="flex items-center justify-center gap-1.5 rounded-lg bg-accent px-2 py-2 text-[10px] font-black uppercase tracking-wider text-white transition-all hover:brightness-110 active:scale-95 cursor-pointer"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M3 3h18v18H3z"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+            Tabla
+          </button>
+        </div>
       </div>
 
       <div className="flex flex-col gap-2 flex-1 bg-card p-2 md:p-3 overflow-y-auto">
@@ -161,6 +188,9 @@ export default function FixtureBlock() {
           <ChevronRight className="h-4 w-4" />
         </button>
       </div>
+
+      <StandingsModal open={standingsOpen} onOpenChange={setStandingsOpen} />
+      <FixtureModal open={fixtureOpen} onOpenChange={setFixtureOpen} />
     </div>
   )
 }
