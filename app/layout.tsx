@@ -21,10 +21,10 @@ export const metadata: Metadata = {
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/logo_powerade.png',
+        url: '/powerade_black.jpg',
       },
       {
-        url: '/logo_powerade.png',
+        url: '/powerade_black.jpg',
         type: 'image/jpeg',
       },
     ],
