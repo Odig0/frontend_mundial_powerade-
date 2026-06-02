@@ -214,7 +214,7 @@ export default function FixtureModal({ open, onOpenChange }: FixtureModalProps) 
             >
               <Calendar className="h-5 w-5 text-[#5ea8e8]" />
             </div>
-            <div>
+            <div className="text-center">
               <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/45">Mundial 2026</p>
               <h1 className="text-2xl font-black uppercase tracking-wide text-white">
                 Fixture Completo

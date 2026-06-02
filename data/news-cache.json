@@ -1,10 +1,84 @@
 {
   "metadata": {
     "version": "1",
-    "timestamp": 1780413948597,
+    "timestamp": 1780429552974,
     "count": 70
   },
   "news": [
+    {
+      "_id": "6a1f2f3951858c00141241de",
+      "fecha_c": 1780428992282,
+      "imagen_home": "https://cdn.diez.bo/diez/062026/1780428962030.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/062026/1780428962030.jpg",
+      "introHTML": "<p>Los dirigidos por Hugo Broos fueron recibidos con m&uacute;sica tradicional mexicana y trabajar&aacute;n en la Universidad del F&uacute;tbol antes del estreno mundialista en el estadio Azteca.</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbb1",
+        "firma": "Agencia EFE"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>La selecci&oacute;n de Sud&aacute;frica, que enfrentar&aacute; a M&eacute;xico el 11 de junio en la inauguraci&oacute;n de la Copa Mundial de F&uacute;tbol, lleg&oacute; este martes a Pachuca, donde establecer&aacute; su campamento a 2.459 metros sobre el mar.<br /><br />Los &#39;Bafana Bafana&#39;, dirigidos por el belga Hugo Broos, fueron recibidos por mariachis a su llegada al hotel de concentraci&oacute;n y, aunque cansados del largo viaje de m&aacute;s de 20 horas desde Johannesburgo, mostraron buen &aacute;nimo en tierra mexicana.<br /><br />El equipo lleg&oacute; en el amanecer de este martes a Ciudad de M&eacute;xico y, de inmediato, se traslad&oacute; v&iacute;a terrestre a Pachuca, centro del pa&iacute;s. Escoltados por la Guardia Nacional hicieron su entrada a la ciudad y minutos despu&eacute;s fueron sorprendidos por la c&aacute;lida bienvenida, con m&uacute;sica tradicional.<br /><br />Como en el Mundial de 2010, Sud&aacute;frica y M&eacute;xico protagonizar&aacute;n el partido de arranque del Mundial, ahora en el estadio Azteca. Hace 16 a&ntilde;os empataron 1-1 y esta vez ambos cuadros saldr&aacute;n por la victoria, confiados en acomodarse en el grupo A, en el que tambi&eacute;n jugar&aacute;n Corea y la Rep&uacute;blica Checa.<br /><br />La mayor&iacute;a de los integrantes de la selecci&oacute;n forma parte de equipos de la Liga Premier de Sud&aacute;frica, m&aacute;s que todo del Mamelodi Sundowns, m&aacute;ximo ganador de t&iacute;tulos, lo cual significa que se conocen bien.<br /><br />El delantero Lyle Foster, del Burnley FC ingl&eacute;s; el centrocampista Teboho Mokoena y el guardameta Ronwen Williams, ambos del Mamelodi, son tres de las principales figuras del cuadro africano, que tendr&aacute; una defensa s&oacute;lida con jugadores como Ime Okon, del Hannover 96 alem&aacute;n; Mbekezeli Mbokasi, del Chicago Fire; y Olwethu Makhanya, del Philadelphia Union, ambos de la MLS.<br /><br />Aunque los momios del partido de apertura del Mundial favorecen a M&eacute;xico, los sudafricanos fueron la &uacute;ltima selecci&oacute;n de &Aacute;frica en superar a los mexicanos, en la Copa Oro 2005 y se espera un partido cerrado, en el cual el cuadro de casa deber&aacute; mostrar su mejor f&uacute;tbol para sumar tres puntos.<br /><br />Los &#39;Bafana Bafana&#39; realizar&aacute;n hoy un entrenamiento ligero y ma&ntilde;ana cumplir&aacute;n en el Estadio Hidalgo una pr&aacute;ctica abierta a los medios, despu&eacute;s de lo cual se aislar&aacute;n en la Universidad del F&uacute;tbol cuyas canchas son de primer nivel y le permitir&aacute;n al equipo cumplir de la mejor manera la &uacute;ltima parte de su preparaci&oacute;n.<br /><br />El pasado 29 de mayo, Sud&aacute;frica empat&oacute; sin goles en Johannesburgo con Nicaragua, en un amistoso que Broos utiliz&oacute; para mover a sus figuras y observar su estadio de forma.<br /><br />Despu&eacute;s de jugar contra M&eacute;xico, en el Mundial los sudafricanos enfrentar&aacute;n el 18 de junio en Atlanta a la Rep&uacute;blica Checa y el 24 en Monterrey a la rep&uacute;blica Checa.&nbsp;</p>",
+      "titulo": "Sudáfrica llegó a México y fue recibida con mariachis",
+      "fecha_a": 1780428992283,
+      "prevId": "1780428992",
+      "link": "sudafrica-llego-a-mexico-y-fue-recibida-con-mariachis_1780428992"
+    },
+    {
+      "_id": "6a1f1f2150f2e70014ee7493",
+      "fecha_c": 1780424852850,
+      "imagen_home": "https://cdn.diez.bo/diez/062026/1780424728989.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/062026/1780424728989.jpg",
+      "introHTML": "<p>La selecci&oacute;n inglesa comenz&oacute; este martes su concentraci&oacute;n para el Mundial 2026 con la llegada del equipo a Florida (Estados Unidos), donde tendr&aacute; su base de preparaci&oacute;n en West Palm Beach.</p>",
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>La selecci&oacute;n inglesa comenz&oacute; este martes su concentraci&oacute;n para el Mundial 2026 con la llegada del equipo a Florida (Estados Unidos), donde tendr&aacute; su base de preparaci&oacute;n en West Palm Beach.<br /><br />La expedici&oacute;n inglesa sali&oacute; desde el aeropuerto de Birmingham y este martes por la tarde comenzaran los entrenamientos antes de los amistosos previos frente a Nueva Zelanda el 6 de junio y ante Costa Rica el 10 de junio,<br /><br />Entre los jugadores que se unir&aacute;n m&aacute;s tarde al grupo se encuentran varios futbolistas del Arsenal (Declan Rice, Eberiche Eze y Bukayo Saka) y del Crystal Palace (Dean Henderson) tras haber disputado las finales europeas con sus clubes.<br /><br />Tuchel ha a&ntilde;adido a Ethan Nwaneri, Alex Scott, Rio Ngumoha y Josh King para completar las sesiones.<br /><br />Inglaterra disputar&aacute; dos partidos amistosos antes del inicio del Mundial: frente a Nueva Zelanda el 6 de junio y ante Costa Rica el 10 de junio, ambos a las 21:00 horas (BST). Estos encuentros servir&aacute;n como &uacute;ltima prueba antes del debut en la fase de grupos.<br /><br />En la fase de grupos, Inglaterra, que se encuentra en el grupo L, arrancar&aacute; su participaci&oacute;n el 17 de junio ante Croacia en Dallas.<br /><br />Posteriormente se enfrentar&aacute; a Ghana en Boston el 23 de junio y cerrar&aacute; la fase de grupos ante Panam&aacute; en Nueva Jersey el 27 de junio</p>",
+      "titulo": "Inglaterra inicia su concentración en Estados Unidos",
+      "fecha_a": 1780424820000,
+      "prevId": "1780424836",
+      "link": "inglaterra-inicia-su-concentracion-en-estados-unidos_1780424836"
+    },
+    {
+      "_id": "6a1f1c7c50f2e70014ee720e",
+      "fecha_c": 1780424206964,
+      "imagen_home": "https://cdn.diez.bo/diez/062026/1780424110976.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/062026/1780424110976.jpg",
+      "introHTML": "<p>La FIFA public&oacute; este martes las listas oficiales de convocados para el Mundial 2026 con los 1248 jugadores que representar&aacute;n a las 48 naciones participantes en el torneo, que se disputar&aacute; entre el 11 de junio y el 19 de julio en Canad&aacute;, Estados Unidos y M&eacute;xico.</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbb1",
+        "firma": "Agencia EFE"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>Ser&aacute; el mayor Mundial de la historia, con 104 partidos repartidos entre los tres pa&iacute;ses, y la final programada en el MetLife Stadium de Nueva York/Nueva Jersey.</p><p>Para 891 jugadores este es el primer Mundial de su carrera, lo que deja tan solo a 357 con experiencia previa en el principal torneo de selecciones del mundo, seg&uacute;n un comunicado de la FIFA. El argentino Lionel Messi, el portugu&eacute;s Cristiano Ronaldo y el mexicano Guillermo Ochoa disputar&aacute;n su sexta edici&oacute;n, r&eacute;cord para un futbolista.</p><p>Adem&aacute;s, 22 jugadores sabr&aacute;n lo que es levantar el trofeo de campe&oacute;n con anterioridad, principalmente los integrantes de la selecci&oacute;n argentina que viajaron a Catar 2022.</p><p>Un total de 449 clubes diferentes de 71 pa&iacute;ses est&aacute;n representados en el Mundial. El Manchester City, con 19 futbolistas, es el equipo que m&aacute;s jugadores env&iacute;a al torneo.</p><p>Algunas selecciones, como Catar y Arabia Saud&iacute;, est&aacute;n formadas casi &iacute;ntegramente por jugadores que militan en la liga local, mientras que otras como Cabo Verde, Costa de Marfil, Curazao, Rep&uacute;blica Democr&aacute;tica del Congo, Senegal y Uruguay, solo las componen futbolistas procedentes de ligas extranjeras.</p><p>Por edades, el jugador m&aacute;s veterano es el portero escoc&eacute;s Craig Gordon, con 43 a&ntilde;os y 162 d&iacute;as, mientras que el m&aacute;s joven es el mexicano Gilberto Mora, de 17 a&ntilde;os y 240 d&iacute;as.</p><p>Entre los seleccionadores, el entrenador de Ghana, el portugu&eacute;s Carlos Queiroz se convertir&aacute; en el segundo t&eacute;cnico en dirigir cinco Mundiales seguidos (Portugal 2010, Ir&aacute;n 2014-2018-2022), despu&eacute;s de Bora Milutinović (M&eacute;xico 1986, Costa Rica 1990, EE.UU. 1994, Nigeria 1998 y China 2002).</p><p>El Estadio Azteca de M&eacute;xico dar&aacute; inicio al Mundial la pr&oacute;xima semana, cuando acoja el partido inaugural entre M&eacute;xico y Sud&aacute;frica.</p>",
+      "titulo": "FIFA publica las listas oficiales de convocados para el Mundial 2026",
+      "fecha_a": 1780424206964,
+      "prevId": "1780424206",
+      "link": "fifa-publica-las-listas-oficiales-de-convocados-para-el-mundial-2026_1780424206",
+      "posicion_portada": 2
+    },
+    {
+      "_id": "6a1f0c0e50f2e70014ee6255",
+      "fecha_c": 1780419924786,
+      "imagen_home": "https://cdn.diez.bo/diez/062026/1780419889164.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/062026/1780419889164.jpg",
+      "introHTML": "<p>La hist&oacute;rica prenda que utiliz&oacute; el brasile&ntilde;o en la conquista de su primer Mundial est&aacute; valorada en unos seis millones de d&oacute;lares y ser&aacute; subastada en Nueva York durante julio.</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbbc",
+        "firma": "Lucas Nazrala",
+        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbc/1759755434737.jpg"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>La casa de subastas Sotheby&rsquo;s anunci&oacute; que pondr&aacute; a la venta en julio la camiseta que Pel&eacute; utiliz&oacute; en la final de la Copa del Mundo de Suecia 1958, una de las piezas m&aacute;s emblem&aacute;ticas de la historia del f&uacute;tbol y cuyo valor estimado ronda los seis millones de d&oacute;lares.</p><p>La prenda ser&aacute; la gran atracci&oacute;n de la subasta denominada The Beautiful Game, dedicada a objetos hist&oacute;ricos del f&uacute;tbol, que se desarrollar&aacute; de manera online entre el 29 de junio y el 16 de julio. Adem&aacute;s, estar&aacute; expuesta al p&uacute;blico en la sede de Sotheby&rsquo;s en Nueva York a partir del 1 de julio.</p><p>&ldquo;Esta no es una simple camiseta, es la prenda que llev&oacute; uno de los grandes futbolistas de la historia la noche que comenz&oacute; su reinado&rdquo;, destac&oacute; Sotheby&rsquo;s en un comunicado. La casa de subastas resalt&oacute; adem&aacute;s que la camiseta fue conservada durante m&aacute;s de seis d&eacute;cadas, lo que aumenta su valor hist&oacute;rico y simb&oacute;lico.</p><p>Pel&eacute; visti&oacute; esta camiseta azul con el n&uacute;mero 10 durante la final en la que Brasil derrot&oacute; a Suecia y conquist&oacute; su primer t&iacute;tulo mundial. Aquella noche, el entonces delantero de apenas 17 a&ntilde;os marc&oacute; dos goles y se convirti&oacute; en el jugador m&aacute;s joven en anotar en una final de la Copa del Mundo, iniciando una carrera que lo llevar&iacute;a a convertirse en una leyenda del deporte.</p><p>Seg&uacute;n Sotheby&rsquo;s, la camiseta podr&iacute;a incluso acercarse o superar el r&eacute;cord de 9,3 millones de d&oacute;lares alcanzado por la camiseta que Diego Armando Maradona utiliz&oacute; en el partido de la &ldquo;Mano de Dios&rdquo; durante el Mundial de M&eacute;xico 1986, vendida por la misma casa de subastas en 2022.</p><p>La venta tambi&eacute;n incluir&aacute; una de las tarjetas coleccionables m&aacute;s valiosas de Pel&eacute;. Se trata de una Rookie Card de 1958, publicada el mismo a&ntilde;o en que el brasile&ntilde;o conquist&oacute; su primer Mundial, cuyo valor estimado supera los 150.000 d&oacute;lares.</p>",
+      "titulo": "La camiseta de Pelé en la final de Suecia 1958 será subastada por 6 millones de dólares",
+      "fecha_a": 1780419900000,
+      "prevId": "1780419902",
+      "link": "la-camiseta-de-pele-en-la-final-de-suecia-1958-sera-subastada-por-6-millones-de-dolares_1780419902"
+    },
     {
       "_id": "6a1ed67a50f2e70014ee38d1",
       "fecha_c": 1780406391969,
@@ -80,7 +154,8 @@
       "titulo": "El último baile de los cuatro gigantes",
       "fecha_a": 1780401628400,
       "prevId": "1780401628",
-      "link": "el-ultimo-baile-de-los-cuatro-gigantes_1780401628"
+      "link": "el-ultimo-baile-de-los-cuatro-gigantes_1780401628",
+      "posicion_portada": 1
     },
     {
       "_id": "6a1ebf8750f2e70014ee1d20",
@@ -705,8 +780,7 @@
       "titulo": "Uruguay anunció a sus convocados para la Copa del Mundo 2026",
       "fecha_a": 1780243438912,
       "prevId": "1780243438",
-      "link": "uruguay-anuncio-a-sus-convocados-para-la-copa-del-mundo-2026_1780243438",
-      "posicion_portada": 1
+      "link": "uruguay-anuncio-a-sus-convocados-para-la-copa-del-mundo-2026_1780243438"
     },
     {
       "_id": "6a1c5a73e9d7ec0014fda08e",
@@ -741,8 +815,7 @@
       "titulo": "La selección argentina viajó a Kansas para para intensificar su preparación mundialista",
       "fecha_a": 1780243057725,
       "prevId": "1780243057",
-      "link": "la-seleccion-argentina-viajo-a-kansas-para-para-intensificar-su-preparacion-mundialista_1780243057",
-      "posicion_portada": 2
+      "link": "la-seleccion-argentina-viajo-a-kansas-para-para-intensificar-su-preparacion-mundialista_1780243057"
     },
     {
       "_id": "6a1c5943e9d7ec0014fd9f00",
@@ -1238,85 +1311,6 @@
       "fecha_a": 1780057558453,
       "prevId": "1780057558",
       "link": "espana-pone-en-marcha-este-sabado-el-sueno-mundialista_1780057558"
-    },
-    {
-      "_id": "6a18cb655858c2001447166e",
-      "fecha_c": 1780010896688,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1780010719896.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1780010719896.jpg",
-      "introHTML": "<p>Los &ldquo;Bafana Bafana&rdquo; volver&aacute;n a una Copa del Mundo con una generaci&oacute;n que mezcla experiencia local y roce europeo bajo el mando del t&eacute;cnico belga Hugo Broos.</p>",
-      "opinologo": {
-        "_id": "68bd2f75484b81000295bbbd",
-        "firma": "Jaime Paniagua",
-        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbd/1764689648901.jpg"
-      },
-      "secciones": [
-        "mundial-2026"
-      ],
-      "textoHTML": "<section data-scroll-anchor=\"false\" data-testid=\"conversation-turn-58\" data-turn=\"assistant\" data-turn-id=\"request-6a17c75c-3d64-83e9-be7b-41c18e7e7ea0-20\" data-turn-id-container=\"request-6a17c75c-3d64-83e9-be7b-41c18e7e7ea0-20\" dir=\"auto\"><p data-end=\"390\" data-start=\"0\">Sud&aacute;frica oficializ&oacute; la n&oacute;mina de futbolistas que disputar&aacute;n el Mundial 2026, certamen que marcar&aacute; el regreso de los &ldquo;Bafana Bafana&rdquo; a la m&aacute;xima competencia internacional tras su participaci&oacute;n como anfitri&oacute;n en 2010. El equipo africano llegar&aacute; a la cita&nbsp;bajo la direcci&oacute;n t&eacute;cnica de Hugo Broos, con la intenci&oacute;n de convertirse en una de las selecciones revelaci&oacute;n del torneo.</p><p data-end=\"796\" data-start=\"392\">El estratega belga logr&oacute; conformar un plantel equilibrado entre jugadores consolidados del campeonato sudafricano y futbolistas con experiencia en el f&uacute;tbol europeo. Esa combinaci&oacute;n de juventud y experiencia buscar&aacute; darle competitividad a una selecci&oacute;n que compartir&aacute; el Grupo A junto a M&eacute;xico, Corea del Sur y Rep&uacute;blica Checa.</p><h3 data-end=\"846\" data-section-id=\"196rgrl\" data-start=\"798\">Convocados de Sud&aacute;frica para el Mundial 2026</h3><p data-end=\"1106\" data-start=\"848\"><strong data-end=\"861\" data-start=\"848\">Arqueros:</strong><br data-end=\"864\" data-start=\"861\" />Ronwen Williams (Mamelodi Sundowns FC),<br data-end=\"945\" data-start=\"942\" />Ricardo Goss (Siwelele FC),<br data-end=\"1026\" data-start=\"1023\" />Sipho Chaine (Orlando Pirates FC).</p><p data-end=\"1885\" data-start=\"1108\"><strong data-end=\"1123\" data-start=\"1108\">Defensores:</strong><br data-end=\"1126\" data-start=\"1123\" />Khuliso Mudau,(Mamelodi Sundowns, Sud&aacute;frica)<br data-end=\"1169\" data-start=\"1166\" />Aubrey Modiba y Khulumani Ndamane (Mamelodi Sundowns),<br data-end=\"1274\" data-start=\"1271\" />Olwethu Makhanya (Philadelphia Union),<br data-end=\"1359\" data-start=\"1356\" />Bradley Cross (Kaizer Chiefs FC),<br data-end=\"1444\" data-start=\"1441\" />Thabang Matuludi (Polokwane City FC),<br data-end=\"1529\" data-start=\"1526\" />Nkosinathi Sibisi y Kamogelo Sebelebele (Orlando Pirates),<br data-end=\"1632\" data-start=\"1629\" />Ime Okon (Hannover 96),<br data-end=\"1717\" data-start=\"1714\" />Samukele Kabini (Molde FK) y<br data-end=\"1803\" data-start=\"1800\" />Mbekezeli Mbokazi (Chicago Fire FC).</p><p data-end=\"2159\" data-start=\"1887\"><strong data-end=\"1906\" data-start=\"1887\">Mediocampistas:</strong><br data-end=\"1909\" data-start=\"1906\" />Teboho Mokoena,<br data-end=\"1952\" data-start=\"1949\" />Jayden Adams (Mamelodi Sundowns),<br data-end=\"2015\" data-start=\"2012\" />Thalente Mbatha (Orlando Pirates) y<br data-end=\"2077\" data-start=\"2074\" />Sphephelo Sithole (CD Tondela).</p><p data-end=\"2663\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"2161\"><strong data-end=\"2176\" data-start=\"2161\">Delanteros:</strong><br data-end=\"2179\" data-start=\"2176\" />Oswin Appollis,<br data-end=\"2222\" data-start=\"2219\" />Tshepang Moremi y<br data-end=\"2266\" data-start=\"2263\" />Evidence Makgopa (Orlando Pirates),<br data-end=\"2327\" data-start=\"2324\" />Lyle Foster (Burnley FC),<br data-end=\"2412\" data-start=\"2409\" />Iqraam Rayners y<br data-end=\"2456\" data-start=\"2453\" />Themba Zwane (Mamelodi Sundowns),<br data-end=\"2519\" data-start=\"2516\" />Relebohile Mofokeng (Orlando Pirates) y<br data-end=\"2581\" data-start=\"2578\" />Thapelo Maseko (AEL Limassol).</p></section><p>&nbsp;</p>",
-      "titulo": "Sudáfrica confirmó su lista y sueña con sorprender en el Mundial 2026",
-      "fecha_a": 1780010896689,
-      "prevId": "1780010896",
-      "link": "sudafrica-confirmo-su-lista-y-suena-con-sorprender-en-el-mundial-2026_1780010896"
-    },
-    {
-      "_id": "6a18ca505858c200144714e5",
-      "fecha_c": 1780009717283,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1780009697153.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1780009697153.jpg",
-      "introHTML": "<p>El mediocampista de la Albirroja asegur&oacute; que el equipo llegar&aacute; competitivo a la Copa del Mundo 2026, donde volver&aacute; a participar tras 16 a&ntilde;os de ausencia.</p>",
-      "opinologo": {
-        "_id": "68bd2f75484b81000295bbb1",
-        "firma": "Agencia EFE"
-      },
-      "secciones": [
-        "mundial-2026"
-      ],
-      "textoHTML": "<p>El mediocampista Andr&eacute;s &#39;el Motorcito&#39; Cubas afirm&oacute; este jueves que la selecci&oacute;n de Paraguay, que regresa a la Copa del Mundo tras 16 a&ntilde;os de ausencia, puede &quot;pelearle a cualquiera&quot; en el torneo, en el que debutar&aacute; ante Estados Unidos el 12 de junio.<br /><br />&quot;Estamos para pelearle a cualquiera&quot;, dijo Cubas a periodistas antes de la sesi&oacute;n de entrenamientos de hoy en el Centro de Alto Rendimiento Deportivo de la Albirroja, ubicado en la localidad de Ypan&eacute;, a unos 30 kil&oacute;metros de Asunci&oacute;n, la capital de este pa&iacute;s suramericano.<br /><br />&quot;Ojal&aacute; que lleguemos hasta lo m&aacute;s alto, hasta lo m&aacute;s lejos posible. Vamos a luchar y no tengan duda de que dejaremos todo para llegar a lo m&aacute;s alto&quot;, agreg&oacute; el jugador del Vancouver Whitecaps.<br /><br />Cubas, que apunta a estar en la lista de 26 convocados al Mundial que el seleccionador Gustavo Alfaro har&aacute; p&uacute;blica este 1 de junio, tambi&eacute;n se&ntilde;al&oacute; que Paraguay a&uacute;n tiene &quot;cosas por pulir&quot; en su juego, si bien consider&oacute; que los jugadores hicieron &quot;un buen trabajo&quot; al ganar uno de los seis billetes de la Conmebol al torneo que se disputar&aacute; en EE.UU., M&eacute;xico y Canad&aacute;.<br /><br />&quot;Seguramente va a ser mantener todo lo bueno que hicimos y, obviamente, ir sum&aacute;ndole cosas que nos van a ayudar para afrontar mejor los partidos (en el Mundial)&quot;, apunt&oacute;.<br /><br />Paraguay debutar&aacute; en la Copa del Mundo el 12 de junio ante uno de los anfitriones, Estados Unidos, en una fecha especial para esta naci&oacute;n sudamericana porque marcar&aacute; la conmemoraci&oacute;n de los 91 a&ntilde;os de la r&uacute;brica del protocolo de paz que puso fin a la Guerra del Chaco, en la que se enfrent&oacute; con Bolivia entre 1932 y 1935.<br /><br />Una semana despu&eacute;s, se ver&aacute; las caras con Turqu&iacute;a, ganadora de la plaza del grupo C de la repesca europea y cerrar&aacute; la fase de grupos ante Australia el 25 de junio.&nbsp;</p>",
-      "titulo": "“Estamos para pelearle a cualquiera”: Cubas ilusiona a Paraguay rumbo al Mundial",
-      "fecha_a": 1780009717284,
-      "prevId": "1780009717",
-      "link": "estamos-para-pelearle-a-cualquiera-cubas-ilusiona-a-paraguay-rumbo-al-mundial_1780009717"
-    },
-    {
-      "_id": "6a18bdab5858c20014470501",
-      "fecha_c": 1780007296223,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1780007153093.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1780007153093.jpg",
-      "introHTML": "<p>Scaloni present&oacute; la lista definitiva con la que la Albiceleste afrontar&aacute; la defensa del t&iacute;tulo mundial. La presencia de Messi y algunas ausencias marcaron la convocatoria.</p>",
-      "opinologo": {
-        "_id": "68bd2f75484b81000295bbbd",
-        "firma": "Jaime Paniagua",
-        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbd/1764689648901.jpg"
-      },
-      "secciones": [
-        "mundial-2026"
-      ],
-      "textoHTML": "<section data-scroll-anchor=\"false\" data-testid=\"conversation-turn-42\" data-turn=\"assistant\" data-turn-id=\"request-6a17c75c-3d64-83e9-be7b-41c18e7e7ea0-12\" data-turn-id-container=\"request-6a17c75c-3d64-83e9-be7b-41c18e7e7ea0-12\" dir=\"auto\"><p data-end=\"425\" data-start=\"0\">Lionel Scaloni present&oacute; la lista definitiva con los 26 futbolistas que intentar&aacute;n defender la corona conseguida en Catar 2022.</p><p data-end=\"793\" data-start=\"427\">Gran parte de la atenci&oacute;n vuelve a centrarse en Lionel Messi, quien disputar&aacute; su sexto Mundial con 38 a&ntilde;os y llegar&aacute; a la competencia pr&oacute;ximo a cumplir 39. El capit&aacute;n argentino estuvo presente en Alemania 2006, Sud&aacute;frica 2010, Brasil 2014, Rusia 2018 y Catar 2022.</p><p data-end=\"1519\" data-start=\"1156\">Entre las novedades de la convocatoria aparece la ausencia de Marcos Acu&ntilde;a, quien qued&oacute; fuera por problemas f&iacute;sicos. Su lugar ser&aacute; ocupado por Facundo Medina. En ese sector tambi&eacute;n destaca la presencia de Valent&iacute;n Barco, jugador del&nbsp;Estrasburgo de Francia.</p><p data-end=\"2507\" data-start=\"1955\">Otros nombres importantes quedaron fuera de la lista final. Franco Mastantuono no logr&oacute; meterse entre los convocados, al igual que Emiliano Buend&iacute;a, pese a su destacado a&ntilde;o en Inglaterra con el Aston Villa. En contrapartida, Giovani Lo Celso consigui&oacute; mantenerse en el grupo tras clasificar a la Champions League con el Real Betis. Otro de los nombres que sobresalen es el de Nico Paz, una de las grandes apariciones recientes del seleccionado.</p><p data-end=\"2902\" data-start=\"2509\">En ataque, Scaloni mantuvo la base ofensiva de los &uacute;ltimos a&ntilde;os. Thiago Almada aparece como uno de los futbolistas llamados a tener mayor protagonismo respecto al &uacute;ltimo Mundial, mientras que Jos&eacute; Manuel L&oacute;pez del Palmeiras se gan&oacute; un lugar como alternativa ofensiva detr&aacute;s de Juli&aacute;n &Aacute;lvarez y Lautaro Mart&iacute;nez.</p><h3 data-end=\"2952\" data-section-id=\"4c40i8\" data-start=\"2904\"><strong>Convocados de Argentina para el Mundial 2026</strong></h3><p data-end=\"3093\" data-start=\"2954\"><strong data-end=\"2967\" data-start=\"2954\">Arqueros:</strong><br data-end=\"2970\" data-start=\"2967\" />Emiliano Mart&iacute;nez, Juan Musso y Ger&oacute;nimo Rulli.</p><p data-end=\"3441\" data-start=\"3095\"><strong data-end=\"3110\" data-start=\"3095\">Defensores:</strong><br data-end=\"3113\" data-start=\"3110\" />Leonardo Balerdi, Nicol&aacute;s Tagliafico, Gonzalo Montiel, Lisandro Mart&iacute;nez, Cristian Romero, Nicol&aacute;s Otamendi, Facundo Medina y Nahuel Molina.</p><p data-end=\"3793\" data-start=\"3443\"><strong data-end=\"3462\" data-start=\"3443\">Mediocampistas:</strong><br data-end=\"3465\" data-start=\"3462\" />Leandro Paredes, Rodrigo De Paul, Valent&iacute;n Barco, Giovani Lo Celso, Exequiel Palacios, Alexis Mac Allister, Enzo Fern&aacute;ndez y Nico Paz.</p><p data-end=\"4100\" data-start=\"3795\"><strong data-end=\"3810\" data-start=\"3795\">Delanteros:</strong><br data-end=\"3813\" data-start=\"3810\" />Juli&aacute;n &Aacute;lvarez, Lionel Messi, Nicol&aacute;s Gonz&aacute;lez, Thiago Almada, Gianluca Simeone, Jos&eacute; Manuel L&oacute;pez y Lautaro Mart&iacute;nez.</p><p data-end=\"4431\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"4102\">Argentina debutar&aacute; en el Grupo J el martes 16 de junio frente a Argelia en el Kansas City Stadium. Luego enfrentar&aacute; a Austria el 22 de junio en Dallas y cerrar&aacute; la fase de grupos contra Jordania el 27 del mismo mes, tambi&eacute;n en Dallas.</p></section>",
-      "titulo": "Argentina ya tiene a sus elegidos para el Mundial 2026",
-      "fecha_a": 1780007296224,
-      "prevId": "1780007296",
-      "link": "argentina-ya-tiene-a-sus-elegidos-para-el-mundial-2026_1780007296"
-    },
-    {
-      "_id": "6a18b9ad5858c2001446fe34",
-      "fecha_c": 1780006243146,
-      "imagen_home": "https://cdn.diez.bo/diez/052026/1780005742272.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/052026/1780005742272.jpg",
-      "introHTML": "<p>El 11 de junio volver&aacute; a reunir a las dos selecciones que abrieron el Mundial de 2010. Esta vez, el escenario ser&aacute; el m&iacute;tico Azteca en el inicio de la Copa del Mundo 2026.</p>",
-      "opinologo": {
-        "_id": "68bd2f75484b81000295bbbd",
-        "firma": "Jaime Paniagua",
-        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbd/1764689648901.jpg"
-      },
-      "secciones": [
-        "mundial-2026"
-      ],
-      "textoHTML": "<p data-end=\"334\" data-start=\"0\">El Mundial 2026 comenzar&aacute; con un partido cargado de recuerdos. El pr&oacute;ximo 11 de junio, M&eacute;xico y Sud&aacute;frica volver&aacute;n a verse las caras en el encuentro inaugural de una Copa del Mundo, repitiendo una escena que ya ocurri&oacute; hace exactamente 16 a&ntilde;os en Sud&aacute;frica 2010.</p><p data-end=\"698\" data-start=\"336\">Aquella vez, ambas selecciones abrieron el torneo en Johannesburgo el 11 de junio de 2010. Ahora, el destino vuelve a reunirlas en el arranque de la m&aacute;xima cita del f&uacute;tbol mundial, nuevamente un 11 de junio, aunque esta vez con el M&eacute;xico como anfitri&oacute;n y el hist&oacute;rico Estadio Azteca como escenario principal.</p><p data-end=\"1009\" data-start=\"700\">La coincidencia va mucho m&aacute;s all&aacute; del rival y la fecha. El entrenador mexicano volver&aacute; a ser Javier Aguirre, el mismo que dirig&iacute;a al &ldquo;Tri&rdquo; en el Mundial de 2010. Ser&aacute; la primera vez en la historia de las Copas del Mundo que un partido inaugural se repite con las mismas dos selecciones.</p><p data-end=\"1250\" data-start=\"1011\">Adem&aacute;s del conjunto mexicano y los &ldquo;Bafana Bafana&rdquo;, el Grupo A estar&aacute; conformado por Corea del Sur y Rep&uacute;blica Checa, en una zona que promete ser una de las m&aacute;s competitivas de la fase inicial.</p><p data-end=\"1819\" data-start=\"1252\">El seleccionado asi&aacute;tico llegar&aacute; a la cita mundialista con una generaci&oacute;n que ilusiona. Son Heung-min disputar&aacute; su cuarta Copa del Mundo con 34 a&ntilde;os y el respaldo de una trayectoria consolidada en la Premier League. A su lado aparecen nombres como Lee Kang-in, considerado uno de los mejores futbolistas asi&aacute;ticos de la &uacute;ltima temporada, y el defensor Kim Min-jae, figura en la Bundesliga. Corea del Sur afrontar&aacute; su und&eacute;cimo Mundial consecutivo y buscar&aacute; superar sus actuaciones hist&oacute;ricas.</p><p data-end=\"2269\" data-start=\"1821\">Por su parte, Rep&uacute;blica Checa volver&aacute; a una Copa del Mundo despu&eacute;s de 20 a&ntilde;os. Los checos consiguieron su clasificaci&oacute;n a trav&eacute;s de la repesca europea tras superar a Irlanda y Dinamarca. Su principal referente ofensivo ser&aacute; Patrik Schick, mientras que el equipo estar&aacute; dirigido por Miroslav Koubek, quien a sus 74 a&ntilde;os se convertir&aacute; en el entrenador m&aacute;s veterano del torneo.</p><section data-scroll-anchor=\"false\" data-testid=\"conversation-turn-36\" data-turn=\"assistant\" data-turn-id=\"request-6a17c75c-3d64-83e9-be7b-41c18e7e7ea0-9\" data-turn-id-container=\"request-6a17c75c-3d64-83e9-be7b-41c18e7e7ea0-9\" dir=\"auto\"><p data-end=\"2667\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"2271\">En la previa, M&eacute;xico y Corea del Sur aparecen como las favoritas para avanzar a la siguiente ronda. Sin embargo, tanto Sud&aacute;frica como Rep&uacute;blica Checa llegan con argumentos suficientes para pelear por la clasificaci&oacute;n en un grupo que promete emociones desde el primer d&iacute;a del Mundial.</p></section>",
-      "titulo": "De Johannesburgo al Azteca: México y Sudáfrica vuelven a inaugurar un Mundial",
-      "fecha_a": 1780006243147,
-      "prevId": "1780006243",
-      "link": "de-johannesburgo-al-azteca-mexico-y-sudafrica-vuelven-a-inaugurar-un-mundial_1780006243"
     }
   ]
 }

@@ -92,14 +92,14 @@ export default function FixtureBlock() {
           </button>
 
           {/* Tabla — funcional */}
-          <button
+          {/* <button
             type="button"
             onClick={() => setStandingsOpen(true)}
             className="flex items-center justify-center gap-1.5 rounded-lg bg-accent px-2 py-2 text-[10px] font-black uppercase tracking-wider text-white transition-all hover:brightness-110 active:scale-95 cursor-pointer"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M3 3h18v18H3z"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
             Tabla
-          </button>
+          </button> */}
         </div>
       </div>
 
