@@ -1,8 +1,10 @@
 'use client'
 
-import { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { X, Calendar, Clock, MapPin, RefreshCw } from 'lucide-react'
+import { X, Calendar, Clock, MapPin, RefreshCw, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react'
+import { DayPicker, DayButton } from 'react-day-picker'
+import { es } from 'date-fns/locale'
 import { useFixture } from '@/hooks/useFixture'
 import { getMatchDate, getMatchTime, getStageBadge, isGroupStage } from '@/services/fixtureService'
 import type { FixtureApiMatch } from '@/services/fixtureService'
@@ -212,11 +214,121 @@ function SkeletonCard() {
   )
 }
 
+/* ─────────────────────────────────────────────────────────────────────────
+   Custom DayButton for the fixture calendar.
+   ALL styling is done with inline styles so there is NO dependency on CSS
+   class-name specificity — works regardless of react-day-picker version.
+───────────────────────────────────────────────────────────────────────── */
+function FixtureCalDayButton({
+  day,
+  modifiers,
+  ...props
+}: React.ComponentProps<typeof DayButton>) {
+  const hasMatch   = !!modifiers.hasMatch
+  const isSelected = !!modifiers.selected
+  const isDisabled = !!modifiers.disabled   // disabled = no match on this day
+  const isOutside  = !!modifiers.outside
+
+  /* ── resolve visual state ── */
+  let bg      = 'transparent'
+  let color   = isOutside ? 'rgba(255,255,255,0.07)' : 'rgba(255,255,255,0.16)'
+  let border  = isOutside ? '1px solid transparent' : '1px solid rgba(255,255,255,0.07)'
+  let shadow  = 'none'
+  let fw      = 500
+  let cursor  = isDisabled ? 'not-allowed' : 'pointer'
+  let opacity = isOutside ? 0.5 : 1
+
+  if (hasMatch && !isSelected) {
+    bg      = 'rgba(94,168,232,0.18)'
+    color   = '#ffffff'
+    border  = '1px solid rgba(94,168,232,0.48)'
+    shadow  = '0 0 10px rgba(94,168,232,0.20), inset 0 1px 0 rgba(255,255,255,0.10)'
+    fw      = 800
+    cursor  = 'pointer'
+    opacity = 1
+  }
+
+  if (isSelected) {
+    bg      = '#5ea8e8'
+    color   = '#ffffff'
+    border  = '1px solid #7ec8f0'
+    shadow  = '0 0 22px rgba(94,168,232,0.65), 0 2px 10px rgba(0,0,0,0.45)'
+    fw      = 900
+    cursor  = 'pointer'
+    opacity = 1
+  }
+
+  /* Extract onClick so non-match days don't fire */
+  const { children, onClick, ...rest } = props as any
+
+  return (
+    <button
+      type="button"
+      onClick={hasMatch ? onClick : undefined}
+      disabled={!hasMatch && isDisabled}
+      {...rest}
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '2px',
+        borderRadius: '9px',
+        fontSize: '11px',
+        fontWeight: fw,
+        color,
+        background: bg,
+        border,
+        boxShadow: shadow,
+        cursor,
+        opacity,
+        transition: 'all 0.15s ease',
+        position: 'relative',
+        outline: 'none',
+        padding: 0,
+      }}
+      onMouseEnter={hasMatch && !isSelected ? (e) => {
+        const b = e.currentTarget as HTMLButtonElement
+        b.style.background = 'rgba(94,168,232,0.32)'
+        b.style.borderColor = 'rgba(94,168,232,0.72)'
+        b.style.boxShadow   = '0 0 18px rgba(94,168,232,0.38)'
+        b.style.transform   = 'scale(1.12)'
+      } : undefined}
+      onMouseLeave={hasMatch && !isSelected ? (e) => {
+        const b = e.currentTarget as HTMLButtonElement
+        b.style.background = 'rgba(94,168,232,0.18)'
+        b.style.borderColor = 'rgba(94,168,232,0.48)'
+        b.style.boxShadow   = '0 0 10px rgba(94,168,232,0.20), inset 0 1px 0 rgba(255,255,255,0.10)'
+        b.style.transform   = 'scale(1)'
+      } : undefined}
+    >
+      {/* day number */}
+      <span style={{ lineHeight: 1 }}>{day.date.getDate()}</span>
+      {/* glowing dot — only for days with matches */}
+      {hasMatch && (
+        <span style={{
+          display: 'block',
+          width: '4px',
+          height: '4px',
+          borderRadius: '50%',
+          background: isSelected ? 'rgba(255,255,255,0.9)' : '#5ea8e8',
+          boxShadow: isSelected ? 'none' : '0 0 5px #5ea8e8',
+          flexShrink: 0,
+        }} />
+      )}
+    </button>
+  )
+}
+
 export default function FixtureModal({ open, onOpenChange }: FixtureModalProps) {
   const [mounted, setMounted] = useState(false)
   const [selectedDay, setSelectedDay] = useState<string | null>(null)
+  const [calendarOpen, setCalendarOpen] = useState(false)
   const overlayRef = useRef<HTMLDivElement>(null)
   const dayScrollRef = useRef<HTMLDivElement>(null)
+  const calendarRef = useRef<HTMLDivElement>(null)
   const { matches, loading, error, refetch } = useFixture()
 
   useEffect(() => { setMounted(true) }, [])
@@ -240,6 +352,33 @@ export default function FixtureModal({ open, onOpenChange }: FixtureModalProps) 
     const unique = Array.from(new Set(matches.map((m) => getMatchDate(m)))).sort()
     return unique
   }, [matches])
+
+  /* Date objects for days that have matches — used by DayPicker */
+  const matchDays = useMemo(() => {
+    return allDates.map((d) => parseDate(d))
+  }, [allDates])
+
+  /* The currently-selected Date object for DayPicker */
+  const pickerSelected = useMemo(() => {
+    return selectedDay ? parseDate(selectedDay) : undefined
+  }, [selectedDay])
+
+  /* Default month shown in picker (first match month or today) */
+  const defaultPickerMonth = useMemo(() => {
+    return matchDays.length > 0 ? matchDays[0] : new Date()
+  }, [matchDays])
+
+  /* Close calendar popover on outside click */
+  useEffect(() => {
+    if (!calendarOpen) return
+    const handler = (e: MouseEvent) => {
+      if (calendarRef.current && !calendarRef.current.contains(e.target as Node)) {
+        setCalendarOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [calendarOpen])
 
   /* count per date (for the tabs) */
   const countByDate = useMemo(() => {
@@ -285,6 +424,20 @@ export default function FixtureModal({ open, onOpenChange }: FixtureModalProps) 
     }, 0)
   }
 
+  /* Handle day selection from the popover picker */
+  const handlePickerSelect = (day: Date | undefined) => {
+    if (!day) return
+    const y = day.getFullYear()
+    const m = String(day.getMonth() + 1).padStart(2, '0')
+    const d = String(day.getDate()).padStart(2, '0')
+    const dateStr = `${y}-${m}-${d}`
+    // Only navigate if there are matches on that day
+    if (allDates.includes(dateStr)) {
+      scrollDayIntoView(dateStr)
+    }
+    setCalendarOpen(false)
+  }
+
   if (!mounted || !open) return null
 
   const modal = (
@@ -316,12 +469,122 @@ export default function FixtureModal({ open, onOpenChange }: FixtureModalProps) 
           }}
         >
           <div className="flex items-center gap-4">
-            <div
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl"
-              style={{ background: 'rgba(94,168,232,0.18)', border: '1px solid rgba(94,168,232,0.25)' }}
-            >
-              <Calendar className="h-5 w-5 text-[#5ea8e8]" />
+            {/* Calendar icon — click to open date picker */}
+            <div className="relative" ref={calendarRef}>
+              <button
+                type="button"
+                onClick={() => setCalendarOpen((v) => !v)}
+                aria-label="Abrir calendario"
+                title="Filtrar por fecha"
+                className={`group flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl transition-all duration-200 ${
+                  calendarOpen
+                    ? 'ring-2 ring-[#5ea8e8]/60 scale-105'
+                    : 'hover:scale-105 hover:ring-2 hover:ring-[#5ea8e8]/40'
+                }`}
+                style={{
+                  background: calendarOpen
+                    ? 'rgba(94,168,232,0.30)'
+                    : 'rgba(94,168,232,0.18)',
+                  border: '1px solid rgba(94,168,232,0.25)',
+                }}
+              >
+                <Calendar className="h-5 w-5 text-[#5ea8e8] transition-transform duration-200 group-hover:rotate-6" />
+              </button>
+
+              {/* ── Floating calendar popover ── */}
+              {calendarOpen && (
+                <div
+                  className="absolute left-0 top-[calc(100%+10px)] z-[10000] overflow-hidden rounded-2xl shadow-2xl"
+                  style={{
+                    background: 'rgba(8,14,26,0.97)',
+                    border: '1px solid rgba(94,168,232,0.25)',
+                    backdropFilter: 'blur(20px)',
+                    boxShadow: '0 24px 64px rgba(0,0,0,0.7), 0 0 0 1px rgba(94,168,232,0.15)',
+                    minWidth: '300px',
+                  }}
+                >
+                  {/* Popover header */}
+                  <div
+                    className="px-4 pt-3 pb-2 flex items-center justify-center"
+                    style={{ borderBottom: '1px solid rgba(94,168,232,0.12)' }}
+                  >
+                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#5ea8e8]/70">
+                      Selecciona un día
+                    </span>
+                  </div>
+
+                  {/* Custom DayButton — inline styles, no CSS specificity issues */}
+                  <div style={{ padding: '4px 8px 8px' }}>
+                    <DayPicker
+                      locale={es}
+                      mode="single"
+                      selected={pickerSelected}
+                      onSelect={handlePickerSelect}
+                      defaultMonth={defaultPickerMonth}
+                      startMonth={new Date(2026, 5)}
+                      endMonth={new Date(2026, 6)}
+                      disabled={(day) => {
+                        const y = day.getFullYear()
+                        const m = String(day.getMonth() + 1).padStart(2, '0')
+                        const d = String(day.getDate()).padStart(2, '0')
+                        return !allDates.includes(`${y}-${m}-${d}`)
+                      }}
+                      modifiers={{ hasMatch: matchDays }}
+                      components={{
+                        DayButton: FixtureCalDayButton,
+                        Chevron: ({ orientation, ...props }) => {
+                          if (orientation === 'left') {
+                            return <ChevronLeft className="h-4 w-4 text-[#5ea8e8]" {...props} />
+                          }
+                          if (orientation === 'right') {
+                            return <ChevronRight className="h-4 w-4 text-[#5ea8e8]" {...props} />
+                          }
+                          return <ChevronDown className="h-4 w-4 text-[#5ea8e8]" {...props} />
+                        }
+                      }}
+                      classNames={{
+                        root: 'relative select-none',
+                        months: 'flex flex-col relative',
+                        month: 'flex flex-col gap-2',
+                        month_caption: 'flex items-center justify-center h-9 px-9 relative mb-1',
+                        caption_label: 'text-[11px] font-black uppercase tracking-[0.2em]',
+                        nav: 'flex items-center justify-between absolute inset-x-0 top-0 z-10',
+                        button_previous: 'h-9 w-9 flex items-center justify-center rounded-xl transition-all cursor-pointer hover:bg-[rgba(94,168,232,0.15)]',
+                        button_next: 'h-9 w-9 flex items-center justify-center rounded-xl transition-all cursor-pointer hover:bg-[rgba(94,168,232,0.15)]',
+                        weekdays: 'flex gap-1',
+                        weekday: 'flex-1 text-center text-[9px] font-bold uppercase tracking-widest h-6 flex items-center justify-center',
+                        weeks: 'flex flex-col gap-1',
+                        week: 'flex gap-1',
+                        day: 'flex-1 aspect-square p-0',
+                        day_button: 'w-full h-full',
+                        hidden: 'invisible',
+                      }}
+                      style={{
+                        '--rdp-day-height': '36px',
+                        '--rdp-day-width': '36px',
+                        color: 'rgba(255,255,255,0.5)',
+                      } as React.CSSProperties}
+                    />
+                  </div>
+
+                  {/* Legend */}
+                  <div
+                    className="px-4 pb-3 flex items-center gap-3"
+                    style={{ borderTop: '1px solid rgba(94,168,232,0.1)' }}
+                  >
+                    <div className="flex items-center gap-1.5">
+                      <span className="inline-block h-2 w-2 rounded-full bg-[#5ea8e8]" />
+                      <span className="text-[9px] font-semibold uppercase tracking-wider text-white/35">Día con partidos</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="inline-block h-2 w-2 rounded-full bg-white/15" />
+                      <span className="text-[9px] font-semibold uppercase tracking-wider text-white/35">Sin partidos</span>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
+
             <div className="text-center">
               <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/45">Mundial 2026</p>
               <h1 className="text-2xl font-black uppercase tracking-wide text-white">
