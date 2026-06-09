@@ -12,7 +12,7 @@ interface Params {
   link: string
 }
 
-const BASE_URL = (process.env.NEXT_PUBLIC_NEWS_BASE_URL || 'https://dev.eldeber.bo').replace(/\/$/, '')
+const BASE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://tribuna.diez.bo').replace(/\/$/, '')
 const SHARE_BASE_URL = 'https://tribuna.diez.bo'
 const SITE_NAME = ''
 
@@ -66,7 +66,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> | P
 
   const title = `${news.titulo} `
   const description = news.introHTML ? extractTextFromHtml(news.introHTML) : news.titulo
-  const image = news.imagen_interior || '/logo_powerade.png'
+  const image = toAbsoluteUrl(news.imagen_interior || '/logo_powerade.png')
   const canonicalUrl = `${BASE_URL}/${seccion}/${link}`
 
   return {

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Powerade',
   description: 'Cobertura completa del Mundial 2026: partidos, selecciones, noticias, videos y análisis deportivos.',
   keywords: ['mundial 2026', 'fútbol', 'deportes', 'noticias', 'videos'],
-  metadataBase: new URL('https://dev.eldeber.bo'),
+  metadataBase: new URL('https://tribuna.diez.bo'),
   icons: {
     icon: [
       {
