@@ -211,13 +211,15 @@ async function readCachedNewsItems(): Promise<NewsItem[]> {
 }
 
 export const getNews = cache(async (): Promise<NewsItem[]> => {
-  const cachedNews = await readCachedNewsItems()
-
-  if (!cachedNews.length) {
-    console.warn('[API] News cache is empty or missing. Run the 1 AM sync job to populate it.')
+  // Always fetch fresh news from backend; falls back to local cache if backend fails.
+  // getNewsWithFallback() also writes the cache so it stays up to date for subsequent requests.
+  try {
+    const { getNewsWithFallback } = await import('./news-service')
+    return await getNewsWithFallback()
+  } catch (error) {
+    console.warn('[API] getNewsWithFallback failed, falling back to local cache:', error)
+    return readCachedNewsItems()
   }
-
-  return cachedNews
 })
 
 export async function getNewsById(id: string): Promise<NewsItem | undefined> {
