@@ -1,14 +1,14 @@
 import { NextResponse } from 'next/server'
 import { fetchFixture } from '@/services/fixtureService'
 
-export const revalidate = 60 // ISR: revalidate every 60 seconds
+export const revalidate = 20 // ISR: revalidate every 20 seconds
 
 export async function GET() {
   try {
     const matches = await fetchFixture()
     return NextResponse.json(matches, {
       headers: {
-        'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=120',
+        'Cache-Control': 'public, s-maxage=20, stale-while-revalidate=40',
       },
     })
   } catch (error) {

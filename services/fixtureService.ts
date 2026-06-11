@@ -64,7 +64,7 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'https://dev.eldeber.bo/v1'
 export async function fetchFixture(): Promise<FixtureApiMatch[]> {
   try {
     const res = await fetch(`${API_BASE}/mundial-2026/fixture/results`, {
-      next: { revalidate: 60 }, // revalidate every 60 seconds
+      next: { revalidate: 20 }, // revalidate every 20 seconds
     })
 
     if (!res.ok) {
