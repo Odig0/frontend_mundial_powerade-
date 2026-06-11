@@ -224,7 +224,7 @@ function MatchCard({ match }: { match: FixtureApiMatch }) {
                         <span className="shrink-0">{goalIcon(hg.type)}</span>
                         <span className="truncate text-white/70 font-medium">{hg.player_name}</span>
                         <span className="shrink-0 text-white/35 font-semibold">
-                          {hg.minute}{hg.extra_time ? `+${hg.extra_time}` : "'}"}
+                          {hg.minute}{hg.extra_time ? `+${hg.extra_time}'` : "'"}
                         </span>
                       </>
                     ) : null}
