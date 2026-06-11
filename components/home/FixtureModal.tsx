@@ -116,10 +116,11 @@ function ScoreDisplay({ match }: { match: FixtureApiMatch }) {
 
         {/* finished label */}
         {!is_live && finished && (
-          <span className="mt-0.5 text-[9px] uppercase tracking-widest text-blue-400/80 font-bold">
+          <span className="mt-0.5 text-[9px] uppercase tracking-wide text-blue-300 font-black">
             FINALIZADO
           </span>
         )}
+
       </div>
     )
   }
@@ -162,10 +163,6 @@ function MatchCard({ match }: { match: FixtureApiMatch }) {
           <span className="rounded-md px-2 py-0.5 text-[9px] font-black uppercase tracking-wider bg-blue-500/20 text-blue-300 border border-blue-400/40 animate-pulse">
             EN VIVO
           </span>
-        )}
-        {/* state label always visible when not "No iniciado" */}
-        {match.state && match.state !== 'No iniciado' && (
-          <span className="text-[11px] text-white/40">{match.state}</span>
         )}
       </div>
 

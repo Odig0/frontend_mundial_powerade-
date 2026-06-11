@@ -92,9 +92,10 @@ function ScoreOrVS({ match }: { match: FixtureApiMatch }) {
           </span>
         )}
 
+
         {/* finished label */}
         {!is_live && finished && (
-          <span className="mt-0.5 text-[8px] uppercase tracking-widest text-blue-400/80 font-bold">
+          <span className="mt-0.5 text-[9px] uppercase tracking-wide text-blue-300 font-black">
             FINALIZADO
           </span>
         )}
