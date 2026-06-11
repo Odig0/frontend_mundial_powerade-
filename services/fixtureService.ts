@@ -8,6 +8,17 @@ export interface ApiTeam {
 export interface ApiScore {
   home: number | null
   away: number | null
+  home_ht: number | null
+  away_ht: number | null
+  home_et: number | null
+  away_et: number | null
+  home_penalties: number | null
+  away_penalties: number | null
+}
+
+/** Returns true when a score object has at least one non-null value */
+export function hasScore(score: ApiScore | null): boolean {
+  return score !== null && (score.home !== null || score.away !== null)
 }
 
 export interface FixtureApiMatch {

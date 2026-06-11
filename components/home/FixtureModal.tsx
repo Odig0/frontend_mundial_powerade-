@@ -6,7 +6,7 @@ import { X, Calendar, Clock, MapPin, RefreshCw, ChevronLeft, ChevronRight, Chevr
 import { DayPicker, DayButton } from 'react-day-picker'
 import { es } from 'date-fns/locale'
 import { useFixture } from '@/hooks/useFixture'
-import { getMatchDate, getMatchTime, getStageBadge, isGroupStage } from '@/services/fixtureService'
+import { getMatchDate, getMatchTime, getStageBadge, isGroupStage, hasScore } from '@/services/fixtureService'
 import type { FixtureApiMatch } from '@/services/fixtureService'
 import { countries } from '@/data/fixtures'
 
@@ -80,25 +80,54 @@ function groupColor(g: string | null) {
 
 function ScoreDisplay({ match }: { match: FixtureApiMatch }) {
   const { score, is_live, finished } = match
-  if (score && (score.home !== null || score.away !== null)) {
+
+  if (hasScore(score)) {
+    const hasPenalties = score!.home_penalties !== null || score!.away_penalties !== null
+    const hasET       = score!.home_et !== null || score!.away_et !== null
+    const hasHT       = score!.home_ht !== null || score!.away_ht !== null
+
     return (
       <div
-        className={`shrink-0 rounded-lg px-3 py-1.5 text-sm font-black text-center min-w-[56px] ${
+        className={`shrink-0 flex flex-col items-center justify-center rounded-xl px-3 py-1.5 text-center min-w-[64px] ${
           is_live
-            ? 'bg-red-500/20 text-red-300 border border-red-500/40'
+            ? 'bg-red-500/15 border border-red-500/40'
             : finished
-            ? 'bg-white/10 text-white border border-white/10'
-            : 'bg-accent/10 text-accent border border-accent/20'
+            ? 'border border-white/10'
+            : 'bg-accent/10 border border-accent/25'
         }`}
-        style={{ background: is_live ? undefined : 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
+        style={!is_live ? { background: 'rgba(255,255,255,0.06)' } : undefined}
       >
-        {score.home ?? '-'} - {score.away ?? '-'}
+        {/* main score */}
+        <span
+          className={`text-base font-black tabular-nums leading-none ${
+            is_live ? 'text-red-300' : finished ? 'text-white' : 'text-accent'
+          }`}
+        >
+          {score!.home ?? 0} - {score!.away ?? 0}
+        </span>
+
+        {/* live indicator */}
         {is_live && (
-          <span className="block text-[8px] uppercase tracking-widest text-red-400 animate-pulse">EN VIVO</span>
+          <span className="mt-0.5 flex items-center gap-1 text-[8px] uppercase tracking-widest text-red-400 font-bold">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-red-400 animate-pulse" />
+            EN VIVO
+          </span>
+        )}
+
+        {/* secondary score line */}
+        {!is_live && hasHT && (
+          <span className="mt-0.5 text-[9px] text-white/35 tabular-nums">
+            {hasPenalties
+              ? `Pen: ${score!.home_penalties ?? 0}-${score!.away_penalties ?? 0}`
+              : hasET
+              ? `PT: ${score!.home_ht ?? 0}-${score!.away_ht ?? 0}`
+              : `MT: ${score!.home_ht ?? 0}-${score!.away_ht ?? 0}`}
+          </span>
         )}
       </div>
     )
   }
+
   return (
     <div
       className="shrink-0 rounded-lg px-2.5 py-1 text-xs font-black text-white/60"

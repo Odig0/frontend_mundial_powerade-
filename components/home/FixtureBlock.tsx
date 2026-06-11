@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react'
 import { ChevronRight, ChevronLeft, RefreshCw } from 'lucide-react'
 import { useFixture } from '@/hooks/useFixture'
-import { getMatchDate, getMatchTime, getStageBadge, isGroupStage } from '@/services/fixtureService'
+import { getMatchDate, getMatchTime, getStageBadge, isGroupStage, hasScore } from '@/services/fixtureService'
 import type { FixtureApiMatch } from '@/services/fixtureService'
 import { countries } from '@/data/fixtures'
 import StandingsModal from '@/components/home/StandingsModal'
@@ -58,23 +58,54 @@ function isTbd(name: string): boolean {
 }
 
 function ScoreOrVS({ match }: { match: FixtureApiMatch }) {
-  const { score, is_live, finished } = match
-  if (score && (score.home !== null || score.away !== null)) {
+  const { score, is_live, finished, state } = match
+
+  if (hasScore(score)) {
+    const hasPenalties = score!.home_penalties !== null || score!.away_penalties !== null
+    const hasET       = score!.home_et !== null || score!.away_et !== null
+    const hasHT       = score!.home_ht !== null || score!.away_ht !== null
+
     return (
       <div
-        className={`shrink-0 rounded-full px-2 py-0.5 text-xs font-black text-center min-w-[44px] ${
+        className={`shrink-0 flex flex-col items-center justify-center rounded-xl px-2.5 py-1 text-center min-w-[52px] ${
           is_live
-            ? 'bg-red-500/20 text-red-400 border border-red-500/40'
+            ? 'bg-red-500/15 border border-red-500/40'
             : finished
-            ? 'bg-white/10 text-white border border-white/10'
-            : 'bg-accent/10 text-accent border border-accent/20'
+            ? 'bg-white/[0.07] border border-white/10'
+            : 'bg-accent/10 border border-accent/25'
         }`}
       >
-        {score.home ?? '-'} - {score.away ?? '-'}
-        {is_live && <span className="block text-[8px] uppercase tracking-widest text-red-400">EN VIVO</span>}
+        {/* main score */}
+        <span
+          className={`text-sm font-black tabular-nums leading-none ${
+            is_live ? 'text-red-300' : finished ? 'text-white' : 'text-accent'
+          }`}
+        >
+          {score!.home ?? 0} - {score!.away ?? 0}
+        </span>
+
+        {/* live: blink + state label */}
+        {is_live && (
+          <span className="mt-0.5 flex items-center gap-1 text-[8px] uppercase tracking-widest text-red-400 font-bold">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-red-400 animate-pulse" />
+            EN VIVO
+          </span>
+        )}
+
+        {/* half-time score when finished */}
+        {!is_live && hasHT && (
+          <span className="mt-0.5 text-[8px] text-white/30 tabular-nums">
+            {hasPenalties
+              ? `Pen: ${score!.home_penalties ?? 0}-${score!.away_penalties ?? 0}`
+              : hasET
+              ? `PT: ${score!.home_ht ?? 0}-${score!.away_ht ?? 0}`
+              : `MT: ${score!.home_ht ?? 0}-${score!.away_ht ?? 0}`}
+          </span>
+        )}
       </div>
     )
   }
+
   return (
     <div className="shrink-0 rounded-full border border-white/10 bg-black/40 px-2 py-0.5 text-xs font-black text-foreground">
       VS
