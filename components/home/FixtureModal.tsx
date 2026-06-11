@@ -167,10 +167,9 @@ function MatchCard({ match }: { match: FixtureApiMatch }) {
             EN VIVO
           </span>
         )}
-        {match.state && !isGroupStage(match) && (
-          <div className="flex items-center gap-1 text-[11px] text-white/40">
-            <span className="truncate">{match.state}</span>
-          </div>
+        {/* state label always visible when not "No iniciado" */}
+        {match.state && match.state !== 'No iniciado' && (
+          <span className="text-[11px] text-white/40">{match.state}</span>
         )}
       </div>
 
@@ -200,6 +199,54 @@ function MatchCard({ match }: { match: FixtureApiMatch }) {
           />
         </div>
       </div>
+
+      {/* goals by scorers */}
+      {match.goals && match.goals.length > 0 && (() => {
+        const homeGoals = match.goals.filter(g => g.team_name === match.home.name)
+        const awayGoals = match.goals.filter(g => g.team_name === match.away.name)
+        const maxRows = Math.max(homeGoals.length, awayGoals.length)
+        return (
+          <div
+            className="mt-3 rounded-xl px-3 py-2 space-y-1"
+            style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)' }}
+          >
+            {Array.from({ length: maxRows }).map((_, i) => {
+              const hg = homeGoals[i]
+              const ag = awayGoals[i]
+              const goalIcon = (type: string) =>
+                type === 'own-goal' ? '⚽🔴' : type === 'penalty' ? '⚽🎯' : '⚽'
+              return (
+                <div key={i} className="grid grid-cols-2 gap-2 text-[11px]">
+                  {/* home goal */}
+                  <div className="flex items-center gap-1 min-w-0">
+                    {hg ? (
+                      <>
+                        <span className="shrink-0">{goalIcon(hg.type)}</span>
+                        <span className="truncate text-white/70 font-medium">{hg.player_name}</span>
+                        <span className="shrink-0 text-white/35 font-semibold">
+                          {hg.minute}{hg.extra_time ? `+${hg.extra_time}` : "'}"}
+                        </span>
+                      </>
+                    ) : null}
+                  </div>
+                  {/* away goal */}
+                  <div className="flex items-center justify-end gap-1 min-w-0">
+                    {ag ? (
+                      <>
+                        <span className="shrink-0 text-white/35 font-semibold">
+                          {ag.minute}{ag.extra_time ? `+${ag.extra_time}` : "'"}
+                        </span>
+                        <span className="truncate text-white/70 font-medium">{ag.player_name}</span>
+                        <span className="shrink-0">{goalIcon(ag.type)}</span>
+                      </>
+                    ) : null}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        )
+      })()}
 
       {/* result info */}
       {match.result_info && (

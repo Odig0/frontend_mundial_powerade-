@@ -1,3 +1,17 @@
+export interface ApiGoal {
+  event_id: number
+  minute: number
+  extra_time: number | null
+  type: string          // 'goal' | 'own-goal' | 'penalty'
+  team_id: number
+  team_name: string
+  player_id: number
+  player_name: string
+  score: string         // e.g. "1-0"
+  created_at: string
+}
+
+
 export interface ApiTeam {
   name: string
   short_code: string
@@ -38,7 +52,7 @@ export interface FixtureApiMatch {
   home: ApiTeam
   away: ApiTeam
   score: ApiScore | null
-  goals: unknown[]
+  goals: ApiGoal[]
   result_info: string | null
   last_sync: string
 }
