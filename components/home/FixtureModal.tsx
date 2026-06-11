@@ -90,17 +90,17 @@ function ScoreDisplay({ match }: { match: FixtureApiMatch }) {
       <div
         className={`shrink-0 flex flex-col items-center justify-center rounded-xl px-3 py-1.5 text-center min-w-[64px] ${
           is_live
-            ? 'bg-red-500/15 border border-red-500/40'
+            ? 'bg-blue-500/20 border border-blue-400/50'
             : finished
-            ? 'border border-white/10'
+            ? 'border border-blue-500/30'
             : 'bg-accent/10 border border-accent/25'
         }`}
-        style={!is_live ? { background: 'rgba(255,255,255,0.06)' } : undefined}
+        style={!is_live ? { background: finished ? 'rgba(59,130,246,0.08)' : 'rgba(255,255,255,0.06)' } : undefined}
       >
         {/* main score */}
         <span
           className={`text-base font-black tabular-nums leading-none ${
-            is_live ? 'text-red-300' : finished ? 'text-white' : 'text-accent'
+            is_live ? 'text-blue-300' : finished ? 'text-blue-200' : 'text-accent'
           }`}
         >
           {score!.home ?? 0} - {score!.away ?? 0}
@@ -108,20 +108,16 @@ function ScoreDisplay({ match }: { match: FixtureApiMatch }) {
 
         {/* live indicator */}
         {is_live && (
-          <span className="mt-0.5 flex items-center gap-1 text-[8px] uppercase tracking-widest text-red-400 font-bold">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-red-400 animate-pulse" />
+          <span className="mt-0.5 flex items-center gap-1 text-[8px] uppercase tracking-widest text-blue-400 font-bold">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
             EN VIVO
           </span>
         )}
 
-        {/* secondary score line */}
-        {!is_live && hasHT && (
-          <span className="mt-0.5 text-[9px] text-white/35 tabular-nums">
-            {hasPenalties
-              ? `Pen: ${score!.home_penalties ?? 0}-${score!.away_penalties ?? 0}`
-              : hasET
-              ? `PT: ${score!.home_ht ?? 0}-${score!.away_ht ?? 0}`
-              : `MT: ${score!.home_ht ?? 0}-${score!.away_ht ?? 0}`}
+        {/* finished label */}
+        {!is_live && finished && (
+          <span className="mt-0.5 text-[9px] uppercase tracking-widest text-blue-400/80 font-bold">
+            FINALIZADO
           </span>
         )}
       </div>
@@ -163,7 +159,7 @@ function MatchCard({ match }: { match: FixtureApiMatch }) {
           {badge}
         </span>
         {match.is_live && (
-          <span className="rounded-md px-2 py-0.5 text-[9px] font-black uppercase tracking-wider bg-red-500/20 text-red-300 border border-red-500/30 animate-pulse">
+          <span className="rounded-md px-2 py-0.5 text-[9px] font-black uppercase tracking-wider bg-blue-500/20 text-blue-300 border border-blue-400/40 animate-pulse">
             EN VIVO
           </span>
         )}
@@ -248,15 +244,7 @@ function MatchCard({ match }: { match: FixtureApiMatch }) {
         )
       })()}
 
-      {/* result info */}
-      {match.result_info && (
-        <p
-          className="mt-2.5 truncate rounded-lg px-2.5 py-1.5 text-[11px] text-white/40"
-          style={{ background: 'rgba(255,255,255,0.03)' }}
-        >
-          🏆 {match.result_info}
-        </p>
-      )}
+
 
       {/* match details (stadium / match number) */}
       {match.details && (

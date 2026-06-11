@@ -69,16 +69,16 @@ function ScoreOrVS({ match }: { match: FixtureApiMatch }) {
       <div
         className={`shrink-0 flex flex-col items-center justify-center rounded-xl px-2.5 py-1 text-center min-w-[52px] ${
           is_live
-            ? 'bg-red-500/15 border border-red-500/40'
+            ? 'bg-blue-500/20 border border-blue-400/50'
             : finished
-            ? 'bg-white/[0.07] border border-white/10'
+            ? 'bg-blue-500/10 border border-blue-500/30'
             : 'bg-accent/10 border border-accent/25'
         }`}
       >
         {/* main score */}
         <span
           className={`text-sm font-black tabular-nums leading-none ${
-            is_live ? 'text-red-300' : finished ? 'text-white' : 'text-accent'
+            is_live ? 'text-blue-300' : finished ? 'text-blue-200' : 'text-accent'
           }`}
         >
           {score!.home ?? 0} - {score!.away ?? 0}
@@ -86,20 +86,16 @@ function ScoreOrVS({ match }: { match: FixtureApiMatch }) {
 
         {/* live: blink + state label */}
         {is_live && (
-          <span className="mt-0.5 flex items-center gap-1 text-[8px] uppercase tracking-widest text-red-400 font-bold">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-red-400 animate-pulse" />
+          <span className="mt-0.5 flex items-center gap-1 text-[8px] uppercase tracking-widest text-blue-400 font-bold">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
             EN VIVO
           </span>
         )}
 
-        {/* half-time score when finished */}
-        {!is_live && hasHT && (
-          <span className="mt-0.5 text-[8px] text-white/30 tabular-nums">
-            {hasPenalties
-              ? `Pen: ${score!.home_penalties ?? 0}-${score!.away_penalties ?? 0}`
-              : hasET
-              ? `PT: ${score!.home_ht ?? 0}-${score!.away_ht ?? 0}`
-              : `MT: ${score!.home_ht ?? 0}-${score!.away_ht ?? 0}`}
+        {/* finished label */}
+        {!is_live && finished && (
+          <span className="mt-0.5 text-[8px] uppercase tracking-widest text-blue-400/80 font-bold">
+            FINALIZADO
           </span>
         )}
       </div>
@@ -251,7 +247,7 @@ export default function FixtureBlock() {
                       {badge}
                     </span>
                     {match.is_live && (
-                      <span className="text-[9px] font-bold uppercase text-red-400 bg-red-500/10 border border-red-500/30 rounded px-1 py-0.5 animate-pulse">
+                      <span className="text-[9px] font-bold uppercase text-blue-300 bg-blue-500/20 border border-blue-400/40 rounded px-1 py-0.5 animate-pulse">
                         EN VIVO
                       </span>
                     )}
@@ -284,11 +280,7 @@ export default function FixtureBlock() {
                   </div>
                 </div>
 
-                {match.result_info && (
-                  <div className="mt-2 rounded-lg bg-white/5 px-2 py-1.5">
-                    <p className="text-xs text-muted-foreground truncate">{match.result_info}</p>
-                  </div>
-                )}
+
               </article>
             )
           })
