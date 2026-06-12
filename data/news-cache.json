@@ -1,15 +1,53 @@
 {
   "metadata": {
     "version": "1",
-    "timestamp": 1781218340037,
+    "timestamp": 1781223292208,
     "count": 70
   },
   "news": [
     {
+      "_id": "6a2b3aefd0a21900143cfd98",
+      "fecha_c": 1781218892274,
+      "imagen_home": "https://cdn.diez.bo/diez/062026/1781218872791.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/062026/1781218872791.jpg",
+      "introHTML": "<p>El DT de M&eacute;xico afirm&oacute; este jueves que pese al nerviosismo de varios de los jugadores del Tri, especialmente los m&aacute;s j&oacute;venes, el equipo sali&oacute; adelante y consigui&oacute; un triunfo por 2-0 ante Sud&aacute;frica que les viene muy bien y les permiti&oacute; dejar los nervios de lado</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbb1",
+        "firma": "Agencia EFE"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>&quot;Fue el inicio del Mundial, por lo que ya dejamos los nervios a un costado y tenemos estos tres puntos que nos vienen muy bien&quot;, destac&oacute; el entrenador.</p><p>Sin embargo, Aguirre reconoci&oacute; que a varios de sus jugadores les pes&oacute; la presi&oacute;n de jugar el partido inaugural. &quot;Es un escenario brutal este Mundial, eso hace que las piernas tiemblen un poco y eso al jugador le hace pensar. El escenario es muy grande. El estado emocional, muy fuerte. Creo que a algunos, no a todos, les pes&oacute; un poquito el escenario. Una inauguraci&oacute;n en casa pesa, pero son j&oacute;venes y ten&iacute;an que vivir la experiencia&quot;.</p><p>M&eacute;xico venci&oacute; a Sud&aacute;frica gracias a las anotaciones de Juli&aacute;n Qui&ntilde;ones y Ra&uacute;l Jim&eacute;nez en un encuentro que dominaron durante los 90 minutos, pero en el que desperdiciaron varias opciones de hacer el marcador m&aacute;s abultado.</p><p>Aguirre detall&oacute; el desempe&ntilde;o ofensivo de su equipo, del que critic&oacute; lo poco finos que estuvieron en el &uacute;ltimo pase.</p><p>&quot;No jugamos bien la primera parte, pero pudimos irnos 3-0 y nadie habr&iacute;a dicho nada. Ellos por ah&iacute; solo llegaron una vez. Luego nos fuimos complicando. El segundo gol nos relaj&oacute; y ya no fuimos verticales, pero para ser el primer partido me parece que tuvimos una buena actuaci&oacute;n&quot;, subray&oacute;.</p><p>Y sigui&oacute;.</p><p>&quot;Tuvimos 16 llegadas, 12 centros, pero no estuvimos muy finos en el &uacute;ltimo tercio, debemos concretar m&aacute;s, en eso vamos a trabajar porque no basta con toda la posesi&oacute;n que logramos. Nunca sufrimos atr&aacute;s, por lo que si hubi&eacute;ramos sido m&aacute;s contundentes la situaci&oacute;n habr&iacute;a sido m&aacute;s tranquila&quot;, puntualiz&oacute;.</p><p>La selecci&oacute;n mexicana continuar&aacute; su camino en esta Copa del Mundo el pr&oacute;ximo jueves 18 de junio cuando chocar&aacute; contra Corea del Sur en el estadio Akron de Guadalajara, Jalisco, y concluir&aacute; sus compromisos de la fase de grupos el d&iacute;a 24 ante Rep&uacute;blica Checa en Ciudad de M&eacute;xico.</p>",
+      "titulo": "Javier Aguirre afirma que México dejó los nervios \"a un costado\" y el triunfo \"viene bien\"",
+      "fecha_a": 1781219586935,
+      "link": "javier-aguirre-afirma-que-mexico-dejo-los-nervios-a-un-costado-y-el-triunfo-viene-bien_1781218892",
+      "prevId": "1781218892"
+    },
+    {
+      "_id": "6a2b3c38d0a21900143cff31",
+      "fecha_a": 1781218680000,
+      "fecha_c": 1781218726650,
+      "imagen_home": "https://cdn.diez.bo/diez/062026/1781218682282.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/062026/1781218682282.jpg",
+      "introHTML": "<p>Brasil tiene cada vez m&aacute;s claro el mensaje de Carlo Ancelotti. El portero Alisson Becker confes&oacute; este jueves la gran obsesi&oacute;n del t&eacute;cnico italiano para el Mundial 2026: &quot;Queremos una defensa s&oacute;lida y un equipo junto&quot;.<br />&nbsp;</p>",
+      "link": "alisson-apunta-a-la-defensa-como-la-clave-para-el-exito-de-brasil_1781218710",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbb1",
+        "firma": "Agencia EFE"
+      },
+      "prevId": "1781218710",
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>En una rueda de prensa en el hotel de concentraci&oacute;n en Basking Ridge (Estados Unidos), el guardameta del Liverpool se refiri&oacute; a la mala racha de goles encajados de la Canarinha, que ha sufrido 10 en los &uacute;ltimos 7 partidos.<br /><br />En este sentido, afirm&oacute; que &quot;es el primero que se va insatisfecho&quot; cuando el equipo sufre un gol y reconoci&oacute; que est&aacute;n trabajando para echar el cerrojo.<br /><br />&quot;Tenemos que odiar que nos hagan un gol. El adversario tiene que luchar mucho para hacernos gol. Tenemos que entrenar esa mentalidad&quot;, demand&oacute;.<br /><br />En los dos &uacute;ltimos test de preparaci&oacute;n contra Panam&aacute; (6-2) y Egipto (2-1), Brasil sufri&oacute; tres goles, aunque para Alisson &quot;dos eran completamente evitables&quot;.<br /><br />&quot;Hablamos sobre eso. Mirando el lado positivo ocurrieron en amistosos y no en la Copa del Mundo. Eso nos da la oportunidad para corregir lo que tiene que ser corregido&quot;, explic&oacute;.<br /><br />&quot;Queremos una defensa s&oacute;lida, un equipo junto que no sufra goles y despu&eacute;s crear oportunidades&quot; para marcar, complet&oacute;.<br /><br />Por otro lado, Alisson tambi&eacute;n confes&oacute; que est&aacute;n trabajando en los entrenamientos las jugadas de estrategia tanto defensivas como ofensivas, &quot;un aspecto important&iacute;simo&quot; en este Mundial, que arranc&oacute; este jueves en Estados Unidos, M&eacute;xico y Canad&aacute;.<br /><br />&quot;Nosotros contamos con Gabriel (Magalh&atilde;es, zaguero del Arsenal) y otros jugadores y s&iacute;, nos estamos preparando&quot; en ese aspecto, apunt&oacute;.<br /><br />La pentacampeona del mundo disputar&aacute; en territorio estadounidense toda la primera fase del Mundial.<br /><br />Debutar&aacute; en el Grupo C el s&aacute;bado frente a Marruecos, en Nueva Jersey, y luego se enfrentar&aacute; con Hait&iacute; el 19 de junio, en Filadelfia, y a Escocia, cinco d&iacute;as despu&eacute;s, en Miami.</p>",
+      "titulo": "Alisson apunta a la defensa como la clave para el éxito de Brasil"
+    },
+    {
       "_id": "6a2b36ae6100360014fb9b21",
       "fecha_c": 1781217921411,
-      "imagen_home": "https://cdn.diez.bo/diez/062026/1781217272152.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/062026/1781217272152.jpg",
+      "imagen_home": "https://cdn.diez.bo/diez/062026/1781218278973.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/062026/1781218278973.jpg",
       "introHTML": "<p>La primera visita al monitor, reclamado por los encargados del VAR para testar una potencial tarjeta roja, en la recta final del partido inaugural, puso en marcha las nuevas normativas del reglamento aprobadas en febrero pasado por la IFAB&nbsp;que entran en vigor con el arranque del Mundial 2026.</p>",
       "opinologo": {
         "_id": "68bd2f75484b81000295bbb1",
@@ -19,7 +57,10 @@
         "mundial-2026"
       ],
       "textoHTML": "<p>Fue la acci&oacute;n en la que el sudafricano Themba Zwane propin&oacute; un manotazo, en un forcejeo fuera del &aacute;rea, sobre Roberto Alvarado. El &aacute;rbitro brasile&ntilde;o Wilton Sampaio sac&oacute; la tarjeta roja despu&eacute;s de la revisi&oacute;n y de explicar, sobre el c&eacute;sped, por su micr&oacute;fono, la jugada y la decisi&oacute;n.</p><p>La argumentaci&oacute;n a los espectadores, que sucede ya en algunas ligas, fue la novedad. Sampaio se dirigi&oacute; a los aficionados y les comunic&oacute; la decisi&oacute;n.</p><p>En un duelo sin excesiva tensi&oacute;n ni malos modos hubo tres expulsados, dos de los visitantes y una de M&eacute;xico, aunque solo &eacute;sta mereci&oacute; la comprobaci&oacute;n en el monitor. Se qued&oacute; Sud&aacute;frica con nueve porque antes, al inicio de la segunda parte del partido disputado en el estadio Azteca, en el minuto 50, una falta al borde del &aacute;rea de Yaya Sithole sobre el mexicano Brian Guti&eacute;rrez, que enfilaba en solitario la meta visitante, termin&oacute; con expulsi&oacute;n del defensa sudafricano.</p><p>No hubo debate, la jugada fue clara y el &aacute;rbitro no siquiera tuvo que recurrir al VAR. Despu&eacute;s lleg&oacute; la de Themba Zwane y en el a&ntilde;adido la que sufri&oacute; M&eacute;xico, de C&eacute;sar Montes que tampoco tuvo comprobaci&oacute;n.</p><p>Fueron estas las &uacute;nicas situaciones en las que el colegiado acapar&oacute; el protagonismo en esta inicio del Mundial para el que hay previstas varias novedades destinadas a agilizar el juego o evitar que los futbolistas se tapen la boca mientras se encara con un rival.</p><p>Agilizar el juego y evitar las interrupciones son algunas de las iniciativas disciplinarias que van a entrar en acci&oacute;n en el Mundial. De hecho, el &aacute;rbitro inici&oacute; el conteo cada vez que hab&iacute;a que reiniciar el encuentro por un fuera de banda, un saque de esquina o de porter&iacute;a, con la mano alzada y cada dedo un segundo.</p><p>Y es que para cada saque los jugadores solo cuentan con cinco segundos, para los cambios diez. Del resto, como atenci&oacute;n m&eacute;dica o las confrontaciones con la boca tapada, o revisiones de tarjetas por el VAR o en un corner, ahora susceptible tambi&eacute;n de revisi&oacute;n, no se dio el caso.</p>",
-      "titulo": "Primera visita al VAR y conteo para evitar pérdidas de tiempo"
+      "titulo": "Primera visita al VAR y conteo para evitar pérdidas de tiempo",
+      "fecha_a": 1781218320414,
+      "link": "primera-visita-al-var-y-conteo-para-evitar-perdidas-de-tiempo_1781217921",
+      "prevId": "1781217921"
     },
     {
       "_id": "6a2b36bf6100360014fb9b42",
@@ -1270,40 +1311,6 @@
       "fecha_a": 1780873791767,
       "prevId": "1780873791",
       "link": "golpe-para-brasil-wesley-queda-fuera-del-mundial-por-lesion_1780873791"
-    },
-    {
-      "_id": "6a25f54eca7a660014b2c2cf",
-      "fecha_c": 1780873127080,
-      "imagen_home": "https://cdn.diez.bo/diez/062026/1780873106059.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/062026/1780873106059.jpg",
-      "introHTML": "<p>El FBI anunci&oacute; este domingo la movilizaci&oacute;n de sus equipos t&aacute;cticos para garantizar la seguridad durante el Mundial de F&uacute;tbol de la FIFA, lo que incluye expertos en desactivaci&oacute;n de bombas y unidades de Armas y T&aacute;cticas Especiales (SWAT).</p>",
-      "opinologo": {
-        "_id": "68bd2f75484b81000295bbb1",
-        "firma": "Agencia EFE"
-      },
-      "secciones": [
-        "mundial-2026"
-      ],
-      "textoHTML": "<p>&quot;El FBI est&aacute; recurriendo a su extenso cuadro de expertos en respuestas a crisis para apoyar el masivo trabajo de seguridad involucrado en proteger a jugadores, fans y visitantes durante el torneo de 39 d&iacute;as&quot;, expuso el director del bur&oacute; federal, Kash Patel, en X.<br /><br />En v&iacute;speras del torneo, que se inaugura el jueves en M&eacute;xico y el viernes tiene su primer partido en Estados Unidos, en Los &Aacute;ngeles, Patel inform&oacute; del despliegue del Grupo de Respuesta a Incidentes Cr&iacute;ticos (CIRG) y al Equipo de Rescate de Rehenes (HRT) en el pa&iacute;s, donde habr&aacute; 11 ciudades sede.<br /><br />El CIRG, detall&oacute; Patel, consta de un equipo con entrenamiento &quot;&eacute;lite&quot;, herramientas &quot;innovadoras&quot; y tecnolog&iacute;a para proteger eventos deportivos de alta visibilidad como el Mundial.<br /><br />Mientras que el HRT, agreg&oacute;, es una unidad &eacute;lite del FBI con equipos SWAT, t&eacute;cnicos en explosivos, analistas de comportamiento, coordinadores de inteligencia de crisis y otros profesionales, para responder a un &quot;incidente cr&iacute;tico en cualquier momento y en cualquier lugar&quot;.<br /><br />&quot;No se equivoquen: estamos preparados para cualquier escenario. Estamos haciendo disponible la gama completa de nuestras capacidades t&aacute;cticas y de respuesta de crisis a nuestros socios de las agencias de la ley&quot;, indic&oacute; el funcionario.<br /><br />Entre las principales amenazas, el FBI ha identificado los drones, los ataques de lobos solitarios y la ciberdelincuencia como los prioritarios, seg&uacute;n indicaron funcionarios en una conferencia de prensa en mayo en Miami, una de las sedes.<br /><br />Por otro lado, el &#39;zar de la frontera&#39; de la Casa Blanca, Tom Homan, dijo el s&aacute;bado que el Servicio de Control de Inmigraci&oacute;n y Aduanas (ICE) centrar&aacute; sus esfuerzos en garantizar la &quot;seguridad nacional&quot; y la protecci&oacute;n del pr&oacute;ximo Mundial de F&uacute;tbol y no en la aplicaci&oacute;n de las leyes migratorias.<br /><br />La seguridad en el Mundial en EE.UU. recobr&oacute; trascendencia internacional este fin de semana, tras reportarse que al menos nueve personas resultaron heridas en un tiroteo cerca de la base de la selecci&oacute;n de f&uacute;tbol de Inglaterra en Kansas City la madrugada del s&aacute;bado.&nbsp;</p>",
-      "titulo": "FBI moviliza a sus equipos tácticos para el Mundial",
-      "fecha_a": 1780873127080,
-      "prevId": "1780873127",
-      "link": "fbi-moviliza-a-sus-equipos-tacticos-para-el-mundial_1780873127"
-    },
-    {
-      "_id": "6a25f4bfca7a660014b2c221",
-      "fecha_c": 1780872841276,
-      "imagen_home": "https://cdn.diez.bo/diez/062026/1780872727827.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/062026/1780872727827.jpg",
-      "introHTML": "<p>Antes de llegar a su campamento base en Kansas, los ingleses, que tienen un amistoso en Orlando previo, se llevaron un gran susto.</p>",
-      "secciones": [
-        "mundial-2026"
-      ],
-      "textoHTML": "<p><strong>El inicio de la concentraci&oacute;n de</strong>&nbsp;<strong>Inglaterra&nbsp;</strong>para el&nbsp;<strong>Mundial&nbsp;</strong>en&nbsp;<strong>Kansas City</strong>&nbsp;<strong>comenz&oacute; con susto. Seg&uacute;n public&oacute;&nbsp;<em>The Athletic</em>, en una de las carreteras que conducen a la sede de los ingleses en el Mundia</strong>l, <strong>Troost Avenue</strong>,&nbsp;<strong>se produjo un tiroteo que ha dejado un parte de nueve heridos</strong>.</p><p>El incidente se produjo mientras&nbsp;<strong>Inglaterra&nbsp;</strong>estaba en Florida, sin haberse instalado a&uacute;n en Kansas, pero las consecuencias llegaron enseguida a lo que se supone que debe ser un remanso de paz durante el Mundial. Durante las horas siguientes al suceso no se habl&oacute; de otra cosa en la concentraci&oacute;n inglesa, todav&iacute;a en&nbsp;<strong>Palm Beach</strong>.</p><p><strong>Kansas City</strong>&nbsp;es sede mundialista y adem&aacute;s es el lugar escogido por varias grandes selecciones como&nbsp;<strong>Inglaterra y Argentina para alojarse durante el Mundial</strong>. Los ingleses llegar&aacute;n en las pr&oacute;ximas horas despu&eacute;s de los dos amistosos a disputar en Florida. El primero ante&nbsp;<strong>Nueva Zelanda</strong>&nbsp;fue en Tampa y le espera otro ante&nbsp;<strong>Costa Rica</strong>&nbsp;en Orlando. Despu&eacute;s volar&aacute; a&nbsp;<strong>Kansas</strong>.</p>",
-      "titulo": " Tiroteo cerca del hotel-base de Inglaterra: hay nueve heridos",
-      "fecha_a": 1780872841276,
-      "prevId": "1780872841",
-      "link": "tiroteo-cerca-del-hotel-base-de-inglaterra-hay-nueve-heridos_1780872841"
     }
   ]
 }

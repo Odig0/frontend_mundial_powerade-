@@ -21,7 +21,7 @@ const MONTHS_ES = [
 
 function formatDateLabel(dateStr: string) {
   const [, m, d] = dateStr.split('-').map(Number)
-  return `${d} de ${MONTHS_ES[m - 1]}`
+  return `${d} DE ${MONTHS_ES[m - 1].toUpperCase()}`
 }
 
 const TBD_FLAG = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag_of_None.svg/320px-Flag_of_None.svg.png'
@@ -29,14 +29,13 @@ const TBD_FLAG = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag
 function getFlag(team: FixtureApiMatch['home']): string {
   const local = countryFlagMap.get(team.name.toLowerCase())
   if (local) return local
-  // fallback to API image if not in our list
   if (team.image_path && team.image_path.trim()) return team.image_path
   return TBD_FLAG
 }
 
-/** Tournament round sort order — lower = earlier */
+/** Tournament round sort order */
 const STAGE_ORDER: Record<string, number> = {
-  'fase de grupos':             0,  // excluded from knockout list
+  'fase de grupos':             0,
   'dieciseisavos de final':     1,
   'dieciseisavos':              1,
   'octavos de final':           2,
@@ -50,21 +49,22 @@ const STAGE_ORDER: Record<string, number> = {
   'final':                      6,
 }
 
-/** Stages that are NOT true knockout rounds (keep them out of the knockout filter list) */
 const GROUP_STAGE_LABELS = new Set(['fase de grupos', 'group stage'])
 
 function isTbd(name: string): boolean {
   return !name || name === 'Por definir' || name === 'TBD' || name.startsWith('Ganador') || name.startsWith('Winner')
 }
 
+/** Returns today as YYYY-MM-DD in local time */
+function todayStr(): string {
+  const now = new Date()
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`
+}
+
 function ScoreOrVS({ match }: { match: FixtureApiMatch }) {
-  const { score, is_live, finished, state } = match
+  const { score, is_live, finished } = match
 
   if (hasScore(score)) {
-    const hasPenalties = score!.home_penalties !== null || score!.away_penalties !== null
-    const hasET       = score!.home_et !== null || score!.away_et !== null
-    const hasHT       = score!.home_ht !== null || score!.away_ht !== null
-
     return (
       <div
         className={`shrink-0 flex flex-col items-center justify-center rounded-xl px-2.5 py-1 text-center min-w-[52px] ${
@@ -75,7 +75,6 @@ function ScoreOrVS({ match }: { match: FixtureApiMatch }) {
             : 'bg-accent/10 border border-accent/25'
         }`}
       >
-        {/* main score */}
         <span
           className={`text-sm font-black tabular-nums leading-none ${
             is_live ? 'text-blue-300' : finished ? 'text-blue-200' : 'text-accent'
@@ -84,7 +83,6 @@ function ScoreOrVS({ match }: { match: FixtureApiMatch }) {
           {score!.home ?? 0} - {score!.away ?? 0}
         </span>
 
-        {/* live: blink + state label */}
         {is_live && (
           <span className="mt-0.5 flex items-center gap-1 text-[8px] uppercase tracking-widest text-blue-400 font-bold">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
@@ -92,8 +90,6 @@ function ScoreOrVS({ match }: { match: FixtureApiMatch }) {
           </span>
         )}
 
-
-        {/* finished label */}
         {!is_live && finished && (
           <span className="mt-0.5 text-[9px] uppercase tracking-wide text-blue-300 font-black">
             FINALIZADO
@@ -112,25 +108,38 @@ function ScoreOrVS({ match }: { match: FixtureApiMatch }) {
 
 export default function FixtureBlock() {
   const { matches, loading, error, refetch } = useFixture()
-  const [page, setPage] = useState(0)
   const [selectedGroup, setSelectedGroup] = useState<string | null>(null)
   const [standingsOpen, setStandingsOpen] = useState(false)
   const [fixtureOpen, setFixtureOpen] = useState(false)
-  const itemsPerPage = 4
+  const [dayIdxOverride, setDayIdxOverride] = useState<number | null>(null)
+
+  // All unique match days from the API, sorted
+  const allDays = useMemo(() => {
+    return Array.from(new Set(matches.map(getMatchDate))).sort()
+  }, [matches])
+
+  // Find today's index (or nearest future day, or last day)
+  const todayIdx = useMemo(() => {
+    if (allDays.length === 0) return 0
+    const today = todayStr()
+    const exact = allDays.indexOf(today)
+    if (exact !== -1) return exact
+    const future = allDays.findIndex((d) => d > today)
+    if (future !== -1) return future
+    return allDays.length - 1
+  }, [allDays])
+
+  const activeDayIdx = dayIdxOverride !== null ? dayIdxOverride : todayIdx
+  const activeDay = allDays[activeDayIdx] ?? null
 
   // Unique groups from group stage only
   const groups = useMemo(() => {
-    const unique = Array.from(
-      new Set(
-        matches
-          .filter(isGroupStage)
-          .map((m) => m.group as string)
-      )
+    return Array.from(
+      new Set(matches.filter(isGroupStage).map((m) => m.group as string))
     ).sort()
-    return unique
   }, [matches])
 
-  // Knockout stages — extracted from API, excluding group-stage labels, sorted by tournament round
+  // Knockout stages
   const knockoutStages = useMemo(() => {
     const stageSet = new Set(
       matches
@@ -144,23 +153,25 @@ export default function FixtureBlock() {
     })
   }, [matches])
 
-  // Filter: group → by group letter; knockout stage name → by stage; null → all
-  const filteredMatches = useMemo(() => {
-    if (!selectedGroup) return matches
-    // is it a group letter?
-    if (selectedGroup.length === 1) {
-      return matches.filter((m) => isGroupStage(m) && m.group === selectedGroup)
+  // Matches for the active day, filtered by group/stage if selected
+  const dayMatches = useMemo(() => {
+    if (!activeDay) return []
+    let base = matches.filter((m) => getMatchDate(m) === activeDay)
+    if (selectedGroup) {
+      if (selectedGroup.length === 1) {
+        base = base.filter((m) => isGroupStage(m) && m.group === selectedGroup)
+      } else {
+        base = base.filter((m) => m.stage === selectedGroup)
+      }
     }
-    // it's a knockout stage name
-    return matches.filter((m) => m.stage === selectedGroup)
-  }, [matches, selectedGroup])
+    return base
+  }, [matches, activeDay, selectedGroup])
 
-  const totalPages = Math.ceil(filteredMatches.length / itemsPerPage)
-  const currentMatches = filteredMatches.slice(page * itemsPerPage, page * itemsPerPage + itemsPerPage)
+  const canPrev = activeDayIdx > 0
+  const canNext = activeDayIdx < allDays.length - 1
 
   const handleGroupChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedGroup(e.target.value === 'TODOS' ? null : e.target.value)
-    setPage(0)
   }
 
   return (
@@ -169,13 +180,13 @@ export default function FixtureBlock() {
       className="flex flex-col max-h-[800px]"
       style={{ scrollMarginTop: '88px' }}
     >
+      {/* ── Header ── */}
       <div className="bg-accent text-accent-foreground mx-3 md:mx-4 mt-2 rounded-xl px-3 py-1.5 font-bold text-xs uppercase tracking-wider flex items-center justify-between gap-2">
         <span className="typography-section-title !text-xs md:!text-sm">Fixture del mundial</span>
-        {loading && (
-          <RefreshCw className="h-3 w-3 animate-spin opacity-70" />
-        )}
+        {loading && <RefreshCw className="h-3 w-3 animate-spin opacity-70" />}
       </div>
 
+      {/* ── Filters + button ── */}
       <div className="border-b border-white/8 bg-background/50 px-3 pt-2 pb-3 md:px-4 flex flex-col gap-2">
         <select
           value={selectedGroup || 'TODOS'}
@@ -184,29 +195,24 @@ export default function FixtureBlock() {
         >
           <option value="TODOS">Todos los partidos</option>
           {groups.map((group) => (
-            <option key={group} value={group}>
-              Grupo {group}
-            </option>
+            <option key={group} value={group}>Grupo {group}</option>
           ))}
           {knockoutStages.map((stage) => (
-            <option key={stage} value={stage}>
-              {stage}
-            </option>
+            <option key={stage} value={stage}>{stage}</option>
           ))}
         </select>
 
-        <div className="grid grid-cols-2 gap-2">
-          <button
-            type="button"
-            onClick={() => setFixtureOpen(true)}
-            className="flex items-center justify-center gap-1.5 rounded-lg bg-accent px-2 py-2 text-[10px] font-black uppercase tracking-wider text-white transition-all hover:brightness-110 active:scale-95 cursor-pointer"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            Fixture Completo
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={() => setFixtureOpen(true)}
+          className="flex items-center justify-center gap-1.5 rounded-lg bg-accent px-2 py-2 text-[10px] font-black uppercase tracking-wider text-white transition-all hover:brightness-110 active:scale-95 cursor-pointer"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Fixture Completo
+        </button>
       </div>
 
+      {/* ── Match list ── */}
       <div className="flex flex-col gap-2 flex-1 bg-card p-2 md:p-3 overflow-y-auto">
         {loading ? (
           <div className="flex flex-col gap-2">
@@ -222,8 +228,8 @@ export default function FixtureBlock() {
             <p className="text-red-400 text-xs text-center">{error}</p>
             <button onClick={refetch} className="text-accent text-xs underline">Reintentar</button>
           </div>
-        ) : currentMatches.length > 0 ? (
-          currentMatches.map((match) => {
+        ) : dayMatches.length > 0 ? (
+          dayMatches.map((match) => {
             const date = getMatchDate(match)
             const time = getMatchTime(match)
             const badge = getStageBadge(match)
@@ -245,7 +251,11 @@ export default function FixtureBlock() {
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] font-bold uppercase text-accent">
-                      {badge}
+                      {isGroupStage(match)
+                        ? match.group
+                          ? `FASE DE GRUPOS · ${badge}`
+                          : 'FASE DE GRUPOS'
+                        : badge}
                     </span>
                     {match.is_live && (
                       <span className="text-[9px] font-bold uppercase text-blue-300 bg-blue-500/20 border border-blue-400/40 rounded px-1 py-0.5 animate-pulse">
@@ -257,58 +267,47 @@ export default function FixtureBlock() {
 
                 <div className="flex items-center justify-between gap-2">
                   <div className="min-w-0 flex-1 flex items-center gap-2">
-                    <img
-                      src={homeFlag}
-                      alt={homeName}
-                      className="h-6 w-8 rounded object-cover"
-                    />
-                    <p className="truncate text-sm font-black text-foreground">
-                      {homeName}
-                    </p>
+                    <img src={homeFlag} alt={homeName} className="h-6 w-8 rounded object-cover" />
+                    <p className="truncate text-sm font-black text-foreground">{homeName}</p>
                   </div>
 
                   <ScoreOrVS match={match} />
 
                   <div className="min-w-0 flex-1 text-right flex items-center justify-end gap-2">
-                    <p className="truncate text-sm font-black text-foreground">
-                      {awayName}
-                    </p>
-                    <img
-                      src={awayFlag}
-                      alt={awayName}
-                      className="h-6 w-8 rounded object-cover"
-                    />
+                    <p className="truncate text-sm font-black text-foreground">{awayName}</p>
+                    <img src={awayFlag} alt={awayName} className="h-6 w-8 rounded object-cover" />
                   </div>
                 </div>
-
-
               </article>
             )
           })
         ) : (
           <div className="flex items-center justify-center h-24 text-muted-foreground text-sm">
-            No hay partidos en este grupo
+            No hay partidos este día
           </div>
         )}
       </div>
 
+      {/* ── Day navigation footer (same style as before) ── */}
       <div className="flex items-center justify-between gap-2 border-t border-white/8 bg-background/50 px-3 py-2 md:px-4">
         <button
-          onClick={() => setPage(Math.max(0, page - 1))}
-          disabled={page === 0}
+          onClick={() => setDayIdxOverride(activeDayIdx - 1)}
+          disabled={!canPrev}
           className="flex items-center justify-center gap-1 rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-xs font-semibold text-white disabled:opacity-40 disabled:cursor-not-allowed hover:enabled:bg-white/10 transition-colors"
         >
           <ChevronLeft className="h-4 w-4" />
           <span className="hidden sm:inline">Anterior</span>
         </button>
 
-        <span className="text-[10px] text-white/30 font-semibold">
-          {Math.min((page + 1) * itemsPerPage, filteredMatches.length)} / {filteredMatches.length}
+        <span className="text-[10px] text-white/30 font-semibold text-center">
+          {activeDay ? formatDateLabel(activeDay) : '—'}
+          {' · '}
+          {dayMatches.length} partido{dayMatches.length !== 1 ? 's' : ''}
         </span>
 
         <button
-          onClick={() => setPage(Math.min(totalPages - 1, page + 1))}
-          disabled={page >= totalPages - 1}
+          onClick={() => setDayIdxOverride(activeDayIdx + 1)}
+          disabled={!canNext}
           className="flex items-center justify-center gap-1 rounded-lg bg-accent text-accent-foreground px-2 py-1.5 text-xs font-semibold disabled:opacity-40 disabled:cursor-not-allowed hover:enabled:opacity-90 transition-opacity"
         >
           <span className="hidden sm:inline">Siguiente</span>

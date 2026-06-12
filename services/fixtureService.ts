@@ -1,3 +1,5 @@
+import { partidos } from '@/data/fixtures'
+
 export interface ApiGoal {
   event_id: number
   minute: number
@@ -59,6 +61,27 @@ export interface FixtureApiMatch {
 
 export type FixtureApiResponse = Record<string, FixtureApiMatch>
 
+/**
+ * Build a lookup map: "homeTeamName|awayTeamName" → group letter
+ * using the local `partidos` data (which has all group assignments).
+ */
+const localGroupMap = new Map<string, string>(
+  partidos.map((p) => [
+    `${p.homeTeam.name.toLowerCase()}|${p.awayTeam.name.toLowerCase()}`,
+    p.group,
+  ])
+)
+
+/**
+ * Look up the group letter for a match using team names.
+ * Tries both home|away and away|home to handle name order differences.
+ */
+function resolveGroup(homeName: string, awayName: string): string | null {
+  const key1 = `${homeName.toLowerCase()}|${awayName.toLowerCase()}`
+  const key2 = `${awayName.toLowerCase()}|${homeName.toLowerCase()}`
+  return localGroupMap.get(key1) ?? localGroupMap.get(key2) ?? null
+}
+
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'https://dev.eldeber.bo/v1'
 
 export async function fetchFixture(): Promise<FixtureApiMatch[]> {
@@ -75,9 +98,13 @@ export async function fetchFixture(): Promise<FixtureApiMatch[]> {
     const data: FixtureApiResponse = await res.json()
 
     // Convert the object map to a sorted array
-    const matches = Object.values(data).sort(
-      (a, b) => a.starting_at_timestamp - b.starting_at_timestamp
-    )
+    const matches = Object.values(data)
+      .map((m) => ({
+        ...m,
+        // Patch null group using local partidos lookup
+        group: m.group ?? resolveGroup(m.home.name, m.away.name),
+      }))
+      .sort((a, b) => a.starting_at_timestamp - b.starting_at_timestamp)
 
     return matches
   } catch (err) {
@@ -98,13 +125,16 @@ export function getMatchTime(match: FixtureApiMatch): string {
 
 /** True when a match belongs to the group stage */
 export function isGroupStage(match: FixtureApiMatch): boolean {
-  return match.group !== null && match.group !== ''
+  if (match.group !== null && match.group !== '') return true
+  // fallback: detect by stage name from API
+  const s = match.stage?.toLowerCase() ?? ''
+  return s.includes('fase de grupos') || s.includes('group stage')
 }
 
-/** Label shown for the stage badge (e.g. "Grupo A", "Octavos de Final") */
+/** Label shown for the stage badge — just the group letter (e.g. "A") */
 export function getStageBadge(match: FixtureApiMatch): string {
   if (isGroupStage(match)) {
-    return `Grupo ${match.group}`
+    return match.group ? match.group : 'Fase de grupos'
   }
   return match.stage
 }

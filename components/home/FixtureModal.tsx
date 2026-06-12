@@ -157,7 +157,11 @@ function MatchCard({ match }: { match: FixtureApiMatch }) {
         <span
           className={`rounded-md px-2 py-0.5 text-[10px] font-black uppercase tracking-wider ${groupColor(match.group)}`}
         >
-          {badge}
+          {isGroupStage(match)
+            ? match.group
+              ? `FASE DE GRUPOS · ${badge}`
+              : 'FASE DE GRUPOS'
+            : badge}
         </span>
         {match.is_live && (
           <span className="rounded-md px-2 py-0.5 text-[9px] font-black uppercase tracking-wider bg-blue-500/20 text-blue-300 border border-blue-400/40 animate-pulse">
