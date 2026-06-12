@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixture Mundial 2026 – El Deber</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* El Deber brand palette */
+      --green:        #1B6B2F;
+      --green-light:  #2E8B45;
+      --green-dim:    rgba(27, 107, 47, 0.18);
+      --green-border: rgba(27, 107, 47, 0.4);
+      --green-rgb:    27, 107, 47;
+
+      --bg:           #080c09;
+      --bg-card:      #0b120d;
+      --bg-ctrl:      #060d07;
+      --border:       rgba(255,255,255,0.07);
+      --text:         #f0f0f0;
+      --muted:        rgba(255,255,255,0.32);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    /* ── WIDGET SHELL ── */
+    .fw {
+      width: 100%;
+      max-width: 520px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--green-border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.85), 0 0 0 1px rgba(27,107,47,0.1);
+    }
+
+    /* ── HEADER ── */
+    .fw-header {
+      background: linear-gradient(135deg, #143d1c 0%, var(--green) 60%, #1f7e35 100%);
+      padding: 11px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Subtle shimmer strip */
+    .fw-header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+      pointer-events: none;
+    }
+    .fw-header-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    /* ED badge */
+    .fw-ed-badge {
+      background: #fff;
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .fw-title {
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .fw-spin {
+      width: 14px; height: 14px;
+      border: 2px solid rgba(255,255,255,0.25);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      display: none;
+      flex-shrink: 0;
+    }
+    .fw-spin.active { display: block; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── CONTROLS ── */
+    .fw-controls {
+      background: var(--bg-ctrl);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .fw-select {
+      width: 100%;
+      background: #07110a;
+      border: 2px solid var(--green);
+      border-radius: 8px;
+      color: #5cb870;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 8px 32px 8px 12px;
+      cursor: pointer;
+      outline: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232E8B45' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      transition: border-color 0.2s;
+    }
+    .fw-select:focus { border-color: var(--green-light); box-shadow: 0 0 0 3px rgba(var(--green-rgb),0.2); }
+
+    .fw-btn-full {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 9px 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: filter 0.2s, transform 0.15s;
+      box-shadow: 0 4px 16px rgba(var(--green-rgb), 0.3);
+    }
+    .fw-btn-full:hover { filter: brightness(1.12); transform: translateY(-1px); }
+    .fw-btn-full:active { transform: translateY(0); }
+
+    /* ── MATCH LIST ── */
+    .fw-list {
+      background: var(--bg-card);
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-height: 120px;
+    }
+
+    /* ── MATCH CARD ── */
+    .fw-card {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 11px 12px;
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Left accent bar */
+    .fw-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 20%; bottom: 20%;
+      width: 3px;
+      background: var(--green);
+      border-radius: 0 3px 3px 0;
+      opacity: 0.6;
+    }
+    .fw-card.live::before { opacity: 1; background: #5cb870; box-shadow: 0 0 8px rgba(92,184,112,0.6); }
+    .fw-card:hover { border-color: rgba(var(--green-rgb),0.35); background: rgba(27,107,47,0.05); }
+
+    .fw-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .fw-card-time {
+      font-size: 11px;
+      font-weight: 700;
+      color: #5cb870;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .fw-card-stage {
+      font-size: 10px;
+      font-weight: 700;
+      color: #4aad62;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      opacity: 0.85;
+    }
+
+    .fw-card-teams {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .fw-team {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      min-width: 0;
+    }
+    .fw-team.away {
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+    .fw-flag {
+      width: 32px; height: 22px;
+      border-radius: 4px;
+      object-fit: cover;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+    .fw-team-name {
+      font-size: 13px;
+      font-weight: 900;
+      color: #f0f0f0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    /* Winner highlight */
+    .fw-team-name.winner { color: #7dd98f; }
+
+    /* ── SCORE / VS ── */
+    .fw-score {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      padding: 5px 10px;
+      min-width: 58px;
+      text-align: center;
+    }
+    .fw-score.live { background: rgba(var(--green-rgb),0.22); border: 1px solid rgba(var(--green-rgb),0.5); }
+    .fw-score.done { background: rgba(var(--green-rgb),0.12); border: 1px solid rgba(var(--green-rgb),0.28); }
+    .fw-score.vs   { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 999px; }
+    .fw-score-num {
+      font-size: 14px;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+    .fw-score.live .fw-score-num { color: #86efac; }
+    .fw-score.done .fw-score-num { color: #a3d9b0; }
+    .fw-score.vs   .fw-score-num { color: rgba(255,255,255,0.55); font-size: 12px; }
+    .fw-score-sub {
+      font-size: 8px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-top: 3px;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .fw-score.live .fw-score-sub { color: #86efac; }
+    .fw-score.done .fw-score-sub { color: #6dbf7e; }
+    .fw-live-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #86efac;
+      flex-shrink: 0;
+      animation: blink 1.1s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+
+    /* EN VIVO badge inline */
+    .fw-live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: rgba(var(--green-rgb),0.22);
+      color: #86efac;
+      border: 1px solid rgba(var(--green-rgb),0.45);
+      border-radius: 4px;
+      padding: 1px 5px;
+      animation: blink 1.1s ease-in-out infinite;
+    }
+
+    /* ── EMPTY / LOADER ── */
+    .fw-empty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .fw-loader-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 120px;
+      gap: 10px;
+      color: var(--green-light);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    .fw-loader-spin {
+      width: 18px; height: 18px;
+      border: 2px solid rgba(var(--green-rgb),0.2);
+      border-top-color: var(--green-light);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    /* ── FOOTER NAV ── */
+    .fw-footer {
+      background: rgba(6,10,7,0.9);
+      border-top: 1px solid var(--border);
+      padding: 9px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .fw-nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 11px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .fw-nav-btn.prev {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #d0d0d0;
+    }
+    .fw-nav-btn.prev:hover:not(:disabled) { background: rgba(255,255,255,0.1); }
+    .fw-nav-btn.next {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: #fff;
+      box-shadow: 0 3px 12px rgba(var(--green-rgb),0.35);
+    }
+    .fw-nav-btn.next:hover:not(:disabled) { filter: brightness(1.1); }
+    .fw-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .fw-nav-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    .fw-footer-info {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--muted);
+      text-align: center;
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+
+<div class="fw" id="fw">
+
+  <!-- Header -->
+  <div class="fw-header">
+    <div class="fw-header-left">
+      <span class="fw-ed-badge">ED</span>
+      <span class="fw-title">⚽ Fixture del Mundial</span>
+    </div>
+    <div class="fw-spin" id="fwSpin"></div>
+  </div>
+
+  <!-- Controls -->
+  <div class="fw-controls">
+    <select class="fw-select" id="fwSelect">
+      <option value="ALL">Todos los partidos</option>
+    </select>
+    <a class="fw-btn-full" href="https://powerade.eldeber.bo" target="_blank" rel="noopener">
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Fixture Completo — Powerade El Deber
+    </a>
+  </div>
+
+  <!-- Match list -->
+  <div class="fw-list" id="fwList">
+    <div class="fw-loader-wrap" id="fwLoader">
+      <div class="fw-loader-spin"></div>
+      CARGANDO FIXTURE
+    </div>
+  </div>
+
+  <!-- Footer nav -->
+  <div class="fw-footer">
+    <button class="fw-nav-btn prev" id="fwPrev" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Anterior
+    </button>
+    <span class="fw-footer-info" id="fwInfo">—</span>
+    <button class="fw-nav-btn next" id="fwNext" disabled>
+      Siguiente
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  const API_URL      = 'https://dev.eldeber.bo/v1/mundial-2026/fixture/results';
+  const CACHE_KEY    = 'fw_fixture_eldeber_v1';
+  const CACHE_TTL_MS = 5 * 60 * 1000;
+
+  const FLAG_MAP = {
+    'argentina':'ar','alemania':'de','australia':'au','austria':'at',
+    'bélgica':'be','bolivia':'bo','bosnia y herzegovina':'ba','brasil':'br',
+    'cabo verde':'cv','canadá':'ca','catar':'qa','colombia':'co',
+    'corea del sur':'kr','república de corea':'kr','croacia':'hr',
+    'curazao':'cw','ecuador':'ec','egipto':'eg','escocia':'gb-sct',
+    'españa':'es','estados unidos':'us','francia':'fr','ghana':'gh',
+    'haití':'ht','inglaterra':'gb-eng','irak':'iq','irán':'ir',
+    'japón':'jp','jordania':'jo','marruecos':'ma','méxico':'mx',
+    'noruega':'no','nueva zelanda':'nz','países bajos':'nl','panamá':'pa',
+    'paraguay':'py','portugal':'pt','rd congo':'cd','república checa':'cz',
+    'senegal':'sn','sudáfrica':'za','suecia':'se','suiza':'ch',
+    'túnez':'tn','turquía':'tr','uruguay':'uy','uzbekistán':'uz',
+  };
+  const TBD_FLAG = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Flag_of_None.svg/40px-Flag_of_None.svg.png';
+
+  function flagUrl(name, apiPath) {
+    const iso = FLAG_MAP[(name || '').toLowerCase().trim()];
+    if (iso) return `https://flagcdn.com/w40/${iso}.png`;
+    if (apiPath && !apiPath.includes('placeholder')) return apiPath;
+    return TBD_FLAG;
+  }
+
+  const STAGE_ORDER = {
+    'fase de grupos':0,'group stage':0,
+    'dieciseisavos de final':1,'dieciseisavos':1,
+    'octavos de final':2,'octavos':2,
+    'cuartos de final':3,'cuartos':3,
+    'semifinales':4,'semifinal':4,
+    'final por el tercer puesto':5,'tercer puesto':5,'final':6,
+  };
+
+  function extractGroupLetter(group) {
+    if (!group) return null;
+    const m = group.match(/(?:group\s+)?([A-L])\s*$/i);
+    return m ? m[1].toUpperCase() : null;
+  }
+  function isGroupStage(match) {
+    if (match.group) return true;
+    const s = (match.stage || '').toLowerCase();
+    return s.includes('fase de grupos') || s.includes('group stage');
+  }
+  function stageBadge(match) {
+    if (isGroupStage(match)) {
+      const l = extractGroupLetter(match.group);
+      return l ? `FASE DE GRUPOS · ${l}` : 'FASE DE GRUPOS';
+    }
+    return match.stage || '';
+  }
+
+  const MONTHS = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
+  function matchDate(m) { return m.starting_at.slice(0, 10); }
+  function matchTime(m) { return m.starting_at.slice(11, 16); }
+  function fmtDate(ds) { const [,mo,d]=ds.split('-').map(Number); return `${d} DE ${MONTHS[mo-1]}`; }
+  function todayStr() {
+    const n=new Date();
+    return `${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,'0')}-${String(n.getDate()).padStart(2,'0')}`;
+  }
+
+  function cacheRead() {
+    try {
+      const raw = localStorage.getItem(CACHE_KEY);
+      if (!raw) return null;
+      const { data, ts } = JSON.parse(raw);
+      if (Date.now() - ts > CACHE_TTL_MS) return null;
+      return data;
+    } catch { return null; }
+  }
+  function cacheWrite(data) {
+    try { localStorage.setItem(CACHE_KEY, JSON.stringify({ data, ts: Date.now() })); } catch {}
+  }
+
+  let matches=[], allDays=[], activeDayIdx=0, filter='ALL';
+
+  const elList   = document.getElementById('fwList');
+  const elSelect = document.getElementById('fwSelect');
+  const elInfo   = document.getElementById('fwInfo');
+  const elPrev   = document.getElementById('fwPrev');
+  const elNext   = document.getElementById('fwNext');
+  const elSpin   = document.getElementById('fwSpin');
+
+  function buildSelect() {
+    while (elSelect.options.length > 1) elSelect.remove(1);
+    const letters = [...new Set(
+      matches.filter(isGroupStage).map(m=>extractGroupLetter(m.group)).filter(Boolean)
+    )].sort();
+    if (letters.length) {
+      const og = document.createElement('optgroup');
+      og.label = 'Fase de grupos';
+      letters.forEach(l => { const o=document.createElement('option'); o.value=l; o.textContent=`Grupo ${l}`; og.appendChild(o); });
+      elSelect.appendChild(og);
+    }
+    const stages = [...new Set(
+      matches.filter(m=>!isGroupStage(m)).map(m=>m.stage).filter(Boolean)
+    )].sort((a,b)=>(STAGE_ORDER[a.toLowerCase()]??99)-(STAGE_ORDER[b.toLowerCase()]??99));
+    if (stages.length) {
+      const og = document.createElement('optgroup');
+      og.label = 'Eliminatorias';
+      stages.forEach(s => { const o=document.createElement('option'); o.value=s; o.textContent=s; og.appendChild(o); });
+      elSelect.appendChild(og);
+    }
+    elSelect.value = filter;
+  }
+
+  function getDisplayMatches() {
+    if (filter !== 'ALL') {
+      if (filter.length === 1) return matches.filter(m=>isGroupStage(m)&&extractGroupLetter(m.group)===filter);
+      return matches.filter(m=>m.stage===filter);
+    }
+    const day = allDays[activeDayIdx];
+    if (!day) return [];
+    return matches.filter(m=>matchDate(m)===day).sort((a,b)=>a.starting_at.localeCompare(b.starting_at));
+  }
+
+  function isTbd(name) {
+    return !name || ['por definir','tbd','ganador','winner','perdedor','loser'].some(t=>name.toLowerCase().includes(t));
+  }
+
+  function renderScore(match) {
+    const { score, is_live, finished } = match;
+    const has = score && (score.home !== null || score.away !== null);
+    if (!has) return `<div class="fw-score vs"><span class="fw-score-num">VS</span></div>`;
+    const cls = is_live ? 'live' : 'done';
+    const sub = is_live
+      ? `<span class="fw-score-sub"><span class="fw-live-dot"></span>EN VIVO</span>`
+      : finished ? `<span class="fw-score-sub">FINALIZADO</span>` : '';
+    return `<div class="fw-score ${cls}"><span class="fw-score-num">${score.home??0} - ${score.away??0}</span>${sub}</div>`;
+  }
+
+  function renderCard(match) {
+    const homeName = isTbd(match.home.name) ? 'Por definir' : match.home.name;
+    const awayName = isTbd(match.away.name) ? 'Por definir' : match.away.name;
+    const homeFlag = flagUrl(match.home.name, match.home.image_path);
+    const awayFlag = flagUrl(match.away.name, match.away.image_path);
+    const homeWin  = match.home.winner === true ? 'winner' : '';
+    const awayWin  = match.away.winner === true ? 'winner' : '';
+    const liveBadge = match.is_live
+      ? `<span class="fw-live-badge"><span class="fw-live-dot"></span>EN VIVO</span>` : '';
+    const cardCls = match.is_live ? 'fw-card live' : 'fw-card';
+    return `
+      <div class="${cardCls}">
+        <div class="fw-card-meta">
+          <span class="fw-card-time">${fmtDate(matchDate(match))} | ${matchTime(match)} ${liveBadge}</span>
+          <span class="fw-card-stage">${stageBadge(match)}</span>
+        </div>
+        <div class="fw-card-teams">
+          <div class="fw-team home">
+            <img class="fw-flag" src="${homeFlag}" alt="${homeName}" loading="lazy">
+            <span class="fw-team-name ${homeWin}">${homeName}</span>
+          </div>
+          ${renderScore(match)}
+          <div class="fw-team away">
+            <img class="fw-flag" src="${awayFlag}" alt="${awayName}" loading="lazy">
+            <span class="fw-team-name ${awayWin}">${awayName}</span>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function render() {
+    const dm = getDisplayMatches();
+    const fa = filter !== 'ALL';
+    elList.innerHTML = dm.length ? dm.map(renderCard).join('') : `<div class="fw-empty">Sin partidos este día</div>`;
+    if (fa) {
+      elInfo.textContent = `${dm.length} partidos`;
+      elPrev.disabled = elNext.disabled = true;
+    } else {
+      const day = allDays[activeDayIdx];
+      elInfo.textContent = day ? `${fmtDate(day)} · ${dm.length} partido${dm.length!==1?'s':''}` : '—';
+      elPrev.disabled = activeDayIdx <= 0;
+      elNext.disabled = activeDayIdx >= allDays.length - 1;
+    }
+  }
+
+  function initDay() {
+    allDays = [...new Set(matches.map(matchDate))].sort();
+    const today = todayStr();
+    let idx = allDays.indexOf(today);
+    if (idx===-1) idx = allDays.findIndex(d=>d>today);
+    if (idx===-1) idx = allDays.length-1;
+    activeDayIdx = Math.max(0, idx);
+  }
+
+  function processData(raw) {
+    const arr = Array.isArray(raw) ? raw : Object.values(raw);
+    matches = arr.sort((a,b)=>a.starting_at.localeCompare(b.starting_at));
+    initDay(); buildSelect(); render();
+  }
+
+  // ── 3-LAYER DATA STRATEGY ──────────────────────────────────
+  // 1. Live API  →  save to localStorage
+  // 2. localStorage (TTL 5 min)
+  // 3. /fixture-cache.json  (written by the Next.js server on every success)
+
+  async function fetchData(bg) {
+    if (!bg) elSpin.classList.add('active');
+    try {
+      const res = await fetch(API_URL);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const raw = await res.json();
+      // API returns an object-map; normalise to array
+      const arr = Array.isArray(raw) ? raw : Object.values(raw);
+      if (arr.length > 0) {
+        cacheWrite(arr);
+        processData(arr);
+        return;
+      }
+      throw new Error('empty response');
+    } catch(e) {
+      console.warn('[fixture-widget] live API failed:', e);
+      if (!bg) await loadFromFallback();
+    } finally {
+      elSpin.classList.remove('active');
+      const l=document.getElementById('fwLoader'); if(l) l.remove();
+    }
+  }
+
+  async function loadFromFallback() {
+    // Try localStorage first
+    const ls = cacheRead();
+    if (ls && ls.length > 0) {
+      console.info('[fixture-widget] using localStorage cache');
+      processData(ls);
+      const l=document.getElementById('fwLoader'); if(l) l.remove();
+      return;
+    }
+    // Try static JSON file written by the server
+    try {
+      const res = await fetch('/fixture-cache.json');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const arr = await res.json();
+      if (Array.isArray(arr) && arr.length > 0) {
+        console.info('[fixture-widget] using disk cache /fixture-cache.json');
+        cacheWrite(arr); // warm up localStorage too
+        processData(arr);
+        return;
+      }
+    } catch(e2) { console.warn('[fixture-widget] disk cache also failed:', e2); }
+    // Nothing worked — show empty state
+    const l=document.getElementById('fwLoader'); if(l) l.remove();
+    render();
+  }
+
+  function init() {
+    const cached = cacheRead();
+    if (cached && cached.length > 0) {
+      // Show cached data immediately
+      processData(cached);
+      const l=document.getElementById('fwLoader'); if(l) l.remove();
+      // Always refresh live data in background
+      fetchData(true);
+    } else {
+      // No cache — fetch live (shows loader)
+      fetchData(false);
+    }
+    // Auto-refresh every 5 minutes
+    setInterval(() => fetchData(true), 5 * 60 * 1000);
+  }
+
+  elPrev.addEventListener('click', ()=>{ if(activeDayIdx>0){activeDayIdx--;render();} });
+  elNext.addEventListener('click', ()=>{ if(activeDayIdx<allDays.length-1){activeDayIdx++;render();} });
+  elSelect.addEventListener('change', ()=>{ filter=elSelect.value; render(); });
+
+  init();
+})();
+</script>
+</body>
+</html>
