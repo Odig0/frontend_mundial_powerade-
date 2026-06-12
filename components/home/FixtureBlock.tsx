@@ -176,7 +176,9 @@ export default function FixtureBlock() {
     }
     // day mode
     if (!activeDay) return []
-    return matches.filter((m) => getMatchDate(m) === activeDay)
+    return matches
+      .filter((m) => getMatchDate(m) === activeDay)
+      .sort((a, b) => a.starting_at.localeCompare(b.starting_at))
   }, [matches, activeDay, selectedGroup, filterActive])
 
   const canPrev = !filterActive && activeDayIdx > 0
@@ -237,9 +239,8 @@ export default function FixtureBlock() {
             ))}
           </div>
         ) : error ? (
-          <div className="flex flex-col items-center justify-center h-24 gap-2">
+          <div className="flex items-center justify-center h-24">
             <p className="text-red-400 text-xs text-center">{error}</p>
-            <button onClick={refetch} className="text-accent text-xs underline">Reintentar</button>
           </div>
         ) : displayMatches.length > 0 ? (
           displayMatches.map((match) => {
