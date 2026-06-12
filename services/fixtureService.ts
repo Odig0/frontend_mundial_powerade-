@@ -123,10 +123,19 @@ export function getMatchTime(match: FixtureApiMatch): string {
   return match.starting_at.slice(11, 16)
 }
 
+/**
+ * Extract a single uppercase letter from group strings sent by the backend.
+ * Handles: "Group J" → "J", "J" → "J", null → null
+ */
+export function extractGroupLetter(group: string | null | undefined): string | null {
+  if (!group) return null
+  const m = group.match(/(?:group\s+)?([A-L])\s*$/i)
+  return m ? m[1].toUpperCase() : null
+}
+
 /** True when a match belongs to the group stage */
 export function isGroupStage(match: FixtureApiMatch): boolean {
   if (match.group !== null && match.group !== '') return true
-  // fallback: detect by stage name from API
   const s = match.stage?.toLowerCase() ?? ''
   return s.includes('fase de grupos') || s.includes('group stage')
 }
@@ -134,7 +143,8 @@ export function isGroupStage(match: FixtureApiMatch): boolean {
 /** Label shown for the stage badge — just the group letter (e.g. "A") */
 export function getStageBadge(match: FixtureApiMatch): string {
   if (isGroupStage(match)) {
-    return match.group ? match.group : 'Fase de grupos'
+    const letter = extractGroupLetter(match.group)
+    return letter ?? ''
   }
   return match.stage
 }

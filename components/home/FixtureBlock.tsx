@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react'
 import { ChevronRight, ChevronLeft, RefreshCw } from 'lucide-react'
 import { useFixture } from '@/hooks/useFixture'
-import { getMatchDate, getMatchTime, getStageBadge, isGroupStage, hasScore } from '@/services/fixtureService'
+import { getMatchDate, getMatchTime, getStageBadge, isGroupStage, extractGroupLetter, hasScore } from '@/services/fixtureService'
 import type { FixtureApiMatch } from '@/services/fixtureService'
 import { countries } from '@/data/fixtures'
 import StandingsModal from '@/components/home/StandingsModal'
@@ -132,10 +132,15 @@ export default function FixtureBlock() {
   const activeDayIdx = dayIdxOverride !== null ? dayIdxOverride : todayIdx
   const activeDay = allDays[activeDayIdx] ?? null
 
-  // Unique groups from group stage only
+  // Unique group letters from group stage matches
   const groups = useMemo(() => {
     return Array.from(
-      new Set(matches.filter(isGroupStage).map((m) => m.group as string))
+      new Set(
+        matches
+          .filter(isGroupStage)
+          .map((m) => extractGroupLetter(m.group))
+          .filter((l): l is string => l !== null)
+      )
     ).sort()
   }, [matches])
 
@@ -153,25 +158,33 @@ export default function FixtureBlock() {
     })
   }, [matches])
 
-  // Matches for the active day, filtered by group/stage if selected
-  const dayMatches = useMemo(() => {
-    if (!activeDay) return []
-    let base = matches.filter((m) => getMatchDate(m) === activeDay)
-    if (selectedGroup) {
-      if (selectedGroup.length === 1) {
-        base = base.filter((m) => isGroupStage(m) && m.group === selectedGroup)
+  const filterActive = selectedGroup !== null
+
+  // When a filter is active: show ALL matches of that type across all days
+  // When no filter: show matches for the active day only
+  const displayMatches = useMemo(() => {
+    if (filterActive) {
+      if (selectedGroup!.length === 1) {
+        // group letter filter
+        return matches.filter(
+          (m) => isGroupStage(m) && extractGroupLetter(m.group) === selectedGroup
+        )
       } else {
-        base = base.filter((m) => m.stage === selectedGroup)
+        // knockout stage filter
+        return matches.filter((m) => m.stage === selectedGroup)
       }
     }
-    return base
-  }, [matches, activeDay, selectedGroup])
+    // day mode
+    if (!activeDay) return []
+    return matches.filter((m) => getMatchDate(m) === activeDay)
+  }, [matches, activeDay, selectedGroup, filterActive])
 
-  const canPrev = activeDayIdx > 0
-  const canNext = activeDayIdx < allDays.length - 1
+  const canPrev = !filterActive && activeDayIdx > 0
+  const canNext = !filterActive && activeDayIdx < allDays.length - 1
 
   const handleGroupChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedGroup(e.target.value === 'TODOS' ? null : e.target.value)
+    setDayIdxOverride(null) // reset to today when clearing filter
   }
 
   return (
@@ -194,8 +207,8 @@ export default function FixtureBlock() {
           className="w-full rounded-lg border-2 border-accent bg-slate-950 px-3 py-1.5 text-xs font-bold text-accent uppercase tracking-wider hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-accent transition-all cursor-pointer"
         >
           <option value="TODOS">Todos los partidos</option>
-          {groups.map((group) => (
-            <option key={group} value={group}>Grupo {group}</option>
+          {groups.map((letter) => (
+            <option key={letter} value={letter}>Grupo {letter}</option>
           ))}
           {knockoutStages.map((stage) => (
             <option key={stage} value={stage}>{stage}</option>
@@ -228,8 +241,8 @@ export default function FixtureBlock() {
             <p className="text-red-400 text-xs text-center">{error}</p>
             <button onClick={refetch} className="text-accent text-xs underline">Reintentar</button>
           </div>
-        ) : dayMatches.length > 0 ? (
-          dayMatches.map((match) => {
+        ) : displayMatches.length > 0 ? (
+          displayMatches.map((match) => {
             const date = getMatchDate(match)
             const time = getMatchTime(match)
             const badge = getStageBadge(match)
@@ -252,10 +265,10 @@ export default function FixtureBlock() {
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] font-bold uppercase text-accent">
                       {isGroupStage(match)
-                        ? match.group
-                          ? `FASE DE GRUPOS · ${badge}`
+                        ? extractGroupLetter(match.group)
+                          ? `FASE DE GRUPOS · ${getStageBadge(match)}`
                           : 'FASE DE GRUPOS'
-                        : badge}
+                        : getStageBadge(match)}
                     </span>
                     {match.is_live && (
                       <span className="text-[9px] font-bold uppercase text-blue-300 bg-blue-500/20 border border-blue-400/40 rounded px-1 py-0.5 animate-pulse">
@@ -300,9 +313,11 @@ export default function FixtureBlock() {
         </button>
 
         <span className="text-[10px] text-white/30 font-semibold text-center">
-          {activeDay ? formatDateLabel(activeDay) : '—'}
-          {' · '}
-          {dayMatches.length} partido{dayMatches.length !== 1 ? 's' : ''}
+          {filterActive
+            ? `${displayMatches.length} partidos`
+            : activeDay
+            ? `${formatDateLabel(activeDay)} · ${displayMatches.length} partido${displayMatches.length !== 1 ? 's' : ''}`
+            : '—'}
         </span>
 
         <button

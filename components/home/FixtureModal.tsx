@@ -6,7 +6,7 @@ import { X, Calendar, Clock, MapPin, RefreshCw, ChevronLeft, ChevronRight, Chevr
 import { DayPicker, DayButton } from 'react-day-picker'
 import { es } from 'date-fns/locale'
 import { useFixture } from '@/hooks/useFixture'
-import { getMatchDate, getMatchTime, getStageBadge, isGroupStage, hasScore } from '@/services/fixtureService'
+import { getMatchDate, getMatchTime, getStageBadge, isGroupStage, extractGroupLetter, hasScore } from '@/services/fixtureService'
 import type { FixtureApiMatch } from '@/services/fixtureService'
 import { countries } from '@/data/fixtures'
 
@@ -158,8 +158,8 @@ function MatchCard({ match }: { match: FixtureApiMatch }) {
           className={`rounded-md px-2 py-0.5 text-[10px] font-black uppercase tracking-wider ${groupColor(match.group)}`}
         >
           {isGroupStage(match)
-            ? match.group
-              ? `FASE DE GRUPOS · ${badge}`
+            ? extractGroupLetter(match.group)
+              ? `FASE DE GRUPOS · ${getStageBadge(match)}`
               : 'FASE DE GRUPOS'
             : badge}
         </span>
