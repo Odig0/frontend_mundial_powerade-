@@ -61,23 +61,44 @@ function todayStr(): string {
   return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`
 }
 
+/** Map API state strings → short display labels */
+const LIVE_STATES = new Set([
+  'primera mitad', 'segundo tiempo', 'segunda mitad',
+  'tiempo extra', 'prórroga', 'penales',
+  'descanso', 'half time', 'half-time',
+  'en vivo', 'live',
+])
+
+function stateLabel(state: string): string {
+  const s = state.toLowerCase()
+  if (s.includes('primera') || s.includes('first half')) return '1ª Mitad'
+  if (s.includes('segunda') || s.includes('segundo') || s.includes('second half')) return '2ª Mitad'
+  if (s.includes('descanso') || s.includes('half time') || s.includes('half-time')) return 'Descanso'
+  if (s.includes('prórroga') || s.includes('tiempo extra') || s.includes('extra')) return 'Prórroga'
+  if (s.includes('penal')) return 'Penales'
+  return state // fallback: raw state
+}
+
 function ScoreOrVS({ match }: { match: FixtureApiMatch }) {
-  const { score, is_live, finished } = match
+  const { score, is_live, finished, state } = match
 
   if (hasScore(score)) {
+    const label = stateLabel(state)
+    const isDone = !is_live && finished
+
     return (
       <div
         className={`shrink-0 flex flex-col items-center justify-center rounded-xl px-2.5 py-1 text-center min-w-[52px] ${
           is_live
             ? 'bg-blue-500/20 border border-blue-400/50'
-            : finished
+            : isDone
             ? 'bg-blue-500/10 border border-blue-500/30'
             : 'bg-accent/10 border border-accent/25'
         }`}
       >
         <span
           className={`text-sm font-black tabular-nums leading-none ${
-            is_live ? 'text-blue-300' : finished ? 'text-blue-200' : 'text-accent'
+            is_live ? 'text-blue-300' : isDone ? 'text-blue-200' : 'text-accent'
           }`}
         >
           {score!.home ?? 0} - {score!.away ?? 0}
@@ -86,13 +107,13 @@ function ScoreOrVS({ match }: { match: FixtureApiMatch }) {
         {is_live && (
           <span className="mt-0.5 flex items-center gap-1 text-[8px] uppercase tracking-widest text-blue-400 font-bold">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
-            EN VIVO
+            {label}
           </span>
         )}
 
-        {!is_live && finished && (
+        {isDone && (
           <span className="mt-0.5 text-[9px] uppercase tracking-wide text-blue-300 font-black">
-            FINALIZADO
+            Finalizado
           </span>
         )}
       </div>

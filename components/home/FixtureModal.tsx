@@ -78,46 +78,58 @@ function groupColor(g: string | null) {
   return palette[g] ?? 'bg-white/10 text-white/60'
 }
 
+function stateLabel(state: string): string {
+  const s = state.toLowerCase()
+  if (s.includes('primera') || s.includes('first half')) return '1ª Mitad'
+  if (s.includes('segunda') || s.includes('segundo') || s.includes('second half')) return '2ª Mitad'
+  if (s.includes('descanso') || s.includes('half time') || s.includes('half-time')) return 'Descanso'
+  if (s.includes('prórroga') || s.includes('tiempo extra') || s.includes('extra')) return 'Prórroga'
+  if (s.includes('penal')) return 'Penales'
+  return state
+}
+
 function ScoreDisplay({ match }: { match: FixtureApiMatch }) {
-  const { score, is_live, finished } = match
+  const { score, is_live, finished, state } = match
 
   if (hasScore(score)) {
     const hasPenalties = score!.home_penalties !== null || score!.away_penalties !== null
     const hasET       = score!.home_et !== null || score!.away_et !== null
     const hasHT       = score!.home_ht !== null || score!.away_ht !== null
+    const label       = stateLabel(state)
+    const isDone      = !is_live && finished
 
     return (
       <div
         className={`shrink-0 flex flex-col items-center justify-center rounded-xl px-3 py-1.5 text-center min-w-[64px] ${
           is_live
             ? 'bg-blue-500/20 border border-blue-400/50'
-            : finished
+            : isDone
             ? 'border border-blue-500/30'
             : 'bg-accent/10 border border-accent/25'
         }`}
-        style={!is_live ? { background: finished ? 'rgba(59,130,246,0.08)' : 'rgba(255,255,255,0.06)' } : undefined}
+        style={!is_live ? { background: isDone ? 'rgba(59,130,246,0.08)' : 'rgba(255,255,255,0.06)' } : undefined}
       >
         {/* main score */}
         <span
           className={`text-base font-black tabular-nums leading-none ${
-            is_live ? 'text-blue-300' : finished ? 'text-blue-200' : 'text-accent'
+            is_live ? 'text-blue-300' : isDone ? 'text-blue-200' : 'text-accent'
           }`}
         >
           {score!.home ?? 0} - {score!.away ?? 0}
         </span>
 
-        {/* live indicator */}
+        {/* live state label */}
         {is_live && (
           <span className="mt-0.5 flex items-center gap-1 text-[8px] uppercase tracking-widest text-blue-400 font-bold">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
-            EN VIVO
+            {label}
           </span>
         )}
 
         {/* finished label */}
-        {!is_live && finished && (
+        {isDone && (
           <span className="mt-0.5 text-[9px] uppercase tracking-wide text-blue-300 font-black">
-            FINALIZADO
+            Finalizado
           </span>
         )}
 
@@ -165,7 +177,7 @@ function MatchCard({ match }: { match: FixtureApiMatch }) {
         </span>
         {match.is_live && (
           <span className="rounded-md px-2 py-0.5 text-[9px] font-black uppercase tracking-wider bg-blue-500/20 text-blue-300 border border-blue-400/40 animate-pulse">
-            EN VIVO
+            {stateLabel(match.state)}
           </span>
         )}
       </div>
