@@ -210,9 +210,38 @@ function MatchCard({ match }: { match: FixtureApiMatch }) {
       </div>
 
       {/* goals by scorers */}
+
+      
       {match.goals && match.goals.length > 0 && (() => {
-        const homeGoals = match.goals.filter(g => g.team_name === match.home.name)
-        const awayGoals = match.goals.filter(g => g.team_name === match.away.name)
+        const groupGoals = (goals: any[]) => {
+  const grouped: Record<string, any> = {}
+
+  goals.forEach((g) => {
+    const player = g.player_name || 'Jugador desconocido'
+
+    const minute = `${g.minute}${g.extra_time ? `+${g.extra_time}` : ''}`
+
+    if (!grouped[player]) {
+      grouped[player] = {
+        ...g,
+        minutes: []
+      }
+    }
+
+    grouped[player].minutes.push(minute)
+  })
+
+  return Object.values(grouped)
+}
+        const homeGoals = groupGoals(
+          match.goals.filter(g => g.team_name === match.home.name)
+        )
+
+        const awayGoals = groupGoals(
+          match.goals.filter(g => g.team_name === match.away.name)
+        )
+        
+
         const maxRows = Math.max(homeGoals.length, awayGoals.length)
         return (
           <div
@@ -220,8 +249,8 @@ function MatchCard({ match }: { match: FixtureApiMatch }) {
             style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)' }}
           >
             {Array.from({ length: maxRows }).map((_, i) => {
-              const hg = homeGoals[i]
-              const ag = awayGoals[i]
+              const hg = homeGoals[i] as any
+              const ag = awayGoals[i] as any
               const goalIcon = (type: string) =>
                 type === 'own-goal' ? '⚽🔴' : type === 'penalty' ? '⚽🎯' : '⚽'
               return (
@@ -233,7 +262,7 @@ function MatchCard({ match }: { match: FixtureApiMatch }) {
                         <span className="shrink-0">{goalIcon(hg.type)}</span>
                         <span className="truncate text-white/70 font-medium">{hg.player_name}</span>
                         <span className="shrink-0 text-white/35 font-semibold">
-                          {hg.minute}{hg.extra_time ? `+${hg.extra_time}'` : "'"}
+                          {hg.minutes.join("', ")}'
                         </span>
                       </>
                     ) : null}
@@ -243,7 +272,7 @@ function MatchCard({ match }: { match: FixtureApiMatch }) {
                     {ag ? (
                       <>
                         <span className="shrink-0 text-white/35 font-semibold">
-                          {ag.minute}{ag.extra_time ? `+${ag.extra_time}` : "'"}
+                          {ag.minutes.join("', ")}'
                         </span>
                         <span className="truncate text-white/70 font-medium">{ag.player_name}</span>
                         <span className="shrink-0">{goalIcon(ag.type)}</span>

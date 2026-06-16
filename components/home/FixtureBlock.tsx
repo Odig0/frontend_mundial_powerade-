@@ -103,6 +103,17 @@ function minuteLabel(match: FixtureApiMatch): string | null {
   return `${min}'`
 }
 
+/** Format full name (e.g. "Kylian Mbappé") to initial format (e.g. "K. Mbappé") */
+function formatPlayerName(name?: string | null) {
+  if (!name) return 'Jugador desconocido'
+
+  const cleanName = name.trim()
+
+  if (!cleanName) return ''
+
+  return cleanName
+}
+
 function ScoreOrVS({ match }: { match: FixtureApiMatch }) {
   const { score, is_live, finished } = match
 
@@ -317,6 +328,13 @@ export default function FixtureBlock() {
             const awayName = isTbd(match.away.name) ? 'Por definir' : match.away.name
             const homeFlag = getFlag(match.home)
             const awayFlag = getFlag(match.away)
+            const homeGoals = (match.goals ?? []).filter(
+              (g) => g.team_name.trim().toLowerCase() === match.home.name.trim().toLowerCase()
+            )
+            const awayGoals = (match.goals ?? []).filter(
+              (g) => g.team_name.trim().toLowerCase() === match.away.name.trim().toLowerCase()
+            )
+            const hasGoals = (match.goals ?? []).length > 0
 
             return (
               <article
@@ -357,19 +375,72 @@ export default function FixtureBlock() {
                   )}
                 </div>
 
-                <div className="flex items-center justify-between gap-2">
-                  <div className="min-w-0 flex-1 flex items-center gap-2">
-                    <img src={homeFlag} alt={homeName} className="h-6 w-8 rounded object-cover" />
-                    <p className="truncate text-sm font-black text-foreground">{homeName}</p>
-                  </div>
+               {/* Fila principal */}
+<div className="flex items-center justify-between gap-2">
+  <div className="min-w-0 flex-1 flex items-center gap-2">
+    <img
+      src={homeFlag}
+      alt={homeName}
+      className="h-6 w-8 rounded object-cover"
+    />
+    <p className="truncate text-sm font-black text-foreground">
+      {homeName}
+    </p>
+  </div>
 
-                  <ScoreOrVS match={match} />
+  <ScoreOrVS match={match} />
 
-                  <div className="min-w-0 flex-1 text-right flex items-center justify-end gap-2">
-                    <p className="truncate text-sm font-black text-foreground">{awayName}</p>
-                    <img src={awayFlag} alt={awayName} className="h-6 w-8 rounded object-cover" />
-                  </div>
-                </div>
+  <div className="min-w-0 flex-1 text-right flex items-center justify-end gap-2">
+    <p className="truncate text-sm font-black text-foreground">
+      {awayName}
+    </p>
+    <img
+      src={awayFlag}
+      alt={awayName}
+      className="h-6 w-8 rounded object-cover"
+    />
+  </div>
+</div>
+
+{/* Goles debajo */}
+{hasGoals && (
+  <div className="mt-3 border-t border-white/10 pt-2">
+    <div className="grid grid-cols-2 gap-4">
+      <div>
+       {homeGoals.map((g, index) => (
+  <div
+    key={`${g.event_id}-${index}`}
+    className="text-[10px] text-white/80"
+  >
+            ⚽ {formatPlayerName(g.player_name)}
+            <span className="text-white/40">
+              {' '}
+              ({g.minute}
+              {g.extra_time ? `+${g.extra_time}` : ''}')
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <div className="text-right">
+        {awayGoals.map((g, index) => (
+          <div
+            key={`${g.event_id}-${index}`}
+            className="text-[10px] text-white/80"
+          >
+            {formatPlayerName(g.player_name)}
+            <span className="text-white/40">
+              {' '}
+              ({g.minute}
+              {g.extra_time ? `+${g.extra_time}` : ''}')
+            </span>{' '}
+            ⚽
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+)}
               </article>
             )
           })
