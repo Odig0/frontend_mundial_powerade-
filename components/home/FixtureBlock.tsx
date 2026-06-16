@@ -69,26 +69,51 @@ const LIVE_STATES = new Set([
   'en vivo', 'live',
 ])
 
-function stateLabel(state: string): string {
-  const s = state.toLowerCase()
+function stateLabel(match: FixtureApiMatch): string {
+  // Use the developer state name from the live endpoint for reliable detection
+  const dev = (match.state_developer_name ?? '').toUpperCase()
+  if (dev === 'HT') return 'Medio Tiempo'
+  if (dev === 'ET') return 'Tiempo Extra'
+  if (dev === 'PEN') return 'Penales'
+  if (dev === 'BT') return 'Descanso ET'
+
+  // Fall back to period_description ("1st-half", "2nd-half", "extra-time", etc.)
+  const period = (match.period_description ?? '').toLowerCase()
+  if (period.includes('1st') || period.includes('primera')) return '1ª Mitad'
+  if (period.includes('2nd') || period.includes('segunda')) return '2ª Mitad'
+  if (period.includes('extra')) return 'Tiempo Extra'
+  if (period.includes('pen')) return 'Penales'
+
+  // Last resort: raw state string
+  const s = (match.state ?? '').toLowerCase()
   if (s.includes('primera') || s.includes('first half')) return '1ª Mitad'
   if (s.includes('segunda') || s.includes('segundo') || s.includes('second half')) return '2ª Mitad'
-  if (s.includes('descanso') || s.includes('half time') || s.includes('half-time')) return 'Descanso'
-  if (s.includes('prórroga') || s.includes('tiempo extra') || s.includes('extra')) return 'Prórroga'
+  if (s.includes('medio tiempo') || s.includes('descanso') || s.includes('half time') || s.includes('half-time')) return 'Medio Tiempo'
+  if (s.includes('prórroga') || s.includes('tiempo extra') || s.includes('extra')) return 'Tiempo Extra'
   if (s.includes('penal')) return 'Penales'
-  return state // fallback: raw state
+  return match.state || 'En Vivo'
+}
+
+/** Build a compact minute string like "45+2'" or "67'" */
+function minuteLabel(match: FixtureApiMatch): string | null {
+  const min = match.match_minute
+  if (min == null || min <= 0) return null
+  const added = match.time_added
+  if (added && added > 0) return `${min}+${added}'`
+  return `${min}'`
 }
 
 function ScoreOrVS({ match }: { match: FixtureApiMatch }) {
-  const { score, is_live, finished, state } = match
+  const { score, is_live, finished } = match
 
   if (hasScore(score)) {
-    const label = stateLabel(state)
+    const label = stateLabel(match)
     const isDone = !is_live && finished
+    const minute = is_live ? minuteLabel(match) : null
 
     return (
       <div
-        className={`shrink-0 flex flex-col items-center justify-center rounded-xl px-2.5 py-1 text-center min-w-[52px] ${
+        className={`shrink-0 flex flex-col items-center justify-center rounded-xl px-2.5 py-1 text-center min-w-[56px] ${
           is_live
             ? 'bg-blue-500/20 border border-blue-400/50'
             : isDone
@@ -105,9 +130,15 @@ function ScoreOrVS({ match }: { match: FixtureApiMatch }) {
         </span>
 
         {is_live && (
-          <span className="mt-0.5 flex items-center gap-1 text-[8px] uppercase tracking-widest text-blue-400 font-bold">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
-            {label}
+          <span className="mt-0.5 flex items-center gap-1 text-[8px] uppercase tracking-widest text-blue-400 font-bold leading-tight">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse shrink-0" />
+            <span className="truncate max-w-[56px]">{label}</span>
+          </span>
+        )}
+
+        {is_live && minute && (
+          <span className="mt-0.5 text-[9px] font-black text-blue-300 tabular-nums">
+            {minute}
           </span>
         )}
 
@@ -169,12 +200,13 @@ export default function FixtureBlock() {
   const knockoutStages = useMemo(() => {
     const stageSet = new Set(
       matches
-        .filter((m) => !isGroupStage(m) && !GROUP_STAGE_LABELS.has(m.stage.toLowerCase()))
-        .map((m) => m.stage)
+        .filter((m) => !isGroupStage(m) && !GROUP_STAGE_LABELS.has((m.stage ?? '').toLowerCase()))
+        .map((m) => m.stage ?? '')
+        .filter(Boolean)
     )
     return Array.from(stageSet).sort((a, b) => {
-      const oa = STAGE_ORDER[a.toLowerCase()] ?? 99
-      const ob = STAGE_ORDER[b.toLowerCase()] ?? 99
+      const oa = STAGE_ORDER[(a ?? '').toLowerCase()] ?? 99
+      const ob = STAGE_ORDER[(b ?? '').toLowerCase()] ?? 99
       return oa - ob
     })
   }, [matches])
@@ -291,13 +323,14 @@ export default function FixtureBlock() {
                 key={match.id}
                 className="rounded-xl border border-white/8 bg-background/70 p-3 shadow-sm shadow-black/10"
               >
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                  <div className="flex flex-wrap items-center gap-2 text-xs text-accent font-bold uppercase tracking-wider">
-                    <span>{formatDateLabel(date)}</span>
-                    <span>|</span>
-                    <span>{time}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
+                <div className="flex flex-col gap-1 mb-2">
+                  {/* Fila 1: fecha/hora + fase */}
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2 text-xs text-accent font-bold uppercase tracking-wider">
+                      <span>{formatDateLabel(date)}</span>
+                      <span>|</span>
+                      <span>{time}</span>
+                    </div>
                     <span className="text-[10px] font-bold uppercase text-accent">
                       {isGroupStage(match)
                         ? extractGroupLetter(match.group)
@@ -305,12 +338,23 @@ export default function FixtureBlock() {
                           : 'FASE DE GRUPOS'
                         : getStageBadge(match)}
                     </span>
-                    {match.is_live && (
-                      <span className="text-[9px] font-bold uppercase text-blue-300 bg-blue-500/20 border border-blue-400/40 rounded px-1 py-0.5 animate-pulse">
+                  </div>
+
+                  {/* Fila 2: EN VIVO alineado a la derecha */}
+                  {match.is_live && (
+                    <div className="flex justify-end">
+                      <span
+                        className="inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[9px] font-black uppercase tracking-widest text-white"
+                        style={{
+                          background: 'linear-gradient(135deg, #e53935, #c62828)',
+                          boxShadow: '0 0 8px rgba(229,57,53,0.7), 0 0 2px rgba(229,57,53,0.5)',
+                        }}
+                      >
+                        <span className="inline-block h-1.5 w-1.5 rounded-full bg-white animate-pulse shrink-0" />
                         EN VIVO
                       </span>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
 
                 <div className="flex items-center justify-between gap-2">

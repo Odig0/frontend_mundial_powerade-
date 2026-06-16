@@ -5,6 +5,7 @@ import type { FixtureApiMatch } from '@/services/fixtureService'
 
 const CACHE_KEY = 'fixture_cache_v1'
 const CACHE_TTL_MS = 5 * 60 * 1000 // 5 min — only skip network if no live matches
+const LIVE_POLL_MS = 30_000          // Re-fetch every 30s while a match is live
 
 interface CacheEntry {
   data: FixtureApiMatch[]
@@ -45,6 +46,7 @@ export function useFixture(): UseFixtureResult {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const initialised = useRef(false)
+  const pollRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   const load = useCallback(async (background = false) => {
     if (!background) setLoading(true)
@@ -55,38 +57,58 @@ export function useFixture(): UseFixtureResult {
       const data: FixtureApiMatch[] = await res.json()
       setMatches(data)
       writeCache(data)
+      return data
     } catch (e) {
-      // If we already have cached data shown, don't show the error
       if (!background) {
         setError(e instanceof Error ? e.message : 'Error al cargar fixture')
       }
+      return null
     } finally {
       if (!background) setLoading(false)
     }
   }, [])
 
+  // Start / stop live polling based on whether any match is live
+  const syncPolling = useCallback((data: FixtureApiMatch[]) => {
+    const hasLive = data.some((m) => m.is_live)
+
+    if (hasLive && !pollRef.current) {
+      // Start polling every 30s
+      pollRef.current = setInterval(() => {
+        load(true)
+      }, LIVE_POLL_MS)
+    } else if (!hasLive && pollRef.current) {
+      // No more live matches — stop polling
+      clearInterval(pollRef.current)
+      pollRef.current = null
+    }
+  }, [load])
+
   useEffect(() => {
     if (initialised.current) return
     initialised.current = true
 
-    // 1. Show cached data immediately (zero wait)
     const cached = readCache()
     const hasLive = cached?.some((m) => m.is_live) ?? false
 
     if (cached && cached.length > 0) {
       setMatches(cached)
       setLoading(false)
+      syncPolling(cached)
 
       if (hasLive) {
-        // Live match — always fetch fresh in background
-        load(true)
+        // Live match — fetch fresh immediately in background
+        load(true).then((fresh) => { if (fresh) syncPolling(fresh) })
       }
-      // No live match + cache fresh enough → skip network hit entirely
     } else {
-      // No cache → fetch normally with loading spinner
-      load(false)
+      load(false).then((fresh) => { if (fresh) syncPolling(fresh) })
     }
-  }, [load])
+
+    return () => {
+      if (pollRef.current) clearInterval(pollRef.current)
+    }
+  }, [load, syncPolling])
 
   return { matches, loading, error, refetch: () => load(false) }
 }
+

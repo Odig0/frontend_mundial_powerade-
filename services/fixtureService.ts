@@ -39,14 +39,14 @@ export function hasScore(score: ApiScore | null): boolean {
 
 export interface FixtureApiMatch {
   id: number
-  stage_id: number
+  stage_id?: number
   name: string
-  stage: string
+  stage?: string
   group: string | null
-  round: string
-  details: string
+  round?: string
+  details?: string
   starting_at: string          // "YYYY-MM-DD HH:mm:ss"
-  starting_at_timestamp: number
+  starting_at_timestamp?: number
   state_id: number
   state: string
   is_live: boolean
@@ -57,6 +57,14 @@ export interface FixtureApiMatch {
   goals: ApiGoal[]
   result_info: string | null
   last_sync: string
+  // Live-match extra fields (from /fixture/live)
+  match_minute?: number | null
+  match_seconds?: number | null
+  match_time_ticking?: boolean
+  state_short?: string
+  period_description?: string
+  state_developer_name?: string
+  time_added?: number | null
 }
 
 export type FixtureApiResponse = Record<string, FixtureApiMatch>
@@ -87,7 +95,7 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'https://dev.eldeber.bo/v1'
 export async function fetchFixture(): Promise<FixtureApiMatch[]> {
   try {
     const res = await fetch(`${API_BASE}/mundial-2026/fixture/results`, {
-      next: { revalidate: 20 }, // revalidate every 20 seconds
+      next: { revalidate: 20 },
     })
 
     if (!res.ok) {
@@ -97,18 +105,48 @@ export async function fetchFixture(): Promise<FixtureApiMatch[]> {
 
     const data: FixtureApiResponse = await res.json()
 
-    // Convert the object map to a sorted array
     const matches = Object.values(data)
       .map((m) => ({
         ...m,
-        // Patch null group using local partidos lookup
         group: m.group ?? resolveGroup(m.home.name, m.away.name),
       }))
-      .sort((a, b) => a.starting_at_timestamp - b.starting_at_timestamp)
+      .sort((a, b) => (a.starting_at_timestamp ?? 0) - (b.starting_at_timestamp ?? 0))
 
     return matches
   } catch (err) {
     console.error('[fixtureService] fetch error', err)
+    return []
+  }
+}
+
+/**
+ * Fetch only the matches that are currently LIVE from the dedicated live endpoint.
+ * The live endpoint returns an array (not a map), with extra fields like
+ * match_minute, state_short, period_description, time_added, etc.
+ */
+export async function fetchLiveFixture(): Promise<FixtureApiMatch[]> {
+  try {
+    const res = await fetch(`${API_BASE}/mundial-2026/fixture/live`, {
+      cache: 'no-store', // always fresh for live data
+    })
+
+    if (!res.ok) {
+      console.error('[fixtureService] live HTTP error', res.status)
+      return []
+    }
+
+    const data: unknown = await res.json()
+
+    // The live endpoint returns an array directly
+    const arr: FixtureApiMatch[] = Array.isArray(data) ? (data as FixtureApiMatch[]) : []
+
+    return arr.map((m) => ({
+      ...m,
+      group: m.group ?? resolveGroup(m.home.name, m.away.name),
+      is_live: true,
+    }))
+  } catch (err) {
+    console.error('[fixtureService] live fetch error', err)
     return []
   }
 }
@@ -146,7 +184,7 @@ export function getStageBadge(match: FixtureApiMatch): string {
     const letter = extractGroupLetter(match.group)
     return letter ?? ''
   }
-  return match.stage
+  return match.stage ?? ''
 }
 
 /** True when the team slot is "Por definir" (team name starts with certain patterns) */

@@ -1,10 +1,106 @@
 {
   "metadata": {
     "version": "1",
-    "timestamp": 1781620697904,
+    "timestamp": 1781641402540,
     "count": 70
   },
   "news": [
+    {
+      "_id": "6a31acef46c58900140ff143",
+      "fecha_a": 1781640693595,
+      "fecha_c": 1781640693595,
+      "imagen_home": "https://cdn.diez.bo/diez/062026/1781640643015.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/062026/1781640643015.jpg",
+      "introHTML": "<p>El capit&aacute;n de la Mannschaft destac&oacute; el buen momento del equipo, aunque remarc&oacute; que la estabilidad defensiva ser&aacute; clave para aspirar al t&iacute;tulo mundial.</p><h3>&nbsp;</h3>",
+      "link": "alemania-gana-pero-kimmich-exige-mas-encajamos-demasiados-goles_1781640693",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbb1",
+        "firma": "Agencia EFE"
+      },
+      "prevId": "1781640693",
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>Josuha Kimmich, capit&aacute;n de la selecci&oacute;n de Alemania, avis&oacute; este martes que su equipo tiene que &ldquo;trabajar la estabilidad&rdquo;, porque encaja a&uacute;n &ldquo;demasiados goles&rdquo;, puso en valor el triunfo por 7-1 ante Curazao en el Mundial 2026, insisti&oacute; en mantener la tensi&oacute;n y destac&oacute; las cualidades de Yan Diomande, pr&oacute;ximo rival con Costa de Marfil.<br /><br />&ldquo;S&oacute;lo hemos jugado el primer partido hasta ahora contra un rival que no tiene nivel top. Creo que tenemos cualidades muy buenas y podemos incordiar a los grandes equipos. Pero, por supuesto, tenemos que trabajar en nuestra estabilidad, porque encajamos demasiados goles. Eso no nos puede pasar contra los grandes rivales&rdquo;, declar&oacute; en rueda de prensa en la concentraci&oacute;n del equipo en Estados Unidos.<br /><br />&ldquo;Tenemos que mantener la tensi&oacute;n. Eso se hace con buenos entrenamientos. Trabajamos en lo que queremos mejorar y mejoramos a&uacute;n m&aacute;s nuestras fortalezas&rdquo;, continu&oacute; Kimmich, que remarc&oacute; el &ldquo;buen ambiente&rdquo; en el equipo y su trascendencia para cualquier &eacute;xito: &ldquo;Es importante que todos nos llevemos bien para avanzar hacia el objetivo&rdquo;.<br /><br />&ldquo;Por ahora, todo funciona muy bien. Hemos ganado diez partidos seguidos y tengo la sensaci&oacute;n de que vamos por muy buen camino&rdquo;, insisti&oacute; el capit&aacute;n de Alemania, cuyo conjunto atraviesa su mejor racha en 46 a&ntilde;os.<br /><br />Desde 1980, el combinado germano no encadenaba tanta cantidad de triunfos. Entonces lleg&oacute; hasta doce con Jupp Derwall.<br /><br />Y remarc&oacute; la ambici&oacute;n del equipo: &ldquo;Aparte de Manuel Neuer, s&oacute;lo tenemos jugadores que a&uacute;n no han ganado nada con la selecci&oacute;n y tienen ese hambre. Puedes despertar a Pavlovic a las dos de la ma&ntilde;ana y jugar al f&uacute;tbol con &eacute;l, porque es lo mejor que puede haber para &eacute;l. Es muy especial que haya muchos chicos que est&eacute;n totalmente entregados al f&uacute;tbol y quieran tener un pa&iacute;s detr&aacute;s&rdquo;.<br /><br />Tambi&eacute;n defendi&oacute; el compromiso de Leroy San&eacute;: &ldquo;He escuchado las cr&iacute;ticas y no creo que sean tan comprensibles. Me pareci&oacute; muy comprometido, especialmente por su comportamiento en el repliegue. Siempre volv&iacute;a y nunca me dejaba solo. Pero, claro, no marc&oacute; ning&uacute;n gol, que eso es lo que siempre juzgan desde fuera&rdquo;.<br /><br />Kimmich repas&oacute; que Julian Nagelsmann, su entrenador con Alemania en la actualidad y antes en el Bayern M&uacute;nich, es &ldquo;muy claro en su comunicaci&oacute;n&rdquo;.<br /><br />&ldquo;Aborda las cosas de forma abierta y honesta, tanto en conversaciones individuales como con el equipo. Me pareci&oacute; una etapa muy buena despu&eacute;s de la Eurocopa, tambi&eacute;n en la Liga de Naciones. Se mantuvo fiel a s&iacute; mismo y mantuvo la calma. Simplemente lo hace bien y por eso los jugadores le siguen&rdquo;, resalt&oacute;.<br /><br />Despu&eacute;s del 7-1 a Curazao, sus dos siguientes rivales ser&aacute;n Costa de Marfil y Ecuador. En su duelo directo, el conjunto africano gan&oacute; al sudamericano. &ldquo;Realmente no vimos el partido, porque est&aacute;bamos en el avi&oacute;n. Costa de Marfil es f&iacute;sicamente fuerte y tiene jugadores espectaculares en ataque y Ecuador defiende muy bien. Ser&aacute;n dos partidos dif&iacute;ciles&rdquo;, valor&oacute;.<br /><br />En Costa de Marfil causa sensaci&oacute;n Yan Diomande, ahora en el Leipzig alem&aacute;n, por el que fich&oacute; desde el Legan&eacute;s espa&ntilde;ol.<br /><br />&ldquo;Ha tenido una evoluci&oacute;n tremenda. Hace un a&ntilde;o, casi nadie le conoc&iacute;a. Tuvo una temporada sobresaliente. Siempre jug&oacute; de forma constante y ofreci&oacute; actuaciones espectaculares. Su regate es extraordinario y tiene una gran velocidad. Pero tambi&eacute;n hay otros jugadores en Costa de Marfil. Tenemos que prepararnos bien&rdquo;, apunt&oacute;.&nbsp;</p>",
+      "titulo": "Alemania gana, pero Kimmich exige más: “Encajamos demasiados goles”"
+    },
+    {
+      "_id": "6a31a56246c58900140fea9f",
+      "fecha_a": 1781638620000,
+      "fecha_c": 1781638665401,
+      "imagen_home": "https://cdn.diez.bo/diez/062026/1781638629772.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/062026/1781638629772.jpg",
+      "introHTML": "<p>El equipo del seleccionador Javier &lsquo;Vasco&rsquo; Aguirre tuvo hoy su &uacute;ltima pr&aacute;ctica antes de viajar a Guadalajara, donde este jueves se medir&aacute; a los asi&aacute;ticos en un partido en el que el ganador ser&aacute; l&iacute;der en solitario del sector, en el que tambi&eacute;n aparecen Rep&uacute;blica Checa y Sud&aacute;frica.<br />&nbsp;</p>",
+      "link": "la-seleccion-mexicana-afina-detalles-para-su-partido-contra-corea-del-sur_1781638647",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbb1",
+        "firma": "Agencia EFE"
+      },
+      "prevId": "1781638647",
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>M&eacute;xico trabaj&oacute; bajo una intensa lluvia que no influy&oacute; en el gran ambiente que persiste entre los jugadores gracias a la victoria por 2-0 sobre Sud&aacute;frica que obtuvieron el pasado jueves en la inauguraci&oacute;n del certamen.<br /><br />Guillermo Ochoa, veterano guardameta de 40 a&ntilde;os, quien ayer anunci&oacute; que una vez que termine la Copa del Mundo dir&aacute; adi&oacute;s al f&uacute;tbol, fue el primer en saltar a la cancha del Centro de Alto Rendimiento de la Federaci&oacute;n Mexicana de F&uacute;tbol.<br /><br />Ochoa camin&oacute; por el campo y mir&oacute; alrededor, como si quisiera guardar cada momento de sus &uacute;ltimos entrenamientos con el tri, conjunto con el que est&aacute; en su sexto Mundial.<br /><br />Conforme sus compa&ntilde;eros se incorporaron, las sonrisas y buen humor se adue&ntilde;aron de la pr&aacute;ctica, en la que los jugadores activaron con trote, en el tradicional &lsquo;torito&rsquo; y en un exigente tenis bal&oacute;n.<br /><br />En los ejercicios entre parejas Gilberto Mora, la joven joya mexicana, exhibi&oacute; su buen pie junto a &Aacute;lvaro Fidalgo, espa&ntilde;ol naturalizado, en un intercambio de t&eacute;cnica que acapar&oacute; la atenci&oacute;n de los medios de comunicaci&oacute;n que se dieron cita para seguir la pr&aacute;ctica.<br /><br />En el trote alrededor de la cancha, Juli&aacute;n Qui&ntilde;ones, autor del primer gol en el duelo ante los sudafricanos, motiv&oacute; a sus compa&ntilde;eros con aplausos junto a Israel Reyes y Armando Gonz&aacute;lez.<br /><br />Qui&ntilde;ones es uno de los integrantes del conjunto en mejor momento de forma, viene de ser m&aacute;ximo goleador con el Al-Qadisiyah del f&uacute;tbol saud&iacute;, y su presentaci&oacute;n en una Copa del Mundo con M&eacute;xico no pudo ser mejor que con la firma de su primera anotaci&oacute;n.<br /><br />Ra&uacute;l Jim&eacute;nez, el otro anotador ante los sudafricanos, tambi&eacute;n mostr&oacute; su confianza como uno de los l&iacute;deres del equipo.<br /><br />La selecci&oacute;n mexicana viajar&aacute; m&aacute;s tarde a Guadalajara, donde este mi&eacute;rcoles, Javier Aguirre ofrecer&aacute; la tradicional conferencia de prensa previa al partido.&nbsp;</p>",
+      "titulo": "La selección mexicana afina detalles para su partido contra Corea del Sur"
+    },
+    {
+      "_id": "6a31a22546c58900140fe726",
+      "fecha_a": 1781637957459,
+      "fecha_c": 1781637957459,
+      "imagen_home": "https://cdn.diez.bo/diez/062026/1781637903561.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/062026/1781637903561.jpg",
+      "introHTML": "<p>Los empates entre Espa&ntilde;a-Cabo Verde, B&eacute;lgica-Egipto, Uruguay-Arabia Saud&iacute; e Ir&aacute;n-Nueva Zelanda igualaron un registro que no se ve&iacute;a desde el Mundial de Suecia 1958.</p>",
+      "link": "cuatro-partidos-cuatro-empates-el-dato-historico-que-dejo-el-mundial_1781637957",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbb1",
+        "firma": "Agencia EFE"
+      },
+      "prevId": "1781637957",
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>Por primera vez desde hace 68 a&ntilde;os, cuatro partidos mundialistas disputados el mismo d&iacute;a concluyeron en empate, inform&oacute; este martes la FIFA.<br /><br />A la sorprendente igualada sin goles del Espa&ntilde;a-Cabo Verde, le sigui&oacute; los no menos inesperados empates de B&eacute;lgica frente a Egipto (1-1) y de Uruguay contra Arabia Saud&iacute; (1-1) m&aacute;s el de Ir&aacute;n ante Nueva Zelanda que cerr&oacute; la jornada (2-2).<br /><br />Hace 68 a&ntilde;os, curiosamente tambi&eacute;n un 15 de junio, cuatro partidos del Mundial de Suecia concluyeron en empate: Alemania-Irlanda del Norte (2-2), Paraguay-Yugoslavia (3-3), Suecia-Gales (0-0) e Inglaterra-Austria (2-2).<br /><br />Sin embargo, no fueron todos los partidos de esa jornada, como pas&oacute; el lunes, porque se jug&oacute; la &uacute;ltima fecha de los grupos 1, 2, 3 y 4.<br /><br />En total ocho partidos, en los que, adem&aacute;s, Checoslovaquia gole&oacute; a Argentina (6-1), Francia gan&oacute; a Escocia (2-1) y Hungr&iacute;a a M&eacute;xico (4-0) y Brasil a la Uni&oacute;n Sovi&eacute;tica (2-0)</p>",
+      "titulo": "Cuatro partidos, cuatro empates: el dato histórico que dejó el Mundial"
+    },
+    {
+      "_id": "6a31a02a46c58900140fe502",
+      "fecha_a": 1781637665988,
+      "fecha_c": 1781637665988,
+      "imagen_home": "https://cdn.diez.bo/diez/062026/1781637266494.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/062026/1781637266494.jpg",
+      "introHTML": "<p>El defensor neozeland&eacute;s, que se volvi&oacute; tendencia global en las &uacute;ltimas semanas, reforzar&aacute; al conjunto paraguayo para la Copa Sudamericana.</p>",
+      "link": "olimpia-apuesta-por-tim-payne-el-futbolista-que-conquisto-internet-durante-el-mundial_1781637665",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbb1",
+        "firma": "Agencia EFE"
+      },
+      "prevId": "1781637665",
+      "secciones": [
+        "mundial-2026"
+      ],
+      "textoHTML": "<p>De acuerdo con el diario local &Uacute;ltima Hora, Payne dejar&aacute; el Wellington Phoenix, que disputa liga australiana, para recalar en el Olimpia, tres veces ganador de la Copa Libertadores y clasificado a los octavos de final de la Copa Sudamericana 2026, donde espera rival entre el brasile&ntilde;o Vasco da Gama y el colombiano Deportivo Independiente de Medell&iacute;n.<br /><br />Payne, que d&iacute;as antes de la Copa del Mundo gan&oacute; millones de seguidores en las redes sociales tras el reto que inici&oacute; un influenciador, debut&oacute; el lunes en la m&aacute;xima cita del f&uacute;tbol en el empate 2-2 entre Nueva Zelanda e Ir&aacute;n.<br /><br />El lateral derecho disput&oacute; 78 minutos y cometi&oacute; una falta en ese partido, en el que no ofreci&oacute; jugadas destacadas en ninguna de las &aacute;reas.<br /><br />Nacido en Auckland en 1994, Timothy John Payne comenz&oacute; su formaci&oacute;n en el Auckland City antes de dar el salto a Inglaterra, donde pas&oacute; por las categor&iacute;as inferiores del Blackburn Rovers de Lancashire y lleg&oacute; a disputar encuentros con el primer equipo.<br /><br />Posteriormente jug&oacute; en Estados Unidos y regres&oacute; al f&uacute;tbol oce&aacute;nico, donde termin&oacute; consolid&aacute;ndose en el Wellington Phoenix, el &uacute;nico club neozeland&eacute;s que compite en la A-League, la m&aacute;xima categor&iacute;a del f&uacute;tbol australiano.<br /><br />Habitual como lateral derecho, aunque tambi&eacute;n puede actuar como central, Payne debut&oacute; con la selecci&oacute;n con apenas 18 a&ntilde;os y se convirti&oacute; con el paso del tiempo en uno de los jugadores m&aacute;s experimentados del equipo nacional.&nbsp;</p>",
+      "titulo": "Olimpia apuesta por Tim Payne, el futbolista que conquistó internet durante el Mundial"
+    },
+    {
+      "_id": "6a315eef46c58900140fb352",
+      "fecha_c": 1781622524585,
+      "introHTML": "<p>La filtraci&oacute;n de un audio en el que periodistas surcoreanos se burlan del capit&aacute;n Son Heung-min desat&oacute; una crisis interna que oblig&oacute; a la federaci&oacute;n a restringir el contacto con los medios.</p>",
+      "opinologo": {
+        "_id": "68bd2f75484b81000295bbbc",
+        "firma": "Lucas Nazrala",
+        "foto": "https://cdn.diez.bo/diez/68bd2f75484b81000295bbbc/1759755434737.jpg"
+      },
+      "secciones": [
+        "mundial-2026"
+      ],
+      "titulo": "Corea del Sur rompe relaciones con la prensa en pleno Mundial tras polémica contra Son Heung-min",
+      "fecha_a": 1781626080000,
+      "imagen_home": "https://cdn.diez.bo/diez/062026/1781626085355.jpg",
+      "imagen_interior": "https://cdn.diez.bo/diez/062026/1781626085355.jpg",
+      "link": "corea-del-sur-rompe-relaciones-con-la-prensa-en-pleno-mundial-tras-polemica-contra-son-heung-min_1781622524",
+      "prevId": "1781622524",
+      "textoHTML": "<p>A pesar de haber comenzado con una victoria por 2-1 sobre Rep&uacute;blica Checa en el Mundial 2026, la selecci&oacute;n de Corea del Sur atraviesa una fuerte crisis fuera de la cancha. El conflicto se origin&oacute; tras la filtraci&oacute;n de un video en el que varios periodistas surcoreanos realizaban comentarios despectivos sobre el capit&aacute;n Son Heung-min durante una conversaci&oacute;n privada grabada accidentalmente.</p><p>En el audio, uno de los comunicadores afirm&oacute; que Son &ldquo;se comporta como un soldado solo porque es el capit&aacute;n&rdquo;, mientras que otro cuestion&oacute; que el delantero a&uacute;n no hubiera completado el servicio militar. Las declaraciones generaron indignaci&oacute;n dentro de la concentraci&oacute;n, donde jugadores y cuerpo t&eacute;cnico consideraron los comentarios una falta de respeto hacia un s&iacute;mbolo nacional y hacia una instituci&oacute;n muy valorada en Corea del Sur.</p><p>Como respuesta, la Federaci&oacute;n Coreana implement&oacute; una estricta &ldquo;estrategia de silencio&rdquo;, suspendiendo todas las conferencias de prensa no obligatorias y limitando el contacto entre el plantel y los medios de comunicaci&oacute;n. Los futbolistas tambi&eacute;n se negaron a realizar declaraciones durante varios d&iacute;as.</p><p>La tensi&oacute;n fue tal que el responsable de comunicaci&oacute;n de la selecci&oacute;n present&oacute; su renuncia. La situaci&oacute;n comenz&oacute; a normalizarse luego de una reuni&oacute;n en la que los tres periodistas involucrados ofrecieron disculpas formales al seleccionador Byeon, quien acept&oacute; el gesto.</p><p>Mientras intenta dejar atr&aacute;s la pol&eacute;mica, Corea del Sur ya centra su atenci&oacute;n en el duelo frente a M&eacute;xico, correspondiente a la segunda fecha de la fase de grupos del Mundial 2026.</p>"
+    },
     {
       "_id": "6a3158a146c58900140faa76",
       "fecha_a": 1781619180000,
@@ -1212,101 +1308,6 @@
       ],
       "textoHTML": "<section data-scroll-anchor=\"false\" data-testid=\"conversation-turn-122\" data-turn=\"assistant\" data-turn-id=\"request-6a0f0a7f-98f4-83e9-9af1-245027660ac2-3\" data-turn-id-container=\"request-6a0f0a7f-98f4-83e9-9af1-245027660ac2-3\" dir=\"auto\"><p data-end=\"366\" data-start=\"0\">A pocos d&iacute;as de su estreno en el Mundial 2026, la selecci&oacute;n de Ir&aacute;n qued&oacute; envuelta en una situaci&oacute;n inesperada fuera de las canchas. <strong>Un cad&aacute;ver en avanzado estado de descomposici&oacute;n fue hallado dentro del ba&uacute;l de una camioneta estacionada</strong> cerca del estadio Caliente de Tijuana, recinto donde el combinado asi&aacute;tico realiza sus entrenamientos durante la Copa del Mundo.</p><p data-end=\"803\" data-start=\"368\"><strong>El descubrimiento ocurri&oacute; luego de que vecinos reportaran un fuerte olor proveniente de un veh&iacute;culo con matr&iacute;cula de California, Estados Unidos, ubicado fren</strong>te a un supermercado cercano al complejo deportivo. Al inspeccionar el rodado, peritos forenses encontraron el cuerpo envuelto en una bolsa negra y con evidentes signos de violencia, por lo que se activ&oacute; un amplio operativo policial y se inici&oacute; la investigaci&oacute;n correspondiente.</p><p data-end=\"1087\" data-start=\"805\"><strong>La situaci&oacute;n oblig&oacute; a la delegaci&oacute;n iran&iacute; a abandonar temporalmente el lugar de concentraci&oacute;n </strong>mientras las autoridades realizaban las pericias. Sin embargo, una vez concluido el procedimiento, el equipo retom&oacute; sus actividades habituales sin que se reportaran mayores inconvenientes.</p><p data-end=\"1558\" data-start=\"1089\">M&aacute;s all&aacute; de este hecho, Ir&aacute;n afronta una log&iacute;stica complicada antes y durante el torneo. Debido a las tensiones pol&iacute;ticas mantenidas e<strong>n los &uacute;ltimos meses con Estados Unidos, la federaci&oacute;n iran&iacute; decidi&oacute; instalar su centro de operaciones en M&eacute;xico.</strong> No obstante, sus tres compromisos de la fase de grupos se disputar&aacute;n en territorio estadounidense, por lo que la delegaci&oacute;n deber&aacute; trasladarse en avi&oacute;n antes de cada partido y regresar a Tijuana una vez finalizados los encuentros.</p><p data-end=\"1870\" data-start=\"1560\">Los movimientos del plantel est&aacute;n acompa&ntilde;ados por estrictas medidas de seguridad y custodia permanente de la Guardia Nacional mexicana. <strong>A pesar del impacto que gener&oacute; el hallazgo, la organizaci&oacute;n del Mundial ratific&oacute; que las condiciones de seguridad para todas las selecciones participantes est&aacute;n garantizadas.</strong></p><p data-end=\"2132\" data-is-last-node=\"\" data-is-only-node=\"\" data-start=\"1872\">Ir&aacute;n disputar&aacute; su s&eacute;ptima Copa del Mundo y la cuarta de manera consecutiva.<strong> Su debut est&aacute; programado para el 15 de junio frente a Nueva Zelanda en Los &Aacute;ngeles. Poste</strong>riormente se medir&aacute; con B&eacute;lgica y Egipto en busca de avanzar a la siguiente ronda del certamen.</p></section>",
       "titulo": "Hallan un cadáver cerca de la concentración de Irán en México"
-    },
-    {
-      "_id": "6a2d85da3b472c001438786a",
-      "fecha_c": 1781368691962,
-      "introHTML": "<p>Problemas de tobillo, cuello y hombro, fracturas de brazo y pierna y cirug&iacute;as de rodilla marcan la carrera del arquero de la selecci&oacute;n de Escocia.</p>",
-      "secciones": [
-        "mundial-2026"
-      ],
-      "textoHTML": "<p>Escocia volver&aacute; a disputar un Mundial 28 a&ntilde;os despu&eacute;s y contar&aacute; en sus filas con el jugador m&aacute;s veterano de la presente edici&oacute;n, el portero de 43 a&ntilde;os <strong>Craig Gordon, que super&oacute; una odisea en forma de sucesivas lesiones hasta alcanzar la gran cita, aun a riesgo de sufrir una par&aacute;lisis o perder la vida</strong> en el proceso.</p><p>En marzo, el arquero del Heart, <strong>sufri&oacute; una grave lesi&oacute;n en el cuello y consult&oacute; en Londres a un especialista en la columna vertebral, que le alert&oacute; de los riesgos de seguir el tratamiento y continuar jugando</strong>, lo que podr&iacute;a haberle provocado una par&aacute;lisis o incluso la muerte.</p><p>Sin embargo, meses despu&eacute;s, Gordon se encuentra entre los tres arqueros convocados por el seleccionador Steve Clarke y<strong>, si juega en territorio americano, se convertir&aacute; en el segundo futbolista m&aacute;s veterano en disputar un Mundial tras el portero egipcio Essam El Hadary</strong>, que jug&oacute; con 45 a&ntilde;os y 161 d&iacute;as en Rusia 2018.</p><p>&quot;Sin duda, pens&eacute; que esta oportunidad se me hab&iacute;a escapado en m&aacute;s de una ocasi&oacute;n. <strong>Estar finalmente aqu&iacute; es un momento important&iacute;simo para cualquier jugador, en especial para m&iacute;</strong>, por la cantidad de a&ntilde;os que llevo intent&aacute;ndolo&quot;, asegur&oacute; Gordon.</p><p>La suya es una historia de resiliencia: <strong>problemas de tobillo, cuello y hombro, fracturas de brazo y pierna, cirug&iacute;as de rodilla. </strong></p><p><strong>En 2012 sufri&oacute; una tendinitis rotuliana que amenaz&oacute; con terminar con su carrera y le mantuvo dos a&ntilde;os fuera de los terrenos de juego.</strong> Visit&oacute; expertos en Suecia y Espa&ntilde;a. Algunos doctores le aconsejaron retirarse, pero &eacute;l persever&oacute;.</p><p>Gordon confiesa haber llorado por las lesiones, pese no mostrarlo en p&uacute;blico, y <strong>reconoce que temi&oacute; por si las eventuales secuelas de su reciente afectaci&oacute;n en el cuello le acompa&ntilde;ar&iacute;an el resto de su vida</strong> y le impedir&iacute;an jugar con sus hijos con normalidad.</p><p>Confiesa que <strong>probablemente se habr&iacute;a retirado al final de la pasada campa&ntilde;a de no haber sido por la clasificaci&oacute;n</strong> tras 28 a&ntilde;os de ausencia.</p><p>&quot;Ha sido un a&ntilde;o duro. He tenido que lidiar con muchas cosas. <strong>He protagonizado algunos regresos en mi carrera y quer&iacute;a hacerlo, darlo todo para estar aqu&iacute;.</strong> Ser parte de este equipo ha sido un factor determinante para salir adelante y tener esta oportunidad&quot;, afirma.</p><p>Gordon, cuyo contrato con su club est&aacute; cerca, <strong>aplaza cualquier decisi&oacute;n sobre su futuro</strong> hasta despu&eacute;s del Mundial.</p>",
-      "titulo": "Gordon: historia de resiliencia del futbolista más veterano de la Copa",
-      "imagen_home": "https://cdn.diez.bo/diez/062026/1781368473353.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/062026/1781368474790.jpg",
-      "opinologo": {
-        "_id": "68bd2f75484b81000295bbb1",
-        "firma": "Agencia EFE"
-      },
-      "fecha_a": 1781369460000,
-      "link": "gordon-historia-de-resiliencia-del-futbolista-mas-veterano-de-la-copa_1781368691",
-      "prevId": "1781368691"
-    },
-    {
-      "_id": "6a2d7dc43b472c0014386e10",
-      "fecha_c": 1781366842848,
-      "imagen_home": "https://cdn.diez.bo/diez/062026/1781366719903.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/062026/1781366721836.jpg",
-      "introHTML": "<p>Recibi&oacute; elogios de Donald Trump, presidente de Estados Unidos. Al estilo del basquetbol de ese pa&iacute;s, aprovech&oacute; un computador port&aacute;til para dar instrucciones en la pausa de hidrataci&oacute;n.</p>",
-      "secciones": [
-        "mundial-2026"
-      ],
-      "textoHTML": "<p>No hay personaje m&aacute;s popular este s&aacute;bado en Estados Unidos que el argentino <strong>Mauricio Pocchetino, el gran triunfador por ahora en el Mundial</strong>, halagado por Donald Trump y elogiado por su utilizaci&oacute;n de los tiempos de hidrataci&oacute;n para dise&ntilde;ar la t&aacute;ctica, al estilo NBA.</p><p>Cuando el t&eacute;cnico rosarino se hizo cargo del conjunto estadounidense, el 13 de septiembre de 2024, <strong>el equipo era un conjunto cabizbajo, con una afici&oacute;n desencantada con su actuaci&oacute;n en la Copa Am&eacute;rica,</strong> que se tem&iacute;a lo peor en la Copa del Mundo.</p><p>El modern&iacute;simo Sofi Stadium de Los &Aacute;ngeles present&oacute; el viernes un aspecto espectacular, con las gradas repletas con 70.000 espectadores y los palcos rebosantes de famosos.</p><p><strong>Fue la demostraci&oacute;n de una ilusi&oacute;n que ha despertado en menos de un a&ntilde;o Pochettino</strong>, que recibi&oacute; el apoyo expreso de Donald Trump antes del partido, en una llamada telef&oacute;nica que la federaci&oacute;n estadounidense colg&oacute; en sus redes.</p><p><strong>&quot;Eres un tipo fant&aacute;stico, un entrenador fant&aacute;stico, creo que tienes muchas posibilidades de llegar hasta el final&rdquo;,</strong> dijo Trump.</p><p>Horas despu&eacute;s, la selecci&oacute;n norteamericana daba la raz&oacute;n a su presidente con <strong>una primera parte espectacular frente a Paraguay, un equipo que fue totalmente desarbolado como pocas veces se ha visto</strong> en un conjunto de Gustavo Alfaro (4-1).</p><h3 class=\"subtitulo_en_cuerpo\" style=\"font-size:18px;font-weight:700;\">El ordenador</h3><p><strong>Pochettino dej&oacute; para la historia la imagen del t&eacute;cnico con un ordenador port&aacute;til</strong> dando instrucciones a sus jugadores en una pausa de hidrataci&oacute;n.</p><p><strong>Al estilo NBA, con toda la plantilla rodeando a su entrenador, que iba mostrando las im&aacute;genes con los errores que hab&iacute;an cometido</strong>. Pochettino invent&oacute; el tiempo muerto en los encuentros de f&uacute;tbol. &quot;Creo que es muy &uacute;til para el jugador ver esas acciones&quot;, explic&oacute; tras el partido.</p><p>Gran triunfador del arranque del Mundial, <strong>Pochettino debe reforzar con un s&oacute;lido triunfo contra Australia, el 19 de junio en Seattle</strong>, una clasificaci&oacute;n para los dieciseisavos de final que ya se da por hecha. Es el hombre del d&iacute;a en la Copa del Mundo. &nbsp;</p>",
-      "titulo": "Pochettino, personaje más popular en el inicio de la Copa y DT al estilo NBA ",
-      "opinologo": {
-        "_id": "68bd2f75484b81000295bbb1",
-        "firma": "Agencia EFE"
-      },
-      "fecha_a": 1781369441252,
-      "link": "pochettino-personaje-mas-popular-en-el-inicio-de-la-copa-y-dt-al-estilo-nba_1781366842",
-      "prevId": "1781366842"
-    },
-    {
-      "_id": "6a2d77243b472c00143865a9",
-      "fecha_c": 1781365161311,
-      "introHTML": "<p>En un video difundido en sus redes sociales envi&oacute; un mensaje de apoyo a la selecci&oacute;n que busca el sexto t&iacute;tulo. &ldquo;La Copa del Mundo no se disputa, &iexcl;se gana!, dice.</p>",
-      "secciones": [
-        "mundial-2026"
-      ],
-      "titulo": "Lula le pide a Ancelotti que Brasil juegue con “alma y garra”",
-      "imagen_home": "https://cdn.diez.bo/diez/062026/1781365060376.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/062026/1781365062154.jpg",
-      "textoHTML": "<p>El presidente brasile&ntilde;o, <strong>Luiz In&aacute;cio Lula da Silva, le pidi&oacute; al t&eacute;cnico Carlo Ancelotti que la selecci&oacute;n nacional juegue con &quot;alma&quot; y &quot;garra&quot;, y con el pensamiento puesto en el pueblo,</strong> en un v&iacute;deo publicado este s&aacute;bado en sus redes sociales.</p><p>A horas del estreno de Brasil en el Mundial 2026 ante Marruecos, que se disputar&aacute; en el MetLife Stadium de Nueva Jersey, <strong>el mandatario utiliz&oacute; sus canales oficiales para enviar un mensaje de apoyo y exigencia al combinando nacional.</strong></p><p><strong>&quot;No tenemos la mejor selecci&oacute;n del mundo, pero tenemos la mejor selecci&oacute;n de Brasil. Es la que usted eligi&oacute;.</strong> Son jugadores que usted sabe que pueden hacer lo que espera que hagan. Por lo tanto, dele un consejo a estos muchachos: adem&aacute;s de jugar al f&uacute;tbol, como ya saben, jueguen con un poco de alma&quot;, expres&oacute; el mandatario en un v&iacute;deo de casi tres minutos.</p><p>&quot;Cuando se caigan, lev&aacute;ntense. <strong>Cuando se caigan, no se queden quej&aacute;ndose, lev&aacute;ntense y vayan a quitarle el bal&oacute;n al adversario. Y recuerden una cosa: lo que vale es patear el bal&oacute;n a la porter&iacute;a del adversario y que entre. Lo que vale es el bal&oacute;n en la porter&iacute;a contraria</strong>, as&iacute; que siempre que puedan, &iexcl;pateen! &iexcl;Por el amor de Dios, pateen!&quot;, complet&oacute; Lula.</p><p>&quot;<strong>D&iacute;gales, Ancelotti, que necesitan jugar para el pueblo brasile&ntilde;o.</strong> Jugar para los adolescentes brasile&ntilde;os. Jugar para las ni&ntilde;as y los ni&ntilde;os que tienen una expectativa muy grande de que nuestra selecci&oacute;n conquiste el hexacampeonato&quot;, record&oacute; el pol&iacute;tico progresista.</p><p>En el v&iacute;deo, Lula viste la camiseta de la selecci&oacute;n brasile&ntilde;a, una prenda que se ha instalado como un s&iacute;mbolo de los seguidores del expresidente ultraderechista Jair Bolsonaro (2019-2022) durante los &uacute;ltimos a&ntilde;os de polarizaci&oacute;n en el pa&iacute;s.</p><p><strong>Y remat&oacute;: &quot;La Copa del Mundo no se disputa, &iexcl;se gana! No vamos a ir para competir, tenemos que ir para ganar.</strong> Eso es lo que espero de nuestro equipo, lo espero de usted, Ancelotti. Un abrazo, buena suerte&quot;.</p><p><strong>En Brasil, desde la redemocratizaci&oacute;n, los a&ntilde;os de Mundial de F&uacute;tbol siempre coinciden con los a&ntilde;os de elecciones presidenciales</strong>.</p><p>A diferencia del torneo disputado en Catar, que se jug&oacute; excepcionalmente en noviembre y diciembre, despu&eacute;s de que Lula ganara las elecciones, este a&ntilde;o vuelve a su cronograma tradicional de mitad de a&ntilde;o y se mete de lleno en la precampa&ntilde;a.</p><p>&nbsp;&nbsp;</p>",
-      "opinologo": {
-        "_id": "68bd2f75484b81000295bbb1",
-        "firma": "Agencia EFE"
-      },
-      "fecha_a": 1781369449716,
-      "link": "lula-le-pide-a-ancelotti-que-brasil-juegue-con-alma-y-garra_1781365161",
-      "prevId": "1781365161"
-    },
-    {
-      "_id": "6a2d61c53b472c0014385331",
-      "fecha_c": 1781359135713,
-      "imagen_home": "https://cdn.diez.bo/diez/062026/1781359059608.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/062026/1781359059608.jpg",
-      "introHTML": "<p>La FIFA oblig&oacute; a Hait&iacute; a modificar su camiseta para el Mundial 2026 y reaviv&oacute; el recuerdo de otras equipaciones hist&oacute;ricas que fueron prohibidas por motivos pol&iacute;ticos, comerciales o reglamentarios.</p>",
-      "secciones": [
-        "mundial-2026"
-      ],
-      "titulo": "La historia detrás de las camisetas prohibidas en el Mundial",
-      "fecha_a": 1781359080000,
-      "link": "la-historia-detras-de-las-camisetas-prohibidas-en-el-mundial_1781359097",
-      "opinologo": {
-        "_id": "68bd2f75484b81000295bbb1",
-        "firma": "Agencia EFE"
-      },
-      "prevId": "1781359097",
-      "textoHTML": "<p>Bien por la utilizaci&oacute;n de s&iacute;mbolos o im&aacute;genes que puedan considerarse de car&aacute;cter pol&iacute;tico o religioso, por normativa de equipamiento o por la utilizaci&oacute;n de s&iacute;mbolos no autorizados, la FIFA a lo largo de su historia ha prohibido la utilizaci&oacute;n de diferentes camisetas, la &uacute;ltima la de Hait&iacute; en este Mundial.</p><p>A poco de dar inicio la competici&oacute;n, Hait&iacute; tuvo que variar el dise&ntilde;o de sus camisetas, porque la FIFA consider&oacute; que en las mismas se hab&iacute;an incluido determinados elementos que ten&iacute;an una naturaleza demasiado pol&iacute;tica.</p><p>As&iacute; que en el estreno este s&aacute;bado ante Escocia, los haitianos lucir&aacute;n una camiseta diferente. La controversia arrancaba en que en la parte inferior derecha de la zamarra de los caribe&ntilde;os aparec&iacute;an siluetas inspiradas en la Batalla de Vertieres y en la Revoluci&oacute;n haitiana.</p><p>El dise&ntilde;o aparec&iacute;a en las tres versiones de la camiseta lanzadas para el Mundial (azul, blanco y rojo) y fue utilizado en los amistosos disputados ante Nueva Zelanda y Per&uacute; antes de la cita mundialista.</p><p>No es la primera vez que Hait&iacute; se ha visto obligado a cambiar el dise&ntilde;o de una equipaci&oacute;n, ya que el Comit&eacute; Ol&iacute;mpico Internacional (COI) vet&oacute; este mismo a&ntilde;o los dise&ntilde;os preparados para los Juegos Ol&iacute;mpicos de Invierno de Mil&aacute;n-Cortina por la dise&ntilde;adora local Stella Jean.</p><p>&iquest;El motivo? Stella Jean dise&ntilde;&oacute; una prenda deportiva que rend&iacute;a homenaje a Toussaint Louverture, l&iacute;der de la revoluci&oacute;n antiesclavista haitiana.</p><p>Los casos de Dinamarca y Ucrania<br />Y tampoco es la primera vez que la FIFA proh&iacute;be la utilizaci&oacute;n de una camiseta. Dinamarca, en 1986, vio como su camiseta de la ic&oacute;nica marca Hummel no era admitida por un conflicto con el logo comercial, que se expon&iacute;a de una manera no permitida.</p><p>En el Mundial de 2022, disputado en Catar, el m&aacute;ximo organismo del f&uacute;tbol mundial tambi&eacute;n prohibi&oacute; a la selecci&oacute;n danesa utilizar una equipaci&oacute;n de entrenamiento con el lema &#39;Derechos humanos para todos&#39;.</p><p>Un a&ntilde;o antes, la UEFA oblig&oacute; a tapar de las camisetas de la selecci&oacute;n ucraniana el lema nacionalista &#39;Gloria a los h&eacute;roes&#39; que aparec&iacute;a en el interior de las mismas encima de la silueta del pa&iacute;s en la que se inclu&iacute;a la pen&iacute;nsula de Crimea y las zonas separatistas del este.</p><p>Camer&uacute;n, la camiseta sin mangas<br />En el Mundial de 2002, Camer&uacute;n present&oacute; un dise&ntilde;o innovador de Puma, una camiseta sin mangas que hab&iacute;a utilizado anteriormente en la Copa Africana de Naciones.</p><p>La marca alemana vendi&oacute; la idea como una innovaci&oacute;n t&eacute;cnica, ya que la nueva camiseta ofrec&iacute;a mayor libertad de movimiento, pero la FIFA la prohibi&oacute; aduciendo que podr&iacute;a causar desventajas est&eacute;ticas y confundir en la aplicaci&oacute;n de otras reglas, como la correcta ubicaci&oacute;n de los dorsales.</p><p>En ese mismo Mundial, la FIFA prohibi&oacute; una camiseta de Inglaterra de color gris porque se pod&iacute;a confundir con el color de las camisolas de los &aacute;rbitros.</p><p>Dos a&ntilde;os despu&eacute;s, en 2004, de nuevo Camer&uacute;n volvi&oacute; a tener un problema similar, pero de nuevo la FIFA vet&oacute; el dise&ntilde;o de una equipaci&oacute;n de una sola pieza (camiseta y pantal&oacute;n junto). Esta vez la raz&oacute;n esgrimida es que la normativa determina que los uniformes deben constar de dos prendas distintas.</p><p>La zamarra fosforescente de M&eacute;xico en 2011<br />En 2011, la federaci&oacute;n mexicana present&oacute; una camiseta negra con detalles en verde fosforescente, que brillaban ante determinadas condiciones lum&iacute;nicas, pero FIFA la vet&oacute; para competiciones oficiales porque los acabados reflectantes podr&iacute;an afectar a la visi&oacute;n en partidos nocturnos o televisados.</p><p>Antes del Mundial de 2018, Polonia mostr&oacute; una camiseta con paneles termoactivos para optimizar la ventilaci&oacute;n de las zamarras y disminuir la humedad, pero la FIFA determin&oacute; que los paneles infring&iacute;an los patrones gr&aacute;ficos aprobados.</p><p>Noruega, en el Mundial femenino de 2023, vio como una camiseta en la que mostraba mensajes relacionados con la igualdad en el f&uacute;tbol femenino era vetada, a pesar de que los mismos eran imperceptibles. Aquella decisi&oacute;n de la FIFA despert&oacute; un debate sobre la necesidad de reivindicar cuestiones sociales en el f&uacute;tbol para darles visibilidad.</p><p>La esv&aacute;stica accidental del Fiorentina<br />En el f&uacute;tbol europeo, un par de casos llaman la atenci&oacute;n y por motivos diferentes. La UEFA censur&oacute; una camiseta dise&ntilde;ada por la marca Lotto para el Fiorentina en 1992, en la que se pod&iacute;an ver una serie de patrones geom&eacute;tricos que acababan convirti&eacute;ndose accidentalmente en figuras id&eacute;nticas a esv&aacute;sticas nazis.</p><p>Y tampoco pudo utilizarse en partidos oficiales una camiseta del Ajax de Amsterdam en 2021. Era de color negro, un homenaje a Bob Marley, autor de la canci&oacute;n &#39;Three little birds&#39;, himno no oficial de los &#39;ajaccied&#39;. &iquest;El motivo? En la camiseta aparec&iacute;a un logo con los tres p&aacute;jaros. Fue una camiseta ic&oacute;nica y muy codiciada por los coleccionistas.</p>"
-    },
-    {
-      "_id": "6a2d604d3b472c0014385141",
-      "fecha_c": 1781358747920,
-      "imagen_home": "https://cdn.diez.bo/diez/062026/1781358695056.jpg",
-      "imagen_interior": "https://cdn.diez.bo/diez/062026/1781358695056.jpg",
-      "introHTML": "<p>Pochettino valor&oacute; el juego de EE.UU., que tuvo verticalidad, as&iacute; como &quot;posesi&oacute;n desde la buena construcci&oacute;n&quot; de la jugadas.</p>",
-      "secciones": [
-        "mundial-2026"
-      ],
-      "titulo": "Pochettino: \"Jugamos muy bien, estamos muy contentos, pero esto es solo el comienzo\"",
-      "fecha_a": 1781358747920,
-      "link": "pochettino-jugamos-muy-bien-estamos-muy-contentos-pero-esto-es-solo-el-comienzo_1781358747",
-      "opinologo": {
-        "_id": "68bd2f75484b81000295bbb1",
-        "firma": "Agencia EFE"
-      },
-      "prevId": "1781358747",
-      "textoHTML": "<p>El argentino Mauricio Pochettino, entrenador de la selecci&oacute;n de Estados Unidos, celebr&oacute; la victoria ante Paraguay este viernes por 4-1 en el debut mundialista de Los &Aacute;ngeles, aunque matiz&oacute; que lo importante no es c&oacute;mo se comienza, &quot;sino c&oacute;mo se termina&quot;.<br /><br />&quot;El rendimiento fue realmente bueno. Creo que jugamos muy bien, estamos muy contentos, pero esto es solo el comienzo. Todav&iacute;a quedan dos partidos por jugar&quot;, indic&oacute; el m&iacute;ster en una rueda de prensa posterior al partido.<br /><br />&quot;Necesitamos disfrutar de este comienzo, pero sabiendo que necesitamos seguir adelante y tratar de mejorar y tratar de hacerlo mejor que este partido&quot;, a&ntilde;adi&oacute;.<br /><br />El argentino quiso no solo valorar al conjunto que dirige, que a su juicio realiz&oacute; &quot;un buen partido&quot; que les otorga tres puntos clave en la clasificaci&oacute;n, sino tambi&eacute;n a los hinchas, que &quot;estuvieron incre&iacute;bles&quot; con el apoyo a la selecci&oacute;n.<br /><br />Pochettino valor&oacute; el juego de EE.UU., que tuvo verticalidad, as&iacute; como &quot;posesi&oacute;n desde la buena construcci&oacute;n&quot; de la jugadas.<br /><br />&quot;Ha sido una noche que nos ha salido todo bastante bien&quot;, dijo, aunque r&aacute;pidamente abog&oacute; por no bajar la guardia ante un rival que consider&oacute; &quot;un grand&iacute;simo equipo&quot;.<br /><br />Tambi&eacute;n tuvo halagos para su tambi&eacute;n compatriota Gustavo Alfaro, seleccionador de Paraguay, a qui&eacute;n defini&oacute; como un &quot;entrenador magn&iacute;fico&quot; y cuyo esfuerzo en su carrera lo ha llevado adonde est&aacute;.<br /><br />Y aprovech&oacute; la ocasi&oacute;n para mandar un mensaje a los paraguayos: &quot;Nada est&aacute; hecho. Hay que seguir compitiendo&quot;.<br /><br />&quot;Argentina empez&oacute; perdiendo en el Mundial de Catar contra Arabia Saud&iacute; y acab&oacute; ganando el Mundial. Lo importante es c&oacute;mo se transita en el torneo y, lo m&aacute;s importante, c&oacute;mo termina&quot;, insisti&oacute; Pochettino.&nbsp;</p>"
     }
   ]
 }
