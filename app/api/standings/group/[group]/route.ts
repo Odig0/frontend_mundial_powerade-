@@ -6,7 +6,7 @@ export async function GET(req: Request, { params }: { params: { group: string } 
   const resolved = await params
   const group = resolved.group
   const base = DEFAULT_API.replace(/\/$/, '')
-  const endpoint = `/standings/group/${encodeURIComponent(group)}`
+  const endpoint = `/api/standings/group/${encodeURIComponent(group)}`
   const target = `${base}${endpoint}`
 
   try {

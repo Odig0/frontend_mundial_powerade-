@@ -1,4 +1,4 @@
-const DEFAULT_API_URL = 'http://localhost:3000/v1'
+const DEFAULT_API_URL = 'https://dev.eldeber.bo/v1'
 
 function getConfiguredApiUrl() {
   return DEFAULT_API_URL
@@ -84,6 +84,35 @@ export function getGroupEndpointName(groupLetter: string) {
   return `Group ${groupLetter.toUpperCase()}`
 }
 
+/** Normalize a raw team object from the API (supports both old camelCase and new PJ/PG/... format) */
+function normalizeTeam(t: any, groupLetter: string, groupName: string): StandingEntry {
+  return {
+    // identity
+    seasonId:       t.seasonId       ?? 0,
+    teamId:         t.teamId         ?? 0,
+    createdAt:      t.createdAt      ?? '',
+    updatedAt:      t.updatedAt      ?? '',
+    lastSyncedAt:   t.lastSyncedAt   ?? '',
+    groupId:        t.groupId        ?? 0,
+    groupLetter:    t.groupLetter    ?? groupLetter,
+    groupName:      t.groupName      ?? groupName,
+    position:       t.position       ?? 0,
+    teamCode:       t.teamCode       ?? '',
+    teamLogo:       t.teamLogo       ?? '',
+    // name: new API uses "equipo", old used "teamName"
+    teamName:       t.equipo         ?? t.teamName ?? '',
+    // stats: new API uses short codes, old used camelCase
+    played:         t.PJ             ?? t.played         ?? 0,
+    won:            t.PG             ?? t.won            ?? 0,
+    draw:           t.PE             ?? t.draw           ?? 0,
+    lost:           t.PP             ?? t.lost           ?? 0,
+    goalsFor:       t.GF             ?? t.goalsFor       ?? 0,
+    goalsAgainst:   t.GC             ?? t.goalsAgainst   ?? 0,
+    goalDifference: t.DG             ?? t.goalDifference ?? 0,
+    points:         t.PTS            ?? t.points         ?? 0,
+  }
+}
+
 export async function getWorldCupStandings(): Promise<StandingEntry[]> {
   const raw = await requestJson<unknown>('/api/standings')
 
@@ -92,7 +121,11 @@ export async function getWorldCupStandings(): Promise<StandingEntry[]> {
   try {
     if (Array.isArray(raw) && raw.length > 0 && (raw[0] as any).teams) {
       const groups = raw as Array<any>
-      const teams = groups.flatMap((g) => (Array.isArray(g.teams) ? g.teams.map((t: any) => ({ ...t, groupLetter: g.groupLetter, groupName: g.groupName })) : []))
+      const teams = groups.flatMap((g) =>
+        Array.isArray(g.teams)
+          ? g.teams.map((t: any) => normalizeTeam(t, g.groupLetter, g.groupName))
+          : []
+      )
       return sortStandings(teams)
     }
 
@@ -111,7 +144,9 @@ export async function getWorldCupStandingsByGroup(groupLetter: string): Promise<
     // Some backends return { groupName, groupLetter, teams: [...] }
     if (raw && typeof raw === 'object' && 'teams' in (raw as any)) {
       const group = raw as any
-      const teams = Array.isArray(group.teams) ? group.teams.map((t: any) => ({ ...t, groupLetter: group.groupLetter, groupName: group.groupName })) : []
+      const teams = Array.isArray(group.teams)
+        ? group.teams.map((t: any) => normalizeTeam(t, group.groupLetter, group.groupName))
+        : []
       return sortStandings(teams)
     }
 

@@ -4,7 +4,7 @@ const DEFAULT_API = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000/v1
 
 export async function GET(req: Request) {
   const base = DEFAULT_API.replace(/\/$/, '')
-  const target = `${base}/standings`
+  const target = `${base}/api/standings`
 
   try {
     const res = await fetch(target, {
