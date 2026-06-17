@@ -104,14 +104,32 @@ function minuteLabel(match: FixtureApiMatch): string | null {
 }
 
 /** Format full name (e.g. "Kylian Mbappé") to initial format (e.g. "K. Mbappé") */
-function formatPlayerName(name?: string | null) {
+function formatPlayerName(name?: string | null): string {
   if (!name) return 'Jugador desconocido'
-
   const cleanName = name.trim()
-
   if (!cleanName) return ''
-
   return cleanName
+}
+
+/** Group goals by player, merging minutes for repeat scorers */
+interface GroupedGoal {
+  event_id: number
+  player_name: string
+  type: string
+  minutes: string[]
+}
+function groupGoalsByPlayer(goals: import('@/services/fixtureService').ApiGoal[]): GroupedGoal[] {
+  const map = new Map<string, GroupedGoal>()
+  for (const g of goals) {
+    const key = g.player_name
+    const min = `${g.minute}${g.extra_time ? `+${g.extra_time}` : ''}`
+    if (map.has(key)) {
+      map.get(key)!.minutes.push(min)
+    } else {
+      map.set(key, { event_id: g.event_id, player_name: g.player_name, type: g.type, minutes: [min] })
+    }
+  }
+  return Array.from(map.values())
 }
 
 function ScoreOrVS({ match }: { match: FixtureApiMatch }) {
@@ -227,22 +245,27 @@ export default function FixtureBlock() {
   // When a filter is active: show ALL matches of that type across all days
   // When no filter: show matches for the active day only
   const displayMatches = useMemo(() => {
+    let result: typeof matches
     if (filterActive) {
       if (selectedGroup!.length === 1) {
-        // group letter filter
-        return matches.filter(
+        result = matches.filter(
           (m) => isGroupStage(m) && extractGroupLetter(m.group) === selectedGroup
         )
       } else {
-        // knockout stage filter
-        return matches.filter((m) => m.stage === selectedGroup)
+        result = matches.filter((m) => m.stage === selectedGroup)
       }
+    } else {
+      if (!activeDay) return []
+      result = matches
+        .filter((m) => getMatchDate(m) === activeDay)
+        .sort((a, b) => a.starting_at.localeCompare(b.starting_at))
     }
-    // day mode
-    if (!activeDay) return []
-    return matches
-      .filter((m) => getMatchDate(m) === activeDay)
-      .sort((a, b) => a.starting_at.localeCompare(b.starting_at))
+    // Sort: live first, then by start time
+    return result.sort((a, b) => {
+      if (a.is_live && !b.is_live) return -1
+      if (!a.is_live && b.is_live) return 1
+      return a.starting_at.localeCompare(b.starting_at)
+    })
   }, [matches, activeDay, selectedGroup, filterActive])
 
   const canPrev = !filterActive && activeDayIdx > 0
@@ -320,21 +343,27 @@ export default function FixtureBlock() {
             <p className="text-red-400 text-xs text-center">{error}</p>
           </div>
         ) : displayMatches.length > 0 ? (
-          displayMatches.map((match) => {
+          <>
+          {displayMatches.map((match) => {
             const date = getMatchDate(match)
             const time = getMatchTime(match)
-            const badge = getStageBadge(match)
             const homeName = isTbd(match.home.name) ? 'Por definir' : match.home.name
             const awayName = isTbd(match.away.name) ? 'Por definir' : match.away.name
             const homeFlag = getFlag(match.home)
             const awayFlag = getFlag(match.away)
-            const homeGoals = (match.goals ?? []).filter(
-              (g) => g.team_name.trim().toLowerCase() === match.home.name.trim().toLowerCase()
+            const homeGoals = groupGoalsByPlayer(
+              (match.goals ?? []).filter(
+                (g) => g.team_name.trim().toLowerCase() === match.home.name.trim().toLowerCase()
+              )
             )
-            const awayGoals = (match.goals ?? []).filter(
-              (g) => g.team_name.trim().toLowerCase() === match.away.name.trim().toLowerCase()
+            const awayGoals = groupGoalsByPlayer(
+              (match.goals ?? []).filter(
+                (g) => g.team_name.trim().toLowerCase() === match.away.name.trim().toLowerCase()
+              )
             )
-            const hasGoals = (match.goals ?? []).length > 0
+            const hasGoals = homeGoals.length > 0 || awayGoals.length > 0
+            const goalIcon = (type: string) =>
+              type === 'own-goal' ? '⚽🔴' : type === 'penalty' ? '⚽🎯' : '⚽'
 
             return (
               <article
@@ -375,75 +404,54 @@ export default function FixtureBlock() {
                   )}
                 </div>
 
-               {/* Fila principal */}
-<div className="flex items-center justify-between gap-2">
-  <div className="min-w-0 flex-1 flex items-center gap-2">
-    <img
-      src={homeFlag}
-      alt={homeName}
-      className="h-6 w-8 rounded object-cover"
-    />
-    <p className="truncate text-sm font-black text-foreground">
-      {homeName}
-    </p>
-  </div>
+                {/* Teams + score row */}
+                <div className="flex items-center justify-between gap-2">
+                  <div className="min-w-0 flex-1 flex items-center gap-2">
+                    <img src={homeFlag} alt={homeName} className="h-6 w-8 rounded object-cover shrink-0" />
+                    <p className="truncate text-sm font-black text-foreground">{homeName}</p>
+                  </div>
+                  <ScoreOrVS match={match} />
+                  <div className="min-w-0 flex-1 text-right flex items-center justify-end gap-2">
+                    <p className="truncate text-sm font-black text-foreground">{awayName}</p>
+                    <img src={awayFlag} alt={awayName} className="h-6 w-8 rounded object-cover shrink-0" />
+                  </div>
+                </div>
 
-  <ScoreOrVS match={match} />
-
-  <div className="min-w-0 flex-1 text-right flex items-center justify-end gap-2">
-    <p className="truncate text-sm font-black text-foreground">
-      {awayName}
-    </p>
-    <img
-      src={awayFlag}
-      alt={awayName}
-      className="h-6 w-8 rounded object-cover"
-    />
-  </div>
-</div>
-
-{/* Goles debajo */}
-{hasGoals && (
-  <div className="mt-3 border-t border-white/10 pt-2">
-    <div className="grid grid-cols-2 gap-4">
-      <div>
-       {homeGoals.map((g, index) => (
-  <div
-    key={`${g.event_id}-${index}`}
-    className="text-[10px] text-white/80"
-  >
-            ⚽ {formatPlayerName(g.player_name)}
-            <span className="text-white/40">
-              {' '}
-              ({g.minute}
-              {g.extra_time ? `+${g.extra_time}` : ''}')
-            </span>
-          </div>
-        ))}
-      </div>
-
-      <div className="text-right">
-        {awayGoals.map((g, index) => (
-          <div
-            key={`${g.event_id}-${index}`}
-            className="text-[10px] text-white/80"
-          >
-            {formatPlayerName(g.player_name)}
-            <span className="text-white/40">
-              {' '}
-              ({g.minute}
-              {g.extra_time ? `+${g.extra_time}` : ''}')
-            </span>{' '}
-            ⚽
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-)}
+                {/* Goals — grouped by player, merged minutes */}
+                {hasGoals && (
+                  <div className="mt-2 pt-2 border-t border-white/8">
+                    <div className="grid grid-cols-2 gap-x-3">
+                      {/* Home scorers */}
+                      <div className="flex flex-col gap-0.5">
+                        {homeGoals.map((g) => (
+                          <div key={g.event_id} className="flex items-baseline gap-1 text-[10px] leading-snug">
+                            <span className="shrink-0">{goalIcon(g.type)}</span>
+                            <span className="truncate text-white/80 font-medium">{formatPlayerName(g.player_name)}</span>
+                            <span className="shrink-0 text-white/40 font-semibold whitespace-nowrap">
+                              ({g.minutes.join(`', `)}{')'}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                      {/* Away scorers */}
+                      <div className="flex flex-col gap-0.5 items-end">
+                        {awayGoals.map((g) => (
+                          <div key={g.event_id} className="flex items-baseline gap-1 text-[10px] leading-snug justify-end">
+                            <span className="shrink-0 text-white/40 font-semibold whitespace-nowrap">
+                              ({g.minutes.join(`', `)}{')'}
+                            </span>
+                            <span className="truncate text-white/80 font-medium">{formatPlayerName(g.player_name)}</span>
+                            <span className="shrink-0">{goalIcon(g.type)}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </article>
             )
-          })
+          })}
+          </>
         ) : (
           <div className="flex items-center justify-center h-24 text-muted-foreground text-sm">
             No hay partidos este día
